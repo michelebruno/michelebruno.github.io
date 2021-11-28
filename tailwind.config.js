@@ -7,7 +7,12 @@ module.exports = {
     ],
     darkMode: false, // or 'media' or 'class'
     theme: {
-        extend: {},
+        extend: {
+
+            gridTemplateColumns: {
+                 'project': '0.6fr 1.2fr 1.2fr',
+            }
+        },
     },
     variants: {
         extend: {},

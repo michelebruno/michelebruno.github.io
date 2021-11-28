@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
     siteMetadata: {
         siteUrl: "https://www.mbruno.it",
@@ -34,10 +36,26 @@ module.exports = {
         {
             resolve: "gatsby-source-filesystem",
             options: {
+                name: "data",
+                path: "./src/data/",
+            },
+            __key: "data",
+        },
+        {
+            resolve: "gatsby-source-filesystem",
+            options: {
                 name: "pages",
                 path: "./src/pages/",
             },
             __key: "pages",
+        },
+        {
+            resolve: `gatsby-source-contentful`,
+            options: {
+                spaceId: `wlyz45dxguno`,
+                // Learn about environment variables: https://gatsby.dev/env-vars
+                accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+            },
         },
     ],
 };

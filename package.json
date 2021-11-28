@@ -27,6 +27,7 @@
     "gatsby-plugin-react-helmet": "^5.2.0",
     "gatsby-plugin-sharp": "^4.2.0",
     "gatsby-plugin-sitemap": "^5.2.0",
+    "gatsby-source-contentful": "^7.0.0",
     "gatsby-source-filesystem": "^4.2.0",
     "gatsby-transformer-sharp": "^4.2.0",
     "react": "^17.0.1",
@@ -35,7 +36,9 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",
+    "dotenv": "^10.0.0",
     "gatsby-plugin-postcss": "^5.2.0",
+    "gatsby-transformer-csv": "^4.2.0",
     "postcss": "^8.4.3",
     "prop-types": "^15.7.2",
     "sharp": "^0.29.3",
