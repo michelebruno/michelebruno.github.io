@@ -4,8 +4,9 @@ import { getImage, getSrc, getSrcSet } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Helmet } from 'react-helmet';
+import {forwardRef} from "react";
 
-export default function Image(props) {
+const Image = forwardRef(function(props, ref) {
     const image = getImage(props.image);
 
     if (!image) return null;
@@ -43,6 +44,8 @@ export default function Image(props) {
                 ),
             )}
             <img
+
+                ref={ref}
                 alt={alt}
                 className={className}
                 src={getSrc(image)}
@@ -53,7 +56,7 @@ export default function Image(props) {
             />
         </picture>
     );
-}
+})
 Image.propTypes = {
     image: PropTypes.shape({ childImageSharp: PropTypes.object.isRequired }).isRequired,
     loading: PropTypes.oneOf(['lazy', 'eager']),
@@ -65,3 +68,5 @@ Image.propTypes = {
 Image.defaultPros = {
     preload: false,
 };
+
+export default Image

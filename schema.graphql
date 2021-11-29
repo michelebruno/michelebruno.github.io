@@ -348,6 +348,7 @@ type ContentfulProjects implements ContentfulEntry & ContentfulReference & Node 
     "Returns all children nodes filtered by type File"
     childrenFile: [File]
     contentful_id: String!
+    cover: String
     createdAt(
         "Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\"."
         difference: String,
@@ -358,6 +359,7 @@ type ContentfulProjects implements ContentfulEntry & ContentfulReference & Node 
         "Configures the locale Moment.js will use to format the date."
         locale: String
     ): Date
+    gatsbyPath(filePath: String): String
     id: ID!
     internal: Internal!
     name: String
@@ -367,6 +369,7 @@ type ContentfulProjects implements ContentfulEntry & ContentfulReference & Node 
     slug: String
     spaceId: String
     sys: ContentfulProjectsSys
+    team: [String]
     thumbnail: String
     updatedAt(
         "Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\"."
@@ -378,6 +381,7 @@ type ContentfulProjects implements ContentfulEntry & ContentfulReference & Node 
         "Configures the locale Moment.js will use to format the date."
         locale: String
     ): Date
+    websiteUrl: String
     year: Int
 }
 
@@ -1006,7 +1010,7 @@ type Query {
     contentfulEntry(children: NodeFilterListInput, contentful_id: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, node_locale: StringQueryOperatorInput, parent: NodeFilterInput): ContentfulEntry
     contentfulLongRead(children: NodeFilterListInput, contentful_id: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, node_locale: StringQueryOperatorInput, parent: NodeFilterInput): ContentfulLongRead
     contentfulMenu(children: NodeFilterListInput, contentful_id: StringQueryOperatorInput, createdAt: DateQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, name: StringQueryOperatorInput, node_locale: StringQueryOperatorInput, parent: NodeFilterInput, slug: StringQueryOperatorInput, spaceId: StringQueryOperatorInput, sys: ContentfulMenuSysFilterInput, updatedAt: DateQueryOperatorInput): ContentfulMenu
-    contentfulProjects(childFile: FileFilterInput, children: NodeFilterListInput, childrenFile: FileFilterListInput, contentful_id: StringQueryOperatorInput, createdAt: DateQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, name: StringQueryOperatorInput, node_locale: StringQueryOperatorInput, parent: NodeFilterInput, roles: StringQueryOperatorInput, slug: StringQueryOperatorInput, spaceId: StringQueryOperatorInput, sys: ContentfulProjectsSysFilterInput, thumbnail: StringQueryOperatorInput, updatedAt: DateQueryOperatorInput, year: IntQueryOperatorInput): ContentfulProjects
+    contentfulProjects(childFile: FileFilterInput, children: NodeFilterListInput, childrenFile: FileFilterListInput, contentful_id: StringQueryOperatorInput, cover: StringQueryOperatorInput, createdAt: DateQueryOperatorInput, gatsbyPath: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, name: StringQueryOperatorInput, node_locale: StringQueryOperatorInput, parent: NodeFilterInput, roles: StringQueryOperatorInput, slug: StringQueryOperatorInput, spaceId: StringQueryOperatorInput, sys: ContentfulProjectsSysFilterInput, team: StringQueryOperatorInput, thumbnail: StringQueryOperatorInput, updatedAt: DateQueryOperatorInput, websiteUrl: StringQueryOperatorInput, year: IntQueryOperatorInput): ContentfulProjects
     directory(absolutePath: StringQueryOperatorInput, accessTime: DateQueryOperatorInput, atime: DateQueryOperatorInput, atimeMs: FloatQueryOperatorInput, base: StringQueryOperatorInput, birthTime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, changeTime: DateQueryOperatorInput, children: NodeFilterListInput, ctime: DateQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, dev: IntQueryOperatorInput, dir: StringQueryOperatorInput, ext: StringQueryOperatorInput, extension: StringQueryOperatorInput, gid: IntQueryOperatorInput, id: StringQueryOperatorInput, ino: FloatQueryOperatorInput, internal: InternalFilterInput, mode: IntQueryOperatorInput, modifiedTime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, name: StringQueryOperatorInput, nlink: IntQueryOperatorInput, parent: NodeFilterInput, prettySize: StringQueryOperatorInput, rdev: IntQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, root: StringQueryOperatorInput, size: IntQueryOperatorInput, sourceInstanceName: StringQueryOperatorInput, uid: IntQueryOperatorInput): Directory
     file(absolutePath: StringQueryOperatorInput, accessTime: DateQueryOperatorInput, atime: DateQueryOperatorInput, atimeMs: FloatQueryOperatorInput, base: StringQueryOperatorInput, birthTime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, blksize: IntQueryOperatorInput, blocks: IntQueryOperatorInput, changeTime: DateQueryOperatorInput, childImageSharp: ImageSharpFilterInput, children: NodeFilterListInput, childrenImageSharp: ImageSharpFilterListInput, ctime: DateQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, dev: IntQueryOperatorInput, dir: StringQueryOperatorInput, ext: StringQueryOperatorInput, extension: StringQueryOperatorInput, gid: IntQueryOperatorInput, id: StringQueryOperatorInput, ino: FloatQueryOperatorInput, internal: InternalFilterInput, mode: IntQueryOperatorInput, modifiedTime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, name: StringQueryOperatorInput, nlink: IntQueryOperatorInput, parent: NodeFilterInput, prettySize: StringQueryOperatorInput, publicURL: StringQueryOperatorInput, rdev: IntQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, root: StringQueryOperatorInput, size: IntQueryOperatorInput, sourceInstanceName: StringQueryOperatorInput, uid: IntQueryOperatorInput): File
     imageSharp(children: NodeFilterListInput, fixed: ImageSharpFixedFilterInput, fluid: ImageSharpFluidFilterInput, gatsbyImageData: JSONQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, original: ImageSharpOriginalFilterInput, parent: NodeFilterInput, resize: ImageSharpResizeFilterInput): ImageSharp
@@ -1750,17 +1754,17 @@ enum ContentfulMenuFieldsEnum {
 }
 
 enum ContentfulProjectsFieldsEnum {
-    childFile___absolutePath
-    childFile___accessTime
-    childFile___atime
-    childFile___atimeMs
-    childFile___base
-    childFile___birthTime
-    childFile___birthtime
-    childFile___birthtimeMs
-    childFile___blksize
-    childFile___blocks
-    childFile___changeTime
+    childFile___absolutePath @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___accessTime @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___atime @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___atimeMs @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___base @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___birthTime @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___birthtime @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___birthtimeMs @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___blksize @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___blocks @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___changeTime @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childFile___childImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childFile___childImageSharp___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childFile___childImageSharp___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -1807,8 +1811,8 @@ enum ContentfulProjectsFieldsEnum {
     childFile___childImageSharp___resize___src @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childFile___childImageSharp___resize___tracedSVG @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childFile___childImageSharp___resize___width @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childFile___children
-    childFile___childrenImageSharp
+    childFile___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___childrenImageSharp @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childFile___childrenImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childFile___childrenImageSharp___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childFile___childrenImageSharp___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -1855,79 +1859,79 @@ enum ContentfulProjectsFieldsEnum {
     childFile___childrenImageSharp___resize___src @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childFile___childrenImageSharp___resize___tracedSVG @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childFile___childrenImageSharp___resize___width @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childFile___children___children
-    childFile___children___children___children
-    childFile___children___children___id
-    childFile___children___id
-    childFile___children___internal___content
-    childFile___children___internal___contentDigest
-    childFile___children___internal___description
-    childFile___children___internal___fieldOwners
-    childFile___children___internal___ignoreType
-    childFile___children___internal___mediaType
-    childFile___children___internal___owner
-    childFile___children___internal___type
-    childFile___children___parent___children
-    childFile___children___parent___id
-    childFile___ctime
-    childFile___ctimeMs
-    childFile___dev
-    childFile___dir
-    childFile___ext
-    childFile___extension
-    childFile___gid
-    childFile___id
-    childFile___ino
-    childFile___internal___content
-    childFile___internal___contentDigest
-    childFile___internal___description
-    childFile___internal___fieldOwners
-    childFile___internal___ignoreType
-    childFile___internal___mediaType
-    childFile___internal___owner
-    childFile___internal___type
-    childFile___mode
-    childFile___modifiedTime
-    childFile___mtime
-    childFile___mtimeMs
-    childFile___name
-    childFile___nlink
-    childFile___parent___children
-    childFile___parent___children___children
-    childFile___parent___children___id
-    childFile___parent___id
-    childFile___parent___internal___content
-    childFile___parent___internal___contentDigest
-    childFile___parent___internal___description
-    childFile___parent___internal___fieldOwners
-    childFile___parent___internal___ignoreType
-    childFile___parent___internal___mediaType
-    childFile___parent___internal___owner
-    childFile___parent___internal___type
-    childFile___parent___parent___children
-    childFile___parent___parent___id
-    childFile___prettySize
-    childFile___publicURL
-    childFile___rdev
-    childFile___relativeDirectory
-    childFile___relativePath
-    childFile___root
-    childFile___size
-    childFile___sourceInstanceName
-    childFile___uid
-    children
-    childrenFile
-    childrenFile___absolutePath
-    childrenFile___accessTime
-    childrenFile___atime
-    childrenFile___atimeMs
-    childrenFile___base
-    childrenFile___birthTime
-    childrenFile___birthtime
-    childrenFile___birthtimeMs
-    childrenFile___blksize
-    childrenFile___blocks
-    childrenFile___changeTime
+    childFile___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___children___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___children___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___children___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___children___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___children___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___children___internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___children___internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___children___internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___children___internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___children___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___children___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___children___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___ctime @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___ctimeMs @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___dev @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___dir @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___ext @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___extension @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___gid @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___ino @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___mode @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___modifiedTime @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___mtime @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___mtimeMs @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___name @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___nlink @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___parent___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___parent___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___parent___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___parent___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___parent___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___parent___internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___parent___internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___parent___internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___parent___internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___parent___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___parent___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___parent___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___prettySize @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___publicURL @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___rdev @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___relativeDirectory @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___relativePath @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___root @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___size @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___sourceInstanceName @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childFile___uid @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___absolutePath @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___accessTime @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___atime @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___atimeMs @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___base @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___birthTime @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___birthtime @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___birthtimeMs @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___blksize @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___blocks @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___changeTime @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childrenFile___childImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childrenFile___childImageSharp___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childrenFile___childImageSharp___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -1974,8 +1978,8 @@ enum ContentfulProjectsFieldsEnum {
     childrenFile___childImageSharp___resize___src @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childrenFile___childImageSharp___resize___tracedSVG @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childrenFile___childImageSharp___resize___width @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childrenFile___children
-    childrenFile___childrenImageSharp
+    childrenFile___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___childrenImageSharp @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childrenFile___childrenImageSharp___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childrenFile___childrenImageSharp___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childrenFile___childrenImageSharp___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -2022,155 +2026,157 @@ enum ContentfulProjectsFieldsEnum {
     childrenFile___childrenImageSharp___resize___src @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childrenFile___childrenImageSharp___resize___tracedSVG @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     childrenFile___childrenImageSharp___resize___width @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    childrenFile___children___children
-    childrenFile___children___children___children
-    childrenFile___children___children___id
-    childrenFile___children___id
-    childrenFile___children___internal___content
-    childrenFile___children___internal___contentDigest
-    childrenFile___children___internal___description
-    childrenFile___children___internal___fieldOwners
-    childrenFile___children___internal___ignoreType
-    childrenFile___children___internal___mediaType
-    childrenFile___children___internal___owner
-    childrenFile___children___internal___type
-    childrenFile___children___parent___children
-    childrenFile___children___parent___id
-    childrenFile___ctime
-    childrenFile___ctimeMs
-    childrenFile___dev
-    childrenFile___dir
-    childrenFile___ext
-    childrenFile___extension
-    childrenFile___gid
-    childrenFile___id
-    childrenFile___ino
-    childrenFile___internal___content
-    childrenFile___internal___contentDigest
-    childrenFile___internal___description
-    childrenFile___internal___fieldOwners
-    childrenFile___internal___ignoreType
-    childrenFile___internal___mediaType
-    childrenFile___internal___owner
-    childrenFile___internal___type
-    childrenFile___mode
-    childrenFile___modifiedTime
-    childrenFile___mtime
-    childrenFile___mtimeMs
-    childrenFile___name
-    childrenFile___nlink
-    childrenFile___parent___children
-    childrenFile___parent___children___children
-    childrenFile___parent___children___id
-    childrenFile___parent___id
-    childrenFile___parent___internal___content
-    childrenFile___parent___internal___contentDigest
-    childrenFile___parent___internal___description
-    childrenFile___parent___internal___fieldOwners
-    childrenFile___parent___internal___ignoreType
-    childrenFile___parent___internal___mediaType
-    childrenFile___parent___internal___owner
-    childrenFile___parent___internal___type
-    childrenFile___parent___parent___children
-    childrenFile___parent___parent___id
-    childrenFile___prettySize
-    childrenFile___publicURL
-    childrenFile___rdev
-    childrenFile___relativeDirectory
-    childrenFile___relativePath
-    childrenFile___root
-    childrenFile___size
-    childrenFile___sourceInstanceName
-    childrenFile___uid
-    children___children
-    children___children___children
-    children___children___children___children
-    children___children___children___id
-    children___children___id
-    children___children___internal___content
-    children___children___internal___contentDigest
-    children___children___internal___description
-    children___children___internal___fieldOwners
-    children___children___internal___ignoreType
-    children___children___internal___mediaType
-    children___children___internal___owner
-    children___children___internal___type
-    children___children___parent___children
-    children___children___parent___id
-    children___id
-    children___internal___content
-    children___internal___contentDigest
-    children___internal___description
-    children___internal___fieldOwners
-    children___internal___ignoreType
-    children___internal___mediaType
-    children___internal___owner
-    children___internal___type
-    children___parent___children
-    children___parent___children___children
-    children___parent___children___id
-    children___parent___id
-    children___parent___internal___content
-    children___parent___internal___contentDigest
-    children___parent___internal___description
-    children___parent___internal___fieldOwners
-    children___parent___internal___ignoreType
-    children___parent___internal___mediaType
-    children___parent___internal___owner
-    children___parent___internal___type
-    children___parent___parent___children
-    children___parent___parent___id
+    childrenFile___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___children___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___children___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___children___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___children___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___children___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___children___internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___children___internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___children___internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___children___internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___children___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___children___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___children___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___ctime @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___ctimeMs @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___dev @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___dir @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___ext @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___extension @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___gid @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___ino @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___mode @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___modifiedTime @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___mtime @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___mtimeMs @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___name @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___nlink @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___parent___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___parent___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___parent___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___parent___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___parent___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___parent___internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___parent___internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___parent___internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___parent___internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___parent___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___parent___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___parent___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___prettySize @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___publicURL @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___rdev @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___relativeDirectory @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___relativePath @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___root @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___size @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___sourceInstanceName @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    childrenFile___uid @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___children___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    children___parent___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     contentful_id
+    cover
     createdAt
+    gatsbyPath @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     id
-    internal___content
-    internal___contentDigest
-    internal___description
-    internal___fieldOwners
-    internal___ignoreType
-    internal___mediaType
-    internal___owner
-    internal___type
+    internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     name
     node_locale
-    parent___children
-    parent___children___children
-    parent___children___children___children
-    parent___children___children___id
-    parent___children___id
-    parent___children___internal___content
-    parent___children___internal___contentDigest
-    parent___children___internal___description
-    parent___children___internal___fieldOwners
-    parent___children___internal___ignoreType
-    parent___children___internal___mediaType
-    parent___children___internal___owner
-    parent___children___internal___type
-    parent___children___parent___children
-    parent___children___parent___id
-    parent___id
-    parent___internal___content
-    parent___internal___contentDigest
-    parent___internal___description
-    parent___internal___fieldOwners
-    parent___internal___ignoreType
-    parent___internal___mediaType
-    parent___internal___owner
-    parent___internal___type
-    parent___parent___children
-    parent___parent___children___children
-    parent___parent___children___id
-    parent___parent___id
-    parent___parent___internal___content
-    parent___parent___internal___contentDigest
-    parent___parent___internal___description
-    parent___parent___internal___fieldOwners
-    parent___parent___internal___ignoreType
-    parent___parent___internal___mediaType
-    parent___parent___internal___owner
-    parent___parent___internal___type
-    parent___parent___parent___children
-    parent___parent___parent___id
+    parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___children___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___children___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___children___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___internal___content @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___internal___contentDigest @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___internal___description @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___internal___fieldOwners @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___internal___ignoreType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    parent___parent___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     roles
     slug
     spaceId
@@ -2179,8 +2185,10 @@ enum ContentfulProjectsFieldsEnum {
     sys___contentType___sys___type
     sys___revision
     sys___type
+    team
     thumbnail
     updatedAt
+    websiteUrl
     year
 }
 
@@ -3544,7 +3552,9 @@ input ContentfulProjectsFilterInput {
     children: NodeFilterListInput
     childrenFile: FileFilterListInput
     contentful_id: StringQueryOperatorInput
+    cover: StringQueryOperatorInput
     createdAt: DateQueryOperatorInput
+    gatsbyPath: StringQueryOperatorInput
     id: StringQueryOperatorInput
     internal: InternalFilterInput
     name: StringQueryOperatorInput
@@ -3554,8 +3564,10 @@ input ContentfulProjectsFilterInput {
     slug: StringQueryOperatorInput
     spaceId: StringQueryOperatorInput
     sys: ContentfulProjectsSysFilterInput
+    team: StringQueryOperatorInput
     thumbnail: StringQueryOperatorInput
     updatedAt: DateQueryOperatorInput
+    websiteUrl: StringQueryOperatorInput
     year: IntQueryOperatorInput
 }
 

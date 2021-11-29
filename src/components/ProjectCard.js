@@ -4,18 +4,10 @@ import Image from "./Image";
 import PropTypes from "prop-types";
 
 export function ProjectCard({project}) {
-    const {  projects} = useStaticQuery(graphql`{ 
+    const {projects} = useStaticQuery(graphql`{
         projects: allContentfulProjects {
             nodes {
-                slug
-                roles
-                name
-                year
-                thumbnail: childFile {
-                    childImageSharp {
-                        gatsbyImageData
-                    }
-                }
+                ...ProjectFragment
             }
         }
     }`)
@@ -25,11 +17,11 @@ export function ProjectCard({project}) {
         year,
         roles,
         slug,
-        thumbnail
+        images: [thumbnail]
     } = projects.nodes.find(({slug}) => slug === project) || console.error('Project not found')
 
     return <div>
-        <Link to={slug} className={'block group border-b-2 border-black pb-6 my-8'}>
+        <Link to={slug} className={'block group border-b-2 border-black pb-6'} data-project={project}>
             <div className="relative text-4xl ">
                 <h2 className={"transition-transform pb-0"}>{name}</h2>
             </div>

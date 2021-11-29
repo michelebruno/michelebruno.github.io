@@ -4,14 +4,25 @@ exports.onCreateNode = function onCreateNode({
                                                  actions: {createParentChildLink},
                                              }) {
     if (node.internal.type === 'ContentfulProjects') {
-        const {thumbnail} = node;
+        const {thumbnail, cover} = node;
 
         const files = getNodesByType('File');
 
         const file = files.find(({relativePath}) => relativePath === thumbnail);
 
-        if (!file) return;
+        if (file) {
+            createParentChildLink({parent: node, child: file});
+        }
+        if (cover) {
 
-        createParentChildLink({parent: node, child: file});
+            const coverfile = files.find(({relativePath}) => relativePath === cover);
+
+            if (!coverfile) return;
+
+            createParentChildLink({parent: node, child: coverfile});
+        }
+
+
+
     }
 };

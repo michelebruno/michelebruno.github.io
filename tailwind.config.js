@@ -5,14 +5,16 @@ module.exports = {
         './public/**/*.html',
         './src/**/*.{js,jsx,ts,tsx,vue,css}',
     ],
-    darkMode: false, // or 'media' or 'class'
+    darkMode: 'class', // or 'media' or 'class'
     theme: {
         extend: {
-
             gridTemplateColumns: {
-                 'project': '0.6fr 1.2fr 1.2fr',
+                'project': '0.6fr 1.2fr 1.2fr',
             }
         },
+        fontFamily: {
+            'sans': ['Manrope', 'ui-sans-serif', 'system-ui',],
+        }
     },
     variants: {
         extend: {},
