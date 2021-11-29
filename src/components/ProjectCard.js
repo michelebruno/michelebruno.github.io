@@ -16,12 +16,12 @@ export function ProjectCard({project}) {
         name,
         year,
         roles,
-        slug,
+        link,
         images: [thumbnail]
     } = projects.nodes.find(({slug}) => slug === project) || console.error('Project not found')
 
     return <div>
-        <Link to={slug} className={'block group border-b-2 border-black pb-6'} data-project={project}>
+        <Link to={link} className={'block group border-b-2 border-black pb-6'} data-project={project}>
             <div className="relative text-4xl ">
                 <h2 className={"transition-transform pb-0"}>{name}</h2>
             </div>

@@ -40,6 +40,7 @@
     "dotenv": "^10.0.0",
     "gatsby-plugin-postcss": "^5.2.0",
     "gatsby-transformer-csv": "^4.2.0",
+    "gh-pages": "^3.2.3",
     "postcss": "^8.4.3",
     "prop-types": "^15.7.2",
     "sharp": "^0.29.3",

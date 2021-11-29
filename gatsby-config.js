@@ -36,10 +36,10 @@ module.exports = {
         {
             resolve: "gatsby-source-filesystem",
             options: {
-                name: "data",
-                path: "./src/data/",
+                name: "mdx",
+                path: "./src/mdx/",
             },
-            __key: "data",
+            __key: "mdx",
         },
         {
             resolve: "gatsby-source-filesystem",

@@ -7,6 +7,8 @@ export const projectFragment = graphql`fragment ProjectFragment on ContentfulPro
     year
     team
     websiteUrl
+    description
+    link: gatsbyPath(filePath: "/projects/{ContentfulProjects.slug}")
     images: childrenFile {
         childImageSharp {
             gatsbyImageData(
