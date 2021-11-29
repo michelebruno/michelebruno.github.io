@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-projects-contentful-projects-slug-js",
+    "path": "/projects/hierarchical-clustering/",
+    "result": {"data":{"project":{"slug":"hierarchical-clustering","roles":null,"name":"Hierarchical clustering","year":2021,"team":null,"websiteUrl":null,"description":null,"link":"/projects/hierarchical-clustering/","images":[]},"mdx":null},"pageContext":{"id":"dfe2716f-4031-5085-9a92-4ac2bfb21843","slug":"hierarchical-clustering","__params":{"slug":"hierarchical-clustering"}}},
+    "staticQueryHashes": ["2146392051"]}

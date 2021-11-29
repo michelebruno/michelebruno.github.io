@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-projects-contentful-projects-slug-js",
+    "path": "/projects/food-factory/",
+    "result": {"data":{"project":{"slug":"food-factory","roles":["Branding","Web design","Development"],"name":"Food Factory","year":2019,"team":null,"websiteUrl":null,"description":null,"link":"/projects/food-factory/","images":[]},"mdx":null},"pageContext":{"id":"820f6b67-eb22-59c9-ac53-3651cfd556b4","slug":"food-factory","__params":{"slug":"food-factory"}}},
+    "staticQueryHashes": ["2146392051"]}

@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-projects-contentful-projects-slug-js",
+    "path": "/projects/turismo-bologna-it/",
+    "result": {"data":{"project":{"slug":"turismo-bologna-it","roles":null,"name":"turismo.bologna.it","year":2019,"team":null,"websiteUrl":null,"description":null,"link":"/projects/turismo-bologna-it/","images":[]},"mdx":null},"pageContext":{"id":"1f99dd2a-01ff-5f28-b054-494d65c19e34","slug":"turismo-bologna-it","__params":{"slug":"turismo-bologna-it"}}},
+    "staticQueryHashes": ["2146392051"]}

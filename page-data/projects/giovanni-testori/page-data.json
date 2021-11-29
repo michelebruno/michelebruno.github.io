@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-projects-contentful-projects-slug-js",
+    "path": "/projects/giovanni-testori/",
+    "result": {"data":{"project":{"slug":"giovanni-testori","roles":null,"name":"«Se ferita in te si compie, è la sola guarigione»","year":2018,"team":null,"websiteUrl":null,"description":null,"link":"/projects/giovanni-testori/","images":[]},"mdx":null},"pageContext":{"id":"9fe6192b-12d9-578e-beb7-9d371a48876c","slug":"giovanni-testori","__params":{"slug":"giovanni-testori"}}},
+    "staticQueryHashes": ["2146392051"]}

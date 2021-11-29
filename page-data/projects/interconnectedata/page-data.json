@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-projects-contentful-projects-slug-js",
+    "path": "/projects/interconnectedata/",
+    "result": {"data":{"project":{"slug":"interconnectedata","roles":["Development"],"name":"Interconnected","year":2021,"team":null,"websiteUrl":"https://interconnectedata.it/","description":null,"link":"/projects/interconnectedata/","images":[]},"mdx":null},"pageContext":{"id":"9e328533-4d90-5250-b0de-2f6ad3f53c9c","slug":"interconnectedata","__params":{"slug":"interconnectedata"}}},
+    "staticQueryHashes": ["2146392051"]}

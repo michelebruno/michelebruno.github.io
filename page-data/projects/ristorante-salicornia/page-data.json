@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-projects-contentful-projects-slug-js",
+    "path": "/projects/ristorante-salicornia/",
+    "result": {"data":{"project":{"slug":"ristorante-salicornia","roles":null,"name":"Ristorante Salicornia","year":2020,"team":null,"websiteUrl":"https://www.ristorantesalicornia.it/","description":null,"link":"/projects/ristorante-salicornia/","images":[]},"mdx":null},"pageContext":{"id":"a365734e-301f-5563-b71f-64fb3f7435ee","slug":"ristorante-salicornia","__params":{"slug":"ristorante-salicornia"}}},
+    "staticQueryHashes": ["2146392051"]}
