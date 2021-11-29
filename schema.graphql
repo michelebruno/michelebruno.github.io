@@ -347,6 +347,7 @@ type ContentfulProjects implements ContentfulEntry & ContentfulReference & Node 
     children: [Node!]!
     "Returns all children nodes filtered by type File"
     childrenFile: [File]
+    client: String
     contentful_id: String!
     cover: String
     createdAt(
@@ -363,7 +364,7 @@ type ContentfulProjects implements ContentfulEntry & ContentfulReference & Node 
     gatsbyPath(filePath: String): String
     id: ID!
     internal: Internal!
-    longDescription: ContentfulProjectsLongDescription
+    isPagePublic: Boolean
     name: String
     node_locale: String!
     parent: Node
@@ -373,6 +374,7 @@ type ContentfulProjects implements ContentfulEntry & ContentfulReference & Node 
     sys: ContentfulProjectsSys
     team: [String]
     thumbnail: String
+    type: [String]
     updatedAt(
         "Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\"."
         difference: String,
@@ -417,10 +419,6 @@ type ContentfulProjectsGroupConnection {
     pageInfo: PageInfo!
     sum(field: ContentfulProjectsFieldsEnum!): Float
     totalCount: Int!
-}
-
-type ContentfulProjectsLongDescription {
-    raw: String
 }
 
 type ContentfulProjectsSys {
@@ -1021,7 +1019,7 @@ type Query {
     contentfulEntry(children: NodeFilterListInput, contentful_id: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, node_locale: StringQueryOperatorInput, parent: NodeFilterInput): ContentfulEntry
     contentfulLongRead(children: NodeFilterListInput, contentful_id: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, node_locale: StringQueryOperatorInput, parent: NodeFilterInput): ContentfulLongRead
     contentfulMenu(children: NodeFilterListInput, contentful_id: StringQueryOperatorInput, createdAt: DateQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, name: StringQueryOperatorInput, node_locale: StringQueryOperatorInput, parent: NodeFilterInput, slug: StringQueryOperatorInput, spaceId: StringQueryOperatorInput, sys: ContentfulMenuSysFilterInput, updatedAt: DateQueryOperatorInput): ContentfulMenu
-    contentfulProjects(childFile: FileFilterInput, children: NodeFilterListInput, childrenFile: FileFilterListInput, contentful_id: StringQueryOperatorInput, cover: StringQueryOperatorInput, createdAt: DateQueryOperatorInput, description: StringQueryOperatorInput, gatsbyPath: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, longDescription: ContentfulProjectsLongDescriptionFilterInput, name: StringQueryOperatorInput, node_locale: StringQueryOperatorInput, parent: NodeFilterInput, roles: StringQueryOperatorInput, slug: StringQueryOperatorInput, spaceId: StringQueryOperatorInput, sys: ContentfulProjectsSysFilterInput, team: StringQueryOperatorInput, thumbnail: StringQueryOperatorInput, updatedAt: DateQueryOperatorInput, websiteUrl: StringQueryOperatorInput, year: IntQueryOperatorInput): ContentfulProjects
+    contentfulProjects(childFile: FileFilterInput, children: NodeFilterListInput, childrenFile: FileFilterListInput, client: StringQueryOperatorInput, contentful_id: StringQueryOperatorInput, cover: StringQueryOperatorInput, createdAt: DateQueryOperatorInput, description: StringQueryOperatorInput, gatsbyPath: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, isPagePublic: BooleanQueryOperatorInput, name: StringQueryOperatorInput, node_locale: StringQueryOperatorInput, parent: NodeFilterInput, roles: StringQueryOperatorInput, slug: StringQueryOperatorInput, spaceId: StringQueryOperatorInput, sys: ContentfulProjectsSysFilterInput, team: StringQueryOperatorInput, thumbnail: StringQueryOperatorInput, type: StringQueryOperatorInput, updatedAt: DateQueryOperatorInput, websiteUrl: StringQueryOperatorInput, year: IntQueryOperatorInput): ContentfulProjects
     directory(absolutePath: StringQueryOperatorInput, accessTime: DateQueryOperatorInput, atime: DateQueryOperatorInput, atimeMs: FloatQueryOperatorInput, base: StringQueryOperatorInput, birthTime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, changeTime: DateQueryOperatorInput, children: NodeFilterListInput, ctime: DateQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, dev: IntQueryOperatorInput, dir: StringQueryOperatorInput, ext: StringQueryOperatorInput, extension: StringQueryOperatorInput, gid: IntQueryOperatorInput, id: StringQueryOperatorInput, ino: FloatQueryOperatorInput, internal: InternalFilterInput, mode: IntQueryOperatorInput, modifiedTime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, name: StringQueryOperatorInput, nlink: IntQueryOperatorInput, parent: NodeFilterInput, prettySize: StringQueryOperatorInput, rdev: IntQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, root: StringQueryOperatorInput, size: IntQueryOperatorInput, sourceInstanceName: StringQueryOperatorInput, uid: IntQueryOperatorInput): Directory
     file(absolutePath: StringQueryOperatorInput, accessTime: DateQueryOperatorInput, atime: DateQueryOperatorInput, atimeMs: FloatQueryOperatorInput, base: StringQueryOperatorInput, birthTime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, blksize: IntQueryOperatorInput, blocks: IntQueryOperatorInput, changeTime: DateQueryOperatorInput, childImageSharp: ImageSharpFilterInput, childMdx: MdxFilterInput, children: NodeFilterListInput, childrenImageSharp: ImageSharpFilterListInput, childrenMdx: MdxFilterListInput, ctime: DateQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, dev: IntQueryOperatorInput, dir: StringQueryOperatorInput, ext: StringQueryOperatorInput, extension: StringQueryOperatorInput, gid: IntQueryOperatorInput, id: StringQueryOperatorInput, ino: FloatQueryOperatorInput, internal: InternalFilterInput, mode: IntQueryOperatorInput, modifiedTime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, name: StringQueryOperatorInput, nlink: IntQueryOperatorInput, parent: NodeFilterInput, prettySize: StringQueryOperatorInput, publicURL: StringQueryOperatorInput, rdev: IntQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, root: StringQueryOperatorInput, size: IntQueryOperatorInput, sourceInstanceName: StringQueryOperatorInput, uid: IntQueryOperatorInput): File
     imageSharp(children: NodeFilterListInput, fixed: ImageSharpFixedFilterInput, fluid: ImageSharpFluidFilterInput, gatsbyImageData: JSONQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, original: ImageSharpOriginalFilterInput, parent: NodeFilterInput, resize: ImageSharpResizeFilterInput): ImageSharp
@@ -2261,6 +2259,7 @@ enum ContentfulProjectsFieldsEnum {
     children___parent___internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     children___parent___parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     children___parent___parent___id @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
+    client
     contentful_id
     cover
     createdAt
@@ -2275,7 +2274,7 @@ enum ContentfulProjectsFieldsEnum {
     internal___mediaType @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     internal___owner @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
     internal___type @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
-    longDescription___raw
+    isPagePublic
     name
     node_locale
     parent___children @deprecated(reason : "Sorting on fields that need arguments to resolve is deprecated.")
@@ -2326,6 +2325,7 @@ enum ContentfulProjectsFieldsEnum {
     sys___type
     team
     thumbnail
+    type
     updatedAt
     websiteUrl
     year
@@ -3802,6 +3802,7 @@ input ContentfulProjectsFilterInput {
     childFile: FileFilterInput
     children: NodeFilterListInput
     childrenFile: FileFilterListInput
+    client: StringQueryOperatorInput
     contentful_id: StringQueryOperatorInput
     cover: StringQueryOperatorInput
     createdAt: DateQueryOperatorInput
@@ -3809,7 +3810,7 @@ input ContentfulProjectsFilterInput {
     gatsbyPath: StringQueryOperatorInput
     id: StringQueryOperatorInput
     internal: InternalFilterInput
-    longDescription: ContentfulProjectsLongDescriptionFilterInput
+    isPagePublic: BooleanQueryOperatorInput
     name: StringQueryOperatorInput
     node_locale: StringQueryOperatorInput
     parent: NodeFilterInput
@@ -3819,13 +3820,10 @@ input ContentfulProjectsFilterInput {
     sys: ContentfulProjectsSysFilterInput
     team: StringQueryOperatorInput
     thumbnail: StringQueryOperatorInput
+    type: StringQueryOperatorInput
     updatedAt: DateQueryOperatorInput
     websiteUrl: StringQueryOperatorInput
     year: IntQueryOperatorInput
-}
-
-input ContentfulProjectsLongDescriptionFilterInput {
-    raw: StringQueryOperatorInput
 }
 
 input ContentfulProjectsSortInput {
