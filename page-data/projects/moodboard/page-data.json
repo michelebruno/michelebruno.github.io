@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-projects-contentful-projects-slug-js",
+    "path": "/projects/moodboard/",
+    "result": {"data":{"project":{"slug":"moodboard","roles":["Concept","Development"],"name":"Moodboard","year":2020,"team":null,"websiteUrl":null,"link":"/projects/moodboard/","images":[]}},"pageContext":{"id":"840f1c53-ddab-5fd5-b1cf-6d30f6e7d091","slug":"moodboard","__params":{"slug":"moodboard"}}},
+    "staticQueryHashes": ["2146392051"]}
