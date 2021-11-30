@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-projects-contentful-projects-slug-js",
     "path": "/projects/accessibilita-e-coinvolgere-tutti/",
-    "result": {"data":{"project":{"slug":"accessibilita-e-coinvolgere-tutti","roles":["Concept","Compositing"],"name":"Accessibilità è... coinvolgere tutti","year":2021,"team":null,"websiteUrl":null,"description":null,"link":"/projects/accessibilita-e-coinvolgere-tutti/","images":[]},"mdx":null},"pageContext":{"id":"a91b72b2-069f-5d73-a5c9-425cc9efc284","slug":"accessibilita-e-coinvolgere-tutti","__params":{"slug":"accessibilita-e-coinvolgere-tutti"}}},
+    "result": {"data":{"project":{"client":"Politecnico di Milano","description":null,"isPagePublic":null,"name":"Accessibilità è... coinvolgere tutti","roles":["Concept","Compositing"],"slug":"accessibilita-e-coinvolgere-tutti","team":null,"type":["Motion Graphics"],"websiteUrl":null,"year":2021,"link":"/projects/accessibilita-e-coinvolgere-tutti/","images":[]},"mdx":null},"pageContext":{"id":"a91b72b2-069f-5d73-a5c9-425cc9efc284","slug":"accessibilita-e-coinvolgere-tutti","__params":{"slug":"accessibilita-e-coinvolgere-tutti"}}},
     "staticQueryHashes": ["2146392051"]}
