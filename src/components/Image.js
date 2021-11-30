@@ -1,12 +1,12 @@
 import * as React from "react"
 
-import { getImage, getSrc, getSrcSet } from 'gatsby-plugin-image';
+import {getImage, getSrc, getSrcSet} from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Helmet } from 'react-helmet';
+import {Helmet} from 'react-helmet';
 import {forwardRef} from "react";
 
-const Image = forwardRef(function(props, ref) {
+const Image = forwardRef(function (props, ref) {
     const image = getImage(props.image);
 
     if (!image) return null;
@@ -15,7 +15,7 @@ const Image = forwardRef(function(props, ref) {
         alt, className, pictureClassName, loading, preload, id,
     } = props;
 
-    const { height, width, images } = image;
+    const {height, width, images} = image;
 
     return (
         <picture
@@ -24,7 +24,7 @@ const Image = forwardRef(function(props, ref) {
         >
             {preload && (
                 <Helmet link={[
-                    ...images.sources.map(({ sizes, srcSet, type }) => ({
+                    ...images.sources.map(({sizes, srcSet, type}) => ({
                         rel: 'preload', as: 'image', href: srcSet, media: sizes, type,
                     })),
                     {
@@ -34,7 +34,7 @@ const Image = forwardRef(function(props, ref) {
                 />
             )}
             {images.sources.map(
-                ({ sizes, srcSet, type }) => (
+                ({sizes, srcSet, type}) => (
                     <source
                         type={type}
                         srcSet={srcSet}
@@ -58,7 +58,7 @@ const Image = forwardRef(function(props, ref) {
     );
 })
 Image.propTypes = {
-    image: PropTypes.shape({ childImageSharp: PropTypes.object.isRequired }).isRequired,
+    image: PropTypes.shape({childImageSharp: PropTypes.object.isRequired}).isRequired,
     loading: PropTypes.oneOf(['lazy', 'eager']),
     className: PropTypes.string,
     alt: PropTypes.string,
@@ -70,3 +70,9 @@ Image.defaultPros = {
 };
 
 export default Image
+
+
+export function createGetImageFromName(images, folder = null) {
+    return (name) => images.find(({relativePath}) => relativePath === `${folder && folder + "/"}${name}`)
+
+}

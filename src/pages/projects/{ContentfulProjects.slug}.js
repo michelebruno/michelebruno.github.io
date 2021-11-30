@@ -3,11 +3,12 @@ import {useEffect, useRef} from "react";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import Layout from "../../components/Layout";
-import Image from "../../components/Image";
+import Image, {createGetImageFromName} from "../../components/Image";
 import {graphql} from "gatsby";
 import {MDXRenderer} from "gatsby-plugin-mdx";
 import {MDXProvider} from "@mdx-js/react";
 import Headings from "../../components/Headings"
+
 gsap.registerPlugin(ScrollTrigger)
 
 
@@ -20,8 +21,7 @@ function Description({description, children}) {
     </div>
 }
 
-
-export default function Project({data: {project, mdx}}) {
+export default function Project({data: {project, mdx, images: {nodes: images}}}) {
 
     const {name, roles, images: [thumbnail, cover], year, client, websiteUrl, description} = project
 
@@ -37,7 +37,7 @@ export default function Project({data: {project, mdx}}) {
         });
     }, [])
 
-    return <Layout>
+    return <Layout className="mx-8">
         <Headings.H1 title={name}>
             <ul className="row-start-1 col-span-2 col-start-9 self-end">
                 {roles && <li><strong>Role:</strong> {roles.join(', ')}</li>}
@@ -47,13 +47,14 @@ export default function Project({data: {project, mdx}}) {
             <p className="col-start-2 row-start-1 text-right">{year}</p>
         </Headings.H1>
 
-        <div className="h-screen overflow-hidden">
+        <div className="h-screen overflow-hidden -mx-8">
             <Image ref={bgRef} image={typeof cover === 'undefined' ? thumbnail : cover}
                    className={"h-full w-full object-cover scale-110 origin-top"}/>
         </div>
         <article>
-            {mdx && <MDXProvider components={{Description}}><MDXRenderer
-                description={description}>{mdx.body}</MDXRenderer></MDXProvider>}
+            {mdx && <MDXProvider components={{Description, Image}}><MDXRenderer
+                description={description}
+                images={createGetImageFromName(images, 'feelo')}>{mdx.body}</MDXRenderer></MDXProvider>}
         </article>
     </Layout>
 }
@@ -66,6 +67,14 @@ export const query = graphql`
         mdx(frontmatter: {slug: {eq: $slug}}) {
             body
             id
+        }
+        images : allFile(filter: {relativeDirectory: {eq: $slug}}) {
+            nodes {
+                relativePath
+                childImageSharp {
+                    gatsbyImageData
+                }
+            }
         }
     }
 `

@@ -10,6 +10,7 @@ export function H1({children, title}) {
 }
 
 
-export default {
+const Headings = {
     H1
 }
+export default Headings
