@@ -14,6 +14,14 @@ module.exports = {
                 trackingId: "G-VJFWWE663B",
             },
         },
+        {
+            resolve: "gatsby-plugin-web-font-loader",
+            options: {
+                typekit: {
+                    id: process.env.TYPEKIT_ID,
+                },
+            },
+        },
         "gatsby-plugin-react-helmet",
         "gatsby-plugin-sitemap",
         {

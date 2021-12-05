@@ -14,7 +14,7 @@ function IndexPage() {
     const q = gsap.utils.selector(projectContainer);
 
     useEffect(() => {
-
+        return;
         ScrollTrigger.batch(q('[data-project]'), {
             onEnter: elements => {
                 gsap.to(elements, {
@@ -33,21 +33,18 @@ function IndexPage() {
     }, [q])
 
 
-    return <Layout className={'container mx-auto px-8'}>
-        <div className="flex min-h-screen items-center">
-            <div className="lg:w-1/4"></div>
-            <h1 className={"uppercase text-5xl xl:text-9xl lg:w-9/12 font-bold leading-none "}>Hello, I am a creative
-                developer</h1>
-
+    return <Layout className={'mx-auto px-8'}>
+        <div className="grid grid-cols-home gap-16 min-h-screen items-center">
+            <h1 className={"text-8xl leading-snug col-start-3 col-span-3 "}>
+                <span className="italic">Hello</span>, I am Michele, <span
+                className="inline-block font-sans not-italic">a creative developer</span> <br/>and <span
+                className="inline-block font-sans not-italic">UX designer</span></h1>
         </div>
-
-        <div className="flex md:justify-end">
-
-        </div>
-        <div ref={projectContainer} className="grid grid-cols-1 md:grid-cols-project md:gap-x-8 gap-y-4 mb-10">
-            <ProjectCard project={"disruptive"}/>
+        <div ref={projectContainer} className="grid grid-cols-1 md:grid-cols-project md:gap-16 mb-10">
             <ProjectCard project={"feelo"}/>
+            <ProjectCard project={"disruptive"}/>
             <ProjectCard project={"sign-here-to-fight-the-pandemic"}/>
+
 
         </div>
     </Layout>

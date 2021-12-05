@@ -11,10 +11,12 @@ module.exports = {
         extend: {
             gridTemplateColumns: {
                 'project': '0.6fr 1.2fr 1.2fr',
+                'home' : 'repeat(5, 0.6fr)'
             }
         },
         fontFamily: {
             'sans': ['Manrope', 'ui-sans-serif', 'system-ui',],
+            'serif': ['freight-big-pro', 'serif']
         }
     },
     variants: {

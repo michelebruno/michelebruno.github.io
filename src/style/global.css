@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.text-stroke {
+    -webkit-text-stroke-width: 1px;
+    text-stroke-width: 1px;
+    -webkit-text-stroke-color: theme('colors.black');
+    text-stroke-color: theme('colors.black');
+ }
+
+.marquee .marquee_inner {
+    animation: marquee 60s linear infinite;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-80%);
+    }
+}
