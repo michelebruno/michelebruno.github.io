@@ -41,16 +41,16 @@ export default function Project({data: {project, mdx, images: {nodes: images}, a
         });
     }, [])
 
-    return <Layout className="mx-8">
-        <Typography.H1 title={name} fullScreen>
-            <ul className="row-start-1 col-span-2 col-start-9 self-end">
+    return <Layout className="mx-8" title={name}>
+        <Typography.H1 title={name} >
+            <ul className="row-start-1 col-span-2 col-start-9 self-end pb-2 ">
                 {roles && <li><strong>Role:</strong> {roles.join(', ')}</li>}
                 <li><strong>Client:</strong> {client}</li>
                 {websiteUrl &&
                 <li><AnimatedLink href={websiteUrl} target={'_blank'} className={"font-bold"} icon={<Arrow/>}>Visit the
                     website</AnimatedLink></li>}
             </ul>
-            <p className="col-start-2 row-start-1 text-right pt-2 text-2xl italic">{year}</p>
+            <p className="col-start-3 row-start-1 text-right pt-2 text-2xl italic">{year}</p>
         </Typography.H1>
 
         <div className="h-screen overflow-hidden -mx-8">

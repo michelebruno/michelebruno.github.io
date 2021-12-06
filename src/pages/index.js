@@ -5,6 +5,9 @@ import gsap from 'gsap'
 import {useEffect, useRef} from "react";
 
 import {ScrollTrigger} from "gsap/ScrollTrigger";
+import Grid from "../components/Grid";
+import Typography, {TextBox} from "../components/Typography";
+import Arrow from "../components/Arrow";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,13 +37,13 @@ function IndexPage() {
 
 
     return <Layout className={'mx-auto px-8'}>
-        <div className="grid grid-cols-home gap-16 min-h-screen items-center">
-            <h1 className={"text-8xl leading-snug col-start-3 col-span-3 "}>
-                <span className="italic">Hello</span>, I'm Michele, <span
-                className="inline-block font-sans not-italic">a creative developer</span> <br/>and <span
-                className="inline-block font-sans not-italic">UX designer</span></h1>
+        <div className="grid grid-cols-1 gap-x-8 py-64 items-center">
+            <h1 className={"text-8xl w-10/12"}>
+                 <span className="italic">Hello</span>, I'm Michele Bruno, an Italian <span
+                className="inline-block font-sans not-italic">UX Designer</span> and <span
+                className="inline-block font-sans not-italic">Creative Developer</span> based in Milan, currently studing at Polimi.</h1>
         </div>
-        <div ref={projectContainer} className="grid grid-cols-1 md:grid-cols-project md:gap-16 mb-10">
+        <div ref={projectContainer} className="grid grid-cols-1 md:grid-cols-project md:gap-8 mb-10">
             <ProjectCard project={"feelo"}/>
             <ProjectCard project={"disruptive"}/>
             <ProjectCard project={"sign-here-to-fight-the-pandemic"}/>

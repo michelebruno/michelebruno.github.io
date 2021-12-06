@@ -10,6 +10,7 @@ module.exports = {
     theme: {
         extend: {
             gridTemplateColumns: {
+                // 'project': '3fr 4.5fr 4.5fr',
                 'project': '0.6fr 1.2fr 1.2fr',
                 'home': 'repeat(5, 0.6fr)'
             }

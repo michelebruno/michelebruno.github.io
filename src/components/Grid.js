@@ -1,9 +1,15 @@
 import React from "react";
 import classNames from "classnames";
 
-export default function Grid({children, className, two, six, twelve, padding}) {
+export default function Grid({children, className, two, three, six, twelve, padding, projects}) {
     return <div
-        className={classNames("grid gap-16", two && 'grid-cols-2', six && 'grid-cols-6', twelve && 'grid-cols-12', padding && 'py-32')}>
+        className={classNames("grid gap-x-8 gap-y-16",
+            two && 'grid-cols-2',
+            three && 'grid-cols-3',
+            six && 'grid-cols-6',
+            twelve && 'grid-cols-12',
+            projects && 'md:grid-cols-project',
+            padding && 'py-32')}>
         {children}
     </div>
 }

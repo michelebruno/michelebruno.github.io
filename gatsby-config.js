@@ -1,10 +1,17 @@
 require('dotenv').config()
 
+const siteUrl = 'https://michelebruno.github.io'
+
+const description = 'Hello, I\'m Michele, a creative developer and UX designer.'
+
 module.exports = {
     siteMetadata: {
-        siteUrl: "https://www.mbruno.it",
-        title: "Michele Bruno",
-    },
+        title: 'Michele Bruno | UX Designer & Creative Developer',
+        titleTemplate: '%s - Michele Bruno',
+        description,
+        siteUrl, // No trailing slash allowed!
+        image: '/ident-bumper.jpg', // Path to your image you placed in the 'static' folder
+     },
     plugins: [
         "gatsby-plugin-image",
         'gatsby-plugin-postcss',
