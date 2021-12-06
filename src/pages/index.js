@@ -5,9 +5,6 @@ import gsap from 'gsap'
 import {useEffect, useRef} from "react";
 
 import {ScrollTrigger} from "gsap/ScrollTrigger";
-import Grid from "../components/Grid";
-import Typography, {TextBox} from "../components/Typography";
-import Arrow from "../components/Arrow";
 
 gsap.registerPlugin(ScrollTrigger);
 

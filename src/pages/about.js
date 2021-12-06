@@ -1,7 +1,24 @@
 import React from "react";
 import Layout from "../components/Layout";
 import Grid from "../components/Grid";
-import Arrow from "../components/Arrow";
+
+function CVItem({title, items}) {
+    return <div className="col-span-12 leading-snug ">
+        <div className="border-t-2 border-current grid grid-cols-4 gap-x-8 gap-y-16 py-16">
+            <h2 className={"text-2xl"}>{title}</h2>
+            <ul className={"text-4xl col-span-3 grid"}>
+                {items.map(({rows, label}) => <li className="pb-16">
+                    {label && <span className={"block mb-8 text-lg"}>
+                        {label}
+                    </span>}
+                    {
+                        rows.map((r, i) => <span className={"block"} key={i}>{r}</span>)
+                    }
+                </li>)}
+            </ul>
+        </div>
+    </div>
+}
 
 export default function About() {
     return <Layout className="mx-8">
@@ -22,61 +39,108 @@ export default function About() {
                     Whenever projects can help society, I'm there to make my part.
                 </p>
             </div>
-            <div className="col-span-12 leading-snug ">
-                <div className="border-t-2 border-current grid grid-cols-4 gap-x-8 gap-y-16 py-16">
-                    <h2 className={"text-2xl"}>Education</h2>
-                    <ul className={"text-4xl col-span-3 grid gap-8"}>
-                        <li>
-                            Communication Design at Politecnico di Milano
-                            <br/>
-                            2020 – ongoing
-                        </li>
-                        <li>
-                            DAMS at Università di Bologna
-                            <br/>
-                            2016 – 2020
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div className="col-span-12 leading-snug ">
-                <div className="border-t-2 border-current grid grid-cols-4 gap-x-8 gap-y-16 py-16">
-                    <h2 className={"text-2xl"}>Experiences</h2>
-                    <ul className={"text-4xl col-span-3 grid gap-8"}>
-                        <li>
-                            UX designer & Web Developer
-                            <br/>
-                            Freelance
-                            <br/>
-                            2020 – ongoing
-                        </li>
-                        <li>
-                            Web design & WordPress Development
-                            <br/>
-                            OSCard
-                            <br/>
-                            2019 – 2020
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div className="col-span-12 leading-snug ">
-                <div className="border-t-2 border-current grid grid-cols-4 gap-x-8 gap-y-16 py-16">
-                    <h2 className={"text-2xl"}>Languages</h2>
-                    <ul className={"text-4xl col-span-3 grid gap-8"}>
-                        <li>
-                            Italian
-                            <br/>
-                            First Language
-                        </li>
-                        <li>
-                            English
-                            <br/>
-                            B2 – Cambridge FCE
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <CVItem title={"Education"} items={[
+                {
+                    rows: [
+                        "Communication Design",
+                        "Politecnico di Milano",
+                    ],
+                    label: '2020 – ongoing'
+                },
+                {
+                    rows: [
+                        "DAMS",
+                        "Università di Bologna",
+                    ],
+                    label: '2016 – 2020'
+                }
+            ]}/>
+            <CVItem title={"Experiences"} items={[
+                {
+                    rows: [
+                        "UX designer & Web Developer",
+                        'Freelance'
+                    ],
+                    label: '2020 – ongoing'
+                },
+                {
+                    rows: [
+                        "Web design & WordPress Development",
+                        'OSCard'
+                    ],
+                    label: '2019 – 2020'
+                }
+            ]}/>
+
+            <CVItem title={"Skills"} items={[
+                {
+                    rows: [
+                        "Adobe Illustrator",
+                        "Adobe Indesign",
+                        "Adobe After Effects",
+                    ],
+                    label: 'Graphic Design'
+                },
+                {
+                    rows: [
+                        "Rawgraphs",
+                        "Gephi",
+                        "Excel",
+                        "Open Refine",
+                    ],
+                    label: 'Data Viz'
+                }
+            ]}/>
+            <CVItem title={"Coding"} items={[
+                {
+                    rows: [
+                        "p5",
+                        "NodeJS",
+                        "Webpack",
+                        "Socket.io",
+                        "React",
+                        "GatsbyJS",
+                    ],
+                    label: 'JS'
+                },
+                {
+                    rows: [
+                        "SCSS",
+                        "Tailwind",
+                        "Bootstrap"
+                    ],
+                    label: 'CSS'
+                },
+                {
+                    rows: [
+                        "Pandas",
+                        "Numpy"
+                    ],
+                    label: 'Python'
+                },
+                {
+                    rows: [
+                        "Composer",
+                        "Laravel",
+                        "WordPress"
+                    ],
+                    label: 'PHP'
+                }
+            ]}/>
+            <CVItem title={"Languages"} items={[
+                {
+                    rows: [
+                        "Italian",
+                        'First language'
+                    ],
+                },
+                {
+                    rows: [
+                        "English",
+                        'B2 – Cambridge FCE'
+                    ]
+                }
+            ]}/>
         </Grid>
     </Layout>
 }
