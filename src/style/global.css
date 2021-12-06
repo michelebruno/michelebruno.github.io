@@ -7,7 +7,8 @@
     text-stroke-width: 1px;
     -webkit-text-stroke-color: theme('colors.black');
     text-stroke-color: theme('colors.black');
- }
+    color: transparent;
+}
 
 .marquee .marquee_inner {
     animation: marquee 60s linear infinite;
@@ -22,3 +23,20 @@
         transform: translateX(-80%);
     }
 }
+
+.animated-link::before {
+    transform-origin: left;
+    transform: scaleX(0);
+
+}
+
+.animated-link:hover::before {
+    transform: none;
+    transform-origin: left;
+}
+
+.animated-link:active::before {
+    transform: scaleX(.9);
+    transform-origin: center;
+}
+

@@ -7,9 +7,10 @@ import Image, {createGetImageFromName} from "../../components/Image";
 import {graphql, navigate} from "gatsby";
 import {MDXRenderer} from "gatsby-plugin-mdx";
 import {MDXProvider} from "@mdx-js/react";
-import Headings from "../../components/Headings"
+import Typography, {AnimatedLink, Tag} from "../../components/Typography"
 import Marquee from "../../components/Marquee";
 import classNames from "classnames";
+import Arrow from '../../components/Arrow'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -35,7 +36,7 @@ TextBox.defaultProps = {
 
 function Description({description, children}) {
     return <TextBox containBorder>
-        <h3 className="text-3xl font-medium mb-2 pb-8">{description}</h3>
+        <h3 className="text-3xl font-bold mb-2 pb-8">{description}</h3>
         {children}
     </TextBox>
 }
@@ -46,9 +47,12 @@ export default function Project({data: {project, mdx, images: {nodes: images}, a
 
     const bgRef = useRef()
 
-    const nextProjectIndex = allContentfulProjects.nodes.findIndex(p => p.slug === slug)
+    let nextProjectIndex = allContentfulProjects.nodes.findIndex(p => p.slug === slug)
 
-    const nextProject = allContentfulProjects.nodes[nextProjectIndex < allContentfulProjects.nodes.lengts ? nextProjectIndex : 0]
+    console.log(nextProjectIndex, allContentfulProjects.nodes.length)
+
+    nextProjectIndex = nextProjectIndex + 1
+    const nextProject = allContentfulProjects.nodes[allContentfulProjects.nodes.length > nextProjectIndex ? nextProjectIndex : 0]
 
     useEffect(() => {
         gsap.to(bgRef.current, {
@@ -61,21 +65,22 @@ export default function Project({data: {project, mdx, images: {nodes: images}, a
     }, [])
 
     return <Layout className="mx-8">
-        <Headings.H1 title={name}>
+        <Typography.H1 title={name}>
             <ul className="row-start-1 col-span-2 col-start-9 self-end">
                 {roles && <li><strong>Role:</strong> {roles.join(', ')}</li>}
                 <li><strong>Client:</strong> {client}</li>
-                {websiteUrl && <li><a href={websiteUrl} className={"font-bold"}>Visit the website</a></li>}
+                {websiteUrl && <li><AnimatedLink href={websiteUrl} className={"font-bold"} icon={<Arrow/>}>Visit the
+                    website</AnimatedLink></li>}
             </ul>
             <p className="col-start-2 row-start-1 text-right">{year}</p>
-        </Headings.H1>
+        </Typography.H1>
 
         <div className="h-screen overflow-hidden -mx-8">
             <Image ref={bgRef} image={typeof cover === 'undefined' ? thumbnail : cover}
                    className={"h-full w-full object-cover scale-110 origin-top"}/>
         </div>
         <article>
-            {mdx && <MDXProvider components={{Description, Image, TextBox}}><MDXRenderer
+            {mdx && <MDXProvider components={{Description, Image, TextBox, Tag}}><MDXRenderer
                 description={description} team={team}
                 images={createGetImageFromName(images, 'feelo')}>{mdx.body}</MDXRenderer></MDXProvider>}
         </article>
@@ -85,7 +90,7 @@ export default function Project({data: {project, mdx, images: {nodes: images}, a
             </TextBox>
             <div className="grid grid-cols-6 gap-16">
                 <div className="-mx-8 col-start-1 col-span-6">
-                    <Marquee onClick={() => navigate(nextProject.link)}>{nextProject.name}</Marquee>
+                    <Marquee link={nextProject.link}>{nextProject.name}</Marquee>
                 </div>
             </div>
         </section>
@@ -99,10 +104,11 @@ export const query = graphql`
             ...ProjectFragment
         }
 
-        allContentfulProjects{
+        allContentfulProjects (filter: {isPagePublic: {eq: true}}){
             nodes {
                 name
-                link: gatsbyPath(filePath: "projects/{ContentfulProjects.slug}")
+                slug
+                link: gatsbyPath(filePath: "/projects/{ContentfulProjects.slug}")
             }
         }
 

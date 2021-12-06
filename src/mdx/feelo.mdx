@@ -32,16 +32,23 @@ export function Mockup({title, names, images}) {
 </div>
 
 <TextBox>
-    <p>
-        <span className="font-bold">Course: </span> Interaction Design Studio – A.A. 2020/2021
-    </p>
-    <p>
-        <span className="font-bold">Faculty: </span> Fabio Sergio, Emanuele Della Valle, Marco La Mantia, Matteo Valoriani
-    </p>
-    <p>
-        <span className="font-bold">Project team:</span> {props.team.join(', ')}
-    </p>
-    <p>
-        <span className="font-bold">Tools and technology:</span> Figma, Illustrator, GatsbyJs
-    </p>
+    <Tag title={"Course"}>
+        Interaction Design Studio – A.A. 2020/2021
+    </Tag>
+    <Tag title={"Faculty"}>
+        <ul>
+            <li>Fabio Sergio</li>
+            <li>Emanuele Della Valle</li>
+            <li>Marco La Mantia</li>
+            <li>Matteo Valoriani</li>
+        </ul>
+    </Tag>
+    <Tag title={"Project team"}>
+        <ul>
+            {props.team.map(t => <li key={t}>{t}</li>)}
+        </ul>
+    </Tag>
+    <Tag title={"Tools and technology"}>
+        Figma, Illustrator, GatsbyJs
+    </Tag>
 </TextBox>

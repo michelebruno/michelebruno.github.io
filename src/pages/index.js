@@ -36,7 +36,7 @@ function IndexPage() {
     return <Layout className={'mx-auto px-8'}>
         <div className="grid grid-cols-home gap-16 min-h-screen items-center">
             <h1 className={"text-8xl leading-snug col-start-3 col-span-3 "}>
-                <span className="italic">Hello</span>, I am Michele, <span
+                <span className="italic">Hello</span>, I'm Michele, <span
                 className="inline-block font-sans not-italic">a creative developer</span> <br/>and <span
                 className="inline-block font-sans not-italic">UX designer</span></h1>
         </div>

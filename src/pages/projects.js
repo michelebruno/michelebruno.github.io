@@ -2,7 +2,7 @@ import * as React from "react"
 import Layout from "../components/Layout";
 import {graphql, navigate} from "gatsby";
 import {useState} from "react";
-import Headings from "../components/Headings";
+import Typography from "../components/Typography";
 
 function navigateOnClick(url) {
     return () => navigate(url)
@@ -14,7 +14,7 @@ export default function Projects({data}) {
 
 
     return <Layout className="mx-8">
-        <Headings.H1 title={"Projects"}/>
+        <Typography.H1 title={"Projects"}/>
         <table className={"w-full"}>
             <thead className="text-left uppercase">
             <tr>
