@@ -24,7 +24,7 @@
     }
 }
 
-.animated-link::before {
+:not(.current) > .animated-link::before {
     transform-origin: left;
     transform: scaleX(0);
 

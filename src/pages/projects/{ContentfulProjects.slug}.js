@@ -7,32 +7,12 @@ import Image, {createGetImageFromName} from "../../components/Image";
 import {graphql} from "gatsby";
 import {MDXRenderer} from "gatsby-plugin-mdx";
 import {MDXProvider} from "@mdx-js/react";
-import Typography, {AnimatedLink, Tag} from "../../components/Typography"
+import Typography, {AnimatedLink, Tag, TextBox} from "../../components/Typography"
 import Marquee from "../../components/Marquee";
-import classNames from "classnames";
 import Arrow from '../../components/Arrow'
+import Grid from "../../components/Grid";
 
 gsap.registerPlugin(ScrollTrigger)
-
-let startClasses = "col-start-4 md:col-start-4 xl:col-start-4"
-let spanClasses = "col-span-8 md:col-span-6 xl:col-span-5"
-
-function TextBox({children, padding, containBorder}) {
-
-    return <div className={classNames("grid grid-cols-12 gap-x-16 gap-y-8", padding && "py-32")}>
-        <div
-            className={classNames(startClasses, containBorder ? spanClasses : 'col-span-9', "border-t-2 border-black")}
-        />
-        <div className={classNames(startClasses, spanClasses)}>
-            {children}
-        </div>
-    </div>
-
-}
-
-TextBox.defaultProps = {
-    padding: true
-}
 
 function Description({description, children}) {
     return <TextBox containBorder>
@@ -62,7 +42,7 @@ export default function Project({data: {project, mdx, images: {nodes: images}, a
     }, [])
 
     return <Layout className="mx-8">
-        <Typography.H1 title={name}>
+        <Typography.H1 title={name} fullScreen>
             <ul className="row-start-1 col-span-2 col-start-9 self-end">
                 {roles && <li><strong>Role:</strong> {roles.join(', ')}</li>}
                 <li><strong>Client:</strong> {client}</li>
@@ -78,7 +58,7 @@ export default function Project({data: {project, mdx, images: {nodes: images}, a
                    className={"h-full w-full object-cover scale-110 origin-top"}/>
         </div>
         <article>
-            {mdx && <MDXProvider components={{Description, Marquee, Image, TextBox, Tag}}><MDXRenderer
+            {mdx && <MDXProvider components={{Description, Marquee, Image, TextBox, Tag, Grid}}><MDXRenderer
                 description={description} team={team}
                 images={createGetImageFromName(images, slug)}>{mdx.body}</MDXRenderer></MDXProvider>}
         </article>
@@ -86,11 +66,12 @@ export default function Project({data: {project, mdx, images: {nodes: images}, a
             <TextBox padding={false}>
                 Next project
             </TextBox>
-            <div className="grid grid-cols-6 gap-16">
-                <div className="-mx-8 col-start-1 col-span-6">
+
+            <Grid two>
+                <div className="-mx-8 col-start-1 col-span-2">
                     <Marquee link={nextProject.link}>{nextProject.name}</Marquee>
                 </div>
-            </div>
+            </Grid>
         </section>
 
     </Layout>
