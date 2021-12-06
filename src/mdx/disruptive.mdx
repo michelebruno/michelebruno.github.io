@@ -4,8 +4,33 @@ slug: disruptive
 
 <Description description={props.description}>
     Visual, experience and experiential design seamlessly blend with storytelling giving birth to an engaging and
-    fascinating 360º experience. Thanks to original content, such as illustrations, video-interviews and other digital
+    fascinating 360º experience. Thanks to original content, such as *illustrations*, video-interviews and other digital
     content, Disruptive is a completely new way of exploring and approaching the great rebuilding challenge that awaits.
 </Description>
 
 
+<Marquee>Exhibition</Marquee>
+
+<div className="grid grid-cols-3 gap-16 py-32">
+    <div className="col-span-2">
+        <Image className={"w-full"} image={props.images('ex-elkann.jpg')}/>
+    </div>
+    <div className="col-span-1 flex flex-col justify-end">
+        <Image className={"w-full"} image={props.images('ex-sign.jpg')}/>
+    </div>
+</div>
+
+<TextBox>
+    <Tag title={"Project team"}>
+        <ul>
+            {props.team.map(t => <li key={t}>{t}</li>)}
+        </ul>
+    </Tag>
+    <Tag title={"Tools and technology"}>
+        <ul>
+            <li>Figma</li>
+            <li>GatsbyJs</li>
+            <li>SwiperJs</li>
+        </ul>
+    </Tag>
+</TextBox>

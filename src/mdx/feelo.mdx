@@ -31,9 +31,13 @@ export function Mockup({title, names, images}) {
     <Mockup names={['giulia-diario.png']} images={props.images} title={"Individual activities"}/>
 </div>
 
+<Marquee>Website</Marquee>
+
 <TextBox>
     <Tag title={"Course"}>
-        Interaction Design Studio – A.A. 2020/2021
+        Interaction Design Studio
+        <br/>
+        A.A. 2020/2021
     </Tag>
     <Tag title={"Faculty"}>
         <ul>
@@ -49,6 +53,10 @@ export function Mockup({title, names, images}) {
         </ul>
     </Tag>
     <Tag title={"Tools and technology"}>
-        Figma, Illustrator, GatsbyJs
+        <ul>
+            <li>Figma</li>
+            <li>Illustrator</li>
+            <li>GatsbyJs</li>
+        </ul>
     </Tag>
 </TextBox>

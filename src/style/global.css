@@ -32,11 +32,9 @@
 
 .animated-link:hover::before {
     transform: none;
-    transform-origin: left;
-}
+ }
 
 .animated-link:active::before {
-    transform: scaleX(.9);
-    transform-origin: center;
-}
+    transform: scaleY(1.1);
+ }
 

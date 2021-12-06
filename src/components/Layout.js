@@ -19,7 +19,7 @@ export default function Layout({children, className}) {
 
     return <div className={"dark:bg-gray-900 font-sans "}>
         <nav className={"fixed top-0 w-full flex justify-between px-8 py-8 z-50"}>
-            <Link to="/">michelebruno</Link>
+            <Link to="/" className={"group "}><span className={"group-hover:italic"}>michele</span>bruno</Link>
             <ul className="flex gap-16">
                 {menu.nodes.map(({name, slug},i) => <li key={i}><AnimatedLink component={Link} to={slug}>{name}</AnimatedLink></li>)}
             </ul>

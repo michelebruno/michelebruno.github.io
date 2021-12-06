@@ -5,7 +5,7 @@ import classNames from "classnames";
 
 export default function Marquee({children, link}) {
 
-    return <div className="marquee overflow-hidden py-16 text-8xl whitespace-nowrap cursor-pointer "
+    return <div className={classNames("marquee overflow-hidden py-16 text-8xl whitespace-nowrap", link && 'cursor-pointer')}
                 onClick={() => link && navigate(link)}>
         <div className="marquee_inner flex gap-8 text-stroke ">
             {[0, 0, 0, 0, 0, 0, 0].map((_i, i) => <>

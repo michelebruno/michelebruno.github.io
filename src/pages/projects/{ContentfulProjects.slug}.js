@@ -4,7 +4,7 @@ import {ScrollTrigger} from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import Layout from "../../components/Layout";
 import Image, {createGetImageFromName} from "../../components/Image";
-import {graphql, navigate} from "gatsby";
+import {graphql} from "gatsby";
 import {MDXRenderer} from "gatsby-plugin-mdx";
 import {MDXProvider} from "@mdx-js/react";
 import Typography, {AnimatedLink, Tag} from "../../components/Typography"
@@ -47,11 +47,8 @@ export default function Project({data: {project, mdx, images: {nodes: images}, a
 
     const bgRef = useRef()
 
-    let nextProjectIndex = allContentfulProjects.nodes.findIndex(p => p.slug === slug)
+    const nextProjectIndex = allContentfulProjects.nodes.findIndex(p => p.slug === slug) + 1
 
-    console.log(nextProjectIndex, allContentfulProjects.nodes.length)
-
-    nextProjectIndex = nextProjectIndex + 1
     const nextProject = allContentfulProjects.nodes[allContentfulProjects.nodes.length > nextProjectIndex ? nextProjectIndex : 0]
 
     useEffect(() => {
@@ -69,20 +66,21 @@ export default function Project({data: {project, mdx, images: {nodes: images}, a
             <ul className="row-start-1 col-span-2 col-start-9 self-end">
                 {roles && <li><strong>Role:</strong> {roles.join(', ')}</li>}
                 <li><strong>Client:</strong> {client}</li>
-                {websiteUrl && <li><AnimatedLink href={websiteUrl} className={"font-bold"} icon={<Arrow/>}>Visit the
+                {websiteUrl &&
+                <li><AnimatedLink href={websiteUrl} target={'_blank'} className={"font-bold"} icon={<Arrow/>}>Visit the
                     website</AnimatedLink></li>}
             </ul>
             <p className="col-start-2 row-start-1 text-right">{year}</p>
         </Typography.H1>
 
         <div className="h-screen overflow-hidden -mx-8">
-            <Image ref={bgRef} image={typeof cover === 'undefined' ? thumbnail : cover}
+            <Image ref={bgRef} image={typeof cover !== 'undefined' && cover?.childImageSharp ? cover : thumbnail}
                    className={"h-full w-full object-cover scale-110 origin-top"}/>
         </div>
         <article>
-            {mdx && <MDXProvider components={{Description, Image, TextBox, Tag}}><MDXRenderer
+            {mdx && <MDXProvider components={{Description, Marquee, Image, TextBox, Tag}}><MDXRenderer
                 description={description} team={team}
-                images={createGetImageFromName(images, 'feelo')}>{mdx.body}</MDXRenderer></MDXProvider>}
+                images={createGetImageFromName(images, slug)}>{mdx.body}</MDXRenderer></MDXProvider>}
         </article>
         <section className={"min-h-screen justify-center flex flex-col "}>
             <TextBox padding={false}>
@@ -103,7 +101,6 @@ export const query = graphql`
         project: contentfulProjects(slug: { eq: $slug }) {
             ...ProjectFragment
         }
-
         allContentfulProjects (filter: {isPagePublic: {eq: true}}){
             nodes {
                 name

@@ -20,16 +20,18 @@ export function Tag({title, children}) {
 }
 
 
-export function AnimatedLink({href, to, component, children, icon, className}) {
-    return <component href={href} to={to}
-                      className={className}>
+export function AnimatedLink({href, to, component, target, children, icon, className}) {
+
+    const C = component
+    return <C href={href} to={to} target={target}
+              className={className}>
         <span className={"inline-block relative " +
         " animated-link before:absolute before:bottom-0 before:border-b-2 before:border-b-black before:transition-all before:w-full  " +
         ""}>
             {children}
         </span>
         {icon}
-    </component>
+    </C>
 }
 
 AnimatedLink.defaultProps = {
