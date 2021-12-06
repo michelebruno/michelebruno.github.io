@@ -1,0 +1,71 @@
+---
+slug: accessibilita-e-coinvolgere-tutti
+---
+
+
+<Description description={props.description}>
+    Project of an accessible video that is at the same time demonstrative of the concept of accessibility, aiming for
+    accessibility the possibility, allowed for all, to have access not only to the physical environment, but also to
+    services, information and communication.
+</Description>
+
+<div style="padding:56.25% 0 0 0;position:relative;">
+    <iframe
+        src="https://player.vimeo.com/video/565636809?h=c5284ae693&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+        frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+        style="position:absolute;top:0;left:0;width:100%;height:100%;"
+        title="Accessibilit&amp;agrave; &amp;egrave;... coinvolgere tutti. Un&amp;#039;esperienza al museo."></iframe>
+</div><script src="https://player.vimeo.com/api/player.js"></script>
+
+<div className={"-mx-8 pt-32"}>
+    <Marquee>
+        Tactile postcards
+    </Marquee>
+</div>
+
+<TextBox>
+    The project also provides the creation of a system of artifacts for the dissemination of video through social and
+    paper channels. The tactile postcards, which reproduce the works in the video, aim to enrich and expand the
+    experience of people
+    with sensory disabilities, thanks to the textures in relief, braille text and a qr code that refers to the audio
+    description of the work.
+</TextBox>
+
+<div className={"grid grid-cols-6 gap-16"}>
+    <div className="col-span-3 aspect-h-5 aspect-w-4">
+        <Image image={props.images('instagram.jpg')} className={"w-full h-full object-cover"}/>
+    </div>
+    <div className={"col-span-3 grid grid-rows-min gap-16"}>
+        <Image image={props.images('dettaglio_6.jpg')}/>
+        <Image image={props.images('ambientata_1.jpg')}/>
+    </div>
+</div>
+
+
+
+<TextBox>
+    <Tag title={"Course"}>
+        Complex Artefacts and System Design Studio
+        <br/>
+        A.A. 2020/2021
+    </Tag>
+    <Tag title={"Faculty"}>
+        <ul>
+            <li>Dina Riccò</li>
+            <li>Gian Luca Balzerano</li>
+            <li>Marco La Mantia</li>
+            <li>Matteo Valoriani</li>
+        </ul>
+    </Tag>
+    <Tag title={"Project team"}>
+        <ul>
+            {props.team?.map(t => <li key={t}>{t}</li>)}
+        </ul>
+    </Tag>
+    <Tag title={"Tools and technology"}>
+        <ul>
+            <li>Adobe After Effects</li>
+            <li>Figma</li>
+        </ul>
+    </Tag>
+</TextBox>

@@ -70,7 +70,7 @@ export default function Project({data: {project, mdx, images: {nodes: images}, a
                 <li><AnimatedLink href={websiteUrl} target={'_blank'} className={"font-bold"} icon={<Arrow/>}>Visit the
                     website</AnimatedLink></li>}
             </ul>
-            <p className="col-start-2 row-start-1 text-right">{year}</p>
+            <p className="col-start-2 row-start-1 text-right pt-2 text-2xl italic">{year}</p>
         </Typography.H1>
 
         <div className="h-screen overflow-hidden -mx-8">
