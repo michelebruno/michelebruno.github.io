@@ -24,7 +24,7 @@ export default function Layout({children, className, title, description, image, 
             </ul>
         </nav>
         <main className={className}>{children}</main>
-        <footer className="w-full p-8 flex justify-between">
+        <footer className="w-full px-8 my-8 flex justify-between">
             <div>
                 @ 2021
             </div>

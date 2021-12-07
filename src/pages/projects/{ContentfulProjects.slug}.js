@@ -43,17 +43,17 @@ export default function Project({data: {project, mdx, images: {nodes: images}, a
 
     return <Layout className="mx-8" title={name}>
         <Typography.H1 title={name} >
-            <ul className="row-start-1 col-span-2 col-start-9 self-end pb-2 ">
+            <ul className="row-start-1 col-span-2 col-start-9 pt-2 ">
                 {roles && <li><strong>Role:</strong> {roles.join(', ')}</li>}
                 <li><strong>Client:</strong> {client}</li>
                 {websiteUrl &&
                 <li><AnimatedLink href={websiteUrl} target={'_blank'} className={"font-bold"} icon={<Arrow/>}>Visit the
                     website</AnimatedLink></li>}
             </ul>
-            <p className="col-start-3 row-start-1 text-right pt-2 text-2xl italic">{year}</p>
+            <p className="col-start-3 row-start-1 text-right pt-2 text-2xl">{year}</p>
         </Typography.H1>
 
-        <div className="h-screen overflow-hidden -mx-8">
+        <div className="h-screen overflow-hidden -mx-8 hidden">
             <Image ref={bgRef} image={typeof cover !== 'undefined' && cover?.childImageSharp ? cover : thumbnail}
                    className={"h-full w-full object-cover scale-110 origin-top"}/>
         </div>
@@ -96,6 +96,7 @@ export const query = graphql`
         }
         images : allFile(filter: {relativeDirectory: {eq: $slug}}) {
             nodes {
+                publicURL
                 relativePath
                 childImageSharp {
                     gatsbyImageData

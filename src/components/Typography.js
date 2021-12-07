@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 export function H1({children, title, fullScreen}) {
     return <header className={classNames("items-center flex flex-col justify-center" , fullScreen && "min-h-screen")}>
-        <div className="grid grid-cols-12 gap-x-8 auto-rows-min py-64 w-full">
+        <div className="grid grid-cols-12 gap-x-8 auto-rows-min pt-32 w-full">
             <h1 className={"col-start-4 col-span-5 text-9xl "}>{title}</h1>
             {children}
         </div>

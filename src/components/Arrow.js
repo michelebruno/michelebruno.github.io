@@ -8,9 +8,10 @@ import classNames from "classnames";
  */
 
 
-export default function Arrow({inline, down, outline}) {
+export default function Arrow({inline, down, outline, className, ...props}) {
     return <span className={"inline-block align-middle"}>
         <ReactComponent height={"1em"} width={"1em"}
-                        className={classNames(!down && "rotate-[-135deg]", outline && 'text-transparent  fill-current stroke-2 stroke-[black]')}/>
+                        {...props}
+                        className={classNames(className, down && "rotate-[-135deg]", outline && 'text-transparent  fill-current stroke-2 stroke-[black]')}/>
     </span>
 }

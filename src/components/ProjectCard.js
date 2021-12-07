@@ -21,16 +21,13 @@ export function ProjectCard({project}) {
     } = projects.nodes.find(({slug}) => slug === project) || console.error('Project not found')
 
     return <div>
-        <Link to={link} className={'block group border-b-2 border-black pb-8'} data-project={project}>
-            <div className="overflow-hidden text-4xl">
-                <h2 className={"transition-transform pb-1"}>{name}</h2>
-            </div>
-            <div className="aspect-h-5 aspect-w-4 my-8">
-                <Image image={thumbnail} className={"object-cover h-full w-full"}/>
+        <Link to={link} className={'block group'} data-project={project}>
+            <div className="aspect-h-9 aspect-w-16 overflow-hidden">
+                <Image image={thumbnail} className={"object-cover h-full w-full transition-all duration-1000 group-hover:scale-125"}/>
             </div>
 
-            <div className="flex justify-between relative">
-                <p>{roles.join(', ')}</p>
+            <div className="flex justify-between relative text-base ">
+                <p>{name}</p>
                 <p>{year}</p>
             </div>
         </Link>

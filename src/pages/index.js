@@ -5,6 +5,7 @@ import gsap from 'gsap'
 import {useEffect, useRef} from "react";
 
 import {ScrollTrigger} from "gsap/ScrollTrigger";
+import CircleAnnotation from "../components/CircleAnnotation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,19 +34,19 @@ function IndexPage() {
     }, [q])
 
 
-    return <Layout className={'mx-auto px-8'}>
-        <div className="grid grid-cols-1 gap-x-8 py-64 items-center">
-            <h1 className={"text-8xl w-10/12"}>
-                 <span className="italic">Hello</span>, I'm Michele Bruno, an Italian <span
+    return <Layout className={'mx-8'}>
+        <div className="grid grid-cols-1 gap-x-8 py-32 items-center">
+            <h1 className={"text-7xl w-10/12"}>
+                <span className="italic">Hello</span>, I'm Michele Bruno, an Italian <span
                 className="inline-block font-sans not-italic">UX Designer</span> and <span
-                className="inline-block font-sans not-italic">Creative Developer</span> based in Milan, currently studing at Polimi.</h1>
+                className="inline-block font-sans not-italic">Creative Developer</span> based in Milan, currently
+                studing at Polimi.</h1>
         </div>
-        <div ref={projectContainer} className="grid grid-cols-1 md:grid-cols-project md:gap-8 mb-10">
+        <div ref={projectContainer} className="grid grid-cols-1 md:grid-cols-4 md:gap-x-8 gap-y-16 mb-10">
             <ProjectCard project={"feelo"}/>
             <ProjectCard project={"disruptive"}/>
-            <ProjectCard project={"sign-here-to-fight-the-pandemic"}/>
-
-
+            <ProjectCard project={"accessibilita-e-coinvolgere-tutti"}/>
+            <ProjectCard project={"moodboard"}/>
         </div>
     </Layout>
 }

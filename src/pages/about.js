@@ -26,7 +26,7 @@ export default function About() {
             <div className="col-span-8 text-4xl pt-32 gap-8 grid leading-snug pb-32">
 
                 <p>
-                    I'm Michele Bruno, a 24 yo designer and developer, born in Andria, Southern Italy. I'm currently
+                    I'm Michele Bruno, a 24 y.o. designer and developer, born in Andria, Southern Italy. I'm currently
                     studying Communication Design at Politecnico di Milano but I also work as a freelance.
                 </p>
                 <p>
@@ -34,9 +34,6 @@ export default function About() {
                     projects and, since then, technology has been a powerful tool to reach design goals. After my
                     bachelor degree, I chose to enhance my design abilities enrolling at PoliMi and focusing my studies
                     in UX design.
-                </p>
-                <p>
-                    Whenever projects can help society, I'm there to make my part.
                 </p>
             </div>
             <CVItem title={"Education"} items={[
