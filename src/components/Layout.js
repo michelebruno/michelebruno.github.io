@@ -1,28 +1,55 @@
 import '../style/global.css'
 import * as React from "react"
-import {Link} from "gatsby";
+import {useEffect, useState} from "react"
 import {AnimatedLink} from "./Typography";
 import Seo from "./Seo";
+import Navbar from "./Navbar";
 
+const today = new Date()
 
 console.log("Hey, what are you looking for in this console? I'm a good developer, check my GitHub profile https://github.com/michelebruno/")
 
-export default function Layout({children, className, title, description, image, pathname}) {
-    return <div className={"dark:bg-gray-900 font-sans select-none text-lg"}>
+export default function Layout({children, className, title, description, image, pathname, fixed, navbar}) {
+
+    const [showWip, setShowWip] = useState()
+    useEffect(() => {
+        const wip = localStorage.getItem('wip')
+
+        if (!wip || (new Date) > wip) {
+            setShowWip(true)
+        }
+
+    }, [])
+
+    function handleCloseWip() {
+        setShowWip(false)
+        localStorage.setItem('wip', (new Date()).setDate(today.getDate() + 1))
+    }
+
+    return <div className={"dark:bg-gray-900 font-sans select-none text-lg text-black"}>
+        {showWip && <div className="fixed inset-0 z-50">
+            <div className="h-full w-full relative">
+                <div className="absolute inset-0 z-0 bg-black opacity-50"></div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-3/12 bg-white p-8 text-xl">
+                        <p>
+                            Hey. This website is still under construction.
+
+                        </p>
+                        <p className="pt-4 text-right">
+                            <button
+                                className="py-1 px-2 bg-black text-white border-2 border-black hover:bg-white hover:text-black"
+                                onClick={handleCloseWip}>
+                                Ok, got it.
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
         <Seo title={title} description={description} pathname={pathname}/>
-        <nav className={"fixed top-0 w-full flex justify-between px-8 py-8 z-50"}>
-            <Link to="/" className={"group "}>michelebruno</Link>
-            <ul className="flex gap-x-8">
-                <li>
-                    <AnimatedLink component={Link}
-                                  to={'/projects'}>Projects</AnimatedLink>
-                </li>
-                <li>
-                    <AnimatedLink component={Link}
-                                  to={'/about'}>About</AnimatedLink>
-                </li>
-            </ul>
-        </nav>
+        {navbar && <Navbar fixed={fixed} className={"px-8"} />}
         <main className={className}>{children}</main>
         <footer className="w-full px-8 my-8 flex justify-between">
             <div>
@@ -41,3 +68,6 @@ export default function Layout({children, className, title, description, image, 
     </div>
 }
 
+Layout.defaultProps = {
+    navbar: true
+}

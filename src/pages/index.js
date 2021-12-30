@@ -6,48 +6,60 @@ import {useEffect, useRef} from "react";
 
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import CircleAnnotation from "../components/CircleAnnotation";
+import Navbar from "../components/Navbar";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const homeProjectSlugs = ['feelo', 'disruptive', 'accessibilita-e-coinvolgere-tutti', 'moodboard']
 
 function IndexPage() {
     const projectContainer = useRef()
-    const q = gsap.utils.selector(projectContainer);
 
     useEffect(() => {
-        return;
-        ScrollTrigger.batch(q('[data-project]'), {
-            onEnter: elements => {
-                gsap.to(elements, {
-                    yPercent: -20,
-                    // ease: "none",
-                    stagger: .5
-                });
-            },
-            trigger: projectContainer.current,
-            start: "top bottom", // the default values
-            end: "bottom bottom",
-            scrub: true
-        })
+        /*   gsap.timeline({
+               scrollTrigger: {
+                   trigger: projectContainer.current,
+                   pin: true,
+                   scrub: 1,
+                   snap: 1 / (homeProjectSlugs.length),
+                   end: () => "+=" + (projectContainer.current.offsetWidth * homeProjectSlugs.length)
+               }
+           })*/
+    }, [])
 
 
-    }, [q])
+    return <Layout fixed >
+        <div className="grid grid-cols-10 gap-x-8 content-around items-center min-h-screen mx-8 relative">
 
-
-    return <Layout className={'mx-8'}>
-        <div className="grid grid-cols-1 gap-x-8 py-32 items-center">
-            <h1 className={"text-7xl w-10/12"}>
-                <span className="italic">Hello</span>, I'm Michele Bruno, an Italian <span
+            <h1 className={"text-8xl col-span-8 py-32"}>
+                <span className="">Hello!</span> I'm Michele Bruno, an Italian <span
                 className="inline-block font-sans not-italic">UX Designer</span> and <span
-                className="inline-block font-sans not-italic">Creative Developer</span> based in Milan, currently
+                className="inline-block font-sans not-italic">Creative Developer</span>, currently
                 studing at Polimi.</h1>
+
         </div>
-        <div ref={projectContainer} className="grid grid-cols-1 md:grid-cols-4 md:gap-x-8 gap-y-16 mb-10">
-            <ProjectCard project={"feelo"}/>
-            <ProjectCard project={"disruptive"}/>
-            <ProjectCard project={"accessibilita-e-coinvolgere-tutti"}/>
-            <ProjectCard project={"moodboard"}/>
-        </div>
+        <section className="bg-black text-white min-h-screen" ref={projectContainer}>
+
+            <div className="mb-10 grid grid-cols-10 gap-x-8 gap-y-16 py-32 items-center content-center">
+                <h2 className="col-span-6 col-start-3 text-8xl uppercase font-semibold">Selected projects</h2>
+                <div className="col-span-10"></div>
+                <div
+                    className="col-span-6 col-start-3 grid grid-cols-1 md:grid-cols-1 md:gap-x-8 gap-y-60 overflow-hidden">
+                    <div className=" projects-container -mx-16">
+                        {homeProjectSlugs
+                            .map((project, index) => <ProjectCard className={"px-16 pb-32"} project={project}
+                                                                  position={index + 1}
+                                                                  key={project}/>)
+                        }
+                        <div className=" ">
+                            <div className="w-1/2 h-1/2 m-auto">
+                                <CircleAnnotation>All projects</CircleAnnotation>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </Layout>
 }
 

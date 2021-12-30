@@ -24,9 +24,20 @@ module.exports = {
         {
             resolve: "gatsby-plugin-web-font-loader",
             options: {
-                typekit: {
-                    id: process.env.TYPEKIT_ID,
-                },
+
+                google2: [
+                    {
+                        family: "Manrope",
+                        axes: "wght@400..600", // multiple ranges are supported, ex: "wght@300..500;700..900"
+                    },
+                ],
+                // typekit: {
+                //     id: process.env.TYPEKIT_ID,
+                // },
+                // custom: {
+                //     families: ["Switzer", "Cabinet Grotesk"],
+                //     urls: ['https://api.fontshare.com/css?f[]=switzer@301,400&f[]=cabinet-grotesk@400,700&display=swap']
+                // }
             },
         },
         'gatsby-plugin-svgr',

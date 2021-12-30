@@ -2,12 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .text-stroke {
     -webkit-text-stroke-width: 1px;
     text-stroke-width: 1px;
     -webkit-text-stroke-color: theme('colors.black');
     text-stroke-color: theme('colors.black');
-    color: transparent;
+    color: white;
 }
 
 .marquee .marquee_inner {
@@ -38,3 +39,19 @@
     transform: scaleY(1.1);
  }
 
+.landing-animation {
+    min-height: 100vh;
+    animation: minHeightAnimation 800ms ease-in 2s ;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes minHeightAnimation {
+    from {
+        min-height: 100vh;
+    }
+
+    to {
+        min-height: 40vh;
+    }
+}

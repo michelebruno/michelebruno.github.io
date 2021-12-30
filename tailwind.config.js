@@ -13,10 +13,13 @@ module.exports = {
                 // 'project': '3fr 4.5fr 4.5fr',
                 'project': '0.6fr 1.2fr 1.2fr',
                 'home': 'repeat(5, 0.6fr)'
-            }
+            },
+            colors: {
+                black: '#242424'
+            },
         },
         fontFamily: {
-            'sans': ['neue-haas-grotesk-display', 'Manrope', 'ui-sans-serif', 'system-ui',],
+            'sans': ['Manrope', 'ui-sans-serif', 'system-ui',],
             'serif': ['freight-big-pro', 'serif']
         }
     },
