@@ -1,8 +1,8 @@
-import {graphql} from "gatsby";
+import { graphql } from 'gatsby';
 
 export const projectFragment = graphql`fragment ProjectFragment on ContentfulProjects {
     client
-    description
+    description 
     isPagePublic
     name
     roles
@@ -20,4 +20,4 @@ export const projectFragment = graphql`fragment ProjectFragment on ContentfulPro
         }
     }
     
-}`
+}`;
