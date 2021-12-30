@@ -1,8 +1,9 @@
-import { graphql } from 'gatsby';
+import {graphql} from 'gatsby';
 
-export const projectFragment = graphql`fragment ProjectFragment on ContentfulProjects {
+export const projectFragment = graphql`
+  fragment ProjectFragment on ContentfulProjects {
     client
-    description 
+    description
     isPagePublic
     name
     roles
@@ -13,11 +14,9 @@ export const projectFragment = graphql`fragment ProjectFragment on ContentfulPro
     year
     link: gatsbyPath(filePath: "/projects/{ContentfulProjects.slug}")
     images: childrenFile {
-        childImageSharp {
-            gatsbyImageData(
-                quality: 100
-            )
-        }
+      childImageSharp {
+        gatsbyImageData(quality: 100)
+      }
     }
-    
-}`;
+  }
+`;

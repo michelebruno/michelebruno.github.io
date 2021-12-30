@@ -1,19 +1,19 @@
 import * as React from 'react';
-import {
-  graphql, Link, navigate, useStaticQuery,
-} from 'gatsby';
+import {graphql, Link, navigate, useStaticQuery} from 'gatsby';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Image from './Image';
 
-export function ProjectCard({ project, position, className }) {
-  const { projects } = useStaticQuery(graphql`{
-        projects: allContentfulProjects {
-            nodes {
-                ...ProjectFragment
-            }
+export function ProjectCard({project, position, className}) {
+  const {projects} = useStaticQuery(graphql`
+    {
+      projects: allContentfulProjects {
+        nodes {
+          ...ProjectFragment
         }
-    }`);
+      }
+    }
+  `);
 
   const {
     name,
@@ -21,7 +21,7 @@ export function ProjectCard({ project, position, className }) {
     roles,
     link,
     images: [thumbnail],
-  } = projects.nodes.find(({ slug }) => slug === project) || console.error('Project not found');
+  } = projects.nodes.find(({slug}) => slug === project) || console.error('Project not found');
 
   return (
     <div className={classNames('group', className)} onClick={() => navigate(link)}>
@@ -34,7 +34,7 @@ export function ProjectCard({ project, position, className }) {
 
       <div className="flex justify-between relative mt-4  ">
         <h3 className="text-6xl font-medium">
-          { /* {position.toString().padStart(2, 0)}/ */ }
+          {/* {position.toString().padStart(2, 0)}/ */}
           {name}
         </h3>
         <p className="font-extralight  text-2xl">{roles.join(', ')}</p>

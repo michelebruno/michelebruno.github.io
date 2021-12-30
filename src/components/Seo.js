@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Helmet } from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
-import { useLocation } from '@reach/router';
+import {Helmet} from 'react-helmet';
+import {useStaticQuery, graphql} from 'gatsby';
+import {useLocation} from '@reach/router';
 
 /**
  * More or less from Gatsby docs.
@@ -15,30 +15,24 @@ import { useLocation } from '@reach/router';
  * @return {JSX.Element}
  * @constructor
  */
-export default function Seo({
-  title, description, image, article,
-}) {
-  const { pathname } = useLocation();
-  const { site } = useStaticQuery(graphql`
-        query Seo {
-            site {
-                siteMetadata {
-                    defaultTitle: title
-                    titleTemplate
-                    defaultDescription: description
-                    siteUrl
-                    defaultImage: image
-                }
-            }
+export default function Seo({title, description, image, article}) {
+  const {pathname} = useLocation();
+  const {site} = useStaticQuery(graphql`
+    query Seo {
+      site {
+        siteMetadata {
+          defaultTitle: title
+          titleTemplate
+          defaultDescription: description
+          siteUrl
+          defaultImage: image
         }
-    `);
+      }
+    }
+  `);
 
-  const {
-    defaultTitle,
-    titleTemplate,
-    defaultDescription,
-    siteUrl, defaultImage,
-  } = site.siteMetadata;
+  const {defaultTitle, titleTemplate, defaultDescription, siteUrl, defaultImage} =
+    site.siteMetadata;
 
   const seo = {
     title: title || defaultTitle,
@@ -53,29 +47,29 @@ export default function Seo({
       defaultTitle={defaultTitle}
       titleTemplate={titleTemplate}
       meta={[
-        { name: 'description', content: seo.description },
-        { itemprop: 'name', content: seo.title },
-        { itemprop: 'description', content: seo.description },
-        { itemprop: 'image', content: seo.image },
-        { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:site', content: seo.url },
-        { name: 'twitter:title', content: seo.title },
-        { name: 'twitter:description', content: seo.description },
-        { name: 'twitter:image:src', content: seo.image },
-        { property: 'og:image:height', content: '1080' },
-        { property: 'og:image:width', content: '1920' },
-        { property: 'og:image:type', content: 'image/jpeg' },
-        { name: 'description', content: seo.description },
-        { property: 'og:type', content: 'website' },
-        { property: 'og:url', content: seo.url },
-        { property: 'og:title', content: seo.title },
-        { property: 'og:site_name', content: defaultTitle },
-        { property: 'og:description', content: seo.description },
-        { property: 'og:image', content: seo.image },
-        { property: 'og:image:secure_url', content: seo.image },
-        { property: 'og:image:height', content: '1080' },
-        { property: 'og:image:width', content: '1920' },
-        { property: 'og:image:type', content: 'image/jpeg' },
+        {name: 'description', content: seo.description},
+        {itemprop: 'name', content: seo.title},
+        {itemprop: 'description', content: seo.description},
+        {itemprop: 'image', content: seo.image},
+        {name: 'twitter:card', content: 'summary_large_image'},
+        {name: 'twitter:site', content: seo.url},
+        {name: 'twitter:title', content: seo.title},
+        {name: 'twitter:description', content: seo.description},
+        {name: 'twitter:image:src', content: seo.image},
+        {property: 'og:image:height', content: '1080'},
+        {property: 'og:image:width', content: '1920'},
+        {property: 'og:image:type', content: 'image/jpeg'},
+        {name: 'description', content: seo.description},
+        {property: 'og:type', content: 'website'},
+        {property: 'og:url', content: seo.url},
+        {property: 'og:title', content: seo.title},
+        {property: 'og:site_name', content: defaultTitle},
+        {property: 'og:description', content: seo.description},
+        {property: 'og:image', content: seo.image},
+        {property: 'og:image:secure_url', content: seo.image},
+        {property: 'og:image:height', content: '1080'},
+        {property: 'og:image:width', content: '1920'},
+        {property: 'og:image:type', content: 'image/jpeg'},
       ]}
     >
       {/* <!-- Twitter Card data --> */}
