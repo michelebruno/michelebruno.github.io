@@ -7,22 +7,23 @@ export default function Navbar({fixed, className}) {
   return (
     <nav
       className={classNames(
-        'top-0 w-full flex justify-between py-8 z-50',
+        'top-0 w-full flex justify-between z-50',
+        '',
         fixed && 'fixed',
         !fixed && 'sticky',
         className
       )}
     >
-      <Link to="/" className="group ">
+      <Link to="/" className="group h-full py-6 pr-8 ">
         michelebruno
       </Link>
-      <ul className="flex gap-x-8">
-        <li>
+      <ul className="flex">
+        <li className="px-8 py-6 ">
           <AnimatedLink component={Link} to="/projects">
             Projects
           </AnimatedLink>
         </li>
-        <li>
+        <li className="pl-8 py-6 ">
           <AnimatedLink component={Link} to="/about">
             About
           </AnimatedLink>

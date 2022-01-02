@@ -1,3 +1,17 @@
+@font-face {
+    font-family: ManropeExt;
+    font-weight: 400;
+    src: /*  url("webfont.eot?#iefix") format("embedded-opentype"), IE6-IE8 */ url("../fonts/Manrope/webfonts/Manrope-Regular.woff2") format("woff2"), /* Modern Browsers */ url("../fonts/Manrope/ttf/Manrope-Regular.ttf") format("truetype");/* Safari, Android, iOS */
+    /* url("webfont.svg#svgFontName") format("svg"); Legacy iOS */
+}
+
+@font-face {
+    font-family: ManropeExt;
+    font-weight: 600;
+    src: /*  url("webfont.eot?#iefix") format("embedded-opentype"), IE6-IE8 */ url("../fonts/Manrope/webfonts/Manrope-Semibold.woff2") format("woff2"), /* Modern Browsers */ url("../fonts/Manrope/ttf/Manrope-Semibold.ttf") format("truetype");/* Safari, Android, iOS */
+    /* url("webfont.svg#svgFontName") format("svg"); Legacy iOS */
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,6 +19,7 @@
 
 .text-stroke {
     -webkit-text-stroke-width: 1px;
+    font-family: 'ManropeExt';
     text-stroke-width: 1px;
     -webkit-text-stroke-color: theme('colors.black');
     text-stroke-color: theme('colors.black');
@@ -33,15 +48,15 @@
 
 .animated-link:hover::before {
     transform: none;
- }
+}
 
 .animated-link:active::before {
     transform: scaleY(1.1);
- }
+}
 
 .landing-animation {
     min-height: 100vh;
-    animation: minHeightAnimation 800ms ease-in 2s ;
+    animation: minHeightAnimation 800ms ease-in 2s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
