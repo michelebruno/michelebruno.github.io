@@ -86,8 +86,11 @@ function IndexPage() {
                   All projects
                 </h3>
                 <div>
-                  <div className="overflow-hidden pb-4">
-                    <div className="group-hover:translate-y-full group-hover:opacity-0 transition-all duration-500">
+                  <div className="overflow-hidden pb-4 relative">
+                    <p className="text-2xl lg:text-3xl absolute top-0 -translate-y-full group-hover:translate-y-0 transition">
+                      Let's go
+                    </p>
+                    <div className="group-hover:translate-y-full group-hover:opacity-0 transition-all">
                       <h4 className="text-2xl lg:text-3xl">This is just a selection</h4>
                       <p>Click here to see all my work</p>
                     </div>

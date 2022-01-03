@@ -31,16 +31,15 @@ export function ProjectCard({project, position, className, version}) {
       >
         <Image
           image={thumbnail}
-          className="bg-white object-cover h-full w-full absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105"
+          className="bg-white object-cover h-full w-full absolute inset-0 opacity-0 group-hover:opacity-50 transition-all group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-white opacity-30" />
         <div className="absolute inset-0 grid grid-rows-[14rem_auto_auto] px-32 py-32 ">
           <h3 className="text-5xl leading-tight">
             {/* {position.toString().padStart(2, 0)}/ */}
             {name}
           </h3>
-          <div className="text-xl">
-            <p className=" group-hover:translate-y-full group-hover:opacity-0 transition-all duration-500">
+          <div className="text-xl ">
+            <p className=" group-hover:translate-y-full group-hover:opacity-0 transition-all">
               {roles.join(' | ')}
             </p>
           </div>
@@ -76,7 +75,7 @@ export function ProjectCard({project, position, className, version}) {
           </h3>
           <div>
             <div className="overflow-hidden pb-4">
-              <div className="group-hover:translate-y-full group-hover:opacity-0 transition-all duration-500">
+              <div className="group-hover:translate-y-full group-hover:opacity-0 transition-all">
                 <h4 className="text-2xl lg:text-3xl">{tagline}</h4>
                 <p>
                   {' '}

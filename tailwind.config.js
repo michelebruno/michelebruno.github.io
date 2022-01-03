@@ -19,6 +19,12 @@ module.exports = {
       borderColor: {
         DEFAULT: '#242424',
       },
+      transitionDuration: {
+        DEFAULT: '600ms',
+      },
+      transitionTimingFunction: {
+        DEFAULT: 'cubic-bezier(0.76, 0, 0.24, 1)',
+      },
     },
     fontFamily: {
       sans: ['Clash Grotesk', 'Manrope', 'ui-sans-serif', 'system-ui'],
