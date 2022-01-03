@@ -77,7 +77,7 @@ export default function Projects({data}) {
 
 export const query = graphql`
   {
-    projects: allContentfulProjects(sort: {fields: [year], order: [DESC]}) {
+    projects: allProjectsCsv(sort: {fields: [year], order: [DESC]}) {
       nodes {
         ...ProjectFragment
       }

@@ -42,7 +42,7 @@ export function Tag({title, children}) {
   return (
     <div className="pb-16">
       <p className="mb-8">{title}</p>
-      <p className="text-2xl">{children}</p>
+      <div className="text-2xl">{children}</div>
     </div>
   );
 }

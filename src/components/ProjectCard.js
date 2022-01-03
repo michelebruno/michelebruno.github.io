@@ -8,7 +8,7 @@ import Button from './Button';
 export function ProjectCard({project, position, className, version}) {
   const {projects} = useStaticQuery(graphql`
     {
-      projects: allContentfulProjects {
+      projects: allProjectsCsv {
         nodes {
           ...ProjectFragment
         }
@@ -16,13 +16,8 @@ export function ProjectCard({project, position, className, version}) {
     }
   `);
 
-  const {
-    name,
-    year,
-    roles,
-    link,
-    images: [thumbnail],
-  } = projects.nodes.find(({slug}) => slug === project) || console.error('Project not found');
+  const {name, year, roles, link, thumbnail} =
+    projects.nodes.find(({slug}) => slug === project) || console.error('Project not found');
 
   if (version === 2) {
     return (

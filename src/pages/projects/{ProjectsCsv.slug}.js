@@ -28,29 +28,19 @@ export default function Project({
     project,
     mdx,
     images: {nodes: images},
-    allContentfulProjects,
+    allProjectsCsv,
   },
 }) {
-  const {
-    name,
-    slug,
-    roles,
-    images: [thumbnail, cover],
-    year,
-    client,
-    team,
-    websiteUrl,
-    description,
-  } = project;
+  console.log(project);
+  const {name, slug, roles, thumbnail, cover, year, client, team, websiteUrl, description} =
+    project;
 
   const bgRef = useRef();
 
-  const nextProjectIndex = allContentfulProjects.nodes.findIndex(p => p.slug === slug) + 1;
+  const nextProjectIndex = allProjectsCsv.nodes.findIndex(p => p.slug === slug) + 1;
 
   const nextProject =
-    allContentfulProjects.nodes[
-      allContentfulProjects.nodes.length > nextProjectIndex ? nextProjectIndex : 0
-    ];
+    allProjectsCsv.nodes[allProjectsCsv.nodes.length > nextProjectIndex ? nextProjectIndex : 0];
 
   useEffect(() => {
     gsap.to(bgRef.current, {
@@ -139,14 +129,14 @@ export default function Project({
 
 export const query = graphql`
   query ($slug: String!) {
-    project: contentfulProjects(slug: {eq: $slug}) {
+    project: projectsCsv(slug: {eq: $slug}) {
       ...ProjectFragment
     }
-    allContentfulProjects(filter: {isPagePublic: {eq: true}}) {
+    allProjectsCsv(filter: {isPagePublic: {eq: true}}) {
       nodes {
         name
         slug
-        link: gatsbyPath(filePath: "/projects/{ContentfulProjects.slug}")
+        link: gatsbyPath(filePath: "/projects/{projectsCsv.slug}")
       }
     }
 

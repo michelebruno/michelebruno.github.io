@@ -80,12 +80,12 @@ module.exports = {
       __key: 'pages',
     },
     {
-      resolve: `gatsby-source-contentful`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        spaceId: `wlyz45dxguno`,
-        // Learn about environment variables: https://gatsby.dev/env-vars
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        name: `data`,
+        path: `${__dirname}/src/data/`,
       },
     },
+    `gatsby-transformer-csv`,
   ],
 };

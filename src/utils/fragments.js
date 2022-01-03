@@ -1,7 +1,7 @@
 import {graphql} from 'gatsby';
 
 export const projectFragment = graphql`
-  fragment ProjectFragment on ContentfulProjects {
+  fragment ProjectFragment on ProjectsCsv {
     client
     description
     isPagePublic
@@ -12,11 +12,16 @@ export const projectFragment = graphql`
     type
     websiteUrl
     year
-    link: gatsbyPath(filePath: "/projects/{ContentfulProjects.slug}")
-    images: childrenFile {
+    cover {
       childImageSharp {
         gatsbyImageData(quality: 100)
       }
     }
+    thumbnail {
+      childImageSharp {
+        gatsbyImageData(quality: 100)
+      }
+    }
+    link: gatsbyPath(filePath: "/projects/{ProjectsCsv.slug}")
   }
 `;
