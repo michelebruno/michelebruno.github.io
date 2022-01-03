@@ -16,8 +16,9 @@ export function ProjectCard({project, position, className, version}) {
     }
   `);
 
-  const {name, year, roles, link, thumbnail} =
-    projects.nodes.find(({slug}) => slug === project) || console.error('Project not found');
+  const {name, year, roles, link, tagline, thumbnail} =
+    projects.nodes.find(({slug}) => slug === project) ||
+    console.error(`Project ${project} not found`);
 
   if (version === 2) {
     return (
@@ -33,12 +34,12 @@ export function ProjectCard({project, position, className, version}) {
           className="bg-white object-cover h-full w-full absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-white opacity-30" />
-        <div className="absolute inset-0 grid grid-rows-[12rem_auto_auto] px-32 py-32 ">
+        <div className="absolute inset-0 grid grid-rows-[14rem_auto_auto] px-32 py-32 ">
           <h3 className="text-5xl leading-tight">
             {/* {position.toString().padStart(2, 0)}/ */}
             {name}
           </h3>
-          <div className=" text-xl">
+          <div className="text-xl">
             <p className=" group-hover:translate-y-full group-hover:opacity-0 transition-all duration-500">
               {roles.join(' | ')}
             </p>
@@ -56,22 +57,35 @@ export function ProjectCard({project, position, className, version}) {
   if (version === 3) {
     return (
       <div
-        className={classNames('group overflow-hidden  ', 'aspect-[2/3] border relative', className)}
+        className={classNames(
+          'group overflow-hidden',
+          'min-aspect-[2/3] border-r border-b relative',
+          className
+        )}
+        onClick={() => navigate(link)}
       >
         <Image
           image={thumbnail}
-          className="bg-white object-cover h-full w-full absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105"
+          className="bg-white object-cover h-full w-full absolute inset-0 lg:opacity-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-white opacity-30" />
-        <div className="absolute inset-0 grid grid-rows-[12rem_auto_auto] px-16 py-16 ">
-          <h3 className="text-5xl leading-tight">
+        <div className="bg-white absolute inset-0 opacity-50" />
+        <div className="relative h-full inset-0 grid grid-rows-3 lg:grid-rows-[13rem_auto_auto] p-8 lg:p-16">
+          <h3 className="text-4xl lg:text-6xl">
             {/* {position.toString().padStart(2, 0)}/ */}
             {name}
           </h3>
-          <div className=" text-xl">
-            <p className=" group-hover:translate-y-full group-hover:opacity-0 transition-all duration-500">
-              {roles.join(' | ')}
-            </p>
+          <div>
+            <div className="overflow-hidden pb-4">
+              <div className="group-hover:translate-y-full group-hover:opacity-0 transition-all duration-500">
+                <h4 className="text-2xl lg:text-3xl">{tagline}</h4>
+                <p>
+                  {' '}
+                  {roles.map(r => (
+                    <span className="border-r last:border-r-0 px-2 first:pl-0">{r}</span>
+                  ))}
+                </p>
+              </div>
+            </div>
           </div>
           <div className="self-end">
             <Button as={Link} to={link} before>

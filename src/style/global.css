@@ -23,22 +23,20 @@
 }
 
 
-@layer components {
-    .rounded-button:hover .button-child {
-        @apply bg-white;
-    }
-    .rounded-button:active .button-child {
-        @apply bg-black text-white;
-    }
-}
 
 .text-stroke {
     -webkit-text-stroke-width: 1px;
-    font-family: 'ManropeExt';
     text-stroke-width: 1px;
     -webkit-text-stroke-color: theme('colors.black');
     text-stroke-color: theme('colors.black');
     color: white;
+}
+.text-stroke-white {
+    -webkit-text-stroke-width: 1px;
+    text-stroke-width: 1px;
+    -webkit-text-stroke-color: theme('colors.white');
+    text-stroke-color: theme('colors.white');
+    color: theme('colors.black');
 }
 
 .marquee .marquee_inner {

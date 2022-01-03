@@ -16,12 +16,12 @@ export function Mockup({title, names, images}) {
 </Description>
 
 
-<div className={"grid grid-cols-6 gap-x-16 justify-center"}>
+<div className={"grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6 gap-x-16 justify-center"}>
     <Image image={props.images('feelo-trittico.png')} pictureClassName={"col-span-4 col-start-2 aspect-w-4 aspect-h-3"}
            className={"object-cover"}/>
 </div>
 
-<Grid six padding>
+<div className={"grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6"}>
     <Mockup names={['giulia-diario.png']} images={props.images} title={"Daily journal"}/>
     <Mockup names={['shared-activity-giulia.png', 'giulia-attivita-giasvolta.png']} images={props.images}
             title={"Shared activities"}/>
@@ -30,11 +30,10 @@ export function Mockup({title, names, images}) {
     <Mockup names={['giulia-diario.png']} images={props.images} title={"Insights"}/>
     <Mockup names={['giulia-diario.png']} images={props.images} title={"Individual activities"}/>
 
-</Grid>
+</div>
 
-<Marquee>Website</Marquee>
 
-<TextBox>
+<TextBox title={"Credits"}>
     <Tag title={"Course"}>
         Interaction Design Studio
         <br/>

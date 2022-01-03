@@ -16,8 +16,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Description({description, children}) {
   return (
-    <TextBox containBorder>
-      <h3 className="text-3xl font-bold mb-2 pb-8">{description}</h3>
+    <TextBox title="Overview">
+      <h3 className="text-4xl mb-2 pb-8">{description}</h3>
       {children}
     </TextBox>
   );
@@ -31,9 +31,19 @@ export default function Project({
     allProjectsCsv,
   },
 }) {
-  console.log(project);
-  const {name, slug, roles, thumbnail, cover, year, client, team, websiteUrl, description} =
-    project;
+  const {
+    name,
+    slug,
+    roles,
+    tagline,
+    thumbnail,
+    cover,
+    year,
+    client,
+    team,
+    websiteUrl,
+    description,
+  } = project;
 
   const bgRef = useRef();
 
@@ -53,16 +63,16 @@ export default function Project({
   }, []);
 
   return (
-    <Layout className="" title={name} fixed>
-      <div className="grid grid-cols-3 items-end py-32">
-        <div className="col-span-2 px-32">
+    <Layout className="" title={name}>
+      <div className="grid grid-cols-1 lg:grid-cols-3 items-end pt-32 pb-16  lg:py-32">
+        <div className="col-span-2 px-8 lg:px-16 pb-16 lg:pb-0">
           <div>
-            <h1 className="text-8xl font-medium inline pr-4">{name}</h1>
+            <h1 className=" text-4xl lg:text-8xl font-medium lg:inline lg:pr-4">{name}</h1>
             <span className="text-2xl ">({year})</span>
           </div>
-          <h2 className="text-4xl">An app to fight eating disorders</h2>
+          <h2 className="text-2xl lg:text-4xl pt-8 lg:pt-0">{tagline}</h2>
         </div>
-        <ul className="px-32 ">
+        <ul className="px-8 pt-8 lg:px-32 ">
           {roles && (
             <li>
               <strong>Role:</strong> {roles.join(', ')}

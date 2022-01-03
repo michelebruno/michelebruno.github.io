@@ -65,7 +65,12 @@ exports.createResolvers = ({createResolvers}) => {
       isPagePublic: {
         type: 'Boolean',
         resolve: ({isPagePublic}) =>
-          !(isPagePublic === 'null' || isPagePublic === 'false' || isPagePublic),
+          !(
+            !isPagePublic ||
+            isPagePublic === 'null' ||
+            isPagePublic === 'false' ||
+            isPagePublic === ''
+          ),
       },
       roles: {
         type: ['String'],

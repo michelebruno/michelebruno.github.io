@@ -6,8 +6,8 @@ function CVItem({title, items}) {
   return (
     <div className="col-span-12 leading-snug ">
       <div className="border-t grid grid-cols-4 gap-x-8 gap-y-16 px-32">
-        <h2 className="text-6xl  py-32">{title}</h2>
-        <ul className="text-4xl col-span-2 grid pt-32 pb-16">
+        <h2 className="text-2xl py-32">{title}</h2>
+        <ul className="text-2xl col-span-2 grid pt-32 pb-16">
           {items.map(({rows, label}) => (
             <li className="pb-16 px-32">
               {label && <span className="block text-lg">{label}</span>}

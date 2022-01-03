@@ -36,7 +36,7 @@ export default function Layout({
   }
 
   return (
-    <div className="font-sans text-lg text-black">
+    <div className="font-sans text-black">
       {showWip && (
         <div className="fixed inset-0 z-50">
           <div className="h-full w-full relative">
@@ -58,7 +58,7 @@ export default function Layout({
         </div>
       )}
       <Seo title={title} description={description} pathname={pathname} />
-      {navbar && <Navbar fixed={fixed} className="px-16" />}
+      {navbar && <Navbar fixed={fixed} className="px-8 lg:px-16" />}
       <main className={className}>{children}</main>
       <footer className="w-full px-8 my-8 flex justify-between">
         <div>@ 2021</div>

@@ -3,6 +3,7 @@ import {graphql} from 'gatsby';
 export const projectFragment = graphql`
   fragment ProjectFragment on ProjectsCsv {
     client
+    tagline
     description
     isPagePublic
     name

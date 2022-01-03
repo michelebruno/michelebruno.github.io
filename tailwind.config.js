@@ -14,6 +14,7 @@ module.exports = {
       },
       colors: {
         black: '#242424',
+        brand: '#FFA500', // 'rgb(240 120 48)',
       },
       borderColor: {
         DEFAULT: '#242424',
