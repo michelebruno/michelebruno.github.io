@@ -63,9 +63,16 @@ export default function Project({
   }, []);
 
   return (
-    <Layout className="mx-8" title={name} fixed={false}>
-      <Typography.H1 title={name}>
-        <ul className="row-start-1 col-span-2 col-start-9 pt-2 ">
+    <Layout className="" title={name} fixed>
+      <div className="grid grid-cols-3 items-end py-32">
+        <div className="col-span-2 px-32">
+          <div>
+            <h1 className="text-8xl font-medium inline pr-4">{name}</h1>
+            <span className="text-2xl ">({year})</span>
+          </div>
+          <h2 className="text-4xl">An app to fight eating disorders</h2>
+        </div>
+        <ul className="px-32 ">
           {roles && (
             <li>
               <strong>Role:</strong> {roles.join(', ')}
@@ -87,10 +94,8 @@ export default function Project({
             </li>
           )}
         </ul>
-        <p className="col-start-3 row-start-1 text-right pt-2 text-2xl">{year}</p>
-      </Typography.H1>
-
-      <div className="h-screen overflow-hidden -mx-8 hidden">
+      </div>
+      <div className="h-screen overflow-hidden border-t border-b">
         <Image
           ref={bgRef}
           image={typeof cover !== 'undefined' && cover?.childImageSharp ? cover : thumbnail}
@@ -123,7 +128,7 @@ export default function Project({
         <TextBox padding={false}>Next project</TextBox>
 
         <Grid two>
-          <div className="-mx-8 col-start-1 col-span-2">
+          <div className="col-start-1 col-span-2">
             <Marquee link={nextProject.link}>{nextProject.name}</Marquee>
           </div>
         </Grid>

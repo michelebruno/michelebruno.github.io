@@ -23,6 +23,9 @@ module.exports = {
       sans: ['Clash Grotesk', 'Manrope', 'ui-sans-serif', 'system-ui'],
       serif: ['freight-big-pro', 'serif'],
     },
+    fontWeight: {
+      DEFAULT: '300',
+    },
   },
   variants: {
     extend: {},
