@@ -13,7 +13,7 @@ export default function Button({children, before, after, className, as: Componen
   return (
     <Component
       className={classNames(
-        'rounded-button group border-b-4 border-current inline-block group-hover:text-brand hover:text-brand',
+        'rounded-button group border-b-4 border-current inline-block ',
         className
       )}
       {...props}
