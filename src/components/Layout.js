@@ -36,7 +36,7 @@ export default function Layout({
   }
 
   return (
-    <div className="dark:bg-gray-900 font-sans select-none text-lg text-black">
+    <div className="font-sans select-none text-lg text-black">
       {showWip && (
         <div className="fixed inset-0 z-50">
           <div className="h-full w-full relative">

@@ -28,22 +28,26 @@ export function ProjectCard({project, position, className, version}) {
       <div
         className={classNames(
           'group overflow-hidden cursor-pointer',
-          'border-r border-b px-32 py-16 relative',
+          'aspect-[2/3] border-r relative',
           className
         )}
-        onClick={() => navigate(link)}
       >
         <Image
           image={thumbnail}
           className="bg-white object-cover h-full w-full absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-white opacity-20" />
-        <div className="justify-between relative mt-4  ">
-          <h3 className="text-4xl font-medium">
+        <div className="absolute inset-0 bg-white opacity-30" />
+        <div className="absolute inset-0 grid grid-rows-[12rem_auto_auto] px-32 py-32 ">
+          <h3 className="text-5xl leading-tight">
             {/* {position.toString().padStart(2, 0)}/ */}
             {name}
           </h3>
-          <p className="font-extralight  text-2xl">{roles.join(' | ')}</p>
+          <div className=" text-xl">
+            <p className=" group-hover:translate-y-full group-hover:opacity-0 transition-all duration-500">
+              {roles.join(' | ')}
+            </p>
+          </div>
+          <div className="self-end">View</div>
         </div>
       </div>
     );
@@ -66,7 +70,7 @@ export function ProjectCard({project, position, className, version}) {
           {/* {position.toString().padStart(2, 0)}/ */}
           {name}
         </h3>
-        <p className="font-extralight  text-2xl">{roles.join(', ')}</p>
+        <p className="text-2xl">{roles.join(', ')}</p>
       </div>
     </div>
   );

@@ -35,10 +35,12 @@ module.exports = {
         // typekit: {
         //     id: process.env.TYPEKIT_ID,
         // },
-        // custom: {
-        //     families: ["Switzer", "Cabinet Grotesk"],
-        //     urls: ['https://api.fontshare.com/css?f[]=switzer@301,400&f[]=cabinet-grotesk@400,700&display=swap']
-        // }
+        custom: {
+          families: ['Switzer', 'Cabinet Grotesk', 'Clash grotesk'],
+          urls: [
+            'https://api.fontshare.com/css?f[]=switzer@301,400&f[]=cabinet-grotesk@400,700&f[]=clash-grotesk@1&display=swap',
+          ],
+        },
       },
     },
     'gatsby-plugin-svgr',

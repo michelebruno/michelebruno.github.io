@@ -16,11 +16,11 @@ module.exports = {
         black: '#242424',
       },
       borderColor: {
-        DEFAULT: 'rgba(36,36,36,0.5)',
+        DEFAULT: '#242424',
       },
     },
     fontFamily: {
-      sans: ['Manrope', 'ui-sans-serif', 'system-ui'],
+      sans: ['Clash Grotesk', 'Manrope', 'ui-sans-serif', 'system-ui'],
       serif: ['freight-big-pro', 'serif'],
     },
   },
