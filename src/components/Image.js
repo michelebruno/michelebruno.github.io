@@ -11,7 +11,7 @@ const Image = forwardRef((props, ref) => {
 
   if (!image) return null;
 
-  const {alt, className, pictureClassName, loading, preload, id} = props;
+  const {alt, className, pictureClassName, loading, preload, id, onMouseMove} = props;
 
   const {height, width, images} = image;
 
@@ -48,6 +48,7 @@ const Image = forwardRef((props, ref) => {
         width={width}
         height={height}
         loading={loading}
+        onMouseMove={onMouseMove}
       />
     </picture>
   );

@@ -18,9 +18,9 @@ export default function Marquee({children, link}) {
         )}
       >
         {[0, 0, 0, 0, 0, 0, 0].map((_i, i) => (
-          <>
+          <React.Fragment key={i}>
             <span>{children}</span>–<span className={classNames('italic')}>{children}</span>–
-          </>
+          </React.Fragment>
         ))}
       </div>
     </div>

@@ -85,8 +85,7 @@ export function AnimatedLink({
       <span
         className={
           'inline-block relative ' +
-          ' animated-link before:absolute before:bottom-0 before:border-b-2 before:border-b-black before:transition-all before:w-full ' +
-          ''
+          'animated-link before:absolute before:bottom-0 before:border-b-2 before:border-b-black before:transition-all before:w-full '
         }
       >
         {children}

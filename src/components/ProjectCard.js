@@ -16,7 +16,7 @@ export function ProjectCard({project, position, className, version}) {
     }
   `);
 
-  const {name, year, roles, link, tagline, thumbnail} =
+  const {name, year, type, link, tagline, thumbnail} =
     projects.nodes.find(({slug}) => slug === project) ||
     console.error(`Project ${project} not found`);
 
@@ -38,9 +38,9 @@ export function ProjectCard({project, position, className, version}) {
             {/* {position.toString().padStart(2, 0)}/ */}
             {name}
           </h3>
-          <div className="text-xl ">
-            <p className=" group-hover:translate-y-full group-hover:opacity-0 transition-all">
-              {roles.join(' | ')}
+          <div className="text-xl">
+            <p className="group-hover:translate-y-full group-hover:opacity-0 transition-all">
+              {type.join(' | ')}
             </p>
           </div>
           <div className="self-end">
@@ -62,14 +62,21 @@ export function ProjectCard({project, position, className, version}) {
           className
         )}
         onClick={() => navigate(link)}
+        onMouseMoveCapture={event => {
+          const bounds = event.target.getBoundingClientRect();
+          const x = event.clientX - bounds.left;
+          const y = event.clientY - bounds.top;
+          const image = event.currentTarget.querySelector('img');
+          image.style.transformOrigin = `${x * 2}px ${y * 2}px`;
+        }}
       >
         <Image
           image={thumbnail}
-          className="bg-white object-cover h-full w-full absolute inset-0 lg:opacity-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105"
+          className="bg-white object-cover h-full w-full absolute inset-0 lg:opacity-0 group-hover:opacity-100 transition-transform duration-1000 group-hover:scale-105"
         />
         <div className="bg-white absolute inset-0 opacity-50" />
         <div className="relative h-full inset-0 grid grid-rows-3 lg:grid-rows-[13rem_auto_auto] p-8 lg:p-16">
-          <h3 className="text-4xl lg:text-6xl">
+          <h3 className="text-4xl lg:text-6xl ">
             {/* {position.toString().padStart(2, 0)}/ */}
             {name}
           </h3>
@@ -79,8 +86,10 @@ export function ProjectCard({project, position, className, version}) {
                 <h4 className="text-2xl lg:text-3xl">{tagline}</h4>
                 <p>
                   {' '}
-                  {roles.map(r => (
-                    <span className="border-r last:border-r-0 px-2 first:pl-0">{r}</span>
+                  {type.map(r => (
+                    <span key={r} className="border-r last:border-r-0 px-2 first:pl-0">
+                      {r}
+                    </span>
                   ))}
                 </p>
               </div>
@@ -113,7 +122,7 @@ export function ProjectCard({project, position, className, version}) {
           {/* {position.toString().padStart(2, 0)}/ */}
           {name}
         </h3>
-        <p className="text-2xl">{roles.join(', ')}</p>
+        <p className="text-2xl">{type.join(', ')}</p>
       </div>
     </div>
   );

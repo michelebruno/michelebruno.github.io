@@ -23,7 +23,7 @@ module.exports = {
         DEFAULT: '600ms',
       },
       transitionTimingFunction: {
-        DEFAULT: 'cubic-bezier(0.76, 0, 0.24, 1)',
+        DEFAULT: 'cubic-bezier(0.65, 0, 0.35, 1)',
       },
     },
     fontFamily: {

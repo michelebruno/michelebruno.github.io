@@ -8,13 +8,13 @@ import {ReactComponent} from './arrow.svg';
 
 export default function Arrow({inline, down, outline, className, ...props}) {
   return (
-    <span className="inline-block align-middle h-full">
+    <span className="inline-block align-bottom">
       <ReactComponent
-        height="100%"
-        width="100%"
+        height=".8em"
         {...props}
         className={classNames(
           className,
+          'align-bottom',
           down && 'rotate-[-135deg]',
           outline && 'text-transparent  fill-current stroke-2 stroke-[black]'
         )}
