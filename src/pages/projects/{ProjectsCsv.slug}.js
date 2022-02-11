@@ -65,14 +65,14 @@ export default function Project({
   return (
     <Layout className="" title={name}>
       <div className="grid grid-cols-1 lg:grid-cols-3 items-end pt-32 pb-16  lg:py-32">
-        <div className="col-span-2 px-8 lg:px-16 pb-16 lg:pb-0">
+        <div className="col-span-2 px pb-16 lg:pb-0">
           <div>
             <h1 className=" text-4xl lg:text-8xl font-medium lg:inline lg:pr-4">{name}</h1>
             <span className="text-2xl ">({year})</span>
           </div>
           <h2 className="text-2xl lg:text-4xl pt-8 lg:pt-0">{tagline}</h2>
         </div>
-        <ul className="px-8 pt-8 lg:px-32 ">
+        <ul className="px pt-8 lg:px-32 ">
           {roles && (
             <li>
               <strong>Role:</strong> {roles.join(', ')}
@@ -86,8 +86,8 @@ export default function Project({
               <AnimatedLink
                 href={websiteUrl}
                 target="_blank"
-                className="font-bold"
-                icon={<Arrow />}
+                className="font-bold pt-2"
+                icon={<Arrow className="-rotate-90" />}
               >
                 Visit the website
               </AnimatedLink>

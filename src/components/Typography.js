@@ -9,8 +9,8 @@ export function H1({children, title, fullScreen}) {
         fullScreen && 'min-h-screen'
       )}
     >
-      <div className="grid grid-cols-12 gap-x-8 auto-rows-min pt-32 w-full">
-        <h1 className="col-start-4 col-span-5 text-9xl ">{title}</h1>
+      <div className="grid grid-cols-12 gap-x-8 auto-rows-min py-lg w-full">
+        <h1 className="col-span-12 text-9xl ">{title}</h1>
         {children}
       </div>
     </header>
@@ -40,7 +40,7 @@ export function Tag({title, children}) {
   );
 }
 
-let startClasses = ' lg:col-start-2 px-8 lg:px-16';
+let startClasses = ' lg:col-start-2 px';
 let spanClasses = 'col-span-3 lg:col-span-2 ';
 
 export function TextBox({children, padding, containBorder, className, title}) {
@@ -53,7 +53,7 @@ export function TextBox({children, padding, containBorder, className, title}) {
       )}
     >
       <div className={classNames(startClasses, containBorder ? spanClasses : 'col-span-3')} />
-      <h2 className="px-8 lg:px-16 text-2xl">{title}</h2>
+      <h2 className="px text-2xl">{title}</h2>
       <div className={classNames(startClasses, spanClasses)}>{children}</div>
     </div>
   );

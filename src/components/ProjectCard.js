@@ -61,22 +61,16 @@ export function ProjectCard({project, position, className, version}) {
           'min-aspect-[2/3] border-r border-b relative',
           className
         )}
+        role="group"
         onClick={() => navigate(link)}
-        onMouseMoveCapture={event => {
-          const bounds = event.target.getBoundingClientRect();
-          const x = event.clientX - bounds.left;
-          const y = event.clientY - bounds.top;
-          const image = event.currentTarget.querySelector('img');
-          image.style.transformOrigin = `${x * 2}px ${y * 2}px`;
-        }}
       >
         <Image
           image={thumbnail}
           className="bg-white object-cover h-full w-full absolute inset-0 lg:opacity-0 group-hover:opacity-100 transition-transform duration-1000 group-hover:scale-105"
         />
         <div className="bg-white absolute inset-0 opacity-50" />
-        <div className="relative h-full inset-0 grid grid-rows-3 lg:grid-rows-[13rem_auto_auto] p-8 lg:p-16">
-          <h3 className="text-4xl lg:text-6xl ">
+        <div className="relative h-full inset-0 grid grid-rows-3 lg:grid-rows-[13rem_auto_auto] px py">
+          <h3 className="text-4xl lg:text-6xl">
             {/* {position.toString().padStart(2, 0)}/ */}
             {name}
           </h3>

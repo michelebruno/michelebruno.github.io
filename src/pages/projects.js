@@ -13,14 +13,14 @@ export default function Projects({data}) {
   const [projects, setProjects] = useState(data.projects);
 
   return (
-    <Layout className="mx-8">
+    <Layout className="px">
       <Typography.H1 title="Projects" />
       <table className="w-full">
         <thead className="text-left uppercase">
           <tr>
             <th className="py-4 pr-8">Project</th>
-            <th className="py-4 px-8">Type</th>
-            <th className="py-4 px-8">Client</th>
+            <th className="py-4 px">Type</th>
+            <th className="py-4 px">Client</th>
             <th className="py-4 pl-8">Year</th>
           </tr>
         </thead>
@@ -35,8 +35,8 @@ export default function Projects({data}) {
                 onClick={() => isPagePublic && navigate(link)}
               >
                 <td className="py-4 pr-8">{name}</td>
-                <td className="p-4 px-8">{type && type.join(', ')}</td>
-                <td className="py-4 px-8">{client}</td>
+                <td className="p-4 px">{type && type.join(', ')}</td>
+                <td className="py-4 px">{client}</td>
                 <td className="p-4 pl-8">{year}</td>
               </tr>
             )

@@ -37,9 +37,9 @@ function IndexPage() {
   }, []);
 
   return (
-    <Layout>
-      <div className="flex content-around items-center min-h-[80vh]">
-        <h1 className="text-6xl px-16 py-32">
+    <Layout fixed>
+      <div className="flex content-around items-center min-h-screen">
+        <h1 className="text-6xl px py-32">
           <span className="">Hello!</span> I'm Michele Bruno, an Italian <br />
           <span className="inline-block font-sans not-italic">UX Designer</span> and{' '}
           <span className="inline-block font-sans not-italic">Creative Developer,</span>
@@ -48,7 +48,7 @@ function IndexPage() {
       </div>
       <section className="" ref={projectContainer}>
         <div className="grid grid-cols-3 gap-x-8 items-center content-center">
-          <h2 className="col-span-3 text-3xl lg:text-8xl p-8 lg:pl-16  lg:py-32 font-medium border-t">
+          <h2 className="col-span-3 text-3xl lg:text-8xl px py-lg font-medium border-t">
             Selected projects
           </h2>
           <div className="col-span-3 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 border-t">
@@ -64,8 +64,8 @@ function IndexPage() {
           </div>
         </div>
       </section>
-      <section className="py-16 lg:py-32 px-8 lg:px-16">
-        <p className="text-6xl w-2/3">
+      <section className="py-16 lg:py-32 px">
+        <p className="text-6xl">
           I enjoy designing interactive experiences. <br /> I'll write other stuff about me here,
           brb!
         </p>
@@ -79,8 +79,8 @@ function IndexPage() {
           onClick={() => navigate('/projects')}
         >
           <div className="bg-brand object-cover h-full w-full absolute inset-0 lg:opacity-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105" />
-          <div className="relative h-full inset-0 grid grid-rows-3 lg:grid-rows-[13rem_auto_auto] p-8 lg:p-16">
-            <h3 className="text-4xl lg:text-6xl">
+          <div className="relative h-full inset-0 grid grid-rows-3 lg:grid-rows-[13rem_auto_auto] px py-8 lg:py-16">
+            <h3 className="text-4xl lg:text-6xl ">
               {/* {position.toString().padStart(2, 0)}/ */}
               All projects
             </h3>
@@ -110,7 +110,7 @@ function IndexPage() {
           onClick={() => navigate('/projects')}
         >
           <div className="bg-brand object-cover h-full w-full absolute inset-0 lg:opacity-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105" />
-          <div className="relative h-full inset-0 grid grid-rows-3 lg:grid-rows-[13rem_auto_auto] p-8 lg:p-16">
+          <div className="relative h-full inset-0 grid grid-rows-3 lg:grid-rows-[13rem_auto_auto] px py-8 lg:py-16">
             <h3 className="text-4xl lg:text-6xl">
               {/* {position.toString().padStart(2, 0)}/ */}
               About me
@@ -133,7 +133,7 @@ function IndexPage() {
       </section>
 
       <section className="min-h-[80vh] border-b grid items-center">
-        <div className="px-8 lg:px-16  items-center">
+        <div className="px items-center">
           <p className="text-8xl">
             Want to work together?
             <br />

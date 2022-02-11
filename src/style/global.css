@@ -24,54 +24,67 @@
 
 
 
-.text-stroke {
+@layer components {
+  .px {
+    @apply px-6 lg:px-12;
+  }
+  .py {
+    @apply py-6 lg:py-12;
+  }
+  .py-lg {
+    @apply py-12 lg:py-24;
+  }
+
+
+  .text-stroke {
     -webkit-text-stroke-width: 1px;
     text-stroke-width: 1px;
     -webkit-text-stroke-color: theme('colors.black');
     text-stroke-color: theme('colors.black');
     color: white;
-}
-.text-stroke-white {
+  }
+  .text-stroke-white {
     -webkit-text-stroke-width: 1px;
     text-stroke-width: 1px;
     -webkit-text-stroke-color: theme('colors.white');
     text-stroke-color: theme('colors.white');
     color: theme('colors.black');
-}
+  }
 
-.marquee .marquee_inner {
+  .marquee .marquee_inner {
     animation: marquee 60s linear infinite;
-}
+  }
 
-@keyframes marquee {
+  @keyframes marquee {
     from {
-        transform: translateX(0);
+      transform: translateX(0);
     }
 
     to {
-        transform: translateX(-80%);
+      transform: translateX(-80%);
     }
-}
+  }
 
-:not(.current) > .animated-link::before {
+  :not(.current) > .animated-link::before {
     transform-origin: left;
     transform: scaleX(0);
 
-}
+  }
 
-.animated-link:hover::before {
+  .animated-link:hover::before {
     transform: none;
-}
+  }
 
-.animated-link:active::before {
+  .animated-link:active::before {
     transform: scaleY(1.1);
-}
+  }
 
-.landing-animation {
+  .landing-animation {
     min-height: 100vh;
     animation: minHeightAnimation 800ms ease-in 2s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+  }
 }
 
 @keyframes minHeightAnimation {

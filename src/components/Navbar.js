@@ -18,7 +18,7 @@ export default function Navbar({fixed, className}) {
         michelebruno
       </Link>
       <ul className="flex">
-        <li className="px-8 py-6 ">
+        <li className="px py-6 ">
           <AnimatedLink component={Link} to="/projects">
             Projects
           </AnimatedLink>

@@ -14,7 +14,7 @@ module.exports = {
       },
       colors: {
         black: '#242424',
-        brand: '#FFA500', // 'rgb(240 120 48)',
+        brand: '#fa9e0b', // 'rgb(240 120 48)',
       },
       borderColor: {
         DEFAULT: '#242424',
@@ -28,7 +28,7 @@ module.exports = {
     },
     fontFamily: {
       sans: ['Clash Grotesk', 'Manrope', 'ui-sans-serif', 'system-ui'],
-      serif: ['freight-big-pro', 'serif'],
+      serif: ['Gambetta', 'freight-big-pro', 'serif'],
     },
     fontWeight: {
       DEFAULT: '300',
