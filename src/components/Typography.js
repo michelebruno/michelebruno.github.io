@@ -1,35 +1,40 @@
 import React from 'react';
 import classNames from 'classnames';
 
-export function H1({children, title, fullScreen}) {
+export function H1({children, className, id, tag: Heading}) {
   return (
-    <header
-      className={classNames(
-        'items-center flex flex-col justify-center',
-        fullScreen && 'min-h-screen'
-      )}
-    >
-      <div className="grid grid-cols-12 gap-x-8 auto-rows-min py-lg w-full">
-        <h1 className="col-span-12 text-9xl ">{title}</h1>
-        {children}
-      </div>
-    </header>
+    <Heading className={classNames('text-9xl', className)} id={id}>
+      {children}
+    </Heading>
+  );
+}
+H1.defaultProps = {
+  tag: 'h1',
+};
+
+export function H2({children, className, id, tag: Heading}) {
+  return (
+    <Heading className={classNames('text-3xl lg:text-7xl', className)} id={id}>
+      {children}
+    </Heading>
   );
 }
 
-export function H2({children, padding, containBorder, className}) {
+H2.defaultProps = {
+  tag: 'h2',
+};
+
+export function H3({children, className, id, tag: Heading}) {
   return (
-    <div
-      className={classNames(
-        'grid grid-cols-12 gap-x-16 gap-y-8 text-5xl',
-        padding && 'py-32',
-        className
-      )}
-    >
-      <h2 className={classNames(startClasses, spanClasses)}>{children}</h2>
-    </div>
+    <Heading className={classNames('text-4xl lg:text-6xl', className)} id={id}>
+      {children}
+    </Heading>
   );
 }
+
+H3.defaultProps = {
+  tag: 'h3',
+};
 
 export function Tag({title, children}) {
   return (
@@ -40,8 +45,8 @@ export function Tag({title, children}) {
   );
 }
 
-let startClasses = ' lg:col-start-2 px';
-let spanClasses = 'col-span-3 lg:col-span-2 ';
+const startClasses = ' lg:col-start-2 px';
+const spanClasses = 'col-span-3 lg:col-span-2 ';
 
 export function TextBox({children, padding, containBorder, className, title}) {
   return (

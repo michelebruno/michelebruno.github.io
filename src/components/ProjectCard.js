@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Image from './Image';
 import Button from './Button';
+import {H3} from './Typography';
 
 export function ProjectCard({project, position, className, version}) {
   const {projects} = useStaticQuery(graphql`
@@ -66,14 +67,11 @@ export function ProjectCard({project, position, className, version}) {
       >
         <Image
           image={thumbnail}
-          className="bg-white object-cover h-full w-full absolute inset-0 lg:opacity-0 group-hover:opacity-100 transition-transform duration-1000 group-hover:scale-105"
+          className="bg-white object-cover h-full w-full absolute inset-0 lg:opacity-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105"
         />
         <div className="bg-white absolute inset-0 opacity-50" />
         <div className="relative h-full inset-0 grid grid-rows-3 lg:grid-rows-[13rem_auto_auto] px py">
-          <h3 className="text-4xl lg:text-6xl">
-            {/* {position.toString().padStart(2, 0)}/ */}
-            {name}
-          </h3>
+          <H3>{name}</H3>
           <div>
             <div className="overflow-hidden pb-4">
               <div className="group-hover:translate-y-full group-hover:opacity-0 transition-all">

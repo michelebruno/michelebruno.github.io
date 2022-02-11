@@ -9,6 +9,7 @@ import {ProjectCard} from '../components/ProjectCard';
 
 import Layout from '../components/Layout';
 import Button from '../components/Button';
+import {H2} from '../components/Typography';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,9 +49,7 @@ function IndexPage() {
       </div>
       <section className="" ref={projectContainer}>
         <div className="grid grid-cols-3 gap-x-8 items-center content-center">
-          <h2 className="col-span-3 text-3xl lg:text-8xl px py-lg font-medium border-t">
-            Selected projects
-          </h2>
+          <H2 className="col-span-3 px py-lg border-t">Selected projects</H2>
           <div className="col-span-3 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 border-t">
             {homeProjectSlugs.map((project, index) => (
               <ProjectCard
