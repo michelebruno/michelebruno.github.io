@@ -40,8 +40,8 @@ export function ProjectCard({project, position, className, version}) {
             {name}
           </h3>
           <div className="text-xl">
-            <p className="group-hover:translate-y-full group-hover:opacity-0 transition-all">
-              {type.join(' | ')}
+            <p className="group-hover:translate-y-full group-hover:opacity-0 transition-all text-gray">
+              {type.join(' / ')}
             </p>
           </div>
           <div className="self-end">
@@ -58,7 +58,7 @@ export function ProjectCard({project, position, className, version}) {
     return (
       <div
         className={classNames(
-          'group overflow-hidden',
+          'ver-3 group overflow-hidden',
           'min-aspect-[2/3] border-r border-b relative',
           className
         )}
@@ -75,15 +75,8 @@ export function ProjectCard({project, position, className, version}) {
           <div>
             <div className="overflow-hidden pb-4">
               <div className="group-hover:translate-y-full group-hover:opacity-0 transition-all">
-                <h4 className="text-2xl lg:text-3xl">{tagline}</h4>
-                <p>
-                  {' '}
-                  {type.map(r => (
-                    <span key={r} className="border-r last:border-r-0 px-2 first:pl-0">
-                      {r}
-                    </span>
-                  ))}
-                </p>
+                <h4 className="text-2xl ">{tagline}</h4>
+                <p className="text-gray">{type.join(' / ')}</p>
               </div>
             </div>
           </div>

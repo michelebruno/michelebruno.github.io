@@ -38,28 +38,24 @@ H3.defaultProps = {
 
 export function Tag({title, children}) {
   return (
-    <div className="pb-16">
-      <p className="text-base">{title}</p>
-      <div className="text-2xl">{children}</div>
+    <div className="pb-12 text-2xl">
+      <p className="text-gray">{title}</p>
+      <div className="">{children}</div>
     </div>
   );
 }
-
-const startClasses = ' lg:col-start-2 px';
-const spanClasses = 'col-span-3 lg:col-span-2 ';
 
 export function TextBox({children, padding, containBorder, className, title}) {
   return (
     <div
       className={classNames(
-        'grid grid-cols-1 lg:grid-cols-3 gap-x-16 gap-y-8 text-2xl',
+        'grid grid-cols-1 lg:grid-cols-12 gap-x-6 lg:gap-x-12 px text-2xl',
         padding && 'py-32',
         className
       )}
     >
-      <div className={classNames(startClasses, containBorder ? spanClasses : 'col-span-3')} />
-      <h2 className="px text-2xl">{title}</h2>
-      <div className={classNames(startClasses, spanClasses)}>{children}</div>
+      <h2 className="text-2xl lg:col-span-2 lg:col-start-2 ">{title}</h2>
+      <div className="lg:col-span-6">{children}</div>
     </div>
   );
 }

@@ -40,7 +40,7 @@ function IndexPage() {
   return (
     <Layout fixed>
       <div className="flex content-around items-center min-h-screen">
-        <h1 className="text-6xl px py-32">
+        <h1 className="text-6xl px py-32 leading-normal">
           <span className="">Hello!</span> I'm Michele Bruno, an Italian <br />
           <span className="inline-block font-sans not-italic">UX Designer</span> and{' '}
           <span className="inline-block font-sans not-italic">Creative Developer,</span>

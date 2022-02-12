@@ -48,9 +48,9 @@ module.exports = {
         //     id: process.env.TYPEKIT_ID,
         // },
         custom: {
-          families: ['Switzer', 'Cabinet Grotesk', 'Clash grotesk'],
+          families: ['Clash Grotesk', 'Gambetta'],
           urls: [
-            'https://api.fontshare.com/css?f[]=switzer@301,400&f[]=cabinet-grotesk@400,700&f[]=clash-grotesk&f[]=gambetta@401@1&display=swap',
+            'https://api.fontshare.com/css?f[]=clash-grotesk@300,400,600&f[]=gambetta@401&display=swap',
           ],
         },
       },

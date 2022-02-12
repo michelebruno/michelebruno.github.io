@@ -47,6 +47,15 @@
   .py-lg {
     @apply py-12 lg:py-24;
   }
+  .mx {
+    @apply mx-6 lg:mx-12;
+  }
+  .my {
+    @apply my-6 lg:my-12;
+  }
+  .my-lg {
+    @apply my-12 lg:my-24;
+  }
 
 
   .text-stroke {
@@ -98,6 +107,13 @@
     animation: minHeightAnimation 800ms ease-in 2s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+  }
+
+
+  .show-grid {
+    background-image: url("../images/grid.png");
+    background-repeat: repeat-y;
+    background-size: contain;
   }
 }
 

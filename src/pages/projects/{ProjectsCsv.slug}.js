@@ -7,7 +7,7 @@ import {MDXRenderer} from 'gatsby-plugin-mdx';
 import {MDXProvider} from '@mdx-js/react';
 import Image, {createGetImageFromName} from '../../components/Image';
 import Layout from '../../components/Layout';
-import Typography, {AnimatedLink, Tag, TextBox} from '../../components/Typography';
+import Typography, {AnimatedLink, H1, Tag, TextBox} from '../../components/Typography';
 import Marquee from '../../components/Marquee';
 import Arrow from '../../components/Arrow';
 import Grid from '../../components/Grid';
@@ -67,10 +67,10 @@ export default function Project({
       <div className="grid grid-cols-1 lg:grid-cols-3 items-end pt-32 pb-16  lg:py-32">
         <div className="col-span-2 px pb-16 lg:pb-0">
           <div>
-            <h1 className=" text-4xl lg:text-8xl font-medium lg:inline lg:pr-4">{name}</h1>
-            <span className="text-2xl ">({year})</span>
+            <H1 className="lg:inline">{name}</H1>
+            <span className="text-3xl ">({year})</span>
           </div>
-          <h2 className="text-2xl lg:text-4xl pt-8 lg:pt-0">{tagline}</h2>
+          <h2 className="text-2xl lg:text-4xl pt-3 text-gray">{tagline}</h2>
         </div>
         <ul className="px pt-8 lg:px-32 ">
           {roles && (

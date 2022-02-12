@@ -36,7 +36,7 @@ export default function Layout({
   }
 
   return (
-    <div className="font-sans text-black">
+    <div className="font-sans text-black ">
       {showWip && (
         <div className="fixed inset-0 z-50">
           <div className="h-full w-full relative">
@@ -75,6 +75,10 @@ export default function Layout({
           </li>
         </ul>
       </footer>
+
+      <div className="fixed inset-0 grid grid-cols-12 gap-x-6 lg:gap-x-12 px h-screen w-screen -z-10">
+        <div />
+      </div>
     </div>
   );
 }
