@@ -8,14 +8,14 @@ export default function Navbar({fixed, className}) {
     <nav
       className={classNames(
         'top-0 w-full flex justify-between z-50',
-        '',
+        'fs-lg',
         fixed && 'fixed',
         !fixed && 'sticky',
         className
       )}
     >
       <Link to="/" className="group h-full py-6 pr-8 ">
-        michelebruno
+        Michele Bruno
       </Link>
       <ul className="flex">
         {/* TODO pagina dei progetti */}

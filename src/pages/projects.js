@@ -15,6 +15,9 @@ export default function Projects({data}) {
   return (
     <Layout className="px">
       <Typography.H1 className="py-lg">Projects</Typography.H1>
+      <p className="text-red-700">
+        This page is still under construction. So they are most of project pages.
+      </p>
       <table className="w-full">
         <thead className="text-left uppercase">
           <tr>

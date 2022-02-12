@@ -59,12 +59,16 @@ export default function About() {
           title="Experiences"
           items={[
             {
-              rows: ['UX designer & Web Developer', 'Freelance'],
-              label: '2020 – ongoing',
+              rows: ['Web design + WordPress Development', 'OSCard'],
+              label: 'Feb. 2019 – Sept. 2020',
             },
             {
-              rows: ['Web design & WordPress Development', 'OSCard'],
-              label: '2019 – 2020',
+              rows: ['Web design + WordPress Developer', 'Event Way srl'],
+              label: 'Oct. 2020 – Sept. 2020',
+            },
+            {
+              rows: ['UX designer + Web Developer', 'Freelance'],
+              label: '2020 – ongoing',
             },
           ]}
         />
@@ -74,7 +78,14 @@ export default function About() {
           concat
           items={[
             {
-              rows: ['Adobe Illustrator', 'Adobe Indesign', 'Adobe After Effects'],
+              rows: [
+                'Adobe Illustrator',
+                'Adobe Indesign',
+                'Adobe After Effects',
+                'Adobe Premiere',
+                'Keynote',
+                'Figma',
+              ],
               label: 'Graphic Design',
             },
             {
@@ -102,6 +113,10 @@ export default function About() {
             {
               rows: ['Composer', 'Laravel', 'WordPress'],
               label: 'PHP',
+            },
+            {
+              rows: ['Arduino', 'RaspberryPi'],
+              label: 'Eletronics platforms',
             },
           ]}
         />
