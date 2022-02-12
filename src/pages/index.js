@@ -75,7 +75,7 @@ function IndexPage() {
             'group overflow-hidden ',
             'min-aspect-[2/3] border-r border-b relative'
           )}
-          onClick={() => navigate('/projects')}
+          onClick={() => navigate('/Project')}
         >
           <div className="bg-brand object-cover h-full w-full absolute inset-0 lg:opacity-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105" />
           <div className="relative h-full inset-0 grid grid-rows-3 lg:grid-rows-[13rem_auto_auto] px py-8 lg:py-16">
@@ -106,7 +106,7 @@ function IndexPage() {
             'group overflow-hidden ',
             'min-aspect-[2/3] border-r border-b relative'
           )}
-          onClick={() => navigate('/projects')}
+          onClick={() => navigate('/Project')}
         >
           <div className="bg-brand object-cover h-full w-full absolute inset-0 lg:opacity-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105" />
           <div className="relative h-full inset-0 grid grid-rows-3 lg:grid-rows-[13rem_auto_auto] px py-8 lg:py-16">

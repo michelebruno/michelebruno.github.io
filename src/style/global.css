@@ -39,7 +39,7 @@
 
 @layer components {
   .px {
-    @apply px-6 lg:px-12;
+    @apply px-6 lg:px-10;
   }
   .py {
     @apply py-6 lg:py-12;
@@ -48,7 +48,7 @@
     @apply py-12 lg:py-24;
   }
   .mx {
-    @apply mx-6 lg:mx-12;
+    @apply mx-6 lg:mx-10;
   }
   .my {
     @apply my-6 lg:my-12;
