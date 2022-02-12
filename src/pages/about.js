@@ -1,21 +1,16 @@
 import React from 'react';
 import Layout from '../components/Layout';
-import Grid from '../components/Grid';
 
 function CVItem({title, items}) {
   return (
     <div className="col-span-12 leading-snug ">
-      <div className="border-t grid grid-cols-4 gap-x-8 gap-y-16 px-32">
-        <h2 className="text-2xl py-32">{title}</h2>
-        <ul className="text-2xl col-span-2 grid pt-32 pb-16">
+      <div className="border-t grid grid-cols-4 px">
+        <h2 className="fs-lg py-32">{title}</h2>
+        <ul className="fs-lg col-span-2 grid pt-32 pb-16">
           {items.map(({rows, label}) => (
             <li className="pb-16 px-32">
-              {label && <span className="block text-lg">{label}</span>}
-              {rows.map((r, i) => (
-                <span className="block" key={i}>
-                  {r}
-                </span>
-              ))}
+              {label && <span className="block text-gray">{label}</span>}
+              {rows.join(', ')}
             </li>
           ))}
         </ul>
@@ -27,9 +22,9 @@ function CVItem({title, items}) {
 export default function About() {
   return (
     <Layout>
-      <div className="grid grid-cols-12">
-        <div className="col-span-8 text-4xl pt-32 gap-8 grid leading-snug pb-32 px-32">
-          <p>
+      <div className="grid grid-cols-12 ">
+        <div className="col-span-8 fs-xl pt-32  grid leading-snug pb-32 px">
+          <p className="pb">
             I'm Michele Bruno, a 24 y.o. designer and developer, born in Andria, Southern Italy. I'm
             currently studying Communication Design at Politecnico di Milano but I also work as a
             freelance.

@@ -4,7 +4,7 @@ slug: feelo
 
 export function Mockup({title, names, images}) {
     return <div>
-        <h3 className={"font-bold text-xl mb-16 text-center"}>{title}</h3>
+        <h3 className={"font-bold fs-xl mb-16 text-center"}>{title}</h3>
         {names.map(img => <Image className={"w-full mb-16 rounded-2xl drop-shadow-xl"} key={img} image={images(img)}/>)}
     </div>
 }

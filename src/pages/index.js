@@ -40,7 +40,7 @@ function IndexPage() {
   return (
     <Layout fixed>
       <div className="flex content-around items-center min-h-screen">
-        <h1 className="text-6xl px py-32 leading-normal">
+        <h1 className="fs-3xl px py-32 leading-normal">
           <span className="">Hello!</span> I'm Michele Bruno, an Italian <br />
           <span className="inline-block font-sans not-italic">UX Designer</span> and{' '}
           <span className="inline-block font-sans not-italic">Creative Developer,</span>
@@ -50,7 +50,7 @@ function IndexPage() {
       <section className="" ref={projectContainer}>
         <div className="grid grid-cols-3 gap-x-8 items-center content-center">
           <H2 className="col-span-3 px py-lg border-t">Selected projects</H2>
-          <div className="col-span-3 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 border-t">
+          <div className="col-span-3 grid gap-x-0 grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 border-t">
             {homeProjectSlugs.map((project, index) => (
               <ProjectCard
                 version={3}
@@ -69,7 +69,7 @@ function IndexPage() {
           brb!
         </p>
       </section>
-      <section className="grid grid-cols-2 col-span-3 border-t">
+      <section className="grid grid-cols-2 col-span-3 border-t gap-0">
         <div
           className={classNames(
             'group overflow-hidden ',
@@ -78,18 +78,18 @@ function IndexPage() {
           onClick={() => navigate('/Project')}
         >
           <div className="bg-brand object-cover h-full w-full absolute inset-0 lg:opacity-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105" />
-          <div className="relative h-full inset-0 grid grid-rows-3 lg:grid-rows-[13rem_auto_auto] px py-8 lg:py-16">
-            <h3 className="text-4xl lg:text-6xl ">
+          <div className="relative h-full inset-0 grid gap-0 grid-rows-3 lg:grid-rows-[13rem_auto_auto] px py-8 lg:py-16">
+            <h3 className="fs-4xl lg:text-6xl ">
               {/* {position.toString().padStart(2, 0)}/ */}
               All projects
             </h3>
             <div>
               <div className="overflow-hidden pb-4 relative">
-                <p className="text-2xl lg:text-3xl absolute top-0 -translate-y-full group-hover:translate-y-0 transition">
+                <p className="fs-xl   absolute top-0 -translate-y-full group-hover:translate-y-0 transition">
                   Let's go
                 </p>
                 <div className="group-hover:translate-y-full group-hover:opacity-0 transition-all">
-                  <h4 className="text-2xl lg:text-3xl">This is just a selection</h4>
+                  <h4 className="fs-xl">This is just a selection</h4>
                   <p>Click here to see all my work</p>
                 </div>
               </div>
@@ -110,14 +110,14 @@ function IndexPage() {
         >
           <div className="bg-brand object-cover h-full w-full absolute inset-0 lg:opacity-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105" />
           <div className="relative h-full inset-0 grid grid-rows-3 lg:grid-rows-[13rem_auto_auto] px py-8 lg:py-16">
-            <h3 className="text-4xl lg:text-6xl">
+            <h3 className="fs-4xl lg:text-6xl">
               {/* {position.toString().padStart(2, 0)}/ */}
               About me
             </h3>
             <div>
               <div className="overflow-hidden pb-4">
                 <div className="group-hover:translate-y-full group-hover:opacity-0 transition-all">
-                  <h4 className="text-2xl lg:text-3xl">Get to know me</h4>
+                  <h4 className="fs-2xl lg:fs-3xl">Get to know me</h4>
                   <p>Read the about page</p>
                 </div>
               </div>
@@ -133,7 +133,7 @@ function IndexPage() {
 
       <section className="min-h-[80vh] border-b grid items-center">
         <div className="px items-center">
-          <p className="text-8xl">
+          <p className="fs-3xl">
             Want to work together?
             <br />
             Let's{' '}

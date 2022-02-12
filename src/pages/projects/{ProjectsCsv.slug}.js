@@ -7,17 +7,17 @@ import {MDXRenderer} from 'gatsby-plugin-mdx';
 import {MDXProvider} from '@mdx-js/react';
 import Image, {createGetImageFromName} from '../../components/Image';
 import Layout from '../../components/Layout';
-import Typography, {AnimatedLink, H1, Tag, TextBox} from '../../components/Typography';
+import {Tag, TextBox} from '../../components/Typography';
 import Marquee from '../../components/Marquee';
-import Arrow from '../../components/Arrow';
 import Grid from '../../components/Grid';
+import Heading from '../../components/Project/Heading';
 
 gsap.registerPlugin(ScrollTrigger);
 
 function Description({description, children}) {
   return (
     <TextBox title="Overview">
-      <h3 className="text-4xl mb-2 pb-8">{description}</h3>
+      <h3 className="fs-4xl mb-2 pb-8">{description}</h3>
       {children}
     </TextBox>
   );
@@ -52,8 +52,19 @@ export default function Project({
   const nextProject =
     allProjectsCsv.nodes[allProjectsCsv.nodes.length > nextProjectIndex ? nextProjectIndex : 0];
 
+  useEffect(() => {
+    gsap.to(bgRef.current, {
+      scrollTrigger: {
+        scrub: true,
+        start: 'top middle',
+      },
+      yPercent: -10,
+    });
+  }, []);
+
   return (
     <Layout className="" title={name}>
+      <Heading name={name} year={year} websiteUrl={websiteUrl} tagline={tagline} />
       <div className="h-screen overflow-hidden border-t border-b">
         <Image
           ref={bgRef}

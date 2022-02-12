@@ -8,7 +8,7 @@ import {ReactComponent} from './arrow.svg';
 
 export default function Arrow({inline, down, outline, className, ...props}) {
   return (
-    <span className="inline-block align-bottom">
+    <span className="inline-block align-middle px-2">
       <ReactComponent
         height=".8em"
         {...props}

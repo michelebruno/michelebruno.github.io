@@ -1,28 +1,29 @@
 @font-face {
-    font-family: ManropeExt;
-    font-weight: 400;
-    src: /*  url("webfont.eot?#iefix") format("embedded-opentype"), IE6-IE8 */ url("../fonts/Manrope/webfonts/Manrope-Regular.woff2") format("woff2"), /* Modern Browsers */ url("../fonts/Manrope/ttf/Manrope-Regular.ttf") format("truetype");/* Safari, Android, iOS */
-    /* url("webfont.svg#svgFontName") format("svg"); Legacy iOS */
+  font-family: ManropeExt;
+  font-weight: 400;
+  src: /*  url("webfont.eot?#iefix") format("embedded-opentype"), IE6-IE8 */ url("../fonts/Manrope/webfonts/Manrope-Regular.woff2") format("woff2"), /* Modern Browsers */ url("../fonts/Manrope/ttf/Manrope-Regular.ttf") format("truetype");/* Safari, Android, iOS */
+  /* url("webfont.svg#svgFontName") format("svg"); Legacy iOS */
 }
 
 @font-face {
-    font-family: ManropeExt;
-    font-weight: 600;
-    src: /*  url("webfont.eot?#iefix") format("embedded-opentype"), IE6-IE8 */ url("../fonts/Manrope/webfonts/Manrope-Semibold.woff2") format("woff2"), /* Modern Browsers */ url("../fonts/Manrope/ttf/Manrope-Semibold.ttf") format("truetype");/* Safari, Android, iOS */
-    /* url("webfont.svg#svgFontName") format("svg"); Legacy iOS */
-}
-@font-face {
-    font-family: "Clash Display Ext";
-    font-weight: 400;
-    src: /*  url("webfont.eot?#iefix") format("embedded-opentype"), IE6-IE8 */ url("../fonts/ClashGrotesk/WEB/fonts/ClashGrotesk-Regular.woff2") format("woff2"), /* Modern Browsers */ url("../fonts/ClashGrotesk/WEB/fonts/ClashGrotesk-Regular.ttf") format("truetype");/* Safari, Android, iOS */
-    /* url("webfont.svg#svgFontName") format("svg"); Legacy iOS */
+  font-family: ManropeExt;
+  font-weight: 600;
+  src: /*  url("webfont.eot?#iefix") format("embedded-opentype"), IE6-IE8 */ url("../fonts/Manrope/webfonts/Manrope-Semibold.woff2") format("woff2"), /* Modern Browsers */ url("../fonts/Manrope/ttf/Manrope-Semibold.ttf") format("truetype");/* Safari, Android, iOS */
+  /* url("webfont.svg#svgFontName") format("svg"); Legacy iOS */
 }
 
 @font-face {
-    font-family: ManropeExt;
-    font-weight: 600;
-    src: /*  url("webfont.eot?#iefix") format("embedded-opentype"), IE6-IE8 */ url("../fonts/Manrope/webfonts/Manrope-Semibold.woff2") format("woff2"), /* Modern Browsers */ url("../fonts/Manrope/ttf/Manrope-Semibold.ttf") format("truetype");/* Safari, Android, iOS */
-    /* url("webfont.svg#svgFontName") format("svg"); Legacy iOS */
+  font-family: "Clash Display Ext";
+  font-weight: 400;
+  src: /*  url("webfont.eot?#iefix") format("embedded-opentype"), IE6-IE8 */ url("../fonts/ClashGrotesk/WEB/fonts/ClashGrotesk-Regular.woff2") format("woff2"), /* Modern Browsers */ url("../fonts/ClashGrotesk/WEB/fonts/ClashGrotesk-Regular.ttf") format("truetype");/* Safari, Android, iOS */
+  /* url("webfont.svg#svgFontName") format("svg"); Legacy iOS */
+}
+
+@font-face {
+  font-family: ManropeExt;
+  font-weight: 600;
+  src: /*  url("webfont.eot?#iefix") format("embedded-opentype"), IE6-IE8 */ url("../fonts/Manrope/webfonts/Manrope-Semibold.woff2") format("woff2"), /* Modern Browsers */ url("../fonts/Manrope/ttf/Manrope-Semibold.ttf") format("truetype");/* Safari, Android, iOS */
+  /* url("webfont.svg#svgFontName") format("svg"); Legacy iOS */
 }
 
 @tailwind base;
@@ -30,33 +31,66 @@
 @tailwind utilities;
 
 @layer base {
-    html,body{
-        @apply antialiased;
-    }
+  html, body {
+    @apply antialiased leading;
+  }
+
+  .grid {
+    @apply gap-x-6 lg:gap-x-12;
+  }
+  .fs-base {
+    @apply text-base;
+  }
+  .fs-lg {
+    @apply text-xl lg:text-2xl;
+  }
+  .fs-xl {
+    @apply text-xl lg:text-4xl;
+  }
+  .fs-2xl {
+    @apply text-2xl lg:text-5xl
+  }
+  .fs-3xl {
+    @apply text-3xl lg:text-6xl
+  }
+  .fs-4xl {
+    @apply text-4xl lg:text-8xl;
+  }
+
 }
 
-
-
 @layer components {
+
   .px {
     @apply px-6 lg:px-10;
   }
+
   .py {
     @apply py-6 lg:py-12;
   }
+
   .py-lg {
-    @apply py-12 lg:py-24;
+    @apply py-12 lg:py-32;
   }
+  .pb {
+    @apply pb-6 lg:pb-12;
+  }
+
+  .pb-lg {
+    @apply pb-12 lg:pb-32;
+  }
+
   .mx {
     @apply mx-6 lg:mx-10;
   }
+
   .my {
     @apply my-6 lg:my-12;
   }
-  .my-lg {
-    @apply my-12 lg:my-24;
-  }
 
+  .my-lg {
+    @apply my-12 lg:my-32;
+  }
 
   .text-stroke {
     -webkit-text-stroke-width: 1px;
@@ -66,6 +100,7 @@
     color: white;
     font-family: "Clash Display Ext";
   }
+
   .text-stroke-white {
     -webkit-text-stroke-width: 1px;
     text-stroke-width: 1px;
@@ -115,14 +150,16 @@
     background-repeat: repeat-y;
     background-size: contain;
   }
-}
 
-@keyframes minHeightAnimation {
+
+  @keyframes minHeightAnimation {
     from {
-        min-height: 100vh;
+      min-height: 100vh;
     }
 
     to {
-        min-height: 40vh;
+      min-height: 40vh;
     }
+  }
 }
+

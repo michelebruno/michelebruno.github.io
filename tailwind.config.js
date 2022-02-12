@@ -26,9 +26,12 @@ module.exports = {
       transitionTimingFunction: {
         DEFAULT: 'cubic-bezier(0.65, 0, 0.35, 1)',
       },
+      lineHeight: {
+        DEFAULT: 1.5,
+      },
     },
     fontFamily: {
-      sans: ['Clash Grotesk', 'Manrope', 'ui-sans-serif', 'system-ui'],
+      sans: ['Clash Grotesk', 'ui-sans-serif', 'system-ui'],
       serif: ['Gambetta', 'freight-big-pro', 'serif'],
     },
     fontWeight: {

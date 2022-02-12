@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 function Description({description, children}) {
   return (
     <TextBox title="Overview">
-      <h3 className="text-4xl mb-2 pb-8">{description}</h3>
+      <h3 className="fs-4xl mb-2 pb-8">{description}</h3>
       {children}
     </TextBox>
   );
@@ -32,7 +32,7 @@ export default function Wrapper({project, children}) {
     }
   `);
 
-  const {name, slug, thumbnail, cover, team, description} = project;
+  const {name, slug} = project;
 
   const nextProjectIndex = projects.nodes.findIndex(p => p.slug === slug) + 1;
 
@@ -41,7 +41,7 @@ export default function Wrapper({project, children}) {
 
   return (
     <Layout title={name}>
-      {children}
+      <div className="text-lg">{children}</div>
       <section className="min-h-screen justify-center flex flex-col ">
         <TextBox padding={false}>Next project</TextBox>
 

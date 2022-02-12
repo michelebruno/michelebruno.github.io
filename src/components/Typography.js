@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 export function H1({children, className, id, tag: Heading}) {
   return (
-    <Heading className={classNames('text-9xl', className)} id={id}>
+    <Heading className={classNames('fs-4xl', className)} id={id}>
       {children}
     </Heading>
   );
@@ -14,7 +14,7 @@ H1.defaultProps = {
 
 export function H2({children, className, id, tag: Heading}) {
   return (
-    <Heading className={classNames('text-3xl lg:text-7xl', className)} id={id}>
+    <Heading className={classNames('fs-3xl', className)} id={id}>
       {children}
     </Heading>
   );
@@ -26,7 +26,7 @@ H2.defaultProps = {
 
 export function H3({children, className, id, tag: Heading}) {
   return (
-    <Heading className={classNames('text-4xl lg:text-6xl', className)} id={id}>
+    <Heading className={classNames('fs-2xl', className)} id={id}>
       {children}
     </Heading>
   );
@@ -38,7 +38,7 @@ H3.defaultProps = {
 
 export function Tag({title, children}) {
   return (
-    <div className="pb-12 text-2xl">
+    <div className="pb last:pb-0">
       <p className="text-gray">{title}</p>
       <div className="">{children}</div>
     </div>
@@ -49,12 +49,12 @@ export function TextBox({children, padding, containBorder, className, title}) {
   return (
     <div
       className={classNames(
-        'grid grid-cols-1 lg:grid-cols-12 gap-x-6 lg:gap-x-12 px text-2xl',
-        padding && ' py-lg',
+        'fs-lg grid grid-cols-1 lg:grid-cols-12 px',
+        padding && 'pb-lg last:pb-0',
         className
       )}
     >
-      <h2 className="text-2xl lg:col-span-2 lg:col-start-2 ">{title}</h2>
+      <h2 className="fs-lg lg:col-span-3 lg:col-start-2 text-right text-gray ">{title}</h2>
       <div className="lg:col-span-6">{children}</div>
     </div>
   );
