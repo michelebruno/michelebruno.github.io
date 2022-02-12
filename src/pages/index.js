@@ -9,7 +9,7 @@ import {ProjectCard} from '../components/ProjectCard';
 
 import Layout from '../components/Layout';
 import Button from '../components/Button';
-import {H2} from '../components/Typography';
+import {H2, H3} from '../components/Typography';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,7 +64,7 @@ function IndexPage() {
         </div>
       </section>
       <section className="py-16 lg:py-32 px">
-        <p className="text-6xl">
+        <p className="text-6xl leading-normal">
           I enjoy designing interactive experiences. <br /> I'll write other stuff about me here,
           brb!
         </p>
@@ -75,22 +75,23 @@ function IndexPage() {
             'group overflow-hidden ',
             'min-aspect-[2/3] border-r border-b relative'
           )}
-          onClick={() => navigate('/Project')}
+          onClick={() => navigate('/projects')}
         >
           <div className="bg-brand object-cover h-full w-full absolute inset-0 lg:opacity-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105" />
           <div className="relative h-full inset-0 grid gap-0 grid-rows-3 lg:grid-rows-[13rem_auto_auto] px py-8 lg:py-16">
-            <h3 className="fs-4xl lg:text-6xl ">
+            <H3>
               {/* {position.toString().padStart(2, 0)}/ */}
               All projects
-            </h3>
+            </H3>
             <div>
               <div className="overflow-hidden pb-4 relative">
                 <p className="fs-xl   absolute top-0 -translate-y-full group-hover:translate-y-0 transition">
                   Let's go
                 </p>
-                <div className="group-hover:translate-y-full group-hover:opacity-0 transition-all">
-                  <h4 className="fs-xl">This is just a selection</h4>
-                  <p>Click here to see all my work</p>
+
+                <div className="group-hover:translate-y-full group-hover:opacity-0 transition-all fs-lg">
+                  <h4 className="">This is just a selection</h4>
+                  <p className="text-gray">Click here to see all my work</p>
                 </div>
               </div>
             </div>
@@ -106,19 +107,16 @@ function IndexPage() {
             'group overflow-hidden ',
             'min-aspect-[2/3] border-r border-b relative'
           )}
-          onClick={() => navigate('/Project')}
+          onClick={() => navigate('/about')}
         >
           <div className="bg-brand object-cover h-full w-full absolute inset-0 lg:opacity-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105" />
-          <div className="relative h-full inset-0 grid grid-rows-3 lg:grid-rows-[13rem_auto_auto] px py-8 lg:py-16">
-            <h3 className="fs-4xl lg:text-6xl">
-              {/* {position.toString().padStart(2, 0)}/ */}
-              About me
-            </h3>
+          <div className="relative h-full inset-0 grid gap-0 grid-rows-3 lg:grid-rows-[13rem_auto_auto] px py-8 lg:py-16">
+            <H3>About me</H3>
             <div>
-              <div className="overflow-hidden pb-4">
-                <div className="group-hover:translate-y-full group-hover:opacity-0 transition-all">
-                  <h4 className="fs-2xl lg:fs-3xl">Get to know me</h4>
-                  <p>Read the about page</p>
+              <div className="overflow-hidden pb-4 relative">
+                <div className="group-hover:translate-y-full group-hover:opacity-0 transition-all fs-lg">
+                  <h4 className="">Get to know me</h4>
+                  <p className="text-gray">Read the about page</p>
                 </div>
               </div>
             </div>
@@ -132,7 +130,7 @@ function IndexPage() {
       </section>
 
       <section className="min-h-[80vh] border-b grid items-center">
-        <div className="px items-center">
+        <div className="px items-center leading-normal">
           <p className="fs-3xl">
             Want to work together?
             <br />
@@ -140,6 +138,10 @@ function IndexPage() {
             <Button before href="mailto:bm.michelebruno@gmail.com">
               get in touch.
             </Button>
+          </p>
+          <p className="pt-4 fs-lg">
+            I'm currently looking for an internship, however you can write me <br />
+            if you need a freelance creative developer.
           </p>
         </div>
       </section>

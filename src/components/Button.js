@@ -26,7 +26,7 @@ export default function Button({children, before, after, className, as: Componen
       <span className={classNames(buttonClassName, 'py-1 text-current')}>{children}</span>
       {after && (
         <span className={asideClassNmae}>
-          <Arrow className="-rotate-90  relative bottom-0 -translate-x-6 group-hover:translate-x-0 transition-all" />
+          <Arrow className="-rotate-90 relative bottom-0 -translate-x-6 group-hover:translate-x-0 transition-all" />
         </span>
       )}{' '}
     </Component>

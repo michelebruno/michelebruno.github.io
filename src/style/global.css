@@ -42,13 +42,13 @@
     @apply text-base;
   }
   .fs-lg {
-    @apply text-xl lg:text-2xl;
+    @apply text-xl lg:text-xl;
   }
   .fs-xl {
-    @apply text-xl lg:text-4xl;
+    @apply text-xl lg:text-3xl;
   }
   .fs-2xl {
-    @apply text-2xl lg:text-5xl
+    @apply text-2xl lg:text-4xl
   }
   .fs-3xl {
     @apply text-3xl lg:text-6xl

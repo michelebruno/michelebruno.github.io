@@ -11,13 +11,14 @@ import {Tag, TextBox} from '../../components/Typography';
 import Marquee from '../../components/Marquee';
 import Grid from '../../components/Grid';
 import Heading from '../../components/Project/Heading';
+import Cover from '../../components/Project/Cover';
 
 gsap.registerPlugin(ScrollTrigger);
 
 function Description({description, children}) {
   return (
-    <TextBox title="Overview">
-      <h3 className="fs-4xl mb-2 pb-8">{description}</h3>
+    <TextBox title="Overview" className="py-lg">
+      <h3 className="fs-xl mb-2 ">{description}</h3>
       {children}
     </TextBox>
   );
@@ -64,15 +65,16 @@ export default function Project({
 
   return (
     <Layout className="" title={name}>
-      <Heading name={name} year={year} websiteUrl={websiteUrl} tagline={tagline} />
-      <div className="h-screen overflow-hidden border-t border-b">
-        <Image
-          ref={bgRef}
-          image={typeof cover !== 'undefined' && cover?.childImageSharp ? cover : thumbnail}
-          className="h-full w-full object-cover scale-110 origin-top"
-        />
-      </div>
-      <article>
+      <Heading
+        name={name}
+        tagline={tagline}
+        year={year}
+        client={client}
+        websiteUrl={websiteUrl}
+        roles={roles}
+      />
+      <Cover cover={cover} thumbnail={thumbnail} />
+      <article className="fs-xl">
         {mdx && (
           <MDXProvider
             components={{

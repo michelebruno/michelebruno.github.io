@@ -1,16 +1,22 @@
 import React from 'react';
 import Layout from '../components/Layout';
 
-function CVItem({title, items}) {
+function CVItem({title, items, concat}) {
   return (
     <div className="col-span-12 leading-snug ">
-      <div className="border-t grid grid-cols-4 px">
-        <h2 className="fs-lg py-32">{title}</h2>
-        <ul className="fs-lg col-span-2 grid pt-32 pb-16">
+      <div className="border-t grid grid-cols-3 px py-lg pb">
+        <h2 className="fs-lg text-right text-gray ">{title}</h2>
+        <ul className="fs-lg grid">
           {items.map(({rows, label}) => (
-            <li className="pb-16 px-32">
+            <li className="pb-16 ">
               {label && <span className="block text-gray">{label}</span>}
-              {rows.join(', ')}
+              {concat
+                ? rows.join(', ')
+                : rows.map((r, i) => (
+                    <span className="block" key={i}>
+                      {r}
+                    </span>
+                  ))}
             </li>
           ))}
         </ul>
@@ -65,6 +71,7 @@ export default function About() {
 
         <CVItem
           title="Skills"
+          concat
           items={[
             {
               rows: ['Adobe Illustrator', 'Adobe Indesign', 'Adobe After Effects'],
@@ -78,6 +85,7 @@ export default function About() {
         />
         <CVItem
           title="Coding"
+          concat
           items={[
             {
               rows: ['p5', 'NodeJS', 'Webpack', 'Socket.io', 'React', 'GatsbyJS'],
@@ -101,10 +109,12 @@ export default function About() {
           title="Languages"
           items={[
             {
-              rows: ['Italian', 'First language'],
+              label: 'Italian',
+              rows: ['First language'],
             },
             {
-              rows: ['English', 'B2 – Cambridge FCE'],
+              label: 'English',
+              rows: ['B2 – Cambridge FCE'],
             },
           ]}
         />

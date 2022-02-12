@@ -4,7 +4,7 @@ slug: feelo
 
 export function Mockup({title, names, images}) {
     return <div>
-        <h3 className={"font-bold fs-xl mb-16 text-center"}>{title}</h3>
+        <h3 className={"fs-lg pb text-center"}>{title}</h3>
         {names.map(img => <Image className={"w-full mb-16 rounded-2xl drop-shadow-xl"} key={img} image={images(img)}/>)}
     </div>
 }
@@ -16,12 +16,12 @@ export function Mockup({title, names, images}) {
 </Description>
 
 
-<div className={"grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6 gap-x-16 justify-center"}>
+<div className={"grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6 pb-lg px justify-center"}>
     <Image image={props.images('feelo-trittico.png')} pictureClassName={"col-span-4 col-start-2 aspect-w-4 aspect-h-3"}
            className={"object-cover"}/>
 </div>
 
-<div className={"grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6"}>
+<div className={"grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6 px pb-lg"}>
     <Mockup names={['giulia-diario.png']} images={props.images} title={"Daily journal"}/>
     <Mockup names={['shared-activity-giulia.png', 'giulia-attivita-giasvolta.png']} images={props.images}
             title={"Shared activities"}/>
@@ -33,7 +33,7 @@ export function Mockup({title, names, images}) {
 </div>
 
 
-<TextBox title={"Credits"}>
+<TextBox >
     <Tag title={"Course"}>
         Interaction Design Studio
         <br/>

@@ -76,7 +76,7 @@ export function ProjectCard({project, position, className, version}) {
             <div className="overflow-hidden pb-4">
               <div className="group-hover:translate-y-full group-hover:opacity-0 transition-all fs-lg">
                 <h4 className="">{tagline}</h4>
-                <p className="text-gray">{type.join(' / ')}</p>
+                <p className="text-gray">{type.join(' + ')}</p>
               </div>
             </div>
           </div>
