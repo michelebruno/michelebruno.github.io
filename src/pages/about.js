@@ -28,7 +28,7 @@ function CVItem({title, items, concat}) {
 export default function About() {
   return (
     <Layout>
-      <div className="grid grid-cols-12 ">
+      <div className="grid grid-cols-12 border-b">
         <div className="col-span-8 fs-xl pt-32  grid leading-snug pb-32 px">
           <p className="pb">
             I'm Michele Bruno, a 24 y.o. designer and developer, born in Andria, Southern Italy. I'm

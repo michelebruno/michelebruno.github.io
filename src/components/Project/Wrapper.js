@@ -41,7 +41,7 @@ export default function Wrapper({project, children}) {
   return (
     <Layout title={name}>
       <div className="text-lg">{children}</div>
-      <section className="min-h-screen justify-center flex flex-col ">
+      <section className="min-h-[80vh] justify-center flex flex-col border-y">
         <TextBox padding={false}>Next project</TextBox>
 
         <Grid two>

@@ -50,7 +50,7 @@ export function TextBox({children, padding, containBorder, className, title}) {
     <div
       className={classNames(
         'fs-lg grid grid-cols-1 lg:grid-cols-12 px',
-        padding && 'pb-lg last:pb-0',
+        padding && 'pb-lg',
         className
       )}
     >
