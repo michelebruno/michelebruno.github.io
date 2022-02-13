@@ -9,7 +9,7 @@ import {ProjectCard} from '../components/ProjectCard';
 
 import Layout from '../components/Layout';
 import Button from '../components/Button';
-import {H2, H3} from '../components/Typography';
+import {AnimatedLink, H2, H3} from '../components/Typography';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,13 +39,18 @@ function IndexPage() {
 
   return (
     <Layout fixed>
-      <div className="flex content-around items-center min-h-screen">
+      <div className="flex content-around items-center min-h-screen relative">
         <h1 className="fs-3xl px py-32 leading-normal">
           <span className="">Hello!</span> I'm Michele Bruno, an Italian <br />
           <span className="inline-block font-sans not-italic">UX Designer</span> and{' '}
           <span className="inline-block font-sans not-italic">Creative Developer,</span>
-          <br /> currently studing at Polimi.
+          <br /> currently studing at{' '}
+          <AnimatedLink href="https://www.designdellacomunicazione.polimi.it/">Polimi</AnimatedLink>
+          .
         </h1>
+        <div className=" py text-gray text-left absolute bottom-0 left-0">
+          <button className="scroll-button px">Scroll</button>
+        </div>
       </div>
       <section className="" ref={projectContainer}>
         <div className="grid grid-cols-3 gap-x-8 items-center content-center">

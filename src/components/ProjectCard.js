@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Image from './Image';
 import Button from './Button';
-import {H3} from './Typography';
+import {AnimatedLink, H3} from './Typography';
+import Arrow from './Arrow';
 
 export function ProjectCard({project, position, className, version}) {
   const {projects} = useStaticQuery(graphql`
@@ -17,10 +18,10 @@ export function ProjectCard({project, position, className, version}) {
     }
   `);
 
-  const {name, year, type, link, tagline, thumbnail} =
+  const {name, year, type, slug, tagline, thumbnail} =
     projects.nodes.find(({slug}) => slug === project) ||
     console.error(`Project ${project} not found`);
-
+  const link = `/projects/${slug}`;
   if (version === 2) {
     return (
       <div
@@ -45,9 +46,9 @@ export function ProjectCard({project, position, className, version}) {
             </p>
           </div>
           <div className="self-end">
-            <Button as={Link} to={link} before>
+            <AnimatedLink as={Link} to={link} before>
               View
-            </Button>
+            </AnimatedLink>
           </div>
         </div>
       </div>
@@ -81,9 +82,9 @@ export function ProjectCard({project, position, className, version}) {
             </div>
           </div>
           <div className="self-end">
-            <Button as={Link} to={link} before>
+            <AnimatedLink as={Link} to={link} icon={<Arrow className="-rotate-90" />}>
               View
-            </Button>
+            </AnimatedLink>
           </div>
         </div>
       </div>

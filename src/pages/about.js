@@ -6,7 +6,7 @@ function CVItem({title, items, concat}) {
     <div className="col-span-12 leading-snug ">
       <div className="border-t grid grid-cols-3 px py-lg pb">
         <h2 className="fs-lg text-right text-gray ">{title}</h2>
-        <ul className="fs-lg grid">
+        <ul className="fs-lg grid col-span-2 lg:col-span-1">
           {items.map(({rows, label}) => (
             <li className="pb-16 ">
               {label && <span className="block text-gray">{label}</span>}
@@ -99,7 +99,7 @@ export default function About() {
           concat
           items={[
             {
-              rows: ['p5', 'NodeJS', 'Webpack', 'Socket.io', 'React', 'GatsbyJS'],
+              rows: ['p5', 'NodeJS', 'Webpack', 'Socket.io', 'React', 'GatsbyJS', 'GSAP'],
               label: 'JS',
             },
             {

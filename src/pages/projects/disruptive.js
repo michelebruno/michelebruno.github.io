@@ -1,12 +1,11 @@
 import * as React from 'react';
 import {graphql} from 'gatsby';
-import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 
 import Wrapper from '../../components/Project/Wrapper';
 import Heading from '../../components/Project/Heading';
 import Cover from '../../components/Project/Cover';
-import {H3, Tag, TextBox} from '../../components/Typography';
+import {Tag, TextBox} from '../../components/Typography';
 import Grid from '../../components/Grid';
 import Image, {createGetImageFromName} from '../../components/Image';
 import Slider from '../../components/Project/Slider';
@@ -77,7 +76,7 @@ export default function Disruptive({data: {project, images}}) {
           <Image className="w-full" image={getImage('ex-elkann.jpg')} />
         </div>
 
-        <div className="col-span-1 flex flex-col justify-between">
+        <div className="col-span-1 flex flex-col justify-end">
           <Image className="w-full" image={getImage('ex-sign.jpg')} />
         </div>
       </Grid>
@@ -103,7 +102,7 @@ export default function Disruptive({data: {project, images}}) {
 }
 
 export const query = graphql`
-  query {
+  {
     project: projectsCsv(slug: {eq: "disruptive"}) {
       ...ProjectFragment
     }

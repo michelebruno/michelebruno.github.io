@@ -26,7 +26,6 @@ export default function Wrapper({project, children}) {
         nodes {
           name
           slug
-          link: gatsbyPath(filePath: "/projects/{projectsCsv.slug}")
         }
       }
     }
@@ -47,7 +46,7 @@ export default function Wrapper({project, children}) {
 
         <Grid two>
           <div className="col-start-1 col-span-2">
-            <Marquee link={nextProject.link}>{nextProject.name}</Marquee>
+            <Marquee link={`/projects/${nextProject.slug}`}>{nextProject.name}</Marquee>
           </div>
         </Grid>
       </section>

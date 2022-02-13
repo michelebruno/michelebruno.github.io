@@ -29,13 +29,13 @@ module.exports = {
       lineHeight: {
         DEFAULT: 1.5,
       },
+      fontWeight: {
+        DEFAULT: '300',
+      },
     },
     fontFamily: {
       sans: ['Clash Grotesk', 'ui-sans-serif', 'system-ui'],
       serif: ['Gambetta', 'freight-big-pro', 'serif'],
-    },
-    fontWeight: {
-      DEFAULT: '300',
     },
   },
   variants: {

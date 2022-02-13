@@ -68,25 +68,24 @@ export function AnimatedLink({
   href,
   to,
   activeClassName,
-  component,
+  component: C,
   target,
   children,
   icon,
   className,
 }) {
-  const C = component;
   return (
     <C
       href={href}
       to={to}
       target={target}
-      className={className}
+      className={classNames('cursor-pointer', className)}
       activeClassName={classNames(activeClassName, 'current')}
     >
       <span
         className={
           'inline-block relative ' +
-          'animated-link before:absolute before:bottom-0 before:border-b-2 before:border-b-black before:transition-all before:w-full '
+          'animated-link before:absolute before:bottom-0 before:border-b before:border-b-black before:transition-all before:w-full '
         }
       >
         {children}

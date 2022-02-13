@@ -23,6 +23,5 @@ export const projectFragment = graphql`
         gatsbyImageData(quality: 100)
       }
     }
-    link: gatsbyPath(filePath: "/projects/{ProjectsCsv.slug}")
   }
 `;
