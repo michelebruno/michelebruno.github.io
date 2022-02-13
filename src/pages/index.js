@@ -55,7 +55,7 @@ function IndexPage() {
       <section className="" ref={projectContainer}>
         <div className="grid grid-cols-3 gap-x-8 items-center content-center">
           <H2 className="col-span-3 px py-lg border-t">Selected projects</H2>
-          <div className="col-span-3 grid gap-x-0 grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 border-t">
+          <div className="col-span-3 grid gap-x-0 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 border-t">
             {homeProjectSlugs.map((project, index) => (
               <ProjectCard
                 version={3}
@@ -69,7 +69,7 @@ function IndexPage() {
         </div>
       </section>
       <section className="py-16 lg:py-32 px">
-        <p className="text-6xl leading-normal">
+        <p className="fs-3xl leading-normal">
           I enjoy designing interactive experiences. <br /> I'll write other stuff about me here,
           brb!
         </p>

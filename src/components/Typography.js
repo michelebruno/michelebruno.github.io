@@ -54,7 +54,7 @@ export function TextBox({children, padding, containBorder, className, title}) {
         className
       )}
     >
-      <h2 className="fs-lg lg:col-span-3 lg:col-start-2 text-right text-gray ">{title}</h2>
+      <h2 className="fs-lg lg:col-span-3 lg:col-start-2 lg:text-right text-gray ">{title}</h2>
       <div className="lg:col-span-6">{children}</div>
     </div>
   );

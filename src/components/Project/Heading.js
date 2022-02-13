@@ -4,8 +4,8 @@ import Arrow from '../Arrow';
 
 export default function Heading({name, year, tagline, roles, client, websiteUrl, children}) {
   return (
-    <header className="grid grid-cols-1 lg:grid-cols-3 items-end px pt-32 pb-16 lg:py-32">
-      <div className="col-span-2 pb-16 lg:pb-0">
+    <header className="grid grid-cols-1 lg:grid-cols-3 items-end px py-lg">
+      <div className="col-span-2 pb lg:pb-0">
         <div>
           <H1 className="lg:inline leading-none">{name}</H1>
           <span className="fs-xl"> ({year})</span>

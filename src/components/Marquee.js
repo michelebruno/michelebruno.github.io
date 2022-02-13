@@ -6,7 +6,7 @@ export default function Marquee({children, link}) {
   return (
     <div
       className={classNames(
-        'marquee overflow-hidden py-16 text-8xl whitespace-nowrap',
+        'marquee overflow-hidden py-16 text-6xl lg:text-8xl whitespace-nowrap',
         link && 'cursor-pointer'
       )}
       onClick={() => link && navigate(link)}

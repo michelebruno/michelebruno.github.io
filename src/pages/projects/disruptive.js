@@ -48,7 +48,7 @@ export default function Disruptive({data: {project, images}}) {
       </TextBox>
 
       <Grid padding twelve className="">
-        <div className="col-span-10 col-start-2">
+        <div className="col-span-12 lg:col-span-10 lg:col-start-2">
           <Slider
             images={[
               getImage('01-00.png'),

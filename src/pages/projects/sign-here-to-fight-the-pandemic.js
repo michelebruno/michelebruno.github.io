@@ -50,7 +50,7 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
       </Heading>
       <Cover cover={cover} />
       <TextBox title="Overview" className="py-lg">
-        <h3 className="fs-xl mb-2 pb-8">{description}</h3>
+        {description && <h3 className="fs-xl mb-2 pb-8">{description}</h3>}
         <p>
           The goal is to analyze some controversial aspects of society, process them into questions,
           and return a data visualization that helps the user understand which elements of society
