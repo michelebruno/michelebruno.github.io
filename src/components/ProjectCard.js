@@ -82,8 +82,8 @@ export function ProjectCard({project, position, className, version}) {
             </div>
           </div>
           <div className="self-end">
-            <AnimatedLink as={Link} to={link} icon={<Arrow className="-rotate-90" />}>
-              View
+            <AnimatedLink as={Link} to={link}>
+              View →
             </AnimatedLink>
           </div>
         </div>

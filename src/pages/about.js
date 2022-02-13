@@ -4,11 +4,11 @@ import Layout from '../components/Layout';
 function CVItem({title, items, concat}) {
   return (
     <div className="col-span-12 leading-snug ">
-      <div className="border-t grid grid-cols-3 px py-lg pb">
+      <div className="border-t grid grid-cols-3 px py-lg">
         <h2 className="fs-lg text-right text-gray ">{title}</h2>
         <ul className="fs-lg grid col-span-2 lg:col-span-1">
           {items.map(({rows, label}) => (
-            <li className="pb-16 ">
+            <li className="pb last:pb-0 ">
               {label && <span className="block text-gray">{label}</span>}
               {concat
                 ? rows.join(', ')

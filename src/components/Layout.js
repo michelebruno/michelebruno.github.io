@@ -64,6 +64,11 @@ export default function Layout({
         <div>@ 2021</div>
         <ul className="flex gap-8">
           <li>
+            <AnimatedLink href="https://t.me/michelebruno" target="_blank">
+              Telegram
+            </AnimatedLink>
+          </li>
+          <li>
             <AnimatedLink href="https://www.linkedin.com/in/brunomichele/" target="_blank">
               Linkedin
             </AnimatedLink>

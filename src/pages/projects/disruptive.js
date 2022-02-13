@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {graphql} from 'gatsby';
-import 'swiper/css';
 
 import Wrapper from '../../components/Project/Wrapper';
 import Heading from '../../components/Project/Heading';

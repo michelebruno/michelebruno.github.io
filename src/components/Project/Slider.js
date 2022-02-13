@@ -2,6 +2,7 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import * as React from 'react';
 import SwiperCore, {Autoplay} from 'swiper';
 import Image from '../Image';
+import 'swiper/css';
 
 SwiperCore.use([Autoplay]);
 

@@ -26,13 +26,8 @@ export default function Heading({name, year, tagline, roles, client, websiteUrl,
           )}
           {websiteUrl && (
             <li>
-              <AnimatedLink
-                href={websiteUrl}
-                target="_blank"
-                className="font-bold pt-2"
-                icon={<Arrow className="-rotate-[135deg]" />}
-              >
-                Visit the website
+              <AnimatedLink href={websiteUrl} target="_blank" className="font-bold">
+                Visit the website ↗
               </AnimatedLink>
             </li>
           )}
