@@ -17,7 +17,7 @@ module.exports = {
         landing: '1.61fr 1fr',
       },
       colors: {
-        black: '#242424',
+        black: '#0f0f0f',
         brand: '#fa9e0b', // 'rgb(240 120 48)',
         gray: '#A2A2A2',
       },
@@ -31,7 +31,7 @@ module.exports = {
         DEFAULT: 'cubic-bezier(0.65, 0, 0.35, 1)',
       },
       lineHeight: {
-        DEFAULT: 1.5,
+        DEFAULT: 1.75,
       },
       fontWeight: {
         DEFAULT: '300',

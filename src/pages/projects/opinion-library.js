@@ -20,7 +20,7 @@ function Mockup({title, names, images}) {
     </div>
   );
 }
-export default function SignHereToFightThePandemic({data: {project, images}}) {
+export default function OpinionLibrary({data: {project, images}}) {
   const {
     name,
     slug,
@@ -35,7 +35,7 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
     description,
   } = project;
 
-  const getImage = createGetImageFromName(images.nodes, 'moodboard');
+  const getImage = createGetImageFromName(images.nodes, 'opinion-library');
 
   return (
     <Wrapper project={project}>
@@ -51,24 +51,31 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
       <TextBox title="Overview" className="py-lg">
         <h3 className="fs-xl mb-2 pb-8 leading-relaxed">{description}</h3>
         <p>
-          The main goal was to create an interactive experience where users can reconnect with their
-          peers and other anonymous surfers through their emotions, to enable speculation around the
-          theme of sentient algorithms.
+          The research examined petitions published on change.org during the pandemic, as reported
+          in{' '}
+          <AnimatedLink
+            component={Link}
+            className="italic"
+            to="/projects/sign-here-to-fight-the-pandemic"
+          >
+            Sign here to fight pandemic
+          </AnimatedLink>
+          . The aim of this website is to make the dataset used in this research available to
+          researchers and potential activists interested in the subject. To do this, we set
+          ourselves the objective of realising a tool to explore the language and arguments used in
+          comments to petitions regarding the mask mandate in the United States.
         </p>
       </TextBox>
-      <div>
-        <img src={getImage('interaction.gif').publicURL} alt="" className="mx-auto" />
-      </div>
     </Wrapper>
   );
 }
 
 export const query = graphql`
   {
-    project: projectsCsv(slug: {eq: "moodboard"}) {
+    project: projectsCsv(slug: {eq: "opinion-library"}) {
       ...ProjectFragment
     }
-    images: allFile(filter: {relativeDirectory: {eq: "moodboard"}}) {
+    images: allFile(filter: {relativeDirectory: {eq: "opinion-library"}}) {
       nodes {
         publicURL
         relativePath

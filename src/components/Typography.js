@@ -1,9 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
+import {Link} from 'gatsby';
+import PropTypes from 'prop-types';
 
-export function H1({children, className, id, tag: Heading}) {
+export function H1({children, className, id, tag: Heading, ...props}) {
   return (
-    <Heading className={classNames('fs-4xl', className)} id={id}>
+    <Heading className={classNames('fs-4xl', className)} id={id} {...props}>
       {children}
     </Heading>
   );
@@ -12,9 +14,9 @@ H1.defaultProps = {
   tag: 'h1',
 };
 
-export function H2({children, className, id, tag: Heading}) {
+export function H2({children, className, id, tag: Heading, ...props}) {
   return (
-    <Heading className={classNames('fs-3xl', className)} id={id}>
+    <Heading className={classNames('fs-3xl', className)} id={id} {...props}>
       {children}
     </Heading>
   );
@@ -24,9 +26,9 @@ H2.defaultProps = {
   tag: 'h2',
 };
 
-export function H3({children, className, id, tag: Heading}) {
+export function H3({children, className, id, tag: Heading, ...props}) {
   return (
-    <Heading className={classNames('fs-2xl', className)} id={id}>
+    <Heading className={classNames('fs-2xl', className)} id={id} {...props}>
       {children}
     </Heading>
   );
@@ -45,7 +47,16 @@ export function Tag({title, children}) {
   );
 }
 
-export function TextBox({children, padding, containBorder, className, title}) {
+export function TextBox({children, padding, containBorder, className, title, layout}) {
+  if (layout === 'stacked') {
+    return (
+      <div className={classNames('fs-lg leading-relaxed px', padding && 'pb-lg', className)}>
+        <h2 className="fs-3xl pb">{title}</h2>
+        <div className="">{children}</div>
+      </div>
+    );
+  }
+
   return (
     <div
       className={classNames(
@@ -54,12 +65,14 @@ export function TextBox({children, padding, containBorder, className, title}) {
         className
       )}
     >
-      <h2 className="fs-lg lg:col-span-3 lg:col-start-2 lg:text-right text-gray ">{title}</h2>
-      <div className="lg:col-span-6">{children}</div>
+      <h2 className="fs-2xl lg:col-span-4 pb">{title}</h2>
+      <div className="lg:col-span-7 leading-relaxed px">{children}</div>
     </div>
   );
 }
-
+TextBox.propTypes = {
+  layout: PropTypes.oneOf(['stacked']),
+};
 TextBox.defaultProps = {
   padding: true,
 };
@@ -77,10 +90,10 @@ export function AnimatedLink({
   return (
     <C
       href={href}
-      to={to}
       target={target}
+      to={to}
       className={classNames('cursor-pointer', className)}
-      activeClassName={classNames(activeClassName, 'current')}
+      activeClassName={typeof C === 'string' ? undefined : classNames(activeClassName, 'current')}
     >
       <span
         className={
@@ -97,6 +110,7 @@ export function AnimatedLink({
 
 AnimatedLink.defaultProps = {
   component: 'a',
+  target: '_blank',
 };
 
 const Typography = {

@@ -26,7 +26,8 @@ function IndexPage() {
   const projectContainer = useRef();
 
   useEffect(() => {
-    /*   gsap.timeline({
+    /*
+    gsap.timeline({
                                            scrollTrigger: {
                                                trigger: projectContainer.current,
                                                pin: true,
@@ -34,13 +35,14 @@ function IndexPage() {
                                                snap: 1 / (homeProjectSlugs.length),
                                                end: () => "+=" + (projectContainer.current.offsetWidth * homeProjectSlugs.length)
                                            }
-                                       }) */
+                                       })
+                                       */
   }, []);
 
   return (
-    <Layout fixed>
-      <div className="flex content-around items-center min-h-screen relative">
-        <h1 className="fs-3xl px py-32 leading-normal">
+    <Layout>
+      <div className="flex content-around items-center relative py">
+        <h1 className="fs-3xl px py pb-lg leading-tight">
           <span className="">Hello!</span> I'm Michele Bruno, an Italian <br />
           <span className="inline-block font-sans not-italic">UX Designer</span> and{' '}
           <span className="inline-block font-sans not-italic">Creative Developer,</span>
@@ -48,13 +50,12 @@ function IndexPage() {
           <AnimatedLink href="https://www.designdellacomunicazione.polimi.it/">Polimi</AnimatedLink>
           .
         </h1>
-        <div className=" py text-gray text-left absolute bottom-0 left-0">
+        <div className="hidden py text-gray text-left absolute bottom-0 left-0">
           <button className="scroll-button px">Scroll</button>
         </div>
       </div>
       <section className="" ref={projectContainer}>
         <div className="grid grid-cols-3 gap-x-8 items-center content-center">
-          <H2 className="col-span-3 px py-lg border-t">Selected projects</H2>
           <div className="col-span-3 grid gap-x-0 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 border-t">
             {homeProjectSlugs.map((project, index) => (
               <ProjectCard
@@ -62,14 +63,14 @@ function IndexPage() {
                 key={project}
                 project={project}
                 position={index + 1}
-                className="min-h-[80vh]"
+                className=""
               />
             ))}
           </div>
         </div>
       </section>
       <section className="py-16 lg:py-32 px">
-        <p className="fs-3xl leading-normal">
+        <p className="fs-3xl leading-relaxed">
           I enjoy designing interactive experiences. <br /> I'll write other stuff about me here,
           brb!
         </p>
@@ -82,7 +83,6 @@ function IndexPage() {
           )}
           onClick={() => navigate('/projects')}
         >
-          <div className="bg-brand object-cover h-full w-full absolute inset-0 lg:opacity-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105" />
           <div className="relative h-full inset-0 grid gap-0 grid-rows-3 lg:grid-rows-[13rem_auto_auto] px py-8 lg:py-16">
             <H3>
               {/* {position.toString().padStart(2, 0)}/ */}
@@ -90,10 +90,6 @@ function IndexPage() {
             </H3>
             <div>
               <div className="overflow-hidden pb-4 relative">
-                <p className="fs-xl   absolute top-0 -translate-y-full group-hover:translate-y-0 transition">
-                  Let's go
-                </p>
-
                 <div className="group-hover:translate-y-full group-hover:opacity-0 transition-all fs-lg">
                   <h4 className="">This is just a selection</h4>
                   <p className="text-gray">Click here to see all my work</p>
@@ -101,9 +97,9 @@ function IndexPage() {
               </div>
             </div>
             <div className="self-end">
-              <Button as={Link} to="/projects" before>
-                View
-              </Button>
+              <AnimatedLink to="/projects" component={Link}>
+                View →
+              </AnimatedLink>
             </div>
           </div>
         </div>
@@ -114,7 +110,6 @@ function IndexPage() {
           )}
           onClick={() => navigate('/about')}
         >
-          <div className="bg-brand object-cover h-full w-full absolute inset-0 lg:opacity-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105" />
           <div className="relative h-full inset-0 grid gap-0 grid-rows-3 lg:grid-rows-[13rem_auto_auto] px py-8 lg:py-16">
             <H3>About me</H3>
             <div>
@@ -126,16 +121,16 @@ function IndexPage() {
               </div>
             </div>
             <div className="self-end">
-              <Button as={Link} to="/projects" before>
-                View
-              </Button>
+              <AnimatedLink to="/about" component={Link}>
+                View →
+              </AnimatedLink>
             </div>
           </div>
         </div>
       </section>
 
       <section className="min-h-[80vh] border-b grid items-center">
-        <div className="px items-center leading-normal">
+        <div className="px items-center leading-relaxed">
           <p className="fs-3xl">
             Want to work together?
             <br />

@@ -10,7 +10,7 @@ export default function Heading({name, year, tagline, roles, client, websiteUrl,
           <H1 className="lg:inline leading-none">{name}</H1>
           <span className="fs-xl"> ({year})</span>
         </div>
-        <h2 className="fs-xl leading-tight text-gray">{tagline}</h2>
+        <h2 className="fs-xl text-gray">{tagline}</h2>
       </div>
       <div className="pt-8 text-base flex flex-col">
         <ul>

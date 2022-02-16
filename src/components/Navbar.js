@@ -7,14 +7,14 @@ export default function Navbar({fixed, className}) {
   return (
     <nav
       className={classNames(
-        'top-0 w-full flex justify-between z-50',
+        'top-0 w-full flex justify-between z-50 bg-navbar',
         'fs-lg',
         fixed && 'fixed',
         !fixed && 'sticky',
         className
       )}
     >
-      <Link to="/" className="group h-full py-6 pr-8 ">
+      <Link to="/" className="group h-full self-center pr-8 ">
         Michele Bruno
       </Link>
       <ul className="flex">

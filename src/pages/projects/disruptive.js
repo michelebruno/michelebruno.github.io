@@ -38,7 +38,7 @@ export default function Disruptive({data: {project, images}}) {
       />
       <Cover cover={cover} />
       <TextBox title="Overview" className="py-lg">
-        <h3 className="fs-xl mb-2 pb-8">{description}</h3>
+        <h3 className="fs-xl mb-2 pb-8  leading-relaxed">{description}</h3>
         <p>
           Visual, experience and experiential design seamlessly blend with storytelling giving birth
           to an engaging and fascinating 360º experience. Thanks to original content, such as{' '}
@@ -64,12 +64,15 @@ export default function Disruptive({data: {project, images}}) {
           />
         </div>
       </Grid>
-      <TextBox title="Exhibition">
-        Visual, experience and experiential design seamlessly blend with storytelling giving birth
-        to an engaging and fascinating 360º experience. Thanks to original content, such as
-        illustrations, video-interviews and other digital content, Disruptive is a completely new
-        way of exploring and approaching the great rebuilding challenge that awaits.
-      </TextBox>
+
+      <Grid two>
+        <TextBox title="Exhibition" layout="stacked">
+          Visual, experience and experiential design seamlessly blend with storytelling giving birth
+          to an engaging and fascinating 360º experience. Thanks to original content, such as
+          illustrations, video-interviews and other digital content, Disruptive is a completely new
+          way of exploring and approaching the great rebuilding challenge that awaits.
+        </TextBox>
+      </Grid>
       <Grid padding three>
         <div className="col-span-2">
           <Image className="w-full" image={getImage('ex-elkann.jpg')} />

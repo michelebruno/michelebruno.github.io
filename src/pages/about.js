@@ -3,17 +3,17 @@ import Layout from '../components/Layout';
 
 function CVItem({title, items, concat}) {
   return (
-    <div className="col-span-12 leading-snug ">
+    <div className="col-span-12 leading-relaxed ">
       <div className="border-t grid grid-cols-3 px py-lg">
         <h2 className="fs-lg text-right text-gray ">{title}</h2>
         <ul className="fs-lg grid col-span-2 lg:col-span-1">
           {items.map(({rows, label}) => (
-            <li className="pb last:pb-0 ">
+            <li className="pb last:pb-0 " key={label}>
               {label && <span className="block text-gray">{label}</span>}
               {concat
                 ? rows.join(', ')
-                : rows.map((r, i) => (
-                    <span className="block" key={i}>
+                : rows.map(r => (
+                    <span className="block" key={r}>
                       {r}
                     </span>
                   ))}
@@ -29,7 +29,7 @@ export default function About() {
   return (
     <Layout>
       <div className="grid grid-cols-12 border-b">
-        <div className="col-span-8 fs-xl pt-32  grid leading-snug pb-32 px">
+        <div className="col-span-8 fs-xl pt-32  grid leading-relaxed pb-32 px">
           <p className="pb">
             I'm Michele Bruno, a 24 y.o. designer and developer, born in Andria, Southern Italy. I'm
             currently studying Communication Design at Politecnico di Milano but I also work as a

@@ -32,8 +32,7 @@
 
 @layer base {
   html, body {
-    @apply antialiased leading;
-  }
+    @apply antialiased leading-relaxed}
 
   .grid {
     @apply gap-x-6 lg:gap-x-12;
@@ -44,7 +43,7 @@
   }
 
   .fs-lg {
-    @apply text-xl lg:text-xl;
+    @apply text-xl lg:text-xl ;
   }
 
   .fs-xl {
@@ -60,7 +59,7 @@
   }
 
   .fs-4xl {
-    @apply text-4xl lg:text-8xl;
+    @apply text-4xl lg:text-8xl
   }
 
   .scroll-button {
@@ -68,8 +67,12 @@
     animation-iteration-count: infinite;
     animation-name: scrollAnimation;
     animation-duration: 3500ms;
-    animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-outa;
     animation-delay: 3000ms;
+  }
+
+  .bg-navbar {
+    background: linear-gradient(#FFF , rgb(255,255,255,0));
   }
 
   @keyframes scrollAnimation {
@@ -87,31 +90,31 @@
 @layer components {
 
   .px {
-    @apply px-6 lg:px-10;
+    @apply px-8 lg:px-16;
   }
 
   .py {
-    @apply py-6 lg:py-12;
+    @apply py-8 lg:py-16;
   }
 
   .py-lg {
-    @apply py-12 lg:py-32;
+    @apply py-16 lg:py-32;
   }
 
   .pb {
-    @apply pb-6 lg:pb-12;
+    @apply pb-8 lg:pb-16;
   }
 
   .pb-lg {
-    @apply pb-12 lg:pb-32;
+    @apply pb-16 lg:pb-32;
   }
 
   .mx {
-    @apply mx-6 lg:mx-10;
+    @apply mx-8 lg:mx-16;
   }
 
   .my {
-    @apply my-6 lg:my-12;
+    @apply my-8 lg:my-16;
   }
 
   .my-lg {

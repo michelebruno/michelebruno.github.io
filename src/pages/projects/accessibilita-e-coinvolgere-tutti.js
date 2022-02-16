@@ -49,7 +49,7 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
       />
       <Cover cover={cover} thumbnail={thumbnail} />
       <TextBox title="Overview" className="py-lg">
-        <h3 className="fs-xl mb-2 pb-8">{description}</h3>
+        <h3 className="fs-xl leading-relaxed mb-2 pb-8">{description}</h3>
         <p>
           Project of an accessible video that is at the same time demonstrative of the concept of
           accessibility, aiming for accessibility the possibility, allowed for all, to have access
@@ -76,14 +76,15 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
         <Image image={getImage('storyboard_1.png')} />
         <Image image={getImage('storyboard_2.png')} />
       </Grid>
-
-      <TextBox title="Tactile postcards">
-        The project also provides the creation of a system of artifacts for the dissemination of
-        video through social and paper channels. The tactile postcards, which reproduce the works in
-        the video, aim to enrich and expand the experience of people with sensory disabilities,
-        thanks to the textures in relief, braille text and a qr code that refers to the audio
-        description of the work.
-      </TextBox>
+      <Grid two className="py">
+        <TextBox title="Tactile postcards" layout="stacked">
+          The project also provides the creation of a system of artifacts for the dissemination of
+          video through social and paper channels. The tactile postcards, which reproduce the works
+          in the video, aim to enrich and expand the experience of people with sensory disabilities,
+          thanks to the textures in relief, braille text and a qr code that refers to the audio
+          description of the work.
+        </TextBox>
+      </Grid>
 
       <Grid two padding>
         <div className="aspect-h-5 aspect-w-4">

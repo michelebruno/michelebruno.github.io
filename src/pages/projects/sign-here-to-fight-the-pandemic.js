@@ -67,37 +67,16 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
         </p>
       </TextBox>
 
-      <Grid padding twelve className="">
-        <div className="col-span-10 col-start-2">
-          <Slider
-            images={[
-              getImage('01-00.png'),
-              getImage('01-mattarella.png'),
-              getImage('01-straniero.png'),
-              getImage('02-00.png'),
-              getImage('02-1.png'),
-              getImage('02-2.png'),
-              getImage('03-00.png'),
-              getImage('03-rebuild.png'),
-              getImage('03-thereisaworld.png'),
-            ]}
-          />
+      <Grid className="pb mx" three>
+        <Image className="w-full" image={getImage('cavi-1.jpg')} />
+        <div className="col-span-2">
+          <Image className=" h-full object-cover" image={getImage('three-books.jpg')} />
         </div>
       </Grid>
-      <TextBox title="Exhibition">
-        Visual, experience and experiential design seamlessly blend with storytelling giving birth
-        to an engaging and fascinating 360º experience. Thanks to original content, such as
-        illustrations, video-interviews and other digital content, Disruptive is a completely new
-        way of exploring and approaching the great rebuilding challenge that awaits.
-      </TextBox>
-      <Grid padding three>
-        <div className="col-span-2">
-          <Image className="w-full" image={getImage('ex-elkann.jpg')} />
-        </div>
 
-        <div className="col-span-1 flex flex-col justify-end">
-          <Image className="w-full" image={getImage('ex-sign.jpg')} />
-        </div>
+      <Grid padding two>
+        <img src={getImage('signhere.gif').publicURL} alt="" className=" " />
+        <Image className="w-full h-full object-cover" image={getImage('cavi-questions.jpg')} />
       </Grid>
 
       <TextBox>

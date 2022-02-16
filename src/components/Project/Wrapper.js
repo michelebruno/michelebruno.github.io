@@ -1,12 +1,13 @@
 import * as React from 'react';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import gsap from 'gsap';
-import {graphql, useStaticQuery} from 'gatsby';
+import {graphql, Link, useStaticQuery} from 'gatsby';
 import Layout from '../Layout';
 import Typography, {AnimatedLink, H1, Tag, TextBox} from '../Typography';
 import Marquee from '../Marquee';
 import Arrow from '../Arrow';
 import Grid from '../Grid';
+import Image from '../Image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,8 +25,7 @@ export default function Wrapper({project, children}) {
     query {
       projects: allProjectsCsv(filter: {isPagePublic: {eq: true}}) {
         nodes {
-          name
-          slug
+          ...ProjectFragment
         }
       }
     }
@@ -41,15 +41,31 @@ export default function Wrapper({project, children}) {
   return (
     <Layout title={name}>
       <div className="text-lg">{children}</div>
-      <section className="min-h-[80vh] justify-center flex flex-col border-y">
-        <TextBox padding={false}>Next project</TextBox>
 
-        <Grid two>
-          <div className="col-start-1 col-span-2">
-            <Marquee link={`/projects/${nextProject.slug}`}>{nextProject.name}</Marquee>
+      <Link
+        to={`/projects/${nextProject.slug}`}
+        className="min-h-[80vh] justify-center border-y grid grid-cols-1 lg:grid-cols-3 items-end px py-lg relative group overflow-hidden "
+      >
+        <Image
+          image={nextProject.cover || nextProject.thumbnail}
+          className="bg-white object-cover h-full w-full absolute inset-0 opacity-0 group-hover:opacity-30 transition-all group-hover:scale-105"
+        />
+        <div className="col-span-2 col-start-1 pb lg:pb-0 relative mix-blend-multiply">
+          <div>
+            <p className="fs-lg">Next project</p>
+            <H1
+              tag={Link}
+              to={`/projects/${nextProject.slug}`}
+              className="lg:inline leading-none cursor-pointer transition-all"
+            >
+              {nextProject.name}
+            </H1>
+            <span className="fs-xl"> ({nextProject.year})</span>
           </div>
-        </Grid>
-      </section>
+          <h2 className="fs-xl text-gray ">{nextProject.tagline}</h2>
+        </div>
+        <div className="pt-8 text-base flex flex-col" />
+      </Link>
     </Layout>
   );
 }

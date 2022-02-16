@@ -49,7 +49,7 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
       />
       <Cover cover={cover} thumbnail={thumbnail} />
       <TextBox title="Overview" className="py-lg">
-        <h3 className="fs-xl mb-2 pb-8">{description}</h3>
+        <h3 className="fs-xl mb-2 pb-8 leading-relaxed">{description}</h3>
         <p>
           Focused on people, not on disease: design of a multi-user app that provides tools for an
           effective relationship between those suffering from Eating Disorders and their caregivers
