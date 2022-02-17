@@ -8,6 +8,7 @@ import {Tag, TextBox} from '../../components/Typography';
 import Grid from '../../components/Grid';
 import Image, {createGetImageFromName} from '../../components/Image';
 import Slider from '../../components/Project/Slider';
+import Footer from '../../components/Project/Footer';
 
 export default function Disruptive({data: {project, images}}) {
   const {
@@ -73,17 +74,17 @@ export default function Disruptive({data: {project, images}}) {
           way of exploring and approaching the great rebuilding challenge that awaits.
         </TextBox>
       </Grid>
-      <Grid padding three>
-        <div className="col-span-2">
+      <Grid padding twelve>
+        <div className="col-span-9">
           <Image className="w-full" image={getImage('ex-elkann.jpg')} />
         </div>
 
-        <div className="col-span-1 flex flex-col justify-end">
+        <div className="col-span-3 flex flex-col justify-end">
           <Image className="w-full" image={getImage('ex-sign.jpg')} />
         </div>
       </Grid>
 
-      <TextBox>
+      <Footer>
         <Tag title="Project team">
           <ul>
             {team.map(t => (
@@ -98,7 +99,7 @@ export default function Disruptive({data: {project, images}}) {
             <li>SwiperJs</li>
           </ul>
         </Tag>
-      </TextBox>
+      </Footer>
     </Wrapper>
   );
 }

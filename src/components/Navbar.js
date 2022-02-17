@@ -10,7 +10,7 @@ export default function Navbar({fixed, className}) {
         'top-0 w-full flex justify-between z-50 bg-navbar',
         'fs-lg',
         fixed && 'fixed',
-        !fixed && 'sticky',
+        !fixed && '',
         className
       )}
     >

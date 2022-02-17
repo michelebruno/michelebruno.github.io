@@ -60,13 +60,13 @@ export function TextBox({children, padding, containBorder, className, title, lay
   return (
     <div
       className={classNames(
-        'fs-lg grid grid-cols-1 lg:grid-cols-12 px',
+        'fs-lg grid grid-cols-1 lg:grid-cols-4 px',
         padding && 'pb-lg',
         className
       )}
     >
-      <h2 className="fs-2xl lg:col-span-4 pb">{title}</h2>
-      <div className="lg:col-span-7 leading-relaxed px">{children}</div>
+      <h2 className="fs-2xl pb">{title}</h2>
+      <div className="lg:col-span-2 leading-relaxed ">{children}</div>
     </div>
   );
 }

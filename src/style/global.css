@@ -35,7 +35,7 @@
     @apply antialiased leading-relaxed}
 
   .grid {
-    @apply gap-x-6 lg:gap-x-12;
+    @apply gap-x-3 lg:gap-x-6;
   }
 
   .fs-base {
@@ -72,7 +72,10 @@
   }
 
   .bg-navbar {
-    background: linear-gradient(#FFF , rgb(255,255,255,0));
+
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    /*background: linear-gradient(#FFF , rgb(255,255,255,0));*/
   }
 
   @keyframes scrollAnimation {

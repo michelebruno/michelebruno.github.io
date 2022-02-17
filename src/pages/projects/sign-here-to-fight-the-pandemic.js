@@ -9,6 +9,7 @@ import Grid from '../../components/Grid';
 import Image, {createGetImageFromName} from '../../components/Image';
 import Slider from '../../components/Project/Slider';
 import Arrow from '../../components/Arrow';
+import Footer from '../../components/Project/Footer';
 
 export default function SignHereToFightThePandemic({data: {project, images}}) {
   const {
@@ -79,7 +80,7 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
         <Image className="w-full h-full object-cover" image={getImage('cavi-questions.jpg')} />
       </Grid>
 
-      <TextBox>
+      <Footer>
         <Tag title="Course">
           Interaction Design Studio
           <br />
@@ -98,9 +99,7 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
               'Andrea Benedetti',
               'Elena Aversa',
             ].map(t => (
-              <li key={t} className="inline-block after:content-comma">
-                {t}
-              </li>
+              <li key={t}>{t}</li>
             ))}
           </ul>
         </Tag>
@@ -120,9 +119,18 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
             <li>Gephi</li>
             <li>Indesign</li>
             <li>Illustrator</li>
+            <li>
+              <br />
+              <AnimatedLink
+                href="https://github.com/michelebruno/sign-here-to-fight-the-pandemic"
+                target="_blank"
+              >
+                Repo on github ↗
+              </AnimatedLink>
+            </li>
           </ul>
         </Tag>
-      </TextBox>
+      </Footer>
     </Wrapper>
   );
 }

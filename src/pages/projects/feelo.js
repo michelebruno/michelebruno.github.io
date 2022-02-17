@@ -9,11 +9,12 @@ import Grid from '../../components/Grid';
 import Image, {createGetImageFromName} from '../../components/Image';
 import Slider from '../../components/Project/Slider';
 import Arrow from '../../components/Arrow';
+import Footer from '../../components/Project/Footer';
 
 function Mockup({title, names, images}) {
   return (
     <div>
-      <h3 className="fs-lg text-center">{title}</h3>
+      <h3 className="fs-lg text-center pb-6">{title}</h3>
       {names.map(img => (
         <Image className="w-full mb-16 rounded-2xl drop-shadow-xl" key={img} image={images(img)} />
       ))}
@@ -79,7 +80,7 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
         <Mockup names={['giulia-diario.png']} images={getImage} title="Individual activities" />
       </div>
 
-      <TextBox>
+      <Footer>
         <Tag title="Course">
           Interaction Design Studio
           <br />
@@ -107,7 +108,7 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
             <li>GatsbyJs</li>
           </ul>
         </Tag>
-      </TextBox>
+      </Footer>
     </Wrapper>
   );
 }

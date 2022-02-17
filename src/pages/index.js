@@ -70,7 +70,7 @@ function IndexPage() {
         </div>
       </section>
       <section className="py-16 lg:py-32 px">
-        <p className="fs-3xl leading-relaxed">
+        <p className="fs-3xl leading-tight">
           I enjoy designing interactive experiences. <br /> I'll write other stuff about me here,
           brb!
         </p>
@@ -130,7 +130,7 @@ function IndexPage() {
       </section>
 
       <section className="min-h-[80vh] border-b grid items-center">
-        <div className="px items-center leading-relaxed">
+        <div className="px items-center leading-tight">
           <p className="fs-3xl">
             Want to work together?
             <br />
