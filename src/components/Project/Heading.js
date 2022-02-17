@@ -1,8 +1,7 @@
 import * as React from 'react';
 import {AnimatedLink, H1} from '../Typography';
-import Arrow from '../Arrow';
 
-export default function Heading({name, year, tagline, roles, client, websiteUrl, children}) {
+export default function Heading({name, year, tagline, roles, client, websiteUrl, links, children}) {
   return (
     <header className="grid grid-cols-1 lg:grid-cols-4 items-end px py-lg">
       <div className="col-span-3 pb lg:pb-0">
@@ -31,6 +30,14 @@ export default function Heading({name, year, tagline, roles, client, websiteUrl,
               </AnimatedLink>
             </li>
           )}
+          {links &&
+            links.map(([text, url]) => (
+              <li>
+                <AnimatedLink href={url} target="_blank" className="font-bold">
+                  {text} ↗
+                </AnimatedLink>
+              </li>
+            ))}
           {children}
         </ul>
       </div>

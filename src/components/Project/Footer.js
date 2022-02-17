@@ -1,10 +1,13 @@
 import * as React from 'react';
-import {H3} from '../Typography';
 
 export default function Footer({children}) {
   return (
-    <footer className="grid lg:grid-cols-4 pb-lg">
-      <div className="col-span-2 col-start-2">{children}</div>
+    <footer className=" pb-lg px flex justify-center w-full gap ">
+      {children.map((c, i) => (
+        <div className="w-full lg:w-1/4" key={i}>
+          {c}
+        </div>
+      ))}
     </footer>
   );
 }

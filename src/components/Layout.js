@@ -81,7 +81,7 @@ export default function Layout({
         </ul>
       </footer>
 
-      <div className="fixed inset-0 grid grid-cols-12 gap-x-6 lg:gap-x-12 px h-screen w-screen -z-10">
+      <div className="fixed inset-0 grid grid-cols-12 px h-screen w-screen -z-10">
         <div />
       </div>
     </div>

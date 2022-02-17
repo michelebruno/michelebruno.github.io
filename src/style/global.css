@@ -34,8 +34,15 @@
   html, body {
     @apply antialiased leading-relaxed}
 
-  .grid {
+  .grid, .gap {
     @apply gap-x-3 lg:gap-x-6;
+  }
+  .row  {
+    @apply -mx-3 lg:-mx-6;
+  }
+
+  .row > * {
+    @apply px-3 lg:px-6 box-content;
   }
 
   .fs-base {

@@ -45,8 +45,13 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
         tagline={tagline}
         year={year}
         client={client}
-        websiteUrl={websiteUrl}
         roles={roles}
+        links={[
+          [
+            'Open the prototype',
+            'https://www.figma.com/proto/WbY8lQIXAuVHePe6l1lqq8/IxD_Lab-C2_Feelo_Spritz?page-id=2261%3A12291&node-id=2261%3A17603&viewport=392%2C48%2C0.02&scaling=min-zoom&starting-point-node-id=4296%3A37856',
+          ],
+        ]}
       />
       <Cover cover={cover} thumbnail={thumbnail} />
       <TextBox title="Overview" className="py-lg">

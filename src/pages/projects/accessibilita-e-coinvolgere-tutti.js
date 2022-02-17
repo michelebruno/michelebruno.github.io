@@ -9,6 +9,7 @@ import Grid from '../../components/Grid';
 import Image, {createGetImageFromName} from '../../components/Image';
 import Slider from '../../components/Project/Slider';
 import Arrow from '../../components/Arrow';
+import Footer from '../../components/Project/Footer';
 
 function Mockup({title, names, images}) {
   return (
@@ -96,7 +97,7 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
         </div>
       </Grid>
 
-      <TextBox>
+      <Footer>
         <Tag title="Course">
           Complex Artefacts and System Design Studio
           <br />
@@ -125,7 +126,7 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
             <li>Figma</li>
           </ul>
         </Tag>
-      </TextBox>
+      </Footer>
     </Wrapper>
   );
 }

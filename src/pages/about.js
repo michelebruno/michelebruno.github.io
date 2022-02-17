@@ -4,7 +4,7 @@ import Layout from '../components/Layout';
 function CVItem({title, items, concat}) {
   return (
     <div className="col-span-12 leading-relaxed ">
-      <div className="border-t grid grid-cols-3 px py-lg">
+      <div className="border-t grid grid-cols-4 px py-lg">
         <h2 className="fs-lg text-right text-gray ">{title}</h2>
         <ul className="fs-lg grid col-span-2 lg:col-span-1">
           {items.map(({rows, label}) => (
@@ -35,11 +35,14 @@ export default function About() {
             currently studying Communication Design at Politecnico di Milano but I also work as a
             freelance.
           </p>
-          <p>
+          <p className="pb">
             I learned coding as a self taught in high school while trying to build websites for my
             first projects and, since then, technology has been a powerful tool to reach design
-            goals. After my bachelor degree, I chose to enhance my design abilities enrolling at
-            PoliMi and focusing my studies in UX design.
+            goals.
+          </p>
+          <p className="">
+            After my bachelor degree, I chose to enhance my design abilities enrolling in
+            Communication Design at PoliMi, focusing on UX design and creative coding.
           </p>
         </div>
         <CVItem
@@ -72,7 +75,6 @@ export default function About() {
             },
           ]}
         />
-
         <CVItem
           title="Skills"
           concat
