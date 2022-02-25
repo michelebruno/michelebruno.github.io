@@ -9,6 +9,7 @@ import Grid from '../../components/Grid';
 import Image, {createGetImageFromName} from '../../components/Image';
 import Slider from '../../components/Project/Slider';
 import Arrow from '../../components/Arrow';
+import Footer from '../../components/Project/Footer';
 
 function Mockup({title, names, images}) {
   return (
@@ -20,6 +21,7 @@ function Mockup({title, names, images}) {
     </div>
   );
 }
+
 export default function SignHereToFightThePandemic({data: {project, images}}) {
   const {
     name,
@@ -56,9 +58,41 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
           theme of sentient algorithms.
         </p>
       </TextBox>
-      <div>
-        <img src={getImage('interaction.gif').publicURL} alt="" className="mx-auto" />
-      </div>
+
+      <Grid padding twelve className="">
+        <div className="col-span-12 lg:col-span-10 lg:col-start-2 ">
+          <img src={getImage('interaction.gif').publicURL} alt="" className="mx-auto" />
+        </div>
+      </Grid>
+
+      <Footer>
+        <Tag title="Course">
+          Interaction Design Studio
+          <br />
+          A.A. 2020/2021
+        </Tag>
+        <Tag title="Faculty">
+          <ul>
+            <li>Michele Mauri</li>
+            <li>Tommaso Elli</li>
+            <li>Andrea Benedetti</li>
+          </ul>
+        </Tag>
+        <Tag title="Project team">
+          <ul>
+            {team.map(t => (
+              <li key={t}>{t}</li>
+            ))}
+          </ul>
+        </Tag>
+        <Tag title="Tools and technology">
+          <ul>
+            <li>p5.js</li>
+            <li>socket.io</li>
+            <li>Heroku</li>
+          </ul>
+        </Tag>
+      </Footer>
     </Wrapper>
   );
 }

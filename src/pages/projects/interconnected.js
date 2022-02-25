@@ -4,8 +4,10 @@ import {graphql} from 'gatsby';
 import Wrapper from '../../components/Project/Wrapper';
 import Heading from '../../components/Project/Heading';
 import Cover from '../../components/Project/Cover';
-import {TextBox} from '../../components/Typography';
+import {Tag, TextBox} from '../../components/Typography';
 import Image, {createGetImageFromName} from '../../components/Image';
+import Footer from '../../components/Project/Footer';
+import Grid from '../../components/Grid';
 
 export default function SignHereToFightThePandemic({data: {project, images}}) {
   const {name, roles, tagline, thumbnail, cover, year, client, websiteUrl, description} = project;
@@ -26,6 +28,26 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
       <TextBox title="Overview" className="py-lg">
         <h3 className="fs-xl mb-2 pb-8 leading-relaxed">{description}</h3>
       </TextBox>
+      <Grid two padding>
+        <Image image={getImage('1.png')} />
+        <Image image={getImage('2.png')} />
+        <Image image={getImage('3.png')} />
+        <Image image={getImage('4.png')} />
+      </Grid>
+      <Footer>
+        <Tag title="Team">
+          <ul>
+            <li>Federico Pozzi</li>
+          </ul>
+        </Tag>
+        <Tag title="Tools and technology">
+          <ul>
+            <li>Figma</li>
+            <li>GatsbyJs</li>
+            <li>GSAP</li>
+          </ul>
+        </Tag>
+      </Footer>
     </Wrapper>
   );
 }

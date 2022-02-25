@@ -52,19 +52,27 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
       <Cover cover={cover} />
       <TextBox title="Overview" className="py-lg">
         {description && <h3 className="fs-xl mb-2 pb-8">{description}</h3>}
-        <p>
-          The goal is to analyze some controversial aspects of society, process them into questions,
-          and return a data visualization that helps the user understand which elements of society
-          itself are being questioned. The research was based on the theme of slacktivism, the
-          practice of supporting a political or social cause through social media or online
-          petitions, characterized by involving minimal effort or commitment. The platform taken
-          into analysis was Change.org, one of the most popular platforms used to post online
-          petitions. From the analysis of the petitions, three questions arose: What topics are most
-          frequently associated with Covid-19 in Canada, Great Britain, India, Italy and the United
-          States in petitions posted on Change.org? What are the most common words used on
-          Change.org by people who leave a comment after signing petitions on mandatory masks in the
-          United States? What are the most common subjects and graphic treatments of images used in
-          U.S. petitions on mandatory masks on Change.org?
+        <p className="pb-8">
+          Slacktivism is the practice of supporting a political or social cause through social media
+          or online petitions, characterized by involving minimal effort or commitment. The goal of{' '}
+          <i>Sign here to fight the pandemic</i> was to analyze online slacktivism, define three
+          research questions, collect data, and return visualizations which would help the user
+          understand what's being questioned. From the analysis of the petitions, three questions
+          arose:
+          <ul className="list-disc ml-6 ">
+            <li>
+              What topics are most frequently associated with Covid-19 in Canada, Great Britain,
+              India, Italy and the United States in petitions posted on Change.org?
+            </li>
+            <li>
+              What are the most common words used on Change.org by people who leave a comment after
+              signing petitions on mandatory masks in the United States?
+            </li>
+            <li>
+              What are the most common subjects and graphic treatments of images used in U.S.
+              petitions on mandatory masks on Change.org?
+            </li>
+          </ul>
         </p>
       </TextBox>
 
@@ -80,6 +88,32 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
         <Image className="w-full h-full object-cover" image={getImage('cavi-questions.jpg')} />
       </Grid>
 
+      <Grid two padding>
+        <div className="grid lg:grid-cols-[1fr_0.5fr] auto-rows-min">
+          <div className="sticky top-12 pb leading-relaxed">
+            <p>
+              Data used in this project was scraped from scratch, by using change.org API and
+              collecting data from more than 200k petitions. For each research questions, a protocol
+              was developed in order to collect and analyze data in a replicable way.
+            </p>
+            <p>
+              In the{' '}
+              <AnimatedLink
+                href="https://github.com/michelebruno/sign-here-to-fight-the-pandemic"
+                target="_blank"
+              >
+                GitHub repository
+              </AnimatedLink>
+              , you can find the Python code devolped for this project.
+            </p>
+          </div>
+        </div>
+        <div>
+          <Image image={getImage('Protocol1.png')} />
+          <Image image={getImage('Protocol2.png')} />
+          <Image image={getImage('Protocol3.png')} />
+        </div>
+      </Grid>
       <Footer>
         <Tag title="Course">
           Interaction Design Studio

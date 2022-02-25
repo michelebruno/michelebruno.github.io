@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 export default function Grid({children, className, two, three, six, twelve, padding, projects}) {
   return (
@@ -11,7 +12,7 @@ export default function Grid({children, className, two, three, six, twelve, padd
         six && 'grid-cols-6',
         twelve && 'grid-cols-12',
         projects && 'md:grid-cols-project',
-        padding && 'pb-lg  px',
+        padding && 'pb-lg px',
         className
       )}
     >
@@ -19,3 +20,11 @@ export default function Grid({children, className, two, three, six, twelve, padd
     </div>
   );
 }
+
+Grid.propTypes = {
+  two: PropTypes.bool,
+  three: PropTypes.bool,
+  six: PropTypes.bool,
+  twelve: PropTypes.bool,
+  padding: PropTypes.bool,
+};

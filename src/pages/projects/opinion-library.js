@@ -66,6 +66,22 @@ export default function OpinionLibrary({data: {project, images}}) {
           comments to petitions regarding the mask mandate in the United States.
         </p>
       </TextBox>
+
+      <Grid padding twelve className="">
+        <div className="col-span-12 lg:col-span-10 lg:col-start-2 lg:shadow-xl">
+          <div style={{paddingTop: '56.25%', position: 'relative'}} className="px">
+            <iframe
+              src="https://player.vimeo.com/video/681928771?h=9328d1b8b2&title=0&byline=0&portrait=0"
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+              className="absolute top-0 left-0 h-full w-full"
+              title="Opiion library – getting started"
+            />
+          </div>
+          <script src="https://player.vimeo.com/api/player.js" />
+        </div>
+      </Grid>
     </Wrapper>
   );
 }

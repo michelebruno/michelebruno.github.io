@@ -71,8 +71,7 @@ function IndexPage() {
       </section>
       <section className="py-16 lg:py-32 px">
         <p className="fs-3xl leading-tight">
-          I enjoy designing interactive experiences. <br /> I'll write other stuff about me here,
-          brb!
+          I enjoy designing interactive experiences. <br />
         </p>
       </section>
       <section className="grid grid-cols-2 col-span-3 border-t gap-0">
@@ -139,7 +138,7 @@ function IndexPage() {
               get in touch.
             </Button>
           </p>
-          <p className="pt-4 fs-lg">
+          <p className="pt-4 fs-lg hidden">
             I'm currently looking for an internship, however you can write me <br />
             if you need a freelance creative developer.
           </p>

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import {AnimatedLink, H1} from '../Typography';
 
 export default function Heading({name, year, tagline, roles, client, websiteUrl, links, children}) {
@@ -44,3 +45,9 @@ export default function Heading({name, year, tagline, roles, client, websiteUrl,
     </header>
   );
 }
+
+Heading.propTypes = {
+  links: PropTypes.arrayOf(
+    PropTypes.shape({text: PropTypes.string.isRequired, url: PropTypes.string.isRequired})
+  ),
+};

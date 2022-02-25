@@ -7,12 +7,12 @@ const description = "Hello, I'm Michele, a creative developer and UX designer.";
 module.exports = {
   siteMetadata: {
     title: `${
-      process.env.NODE_ENV !== 'production' ? '[DEV]' : ''
+      process.env.NODE_ENV !== 'production' ? '[DEV] ' : ''
     }Michele Bruno | UX Designer & Creative Developer`,
     titleTemplate: `${process.env.NODE_ENV !== 'production' ? '[DEV]' : ''}%s - Michele Bruno`,
     description,
     siteUrl, // No trailing slash allowed!
-    image: '/ident-bumper.jpg', // Path to your image you placed in the 'static' folder
+    image: '/ident-bumper.png', // Path to your image you placed in the 'static' folder
   },
   plugins: [
     'gatsby-plugin-image',

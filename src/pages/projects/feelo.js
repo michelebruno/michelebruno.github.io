@@ -57,14 +57,15 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
       <TextBox title="Overview" className="py-lg">
         <h3 className="fs-xl mb-2 pb-8 leading-relaxed">{description}</h3>
         <p>
-          Focused on people, not on disease: design of a multi-user app that provides tools for an
-          effective relationship between those suffering from Eating Disorders and their caregivers
-          through activities that encourage dialogue and reflection with a cognitive-behavioral
-          approach.
+          The focus of the project is the design for safety: starting from the problems that emerged
+          during the Covid-19, we created a digital service that keeps users safe, without
+          compromising important activities that contribute to their personal and professional
+          development. The design of the service and its prototyping followed the principles of UX
+          and interaction design.
         </p>
       </TextBox>
 
-      <div className="grid   pb-lg px justify-center">
+      <div className="grid pb-lg px justify-center">
         <Image
           image={getImage('feelo-trittico.png')}
           pictureClassName="  aspect-w-4 aspect-h-3"

@@ -4,7 +4,7 @@ import {graphql} from 'gatsby';
 import Wrapper from '../../components/Project/Wrapper';
 import Heading from '../../components/Project/Heading';
 import Cover from '../../components/Project/Cover';
-import {Tag, TextBox} from '../../components/Typography';
+import {AnimatedLink, Tag, TextBox} from '../../components/Typography';
 import Grid from '../../components/Grid';
 import Image, {createGetImageFromName} from '../../components/Image';
 import Slider from '../../components/Project/Slider';
@@ -39,7 +39,13 @@ export default function Disruptive({data: {project, images}}) {
       />
       <Cover cover={cover} />
       <TextBox title="Overview" className="py-lg">
-        <h3 className="fs-xl mb-2 pb-8  leading-relaxed">{description}</h3>
+        <h3 className="fs-xl mb-2 pb-8  leading-relaxed">
+          <AnimatedLink href={websiteUrl}>
+            <i>Disruptive: the challenge of rebuilding</i>
+          </AnimatedLink>{' '}
+          is a digital exhibit, conceived for digital media. A design-centered exhibition born out
+          of the passion and hard work of young Italian university students.
+        </h3>
         <p>
           Visual, experience and experiential design seamlessly blend with storytelling giving birth
           to an engaging and fascinating 360º experience. Thanks to original content, such as{' '}
@@ -68,10 +74,9 @@ export default function Disruptive({data: {project, images}}) {
 
       <Grid two>
         <TextBox title="Exhibition" layout="stacked">
-          Visual, experience and experiential design seamlessly blend with storytelling giving birth
-          to an engaging and fascinating 360º experience. Thanks to original content, such as
-          illustrations, video-interviews and other digital content, Disruptive is a completely new
-          way of exploring and approaching the great rebuilding challenge that awaits.
+          The project was designed during the pandemic. As COVID restrictions decreased, we were
+          also able to give birth to a phisical exhibibition at Riminifiera, designing a space to
+          present the project, the interviews and the life of Sergio Marchionne.
         </TextBox>
       </Grid>
       <Grid padding twelve>
