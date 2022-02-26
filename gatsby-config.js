@@ -9,7 +9,7 @@ module.exports = {
     title: `${
       process.env.NODE_ENV !== 'production' ? '[DEV] ' : ''
     }Michele Bruno | UX Designer & Creative Developer`,
-    titleTemplate: `${process.env.NODE_ENV !== 'production' ? '[DEV]' : ''}%s - Michele Bruno`,
+    titleTemplate: `${process.env.NODE_ENV !== 'production' ? '[DEV] ' : ''}%s - Michele Bruno`,
     description,
     siteUrl, // No trailing slash allowed!
     image: '/ident-bumper.png', // Path to your image you placed in the 'static' folder
@@ -38,12 +38,12 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
-        google2: [
-          {
-            family: 'Manrope',
-            axes: 'wght@400..600', // multiple ranges are supported, ex: "wght@300..500;700..900"
-          },
-        ],
+        // google2: [
+        //   {
+        //     family: 'Manrope',
+        //     axes: 'wght@400..600', // multiple ranges are supported, ex: "wght@300..500;700..900"
+        //   },
+        // ],
         // typekit: {
         //     id: process.env.TYPEKIT_ID,
         // },

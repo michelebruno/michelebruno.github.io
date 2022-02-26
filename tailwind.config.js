@@ -20,6 +20,7 @@ module.exports = {
         black: '#0f0f0f',
         brand: '#fa9e0b', // 'rgb(240 120 48)',
         gray: '#A2A2A2',
+        light: '#f1f1f1',
       },
       borderColor: {
         DEFAULT: '#242424',

@@ -50,8 +50,7 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
         </li>
       </Heading>
       <Cover cover={cover} />
-      <TextBox title="Overview" className="py-lg">
-        {description && <h3 className="fs-xl mb-2 pb-8">{description}</h3>}
+      <TextBox title="Overview" className="py-lg" description={description}>
         <p className="pb-8">
           Slacktivism is the practice of supporting a political or social cause through social media
           or online petitions, characterized by involving minimal effort or commitment. The goal of{' '}
@@ -91,10 +90,12 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
       <Grid two padding>
         <div className="grid lg:grid-cols-[1fr_0.5fr] auto-rows-min">
           <div className="sticky top-12 pb leading-relaxed">
+            <h2 className="font-bold">Data scraping</h2>
             <p>
-              Data used in this project was scraped from scratch, by using change.org API and
-              collecting data from more than 200k petitions. For each research questions, a protocol
-              was developed in order to collect and analyze data in a replicable way.
+              Scraping data from scratch was part of this project. We developed a Python scraper,
+              exploiting change.org REST API, thus collecting data from more than 200k petitions.
+              For each research question, a protocol was developed to define each step from the
+              question to the final visualizations.
             </p>
             <p>
               In the{' '}
@@ -104,7 +105,7 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
               >
                 GitHub repository
               </AnimatedLink>
-              , you can find the Python code devolped for this project.
+              , you can find the Python scraper for this project.
             </p>
           </div>
         </div>
@@ -116,9 +117,9 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
       </Grid>
       <Footer>
         <Tag title="Course">
-          Interaction Design Studio
+          Final Synthesis Design Studio
           <br />
-          A.A. 2020/2021
+          A.A. 2021/2022
         </Tag>
         <Tag title="Faculty">
           <ul>

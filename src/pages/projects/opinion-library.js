@@ -9,6 +9,7 @@ import Grid from '../../components/Grid';
 import Image, {createGetImageFromName} from '../../components/Image';
 import Slider from '../../components/Project/Slider';
 import Arrow from '../../components/Arrow';
+import Footer from '../../components/Project/Footer';
 
 function Mockup({title, names, images}) {
   return (
@@ -48,8 +49,7 @@ export default function OpinionLibrary({data: {project, images}}) {
         roles={roles}
       />
       <Cover cover={cover} thumbnail={thumbnail} />
-      <TextBox title="Overview" className="py-lg">
-        <h3 className="fs-xl mb-2 pb-8 leading-relaxed">{description}</h3>
+      <TextBox title="Overview" className="py-lg" description={description}>
         <p>
           The research examined petitions published on change.org during the pandemic, as reported
           in{' '}
@@ -82,6 +82,61 @@ export default function OpinionLibrary({data: {project, images}}) {
           <script src="https://player.vimeo.com/api/player.js" />
         </div>
       </Grid>
+      <Grid two padding>
+        <Image image={getImage('landing.png')} />
+        <Image image={getImage('about.png')} />
+        <Image image={getImage('maskometer.png')} />
+        <Image image={getImage('comments.png')} />
+        <div className="col-span-2">
+          <Image image={getImage('mobile-mockup.png')} className="object-cover" />
+        </div>
+      </Grid>
+
+      <Footer>
+        <Tag title="Course">
+          Final Synthesis Design Studio
+          <br />
+          A.A. 2021/2022
+        </Tag>
+        <Tag title="Faculty">
+          <ul>
+            {[
+              'Michele Mauri',
+              'Simone Vantini',
+              'Gabriele Colombo',
+              'Angeles Briones',
+              'Salvatore Zingale',
+              'Tommaso Elli',
+              'Beatrice Gobbo',
+              'Andrea Benedetti',
+              'Elena Aversa',
+            ].map(t => (
+              <li key={t}>{t}</li>
+            ))}
+          </ul>
+        </Tag>
+        <Tag title="Project team">
+          <ul>
+            {team.map(t => (
+              <li key={t}>{t}</li>
+            ))}
+          </ul>
+        </Tag>
+        <Tag title="Tools and technology">
+          <ul>
+            <li>Figma</li>
+            <li>Google Sheets</li>
+            <li>Gatsby</li>
+            <li>GSAP</li>
+            <li>
+              <br />
+              <AnimatedLink href="https://github.com/michelebruno/opinion-library" target="_blank">
+                Repo on github ↗
+              </AnimatedLink>
+            </li>
+          </ul>
+        </Tag>
+      </Footer>
     </Wrapper>
   );
 }

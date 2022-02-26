@@ -47,12 +47,15 @@ export function Tag({title, children}) {
   );
 }
 
-export function TextBox({children, padding, containBorder, className, title, layout}) {
+export function TextBox({children, padding, containBorder, className, description, title, layout}) {
   if (layout === 'stacked') {
     return (
       <div className={classNames('fs-lg leading-relaxed px', padding && 'pb-lg', className)}>
         <h2 className="fs-3xl pb">{title}</h2>
-        <div className="">{children}</div>
+        <div className="">
+          {description && <p className="fs-xl mb-2 pb-8 leading-relaxed">{description}</p>}
+          {children}
+        </div>
       </div>
     );
   }

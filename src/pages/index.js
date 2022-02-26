@@ -56,7 +56,7 @@ function IndexPage() {
       </div>
       <section className="" ref={projectContainer}>
         <div className="grid grid-cols-3 gap-x-8 items-center content-center">
-          <div className="col-span-3 grid gap-x-0 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 border-t">
+          <div className="col-span-3 grid gap-0 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 border-t">
             {homeProjectSlugs.map((project, index) => (
               <ProjectCard
                 version={3}
