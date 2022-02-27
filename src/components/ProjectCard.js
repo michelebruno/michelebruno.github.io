@@ -21,7 +21,7 @@ export function ProjectCard({project, position, className, version}) {
   const {name, year, type, slug, tagline, thumbnail} =
     projects.nodes.find(({slug}) => slug === project) ||
     console.error(`Project ${project} not found`);
-  const link = `/projects/${slug}`;
+  const link = `/projects/${slug}/`;
   if (version === 2) {
     return (
       <div

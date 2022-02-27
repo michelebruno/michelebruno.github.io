@@ -67,8 +67,8 @@ export default function OpinionLibrary({data: {project, images}}) {
         </p>
       </TextBox>
 
-      <Grid padding twelve className="">
-        <div className="col-span-12">
+      <Grid padding two className="">
+        <div className="col-span-2">
           <div style={{paddingTop: '56.25%', position: 'relative'}} className="px">
             <iframe
               src="https://player.vimeo.com/video/681928771?h=9328d1b8b2&title=0&byline=0&portrait=0"
@@ -81,8 +81,6 @@ export default function OpinionLibrary({data: {project, images}}) {
           </div>
           <script src="https://player.vimeo.com/api/player.js" />
         </div>
-      </Grid>
-      <Grid two padding>
         <Image image={getImage('landing.png')} />
         <Image image={getImage('about.png')} />
         <Image image={getImage('maskometer.png')} />

@@ -34,7 +34,7 @@ export default function Projects({data}) {
               <tr
                 key={slug}
                 className={`${isPagePublic && 'cursor-pointer'} group`}
-                onClick={() => isPagePublic && navigate(`/projects/${slug}`)}
+                onClick={() => isPagePublic && navigate(`/projects/${slug}/`)}
               >
                 <td className="py-4 pr-8 group-hover:underline">{name}</td>
                 <td className="pys-4 ">{type && type.join(', ')}</td>

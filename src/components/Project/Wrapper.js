@@ -44,7 +44,7 @@ export default function Wrapper({project, children}) {
 
       <Link
         to={`/projects/${nextProject.slug}`}
-        className="min-h-[80vh] justify-center border-y grid grid-cols-1 lg:grid-cols-3 items-end px py-lg relative group overflow-hidden "
+        className="min-h-[80vh] justify-center border-y grid grid-cols-1 lg:grid-cols-3 items-end px py-lg relative group overflow-hidden !cursor-arrow"
       >
         <Image
           image={nextProject.cover || nextProject.thumbnail}
@@ -56,7 +56,7 @@ export default function Wrapper({project, children}) {
             <H1
               tag={Link}
               to={`/projects/${nextProject.slug}`}
-              className="lg:inline leading-none cursor-pointer transition-all"
+              className="lg:inline leading-none transition-all"
             >
               {nextProject.name}
             </H1>

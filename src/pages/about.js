@@ -30,21 +30,19 @@ export default function About() {
   return (
     <Layout>
       <div className="grid grid-cols-12 border-b">
-        <div className="col-span-8 fs-xl pt-32  grid leading-relaxed pb-32 px">
-          <p className="pb">
+        <div className="col-span-8 fs-xl  grid leading-relaxed py px">
+          <p className="">
             I'm Michele Bruno, a 24 y.o. designer and developer, born in Andria, Southern Italy. I'm
-            currently studying Communication Design at Politecnico di Milano but I also work as a
+            currently studying Communication Design at Politecnico di Milano. I also work as a
             freelance.
           </p>
-          <p className="pb">
-            I learned coding as a self taught in high school while trying to build websites for my
-            first projects and, since then, technology has been a powerful tool to reach design
-            goals.
-          </p>
           <p className="">
-            After my bachelor degree, I chose to enhance my design abilities enrolling in
-            Communication Design at PoliMi, focusing on UX design and creative coding.
+            I've been learning coding as a self taught since high school, trying to build websites
+            for my first projects. Since then, technology has been a powerful tool to reach design
+            goals. That's why I kept on enhancing my tech skills and I want to keep on getting
+            better.
           </p>
+          <p>I strongly believe that no good designer can do much without a good team.</p>
         </div>
         <CVItem
           title="Education"

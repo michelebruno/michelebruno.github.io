@@ -32,12 +32,14 @@
 
 @layer base {
   html, body {
-    @apply antialiased leading-relaxed}
+    @apply antialiased leading-relaxed
+  }
 
   .grid, .gap {
     @apply gap-3 lg:gap-6;
   }
-  .row  {
+
+  .row {
     @apply -mx-3 lg:-mx-6;
   }
 
@@ -61,6 +63,11 @@
     @apply text-2xl lg:text-4xl
   }
 
+  @variants {
+    .cursor-arrow {
+      cursor: url("../images/arrow-cursor.png") 30 10, pointer;
+    }
+  }
   .fs-3xl {
     @apply text-3xl lg:text-6xl
   }
@@ -90,7 +97,7 @@
       transform: translateY(-100%);
       opacity: 0;
     }
-    80%,100% {
+    80%, 100% {
       transform: translateY(0);
       opacity: 1;
     }

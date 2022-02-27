@@ -60,8 +60,8 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
       </TextBox>
 
       <Grid padding twelve className="">
-        <div className="col-span-12 lg:col-span-10 lg:col-start-2 ">
-          <img src={getImage('interaction.gif').publicURL} alt="" className="mx-auto" />
+        <div className="col-span-12">
+          <img src={getImage('interaction.gif').publicURL} alt="" className="mx-auto w-full" />
         </div>
       </Grid>
 
