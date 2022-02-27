@@ -44,7 +44,7 @@ export default function Wrapper({project, children}) {
 
       <Link
         to={`/projects/${nextProject.slug}`}
-        className="min-h-[80vh] justify-center border-y grid grid-cols-1 lg:grid-cols-3 items-end px py-lg relative group overflow-hidden !cursor-arrow"
+        className="min-h-[80vh] justify-center border-y grid grid-cols-1 lg:grid-cols-3 items-end px py-lg relative group overflow-hidden"
       >
         <Image
           image={nextProject.cover || nextProject.thumbnail}

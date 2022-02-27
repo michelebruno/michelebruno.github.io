@@ -54,7 +54,7 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
         ]}
       />
       <Cover cover={cover} thumbnail={thumbnail} />
-      <TextBox title="Overview" className="py-lg">
+      <TextBox className="py-lg">
         <h3 className="fs-xl mb-2 pb-8 leading-relaxed">{description}</h3>
         <p>
           The focus of the project is the design for safety: starting from the problems that emerged
@@ -65,13 +65,13 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
         </p>
       </TextBox>
 
-      <div className="grid pb-lg px justify-center">
+      <Grid padding className="justify-center">
         <Image
           image={getImage('feelo-trittico.png')}
           pictureClassName="  aspect-w-4 aspect-h-3"
           className="object-cover"
         />
-      </div>
+      </Grid>
 
       <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 px pb-lg">
         <Mockup names={['giulia-diario.png']} images={getImage} title="Daily journal" />

@@ -25,7 +25,7 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
         roles={roles}
       />
       <Cover cover={cover} thumbnail={thumbnail} />
-      <TextBox title="Overview" className="py-lg" description={description} />
+      <TextBox className="py-lg" description={description} />
       <Grid two padding>
         <Image image={getImage('1.png')} />
         <Image image={getImage('2.png')} />

@@ -50,7 +50,7 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
         roles={roles}
       />
       <Cover cover={cover} thumbnail={thumbnail} />
-      <TextBox title="Overview" className="py-lg">
+      <TextBox className="py-lg">
         <h3 className="fs-xl mb-2 pb-8 leading-relaxed">{description}</h3>
         <p>
           The main goal was to create an interactive experience where users can reconnect with their

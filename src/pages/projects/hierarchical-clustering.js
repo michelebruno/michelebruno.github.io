@@ -37,7 +37,7 @@ export default function HierarchicalClustering({data: {project, images}}) {
         roles={roles}
       />
       <Cover cover={cover} thumbnail={thumbnail} />
-      <TextBox title="Overview" className="py-lg" description={description}>
+      <TextBox className="py-lg" description={description}>
         <p>
           This poster applies information design principle to explain what is hierarchical
           clustering, a famous statistical method. We decided to use build our own constellations

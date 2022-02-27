@@ -49,7 +49,7 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
         roles={roles}
       />
       <Cover cover={cover} thumbnail={thumbnail} />
-      <TextBox title="Overview" className="py-lg">
+      <TextBox className="py-lg">
         <h3 className="fs-xl leading-relaxed mb-2 pb-8">{description}</h3>
         <p>
           Project of an accessible video that is at the same time demonstrative of the concept of
@@ -73,8 +73,8 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
         <Image image={getImage('storyboard_2.png')} />
       </Grid>{' '}
       <script src="https://player.vimeo.com/api/player.js" />
-      <Grid two className="py">
-        <TextBox title="Tactile postcards" layout="stacked">
+      <Grid two padding>
+        <TextBox title="Tactile postcards" layout="stacked" padding={false}>
           The project also provides the creation of a system of artifacts for the dissemination of
           video through social and paper channels. The tactile postcards, which reproduce the works
           in the video, aim to enrich and expand the experience of people with sensory disabilities,

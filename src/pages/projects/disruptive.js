@@ -38,7 +38,7 @@ export default function Disruptive({data: {project, images}}) {
         roles={roles}
       />
       <Cover cover={cover} />
-      <TextBox title="Overview" className="py-lg">
+      <TextBox className="py-lg">
         <h3 className="fs-xl mb-2 pb-8  leading-relaxed">
           <AnimatedLink href={websiteUrl}>
             <i>Disruptive: the challenge of rebuilding</i>
@@ -55,7 +55,7 @@ export default function Disruptive({data: {project, images}}) {
       </TextBox>
 
       <Grid padding twelve className="">
-        <div className="col-span-12 lg:col-span-10 lg:col-start-2">
+        <div className="col-span-12">
           <Slider
             images={[
               getImage('01-00.png'),
@@ -72,8 +72,8 @@ export default function Disruptive({data: {project, images}}) {
         </div>
       </Grid>
 
-      <Grid two>
-        <TextBox title="Exhibition" layout="stacked">
+      <Grid two padding>
+        <TextBox title="Exhibition" layout="stacked" padding={false}>
           The project was designed during the pandemic. As COVID restrictions decreased, we were
           also able to give birth to a phisical exhibibition at Riminifiera, designing a space to
           present the project, the interviews and the life of Sergio Marchionne.

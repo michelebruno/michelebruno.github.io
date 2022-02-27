@@ -1,15 +1,17 @@
 import React from 'react';
+import classNames from 'classnames';
 import Layout from '../components/Layout';
 import WorkTogether from '../components/WorkTogether';
+import Grid from '../components/Grid';
 
-function CVItem({title, items, concat}) {
+function CVItem({title, items, concat, className}) {
   return (
-    <div className="col-span-12 leading-relaxed ">
-      <div className="border-t grid grid-cols-4 px py-lg">
-        <h2 className="fs-lg text-right text-gray ">{title}</h2>
+    <div className={classNames('col-span-3 leading-relaxed', className)}>
+      <div className="grid pb">
+        <h2 className="fs-xl ">{title}</h2>
         <ul className="fs-lg grid col-span-2 lg:col-span-1">
           {items.map(({rows, label}) => (
-            <li className="pb last:pb-0 " key={label}>
+            <li className="" key={label}>
               {label && <span className="block text-gray">{label}</span>}
               {concat
                 ? rows.join(', ')
@@ -29,8 +31,8 @@ function CVItem({title, items, concat}) {
 export default function About() {
   return (
     <Layout>
-      <div className="grid grid-cols-12 border-b">
-        <div className="col-span-8 fs-xl  grid leading-relaxed py px">
+      <Grid twelve padding className=" border-b">
+        <div className="col-span-9 fs-xl  grid leading-relaxed py">
           <p className="">
             I'm Michele Bruno, a 24 y.o. designer and developer, born in Andria, Southern Italy. I'm
             currently studying Communication Design at Politecnico di Milano. I also work as a
@@ -44,6 +46,8 @@ export default function About() {
           </p>
           <p>I strongly believe that no good designer can do much without a good team.</p>
         </div>
+      </Grid>
+      <Grid twelve padding className="py border-b">
         <CVItem
           title="Education"
           items={[
@@ -75,27 +79,6 @@ export default function About() {
           ]}
         />
         <CVItem
-          title="Skills"
-          concat
-          items={[
-            {
-              rows: [
-                'Adobe Illustrator',
-                'Adobe Indesign',
-                'Adobe After Effects',
-                'Adobe Premiere',
-                'Keynote',
-                'Figma',
-              ],
-              label: 'Graphic Design',
-            },
-            {
-              rows: ['Rawgraphs', 'Gephi', 'Excel', 'Open Refine'],
-              label: 'Data Viz',
-            },
-          ]}
-        />
-        <CVItem
           title="Coding"
           concat
           items={[
@@ -122,6 +105,27 @@ export default function About() {
           ]}
         />
         <CVItem
+          title="Skills"
+          concat
+          items={[
+            {
+              rows: [
+                'Adobe Illustrator',
+                'Adobe Indesign',
+                'Adobe After Effects',
+                'Adobe Premiere',
+                'Keynote',
+                'Figma',
+              ],
+              label: 'Graphic Design',
+            },
+            {
+              rows: ['Rawgraphs', 'Gephi', 'Excel', 'Open Refine'],
+              label: 'Data Viz',
+            },
+          ]}
+        />
+        <CVItem
           title="Languages"
           items={[
             {
@@ -134,7 +138,7 @@ export default function About() {
             },
           ]}
         />
-      </div>
+      </Grid>
       <WorkTogether />
     </Layout>
   );

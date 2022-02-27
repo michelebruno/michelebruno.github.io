@@ -49,7 +49,7 @@ export default function OpinionLibrary({data: {project, images}}) {
         roles={roles}
       />
       <Cover cover={cover} thumbnail={thumbnail} />
-      <TextBox title="Overview" className="py-lg" description={description}>
+      <TextBox className="py-lg" description={description}>
         <p>
           The research examined petitions published on change.org during the pandemic, as reported
           in{' '}

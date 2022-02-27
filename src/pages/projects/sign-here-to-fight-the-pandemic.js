@@ -50,7 +50,7 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
         </li>
       </Heading>
       <Cover cover={cover} />
-      <TextBox title="Overview" className="py-lg" description={description}>
+      <TextBox className="py-lg" description={description}>
         <p className="pb-8">
           Slacktivism is the practice of supporting a political or social cause through social media
           or online petitions, characterized by involving minimal effort or commitment. The goal of{' '}

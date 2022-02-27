@@ -38,6 +38,9 @@ module.exports = {
         DEFAULT: '300',
       },
     },
+
+    // Satoshi no, fa cagare
+    // Switzer carino
     fontFamily: {
       sans: ['Clash Grotesk', 'Switzer', 'ui-sans-serif', 'system-ui'],
       serif: ['Gambetta', 'freight-big-pro', 'serif'],
