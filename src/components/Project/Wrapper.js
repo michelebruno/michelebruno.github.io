@@ -31,7 +31,7 @@ export default function Wrapper({project, children}) {
     }
   `);
 
-  const {name, slug} = project;
+  const {name, slug, description} = project;
 
   const nextProjectIndex = projects.nodes.findIndex(p => p.slug === slug) + 1;
 
@@ -39,7 +39,7 @@ export default function Wrapper({project, children}) {
     projects.nodes[projects.nodes.length > nextProjectIndex ? nextProjectIndex : 0];
 
   return (
-    <Layout title={name}>
+    <Layout title={name} description={description}>
       <div className="text-lg">{children}</div>
 
       <Link

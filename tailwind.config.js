@@ -39,7 +39,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ['Clash Grotesk', 'ui-sans-serif', 'system-ui'],
+      sans: ['Clash Grotesk', 'Switzer', 'ui-sans-serif', 'system-ui'],
       serif: ['Gambetta', 'freight-big-pro', 'serif'],
     },
   },

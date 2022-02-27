@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '../components/Layout';
+import WorkTogether from '../components/WorkTogether';
 
 function CVItem({title, items, concat}) {
   return (
@@ -136,6 +137,7 @@ export default function About() {
           ]}
         />
       </div>
+      <WorkTogether />
     </Layout>
   );
 }

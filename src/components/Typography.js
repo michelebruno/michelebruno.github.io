@@ -52,10 +52,7 @@ export function TextBox({children, padding, containBorder, className, descriptio
     return (
       <div className={classNames('fs-lg leading-relaxed px', padding && 'pb-lg', className)}>
         <h2 className="fs-3xl pb">{title}</h2>
-        <div className="">
-          {description && <p className="fs-xl mb-2 pb-8 leading-relaxed">{description}</p>}
-          {children}
-        </div>
+        <div className="">{children}</div>
       </div>
     );
   }
@@ -69,7 +66,10 @@ export function TextBox({children, padding, containBorder, className, descriptio
       )}
     >
       <h2 className="fs-2xl pb">{title}</h2>
-      <div className="lg:col-span-2 leading-relaxed ">{children}</div>
+      <div className="lg:col-span-2 leading-relaxed ">
+        {description && <p className="fs-xl pb-8 leading-relaxed">{description}</p>}
+        {children}
+      </div>
     </div>
   );
 }

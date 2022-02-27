@@ -75,17 +75,24 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
         </p>
       </TextBox>
 
-      <Grid className="pb mx" three>
-        <Image className="w-full" image={getImage('cavi-1.jpg')} />
-        <div className="col-span-2">
+      <Grid className="pb mx" twelve>
+        <div className="col-span-12 lg:col-span-4">
+          <Image className="w-full" image={getImage('cavi-1.jpg')} />
+        </div>
+        <div className="col-span-12 lg:col-span-8">
           <Image className=" h-full object-cover" image={getImage('three-books.jpg')} />
+        </div>
+        <img
+          src={getImage('signhere.gif').publicURL}
+          alt=""
+          className=" col-span-12 lg:col-span-6"
+        />
+        <div className="col-span-12 lg:col-span-6">
+          <Image className="w-full h-full object-cover" image={getImage('cavi-questions.jpg')} />
         </div>
       </Grid>
 
-      <Grid padding two>
-        <img src={getImage('signhere.gif').publicURL} alt="" className=" " />
-        <Image className="w-full h-full object-cover" image={getImage('cavi-questions.jpg')} />
-      </Grid>
+      <Grid padding two />
 
       <Grid two padding>
         <div className="grid lg:grid-cols-[1fr_0.5fr] auto-rows-min">
@@ -160,7 +167,7 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
                 href="https://github.com/michelebruno/sign-here-to-fight-the-pandemic"
                 target="_blank"
               >
-                Repo on github ↗
+                Repo on GitHub ↗
               </AnimatedLink>
             </li>
           </ul>

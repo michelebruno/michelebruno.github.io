@@ -23,6 +23,8 @@ export default function Layout({
 }) {
   const [showWip, setShowWip] = useState();
   useEffect(() => {
+    // NON MOSTRA WIP
+    return false;
     const wip = localStorage.getItem('wip');
 
     if (!wip || new Date() > wip) {
@@ -36,7 +38,7 @@ export default function Layout({
   }
 
   return (
-    <div className="font-sans text-black ">
+    <div className="font-sans text-black antialiased  ">
       {showWip && (
         <div className="fixed inset-0 z-50">
           <div className="h-full w-full relative">
@@ -75,7 +77,7 @@ export default function Layout({
           </li>
           <li>
             <AnimatedLink href="https://github.com/michelebruno/" target="_blank">
-              Github
+              GitHub
             </AnimatedLink>
           </li>
         </ul>

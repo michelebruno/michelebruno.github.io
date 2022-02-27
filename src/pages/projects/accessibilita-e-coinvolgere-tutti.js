@@ -57,11 +57,10 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
           not only to the physical environment, but also to services, information and communication.
         </p>
       </TextBox>
-
-      <Grid className="pb mx">
-        <div style={{paddingTop: '56.25%', position: 'relative'}} className="px">
+      <Grid three padding>
+        <div style={{paddingTop: '56.25%', position: 'relative'}} className="px col-span-3">
           <iframe
-            src="https://player.vimeo.com/video/565636809?h=c5284ae693&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            src="https://player.vimeo.com/video/565636809?h=c5284ae693&amp;badge=0&&title=0&byline=0&portrait=0amp;autopause=0&amp;player_id=0&amp;app_id=58479"
             frameBorder="0"
             allow="autoplay; fullscreen; picture-in-picture"
             allowFullScreen
@@ -69,14 +68,11 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
             title="Accessibilit&amp;agrave; &amp;egrave;... coinvolgere tutti. Un&amp;#039;esperienza al museo."
           />
         </div>
-        <script src="https://player.vimeo.com/api/player.js" />
-      </Grid>
-
-      <Grid three padding>
         <Image image={getImage('storyboard_3.png')} />
         <Image image={getImage('storyboard_1.png')} />
         <Image image={getImage('storyboard_2.png')} />
-      </Grid>
+      </Grid>{' '}
+      <script src="https://player.vimeo.com/api/player.js" />
       <Grid two className="py">
         <TextBox title="Tactile postcards" layout="stacked">
           The project also provides the creation of a system of artifacts for the dissemination of
@@ -86,7 +82,6 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
           description of the work.
         </TextBox>
       </Grid>
-
       <Grid two padding>
         <div className="aspect-h-5 aspect-w-4">
           <Image image={getImage('instagram.jpg')} className="w-full h-full object-cover" />
@@ -96,7 +91,6 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
           <Image image={getImage('ambientata_1.jpg')} />
         </div>
       </Grid>
-
       <Footer>
         <Tag title="Course">
           Complex Artefacts and System Design Studio

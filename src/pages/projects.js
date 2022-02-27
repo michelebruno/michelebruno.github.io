@@ -19,7 +19,7 @@ export default function Projects({data}) {
         This page is still under construction. So they are most of project pages.
       </p>
       <table className="w-full">
-        <thead className="text-left uppercase">
+        <thead className="text-left">
           <tr>
             <th className="py-4 pr-8">Project</th>
             <th className="py-4 ">Type</th>
@@ -28,22 +28,20 @@ export default function Projects({data}) {
           </tr>
         </thead>
         <tbody>
-          {projects.nodes.map(
-            ({year, name, slug, type, client, link, websiteUrl, isPagePublic}) => (
+          {projects.nodes
+            .filter(i => i.isPagePublic)
+            .map(({year, name, slug, type, client, link, websiteUrl, isPagePublic}) => (
               <tr
                 key={slug}
-                className={`border-t-2 border-b-2 border-black ${
-                  isPagePublic && 'cursor-pointer hover:text-gray-500'
-                }`}
-                onClick={() => isPagePublic && navigate(link)}
+                className={`${isPagePublic && 'cursor-pointer'} group`}
+                onClick={() => isPagePublic && navigate(`/projects/${slug}`)}
               >
-                <td className="py-4 pr-8">{name}</td>
+                <td className="py-4 pr-8 group-hover:underline">{name}</td>
                 <td className="pys-4 ">{type && type.join(', ')}</td>
                 <td className="py-4">{client}</td>
                 <td className="p-4 pl-8">{year}</td>
               </tr>
-            )
-          )}
+            ))}
         </tbody>
       </table>
     </Layout>

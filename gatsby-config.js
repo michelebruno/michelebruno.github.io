@@ -44,13 +44,13 @@ module.exports = {
         //     axes: 'wght@400..600', // multiple ranges are supported, ex: "wght@300..500;700..900"
         //   },
         // ],
-        // typekit: {
-        //     id: process.env.TYPEKIT_ID,
-        // },
+        typekit: {
+          id: process.env.TYPEKIT_ID,
+        },
         custom: {
-          families: ['Clash Grotesk', 'Gambetta'],
+          families: ['Clash Grotesk', 'General Sans', 'Switzer', 'Satoshi'],
           urls: [
-            'https://api.fontshare.com/css?f[]=clash-grotesk@300,400,600&f[]=gambetta@401&display=swap',
+            'https://api.fontshare.com/css?f[]=clash-grotesk@401,400,600,601&f[]=general-sans@400,401,600,601&f[]=switzer@400,401,600,601&f[]=satoshi@400,401,600,601&display=swap',
           ],
         },
       },

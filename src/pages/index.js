@@ -10,6 +10,7 @@ import {ProjectCard} from '../components/ProjectCard';
 import Layout from '../components/Layout';
 import Button from '../components/Button';
 import {AnimatedLink, H2, H3} from '../components/Typography';
+import WorkTogether from '../components/WorkTogether';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -80,7 +81,7 @@ function IndexPage() {
             'group overflow-hidden ',
             'min-aspect-[2/3] border-r border-b relative'
           )}
-          onClick={() => navigate('/projects')}
+          onClick={() => navigate('/projects/')}
         >
           <div className="relative h-full inset-0 grid gap-0 grid-rows-3 lg:grid-rows-[13rem_auto_auto] px py-8 lg:py-16">
             <H3>
@@ -127,23 +128,7 @@ function IndexPage() {
           </div>
         </div>
       </section>
-
-      <section className="min-h-[80vh] border-b grid items-center">
-        <div className="px items-center leading-tight">
-          <p className="fs-3xl">
-            Want to work together?
-            <br />
-            Let's{' '}
-            <Button before href="mailto:bm.michelebruno@gmail.com">
-              get in touch.
-            </Button>
-          </p>
-          <p className="pt-4 fs-lg hidden">
-            I'm currently looking for an internship, however you can write me <br />
-            if you need a freelance creative developer.
-          </p>
-        </div>
-      </section>
+      <WorkTogether />
     </Layout>
   );
 }

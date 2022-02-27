@@ -68,7 +68,7 @@ export default function OpinionLibrary({data: {project, images}}) {
       </TextBox>
 
       <Grid padding twelve className="">
-        <div className="col-span-12 lg:col-span-10 lg:col-start-2 lg:shadow-xl">
+        <div className="col-span-12">
           <div style={{paddingTop: '56.25%', position: 'relative'}} className="px">
             <iframe
               src="https://player.vimeo.com/video/681928771?h=9328d1b8b2&title=0&byline=0&portrait=0"
@@ -131,7 +131,7 @@ export default function OpinionLibrary({data: {project, images}}) {
             <li>
               <br />
               <AnimatedLink href="https://github.com/michelebruno/opinion-library" target="_blank">
-                Repo on github ↗
+                Repo on GitHub ↗
               </AnimatedLink>
             </li>
           </ul>
