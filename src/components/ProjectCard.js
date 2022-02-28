@@ -60,7 +60,7 @@ export function ProjectCard({project, position, className, version}) {
       <div
         className={classNames(
           'ver-3 group overflow-hidden',
-          'aspect-[2/3] border-r border-b relative',
+          'aspect-[4/5] border relative',
           className
         )}
         role="group"
@@ -71,7 +71,7 @@ export function ProjectCard({project, position, className, version}) {
           className="bg-white object-cover h-full w-full absolute inset-0 lg:opacity-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105"
         />
         <div className="bg-white absolute inset-0 opacity-50" />
-        <div className="relative h-full inset-0 grid gap-x-0 grid-rows-3 lg:grid-rows-[10rem_auto_auto] px py  mix-blend-multiply">
+        <div className="relative h-full inset-0 grid gap-x-0 grid-rows-3 lg:grid-rows-[8rem_auto_auto] px py  mix-blend-multiply">
           <H3>{name}</H3>
           <div>
             <div className="overflow-hidden pb">

@@ -44,7 +44,7 @@ export default function Layout({
           <div className="h-full w-full relative">
             <div className="absolute inset-0 z-0 bg-black opacity-50" />
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-3/12 bg-white px py text-lg">
+              <div className="w-3/12 bg-white px py fs-lg">
                 <p>Hey. This website is still under development.</p>
                 <p className="pt-4 text-right">
                   <button

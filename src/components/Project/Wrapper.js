@@ -40,7 +40,7 @@ export default function Wrapper({project, children}) {
 
   return (
     <Layout title={name} description={description}>
-      <div className="text-lg">{children}</div>
+      <div className="fs-lg">{children}</div>
 
       <Link
         to={`/projects/${nextProject.slug}`}

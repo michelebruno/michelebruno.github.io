@@ -7,7 +7,7 @@ import Grid from '../components/Grid';
 function CVItem({title, items, concat, className}) {
   return (
     <div className={classNames('col-span-3 leading-relaxed', className)}>
-      <div className="grid pb">
+      <div className="grid">
         <h2 className="fs-xl ">{title}</h2>
         <ul className="fs-lg grid col-span-2 lg:col-span-1">
           {items.map(({rows, label}) => (
@@ -50,6 +50,7 @@ export default function About() {
       <Grid twelve padding className="py border-b">
         <CVItem
           title="Education"
+          className="row-span-2"
           items={[
             {
               rows: ['Communication Design', 'Politecnico di Milano'],
@@ -63,6 +64,7 @@ export default function About() {
         />
         <CVItem
           title="Experiences"
+          className="row-span-2"
           items={[
             {
               rows: ['Web design + WordPress Development', 'OSCard'],
@@ -81,6 +83,7 @@ export default function About() {
         <CVItem
           title="Coding"
           concat
+          className="row-span-2"
           items={[
             {
               rows: ['p5', 'NodeJS', 'Webpack', 'Socket.io', 'React', 'GatsbyJS', 'GSAP'],

@@ -11,6 +11,7 @@ import Layout from '../components/Layout';
 import Button from '../components/Button';
 import {AnimatedLink, H2, H3} from '../components/Typography';
 import WorkTogether from '../components/WorkTogether';
+import Grid from '../components/Grid';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -56,31 +57,29 @@ function IndexPage() {
         </div>
       </div>
       <section className="" ref={projectContainer}>
-        <div className="grid grid-cols-3 gap-x-8 items-center content-center">
-          <div className="col-span-3 grid gap-0 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 border-t">
-            {homeProjectSlugs.map((project, index) => (
-              <ProjectCard
-                version={3}
-                key={project}
-                project={project}
-                position={index + 1}
-                className=""
-              />
-            ))}
-          </div>
-        </div>
+        <Grid
+          padding
+          className="!pb-0 grid-cols-3  grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-center content-center"
+        >
+          {homeProjectSlugs.map((project, index) => (
+            <ProjectCard
+              version={3}
+              key={project}
+              project={project}
+              position={index + 1}
+              className=""
+            />
+          ))}
+        </Grid>
       </section>
       <section className="py-16 lg:py-32 px">
         <p className="fs-3xl leading-tight">
           I enjoy designing interactive experiences. <br />
         </p>
       </section>
-      <section className="grid grid-cols-2 col-span-3 border-t gap-0">
+      <Grid two padding className="!pb-0 ">
         <div
-          className={classNames(
-            'group overflow-hidden ',
-            'min-aspect-[2/3] border-r border-b relative'
-          )}
+          className={classNames('group overflow-hidden ', 'min-aspect-[2/3] border relative')}
           onClick={() => navigate('/projects/')}
         >
           <div className="relative h-full inset-0 grid gap-0 grid-rows-3 lg:grid-rows-[13rem_auto_auto] px py-8 lg:py-16">
@@ -104,10 +103,7 @@ function IndexPage() {
           </div>
         </div>
         <div
-          className={classNames(
-            'group overflow-hidden ',
-            'min-aspect-[2/3] border-r border-b relative'
-          )}
+          className={classNames('group overflow-hidden ', 'min-aspect-[2/3] border relative')}
           onClick={() => navigate('/about')}
         >
           <div className="relative h-full inset-0 grid gap-0 grid-rows-3 lg:grid-rows-[13rem_auto_auto] px py-8 lg:py-16">
@@ -127,7 +123,7 @@ function IndexPage() {
             </div>
           </div>
         </div>
-      </section>
+      </Grid>
       <WorkTogether />
     </Layout>
   );

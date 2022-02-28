@@ -36,7 +36,7 @@
   }
 
   .grid, .gap {
-    @apply gap-3 lg:gap-6;
+    @apply gap-3 lg:gap-6 xl:gap-9;
   }
 
   .row {
