@@ -60,7 +60,7 @@ export default function About() {
               Linkedin
             </AnimatedLink>
             . You may also check out my{' '}
-            <AnimatedLink href="./MicheleBruno-CV.pdf" target="_blank">
+            <AnimatedLink href="/MicheleBruno-CV.pdf" download target="_blank">
               CV
             </AnimatedLink>{' '}
             or{' '}

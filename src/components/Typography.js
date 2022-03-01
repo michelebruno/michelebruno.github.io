@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import {Link} from 'gatsby';
 import PropTypes from 'prop-types';
+import {OutboundLink} from 'gatsby-plugin-google-gtag';
 
 export function H1({children, className, id, tag: Heading, ...props}) {
   return (
@@ -90,13 +91,16 @@ export function AnimatedLink({
   icon,
   className,
 }) {
+  console.log(C.type);
   return (
     <C
       href={href}
       target={target}
       to={to}
       className={classNames('!cursor-pointer ', className)}
-      activeClassName={typeof C === 'string' ? undefined : classNames(activeClassName, 'current')}
+      activeClassName={
+        typeof C.type === 'Link' ? undefined : classNames(activeClassName, 'current')
+      }
     >
       <span
         className={
@@ -112,7 +116,7 @@ export function AnimatedLink({
 }
 
 AnimatedLink.defaultProps = {
-  component: 'a',
+  component: OutboundLink,
   target: '_blank',
 };
 

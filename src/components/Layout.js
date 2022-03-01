@@ -63,7 +63,7 @@ export default function Layout({
       {navbar && <Navbar fixed={fixed} className="px" />}
       <main className={className}>{children}</main>
       <footer className="w-full px my-6 flex justify-between">
-        <div>@ 2021</div>
+        <div>@ 2022</div>
         <ul className="flex gap-8">
           <li>
             <AnimatedLink href="https://t.me/michelebruno" target="_blank">
