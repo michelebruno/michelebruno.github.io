@@ -95,22 +95,21 @@ export function ProjectCard({project, position, className, version}) {
    * CARD DEFAULT
    */
   return (
-    <div className={classNames('group', className)} onClick={() => navigate(link)}>
-      <div className="aspect-h-9 aspect-w-16 overflow-hidden">
-        <Image
-          image={thumbnail}
-          className="bg-white object-cover h-full w-full transition-all duration-1000 group-hover:scale-125"
-        />
-      </div>
+    <Link to={link} className={classNames('group block  border-b px py', className)}>
+      <div className="flex relative mt-4 hover:text-brand">
+        <div>
+          <div>
+            <h2 className="text-6xl inline">
+              {/* {position.toString().padStart(2, 0)}/ */}
+              {name}
+            </h2>
+            <span className="fs-xl"> ({year})</span>
+          </div>
 
-      <div className="flex justify-between relative mt-4  ">
-        <h3 className="text-6xl font-medium">
-          {/* {position.toString().padStart(2, 0)}/ */}
-          {name}
-        </h3>
-        <p className="fs-2xl">{type.join(', ')}</p>
+          <h3 className="fs-xl text-gray">{tagline}</h3>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

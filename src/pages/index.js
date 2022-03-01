@@ -57,73 +57,12 @@ function IndexPage() {
         </div>
       </div>
       <section className="" ref={projectContainer}>
-        <Grid
-          padding
-          className="!pb-0 grid-cols-3  grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-center content-center"
-        >
+        <Grid className="gap-0 border-t">
           {homeProjectSlugs.map((project, index) => (
-            <ProjectCard
-              version={3}
-              key={project}
-              project={project}
-              position={index + 1}
-              className=""
-            />
+            <ProjectCard key={project} project={project} position={index + 1} className="" />
           ))}
         </Grid>
       </section>
-      <section className="py-16 lg:py-32 px">
-        <p className="fs-3xl leading-tight">
-          I enjoy designing interactive experiences. <br />
-        </p>
-      </section>
-      <Grid two padding className="!pb-0 ">
-        <div
-          className={classNames('group overflow-hidden ', 'min-aspect-[2/3] border relative')}
-          onClick={() => navigate('/projects/')}
-        >
-          <div className="relative h-full inset-0 grid gap-0 grid-rows-3 lg:grid-rows-[13rem_auto_auto] px py-8 lg:py-16">
-            <H3>
-              {/* {position.toString().padStart(2, 0)}/ */}
-              All projects
-            </H3>
-            <div>
-              <div className="overflow-hidden pb-4 relative">
-                <div className="group-hover:translate-y-full group-hover:opacity-0 transition-all fs-lg">
-                  <h4 className="">This is just a selection</h4>
-                  <p className="text-gray">Click here to see all my work</p>
-                </div>
-              </div>
-            </div>
-            <div className="self-end">
-              <AnimatedLink to="/projects" component={Link}>
-                View →
-              </AnimatedLink>
-            </div>
-          </div>
-        </div>
-        <div
-          className={classNames('group overflow-hidden ', 'min-aspect-[2/3] border relative')}
-          onClick={() => navigate('/about')}
-        >
-          <div className="relative h-full inset-0 grid gap-0 grid-rows-3 lg:grid-rows-[13rem_auto_auto] px py-8 lg:py-16">
-            <H3>About me</H3>
-            <div>
-              <div className="overflow-hidden pb-4 relative">
-                <div className="group-hover:translate-y-full group-hover:opacity-0 transition-all fs-lg">
-                  <h4 className="">Get to know me</h4>
-                  <p className="text-gray">Read the about page</p>
-                </div>
-              </div>
-            </div>
-            <div className="self-end">
-              <AnimatedLink to="/about" component={Link}>
-                View →
-              </AnimatedLink>
-            </div>
-          </div>
-        </div>
-      </Grid>
       <WorkTogether />
     </Layout>
   );

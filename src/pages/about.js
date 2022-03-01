@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Layout from '../components/Layout';
 import WorkTogether from '../components/WorkTogether';
 import Grid from '../components/Grid';
+import {AnimatedLink} from '../components/Typography';
 
 function CVItem({title, items, concat, className}) {
   return (
@@ -44,7 +45,30 @@ export default function About() {
             goals. That's why I kept on enhancing my tech skills and I want to keep on getting
             better.
           </p>
-          <p>I strongly believe that no good designer can do much without a good team.</p>
+          <p>
+            I strongly believe that no good designer can do much without a good team, that's why I
+            take care of relationship in work groups, acting to preserve teammates wellbeing as much
+            as I can.
+          </p>
+          <p>
+            Feel free to contact me on{' '}
+            <AnimatedLink href="https://t.me/michelebruno" target="_blank">
+              Telegram
+            </AnimatedLink>{' '}
+            or{' '}
+            <AnimatedLink href="https://www.linkedin.com/in/brunomichele/" target="_blank">
+              Linkedin
+            </AnimatedLink>
+            . You may also check out my{' '}
+            <AnimatedLink href="./MicheleBruno-CV.pdf" target="_blank">
+              CV
+            </AnimatedLink>{' '}
+            or{' '}
+            <AnimatedLink href="https://github.com/michelebruno/" target="_blank">
+              GitHub profile
+            </AnimatedLink>
+            .
+          </p>
         </div>
       </Grid>
       <Grid twelve padding className="py border-b">

@@ -95,12 +95,12 @@ export function AnimatedLink({
       href={href}
       target={target}
       to={to}
-      className={classNames('cursor-pointer', className)}
+      className={classNames('!cursor-pointer ', className)}
       activeClassName={typeof C === 'string' ? undefined : classNames(activeClassName, 'current')}
     >
       <span
         className={
-          'inline relative ' +
+          'inline relative before:cursor-pointer ' +
           'animated-link before:absolute before:bottom-0 before:border-b before:border-b-black before:transition-all before:w-full '
         }
       >
