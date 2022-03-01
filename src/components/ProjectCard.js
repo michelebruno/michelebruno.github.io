@@ -96,7 +96,7 @@ export function ProjectCard({project, position, className, version}) {
    */
   return (
     <Link to={link} className={classNames('group block  border-b px py', className)}>
-      <div className="flex relative mt-4 hover:text-brand">
+      <div className="flex relative hover:text-brand">
         <div>
           <div>
             <h2 className="text-6xl inline">

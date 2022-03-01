@@ -56,7 +56,7 @@ export default function Wrapper({project, children}) {
             <H1
               tag={Link}
               to={`/projects/${nextProject.slug}`}
-              className="lg:inline leading-none transition-all"
+              className="lg:inline leading-none transition-all break-words"
             >
               {nextProject.name}
             </H1>

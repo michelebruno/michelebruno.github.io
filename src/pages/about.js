@@ -7,7 +7,12 @@ import {AnimatedLink} from '../components/Typography';
 
 function CVItem({title, items, concat, className}) {
   return (
-    <div className={classNames('col-span-3 leading-relaxed', className)}>
+    <div
+      className={classNames(
+        'col-span-12 md:col-span-6 pb xl:col-span-3 leading-relaxed',
+        className
+      )}
+    >
       <div className="grid">
         <h2 className="fs-xl ">{title}</h2>
         <ul className="fs-lg grid col-span-2 lg:col-span-1">
@@ -33,7 +38,7 @@ export default function About() {
   return (
     <Layout>
       <Grid twelve padding className=" border-b">
-        <div className="col-span-9 fs-xl  grid leading-relaxed py">
+        <div className="col-span-12 md:col-span-9 fs-xl  grid leading-relaxed py">
           <p className="">
             I'm Michele Bruno, a 24 y.o. designer and developer, born in Andria, Southern Italy. I'm
             currently studying Communication Design at Politecnico di Milano. I also work as a

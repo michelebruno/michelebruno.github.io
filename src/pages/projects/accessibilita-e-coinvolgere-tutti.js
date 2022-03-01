@@ -70,7 +70,7 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
         </div>
         <Image image={getImage('storyboard_3.png')} />
         <Image image={getImage('storyboard_1.png')} />
-        <Image image={getImage('storyboard_2.png')} />
+        <Image image={getImage('storyboard_2.png')} className="hidden sm:inline-block" />
       </Grid>{' '}
       <script src="https://player.vimeo.com/api/player.js" />
       <Grid two padding>
