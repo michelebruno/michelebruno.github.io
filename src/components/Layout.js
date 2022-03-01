@@ -1,6 +1,7 @@
 import '../style/global.css';
 import * as React from 'react';
 import {useEffect, useState} from 'react';
+import CookieConsent from 'react-cookie-consent';
 import {AnimatedLink} from './Typography';
 import Seo from './Seo';
 import Navbar from './Navbar';
@@ -39,6 +40,22 @@ export default function Layout({
 
   return (
     <div className="font-sans text-black antialiased  ">
+      <div className="fixed bottom-8 z-50 right-8">
+        <CookieConsent
+          disableStyles
+          onDecline={typeof window !== 'undefined' && window?.gaOptout}
+          enableDeclineButton
+          declineButtonClasses="animated-link relative cursor-pointer before:absolute before:bottom-0 before:border-b before:border-b-black before:transition-all before:w-full"
+          buttonClasses="animated-link relative cursor-pointer before:absolute before:bottom-0 before:border-b before:border-b-black before:transition-all before:w-full"
+          buttonWrapperClasses="w-full flex justify-between pt-8"
+          containerClasses="bg-white border px py shadow-lg"
+          contentClasses="text-capitalize"
+          declineButtonText={"I'd rather not"}
+          buttonText={"Yes, it's okay."}
+        >
+          Hey, may I collect some anonymous data?
+        </CookieConsent>
+      </div>
       {showWip && (
         <div className="fixed inset-0 z-50">
           <div className="h-full w-full relative">

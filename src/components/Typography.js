@@ -11,6 +11,7 @@ export function H1({children, className, id, tag: Heading, ...props}) {
     </Heading>
   );
 }
+
 H1.defaultProps = {
   tag: 'h1',
 };
@@ -74,6 +75,7 @@ export function TextBox({children, padding, containBorder, className, descriptio
     </div>
   );
 }
+
 TextBox.propTypes = {
   layout: PropTypes.oneOf(['stacked']),
 };
@@ -91,16 +93,16 @@ export function AnimatedLink({
   icon,
   className,
 }) {
-  console.log(C.type);
+  console.log(href, C === Link);
   return (
     <C
       href={href}
       target={target}
       to={to}
       className={classNames('!cursor-pointer ', className)}
-      activeClassName={
-        typeof C.type === 'Link' ? undefined : classNames(activeClassName, 'current')
-      }
+      {...{
+        activeClassName: C === Link ? classNames(activeClassName, 'current') : undefined,
+      }}
     >
       <span
         className={
