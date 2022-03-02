@@ -4,15 +4,15 @@ import {AnimatedLink, H1} from '../Typography';
 
 export default function Heading({name, year, tagline, roles, client, websiteUrl, links, children}) {
   return (
-    <header className="grid grid-cols-1 lg:grid-cols-4 items-end px py-lg">
-      <div className="col-span-3 pb lg:pb-0">
+    <header className="grid grid-cols-1 md:grid-cols-4 items-end px py">
+      <div className="md:col-span-3 pb md:pb-0">
         <div>
           <H1 className="lg:inline leading-none break-words">{name}</H1>
           <span className="fs-xl"> ({year})</span>
         </div>
         <h2 className="fs-xl text-gray">{tagline}</h2>
       </div>
-      <div className="lg:pt-8 text-base flex flex-col">
+      <div className="md:pt-8 text-base flex flex-col">
         <ul>
           {roles && (
             <li>

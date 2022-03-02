@@ -93,7 +93,6 @@ export function AnimatedLink({
   icon,
   className,
 }) {
-  console.log(href, C === Link);
   return (
     <C
       href={href}

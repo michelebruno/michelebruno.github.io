@@ -99,10 +99,6 @@ export default function Layout({
           </li>
         </ul>
       </footer>
-
-      <div className="fixed inset-0 grid grid-cols-12 px h-screen w-screen -z-10">
-        <div />
-      </div>
     </div>
   );
 }

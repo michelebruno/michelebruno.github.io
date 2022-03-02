@@ -96,18 +96,16 @@ export function ProjectCard({project, position, className, version}) {
    */
   return (
     <Link to={link} className={classNames('group block  border-b px py', className)}>
-      <div className="flex relative hover:text-brand">
-        <div>
-          <div>
-            <h2 className="text-6xl inline">
-              {/* {position.toString().padStart(2, 0)}/ */}
-              {name}
-            </h2>
-            <span className="fs-xl"> ({year})</span>
-          </div>
-
-          <h3 className="fs-xl text-gray">{tagline}</h3>
+      <div className=" relative hover:text-brand">
+        <div className="lg:max-w-[75%]">
+          <h2 className="fs-3xl inline">
+            {/* {position.toString().padStart(2, 0)}/ */}
+            {name}
+          </h2>
+          <span className="fs-xl"> ({year})</span>
         </div>
+
+        <h3 className="fs-xl text-gray">{tagline}</h3>
       </div>
     </Link>
   );

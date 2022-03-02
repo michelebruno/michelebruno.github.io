@@ -74,7 +74,7 @@
   }
 
   .fs-lg {
-    @apply text-xl lg:text-xl ;
+    @apply text-lg ;
   }
 
   .fs-xl {
@@ -82,15 +82,38 @@
   }
 
   .fs-2xl {
-    @apply text-3xl lg:text-4xl
+    @apply text-3xl sm:text-4xl
   }
 
   .fs-3xl {
-    @apply text-4xl lg:text-6xl
+    @apply text-4xl sm:text-5xl lg:text-6xl
   }
 
   .fs-4xl {
     @apply text-5xl sm:text-6xl lg:text-8xl
+  }
+
+
+
+  .header-animation {
+    animation-name: headerAnimation;
+    animation-duration: 1000ms;
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function:cubic-bezier(1,0,0,1);
+    animation-fill-mode: forwards;
+    min-height: calc(100vh - (theme('spacing.6') * 2) - 1.75rem);
+
+    animation-timing-function: ease-in-out;
+  }
+
+  @keyframes headerAnimation {
+    from {
+      min-height: calc(100vh - (theme('spacing.6') * 2) - 1.75rem);
+    }
+    to {
+      min-height: 0;
+    }
   }
 
   .scroll-button {
