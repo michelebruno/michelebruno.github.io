@@ -54,8 +54,8 @@ export default function Disruptive({data: {project, images}}) {
         </p>
       </TextBox>
 
-      <Grid padding twelve className="">
-        <div className="col-span-12">
+      <Grid padding two className="">
+        <div className="bg-light image-frame max-w-full block overflow-hidden">
           <Slider
             images={[
               getImage('01-00.png'),
@@ -69,6 +69,15 @@ export default function Disruptive({data: {project, images}}) {
               getImage('03-thereisaworld.png'),
             ]}
           />
+        </div>
+        <div className=" image-frame bg-light">
+          <Image image={getImage('homepage.png')} />
+        </div>
+        <div className=" image-frame bg-light">
+          <Image image={getImage('about.png')} />
+        </div>
+        <div className=" image-frame bg-light">
+          <Image image={getImage('interview.png')} />
         </div>
       </Grid>
 
@@ -90,11 +99,18 @@ export default function Disruptive({data: {project, images}}) {
       </Grid>
 
       <Footer>
-        <Tag title="Project team">
+        <Tag title="Digital project team">
           <ul>
             {team.map(t => (
               <li key={t}>{t}</li>
             ))}
+          </ul>
+        </Tag>
+        <Tag title="Physical exhibition tema">
+          <ul>
+            <li>Giorgio Bonadei</li>
+            <li>Federica Annoni</li>
+            <li>Luca Tassetto</li>
           </ul>
         </Tag>
         <Tag title="Tools and technology">
@@ -102,6 +118,7 @@ export default function Disruptive({data: {project, images}}) {
             <li>Figma</li>
             <li>GatsbyJs</li>
             <li>SwiperJs</li>
+            <li>PWA</li>
           </ul>
         </Tag>
       </Footer>

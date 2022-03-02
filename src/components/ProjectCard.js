@@ -113,8 +113,7 @@ export function ProjectCard({project, position, className, version}) {
       <Link to={link} className={classNames('group block  border-b px py', className)}>
         <div
           className=" relative "
-          onMouseMove={e => {
-            console.log('moving ons');
+          onMouseEnter={e => {
             setShowImg(true);
           }}
           onMouseLeave={e => {

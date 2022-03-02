@@ -1,14 +1,12 @@
 import {Swiper, SwiperSlide} from 'swiper/react';
 import * as React from 'react';
-import SwiperCore, {Autoplay} from 'swiper';
+import {Autoplay} from 'swiper';
 import Image from '../Image';
 import 'swiper/css';
 
-SwiperCore.use([Autoplay]);
-
-export default function Slider({images}) {
+export default function Slider({images, className}) {
   return (
-    <Swiper autoplay>
+    <Swiper className={className} autoplay modules={[Autoplay]}>
       {images.map(img => (
         <SwiperSlide>
           <Image className="w-full" image={img} />

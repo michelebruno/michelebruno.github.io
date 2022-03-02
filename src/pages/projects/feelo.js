@@ -7,8 +7,7 @@ import Cover from '../../components/Project/Cover';
 import {AnimatedLink, Tag, TextBox} from '../../components/Typography';
 import Grid from '../../components/Grid';
 import Image, {createGetImageFromName} from '../../components/Image';
-import Slider from '../../components/Project/Slider';
-import Arrow from '../../components/Arrow';
+import keynoteUrl from '../../images/feelo/MicheleBruno – Keynote Feelo.pdf';
 import Footer from '../../components/Project/Footer';
 
 function Mockup({title, names, images}) {
@@ -21,6 +20,7 @@ function Mockup({title, names, images}) {
     </div>
   );
 }
+
 export default function SignHereToFightThePandemic({data: {project, images}}) {
   const {
     name,
@@ -51,6 +51,7 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
             'Open the prototype',
             'https://www.figma.com/proto/WbY8lQIXAuVHePe6l1lqq8/IxD_Lab-C2_Feelo_Spritz?page-id=2261%3A12291&node-id=2261%3A17603&viewport=392%2C48%2C0.02&scaling=min-zoom&starting-point-node-id=4296%3A37856',
           ],
+          ['Download the keynote', keynoteUrl],
         ]}
       />
       <Cover cover={cover} thumbnail={thumbnail} />
@@ -68,11 +69,28 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
       <Grid padding className="justify-center">
         <Image
           image={getImage('feelo-trittico.png')}
-          pictureClassName="  aspect-w-4 aspect-h-3"
+          pictureClassName="aspect-w-4 aspect-h-3"
           className="object-cover"
         />
       </Grid>
 
+      <Grid padding twelve>
+        <div className="col-span-6">
+          <Image image={getImage('pres-sitoweb.png')} />
+        </div>
+        <div className="col-span-6">
+          <Image image={getImage('pres-smartwatch.png')} />
+        </div>
+        <div className="col-span-4">
+          <Image image={getImage('pres-ia.png')} />
+        </div>
+        <div className="col-span-4">
+          <Image image={getImage('pres-wireframe.png')} />
+        </div>
+        <div className="col-span-4">
+          <Image image={getImage('pres-architettura-it.png')} />
+        </div>
+      </Grid>
       <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 px pb-lg">
         <Mockup names={['giulia-diario.png']} images={getImage} title="Daily journal" />
         <Mockup

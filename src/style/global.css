@@ -163,6 +163,10 @@
     @apply my-12 lg:my-32;
   }
 
+  .image-frame {
+    @apply p-2 sm:p-4 lg:p-8;
+  }
+
   .text-stroke {
     -webkit-text-stroke-width: 1px;
     text-stroke-width: 1px;

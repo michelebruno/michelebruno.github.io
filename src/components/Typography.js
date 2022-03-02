@@ -68,7 +68,7 @@ export function TextBox({children, padding, containBorder, className, descriptio
       )}
     >
       {title && <h2 className="fs-2xl pb">{title}</h2>}
-      <div className="lg:col-span-2 leading-relaxed">
+      <div className="lg:col-span-3 2xl:col-span-2 leading-relaxed">
         {description && <p className="fs-xl pb-8 leading-relaxed">{description}</p>}
         {children}
       </div>

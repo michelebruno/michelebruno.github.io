@@ -44,7 +44,7 @@ function IndexPage() {
   return (
     <Layout>
       <div className="flex content-around items-center relative py">
-        <h1 className="fs-3xl px py pb-lg ">
+        <h1 className="fs-3xl px py pb-lg leading-relaxed ">
           <span className="">Hey!</span> I'm Michele Bruno, an Italian{' '}
           <span className="inline-block font-sans not-italic">UX Designer</span> and{' '}
           <span className="inline-block font-sans not-italic">Creative Developer</span> based in
