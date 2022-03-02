@@ -6,11 +6,9 @@ export default function WorkTogether() {
     <section className="min-h-[80vh] border-b grid items-center">
       <div className="px items-center leading-tight">
         <p className="fs-3xl">
-          Want to work together?
-          <br />
-          Let's{' '}
+          Let's work together! <br />
           <Button before href="mailto:bm.michelebruno@gmail.com">
-            get in touch.
+            Drop me a line.
           </Button>
         </p>
         <p className="pt-4 fs-lg hidden">

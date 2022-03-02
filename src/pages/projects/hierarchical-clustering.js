@@ -49,7 +49,7 @@ export default function HierarchicalClustering({data: {project, images}}) {
       <Grid two padding className="auto-rows-auto">
         <div className="grid lg:grid-cols-[1fr_0.5fr] auto-rows-min">
           <div className="sticky top-12 pb leading-relaxed">
-            <h2 className="font-bold">Clustering stars</h2>
+            <h2 className="font-semibold">Clustering stars</h2>
             <p>
               How to better visualize clusterization than by just... clustering? To explain this
               statistical method we decided to apply it to the most clustered items in the history

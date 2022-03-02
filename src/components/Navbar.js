@@ -25,7 +25,7 @@ export default function Navbar({fixed, className}) {
           </AnimatedLink>
         </li>
         <li className="pl-8 py-6 ">
-          <AnimatedLink component={Link} to="/about">
+          <AnimatedLink component={Link} to="/about" className="!font-normal">
             About
           </AnimatedLink>
         </li>

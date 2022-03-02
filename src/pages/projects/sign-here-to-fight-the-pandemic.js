@@ -42,7 +42,7 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
           <AnimatedLink
             href="/sign-here-to-fight-the-pandemic.pdf"
             target="_blank"
-            className="font-bold pt-2"
+            className="font-semibold pt-2"
             icon={<Arrow className="-rotate-[135deg]" />}
           >
             Read the full report
@@ -97,7 +97,7 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
       <Grid two padding>
         <div className="grid lg:grid-cols-[1fr_0.5fr] auto-rows-min">
           <div className="sticky top-12 pb leading-relaxed">
-            <h2 className="font-bold">Data scraping</h2>
+            <h2 className="font-semiNbold">Data scraping</h2>
             <p>
               Scraping data from scratch was part of this project. We developed a Python scraper,
               exploiting change.org REST API, thus collecting data from more than 200k petitions.

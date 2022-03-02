@@ -26,7 +26,7 @@ export default function Heading({name, year, tagline, roles, client, websiteUrl,
           )}
           {websiteUrl && (
             <li>
-              <AnimatedLink href={websiteUrl} target="_blank" className="font-bold">
+              <AnimatedLink href={websiteUrl} target="_blank" className="font-semibold">
                 Visit the website ↗
               </AnimatedLink>
             </li>
@@ -34,7 +34,7 @@ export default function Heading({name, year, tagline, roles, client, websiteUrl,
           {links &&
             links.map(([text, url]) => (
               <li>
-                <AnimatedLink href={url} target="_blank" className="font-bold">
+                <AnimatedLink href={url} target="_blank" className="font-semibold">
                   {text} ↗
                 </AnimatedLink>
               </li>

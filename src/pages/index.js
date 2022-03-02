@@ -44,13 +44,11 @@ function IndexPage() {
   return (
     <Layout>
       <div className="flex content-around items-center relative py">
-        <h1 className="fs-3xl px py pb-lg leading-tight">
-          <span className="">Hello!</span> I'm Michele Bruno, an Italian <br />
+        <h1 className="fs-3xl px py pb-lg ">
+          <span className="">Hey!</span> I'm Michele Bruno, an Italian{' '}
           <span className="inline-block font-sans not-italic">UX Designer</span> and{' '}
-          <span className="inline-block font-sans not-italic">Creative Developer,</span>
-          <br /> currently studing at{' '}
-          <AnimatedLink href="https://www.designdellacomunicazione.polimi.it/">Polimi</AnimatedLink>
-          .
+          <span className="inline-block font-sans not-italic">Creative Developer</span> based in
+          Milan, currently enrolled in Communication Design Master at PoliMi.
         </h1>
         <div className="hidden py text-gray text-left absolute bottom-0 left-0">
           <button className="scroll-button px">Scroll</button>

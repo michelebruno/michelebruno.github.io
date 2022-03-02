@@ -2,12 +2,15 @@ import * as React from 'react';
 import {graphql, Link, navigate, useStaticQuery} from 'gatsby';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import {useState} from 'react';
 import Image from './Image';
 import Button from './Button';
 import {AnimatedLink, H3} from './Typography';
 import Arrow from './Arrow';
 
 export function ProjectCard({project, position, className, version}) {
+  const [showImg, setShowImg] = useState(false);
+
   const {projects} = useStaticQuery(graphql`
     {
       projects: allProjectsCsv {
@@ -18,7 +21,7 @@ export function ProjectCard({project, position, className, version}) {
     }
   `);
 
-  const {name, year, type, slug, tagline, thumbnail} =
+  const {name, year, type, slug, tagline, thumbnail, cover} =
     projects.nodes.find(({slug}) => slug === project) ||
     console.error(`Project ${project} not found`);
   const link = `/projects/${slug}/`;
@@ -95,19 +98,41 @@ export function ProjectCard({project, position, className, version}) {
    * CARD DEFAULT
    */
   return (
-    <Link to={link} className={classNames('group block  border-b px py', className)}>
-      <div className=" relative hover:text-brand">
-        <div className="lg:max-w-[75%]">
-          <h2 className="fs-3xl inline">
-            {/* {position.toString().padStart(2, 0)}/ */}
-            {name}
-          </h2>
-          <span className="fs-xl"> ({year})</span>
+    <>
+      <div className="fixed inset-16 -z-10 px py">
+        <div className=" h-1/2 w-1/2  right-0 top-1/2 -translate-y-1/2 absolute">
+          <Image
+            image={cover || thumbnail}
+            className={classNames(
+              'bg-white object-cover aspect-[9/16] h-full transition-all ',
+              showImg ? 'opacity-100 ' : 'opacity-0 '
+            )}
+          />
         </div>
-
-        <h3 className="fs-xl text-gray">{tagline}</h3>
       </div>
-    </Link>
+      <Link to={link} className={classNames('group block  border-b px py', className)}>
+        <div
+          className=" relative "
+          onMouseMove={e => {
+            console.log('moving ons');
+            setShowImg(true);
+          }}
+          onMouseLeave={e => {
+            setShowImg(false);
+          }}
+        >
+          <div className="lg:max-w-[75%]">
+            <h2 className="fs-3xl inline">
+              {/* {position.toString().padStart(2, 0)}/ */}
+              {name}
+            </h2>
+            <span className="fs-xl"> ({year})</span>
+          </div>
+
+          <h3 className="fs-xl text-gray">{tagline}</h3>
+        </div>
+      </Link>
+    </>
   );
 }
 

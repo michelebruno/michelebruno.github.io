@@ -38,39 +38,47 @@ export default function About() {
   return (
     <Layout>
       <Grid twelve padding className=" border-b">
-        <div className="col-span-12 md:col-span-9 fs-xl  grid leading-relaxed py">
+        <div className="col-span-12 md:col-span-9 fs-2xl  grid leading-relaxed py">
           <p className="">
-            I'm Michele Bruno, a 24 y.o. designer and developer, born in Andria, Southern Italy. I'm
-            currently studying Communication Design at Politecnico di Milano. I also work as a
-            freelance.
+            Hi! My name is Michele Bruno, I'm a freelance Designer and Creative Developer from
+            Andria, Southern Italy. I'm currently enrolled in the last year of Communication Design
+            master at Politecnico di Milano.
           </p>
           <p className="">
-            I've been learning coding as a self taught since high school, trying to build websites
-            for my first projects. Since then, technology has been a powerful tool to reach design
-            goals. That's why I kept on enhancing my tech skills and I want to keep on getting
-            better.
+            My first coding projects date back to the high school period, when I was learning on my
+            own the basis of website-development and graphic design. As I understood how technology
+            could become the most powerful tool to achieve my design goals, I've begun studying it
+            on a daily basis, to improve every day.
+          </p>
+          <p className="">
+            Lately in these years, I've been working mainly on digital interactive artifacts, taking
+            care of projects from concept to development. Having worked in different enviroments, I
+            am aware of many issues of digital design from the basics of UX/UI to project deployment
+            and its communication strategies. Usability, SEO and performance optimizations are
+            must-have for all of my projects.
           </p>
           <p>
-            I strongly believe that no good designer can do much without a good team, that's why I
-            take care of relationship in work groups, acting to preserve teammates wellbeing as much
-            as I can.
+            My first concern when beginning a design project is having a good team with me. I
+            strongly believe that even the best designers can't make a difference without good
+            people to work with. That's why I play a central role into preserving the work
+            environment and the relationships between the group members.
           </p>
           <p>
-            Feel free to contact me on{' '}
+            I'm currently based in Milan. You can reach me out on{' '}
             <AnimatedLink href="https://t.me/michelebruno" target="_blank">
-              Telegram
+              Telegram ↗
             </AnimatedLink>{' '}
             or{' '}
             <AnimatedLink href="https://www.linkedin.com/in/brunomichele/" target="_blank">
-              Linkedin
+              Linkedin ↗
             </AnimatedLink>
-            . You may also check out my{' '}
+            . Feel free to check out my{' '}
             <AnimatedLink href="/MicheleBruno-CV.pdf" download target="_blank">
-              CV
+              CV ↗
             </AnimatedLink>{' '}
             or{' '}
             <AnimatedLink href="https://github.com/michelebruno/" target="_blank">
-              GitHub profile
+              GitHub profile ↗
             </AnimatedLink>
             .
           </p>
