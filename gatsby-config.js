@@ -50,14 +50,19 @@ module.exports = {
         custom: {
           families: ['Clash Grotesk', 'General Sans', 'Switzer'],
           urls: [
-            'https://api.fontshare.com/css?f[]=clash-grotesk@401,400,600,601&f[]=general-sans@400,401,600,601&f[]=switzer@400,401,600,601&display=swap',
+            'https://api.fontshare.com/css?f[]=clash-grotesk@401,400,600,601&f[]=switzer@400,401,600,601&display=swap',
           ],
         },
       },
     },
     'gatsby-plugin-svgr',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        output: '/',
+      },
+    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {

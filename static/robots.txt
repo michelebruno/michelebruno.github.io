@@ -1,4 +1,4 @@
-Sitemap: https://michelebruno.github.io/sitemap/sitemap-index.xml
+Sitemap: https://michelebruno.github.io/sitemap-index.xml
 
 User-agent: *
 Disallow:
