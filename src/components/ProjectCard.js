@@ -127,7 +127,6 @@ export function ProjectCard({project, position, className, version}) {
             </h2>
             <span className="fs-xl"> ({year})</span>
           </div>
-
           <h3 className="fs-xl text-gray">{tagline}</h3>
         </div>
       </Link>

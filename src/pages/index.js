@@ -3,24 +3,20 @@ import gsap from 'gsap';
 import {useEffect, useRef} from 'react';
 
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
-import classNames from 'classnames';
-import {Link, navigate} from 'gatsby';
 import {ProjectCard} from '../components/ProjectCard';
 
 import Layout from '../components/Layout';
-import Button from '../components/Button';
-import {AnimatedLink, H2, H3} from '../components/Typography';
 import WorkTogether from '../components/WorkTogether';
 import Grid from '../components/Grid';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const homeProjectSlugs = [
+  'opinion-library',
+  'sign-here-to-fight-the-pandemic',
   'disruptive',
   'feelo',
-  'opinion-library',
   'accessibilita-e-coinvolgere-tutti',
-  'sign-here-to-fight-the-pandemic',
   'moodboard',
 ];
 

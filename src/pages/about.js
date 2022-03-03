@@ -40,9 +40,9 @@ export default function About() {
       <Grid twelve padding className=" border-b">
         <div className="col-span-12 md:col-span-9 fs-2xl  grid leading-relaxed py">
           <p className="">
-            Hi! My name is Michele Bruno, I'm a freelance Designer and Creative Developer from
-            Andria, Southern Italy. I'm currently enrolled in the last year of Communication Design
-            master at Politecnico di Milano.
+            Hi! My name is Michele Bruno, I'm a freelance Designer and Creative Developer based in
+            Milan, Italy. I'm currently enrolled in the last year of Communication Design master at
+            Politecnico di Milano.
           </p>
           <p className="">
             My first coding projects date back to the high school period, when I was learning on my
@@ -50,7 +50,7 @@ export default function About() {
             could become the most powerful tool to achieve my design goals, I've begun studying it
             on a daily basis, to improve every day.
           </p>
-          <p className="">
+          <p className="hidden">
             Lately in these years, I've been working mainly on digital interactive artifacts, taking
             care of projects from concept to development. Having worked in different enviroments, I
             am aware of many issues of digital design from the basics of UX/UI to project deployment
