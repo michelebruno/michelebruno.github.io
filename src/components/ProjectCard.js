@@ -121,11 +121,13 @@ export function ProjectCard({project, position, className, version}) {
           }}
         >
           <div className="lg:max-w-[75%]">
-            <h2 className="fs-3xl inline">
+            <h2 className="fs-3xl inline ">
               {/* {position.toString().padStart(2, 0)}/ */}
               {name}
             </h2>
-            <span className="fs-xl"> ({year})</span>
+            <div className="inline-grid gap-0 fs-base  !leading-none  pt-4 text-gray align-top">
+              <span className="">{type.join(' + ')}</span>
+            </div>
           </div>
           <h3 className="fs-xl text-gray">{tagline}</h3>
         </div>

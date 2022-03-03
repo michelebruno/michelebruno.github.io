@@ -104,16 +104,20 @@ export default function About() {
           className="row-span-2"
           items={[
             {
-              rows: ['Web design + WordPress Development', 'OSCard'],
-              label: 'Feb. 2019 – Sept. 2020',
+              rows: ['UX designer + Web Developer', 'Freelance'],
+              label: '2020 – ongoing',
+            },
+            {
+              rows: ['Graphic + Web desiger', 'Politecnico di Milano'],
+              label: '2020 – ongoing',
             },
             {
               rows: ['Web design + WordPress Developer', 'Event Way srl'],
               label: 'Oct. 2020 – Sept. 2020',
             },
             {
-              rows: ['UX designer + Web Developer', 'Freelance'],
-              label: '2020 – ongoing',
+              rows: ['Web design + WordPress Development', 'OSCard'],
+              label: 'Feb. 2019 – Sept. 2020',
             },
           ]}
         />
