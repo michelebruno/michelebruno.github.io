@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import {useEffect, useRef} from 'react';
 
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
+import {graphql, useStaticQuery} from 'gatsby';
 import {ProjectCard} from '../components/ProjectCard';
 
 import Layout from '../components/Layout';
@@ -20,7 +21,7 @@ const homeProjectSlugs = [
   'moodboard',
 ];
 
-function IndexPage() {
+function IndexPage({data: {projects}}) {
   const projectContainer = useRef();
 
   useEffect(() => {
@@ -52,9 +53,11 @@ function IndexPage() {
       </div>
       <section className="" ref={projectContainer}>
         <Grid className="gap-0 border-t">
-          {homeProjectSlugs.map((project, index) => (
-            <ProjectCard key={project} project={project} position={index + 1} className="" />
-          ))}
+          {projects.nodes
+            .filter(i => i.isPagePublic)
+            .map((project, index) => (
+              <ProjectCard key={project} project={project} position={index + 1} className="" />
+            ))}
         </Grid>
       </section>
       <WorkTogether />
@@ -63,3 +66,13 @@ function IndexPage() {
 }
 
 export default IndexPage;
+
+export const query = graphql`
+  {
+    projects: allProjectsCsv {
+      nodes {
+        ...ProjectFragment
+      }
+    }
+  }
+`;

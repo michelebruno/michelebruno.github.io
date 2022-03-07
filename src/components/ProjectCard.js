@@ -21,9 +21,7 @@ export function ProjectCard({project, position, className, version}) {
     }
   `);
 
-  const {name, year, type, slug, tagline, thumbnail, cover} =
-    projects.nodes.find(({slug}) => slug === project) ||
-    console.error(`Project ${project} not found`);
+  const {name, year, roles, type, slug, tagline, thumbnail, cover} = project;
   const link = `/projects/${slug}/`;
   if (version === 2) {
     return (
@@ -98,41 +96,40 @@ export function ProjectCard({project, position, className, version}) {
    * CARD DEFAULT
    */
   return (
-    <>
-      <div className="fixed inset-16 -z-10 px py">
-        <div className=" h-1/2 w-1/2  right-0 top-1/2 -translate-y-1/2 absolute">
-          <Image
-            image={cover || thumbnail}
-            className={classNames(
-              'bg-white object-cover aspect-[9/16] h-full transition-all ',
-              showImg ? 'opacity-100 ' : 'opacity-0 '
-            )}
-          />
-        </div>
+    <div className="relative border-b ">
+      <div className=" absolute w-[50vw] right-0  top-1/2 -translate-y-1/2  px py hidden xl:block">
+        <Image
+          image={cover || thumbnail}
+          className={classNames(
+            'bg-white object-cover aspect-[16/9] h-full transition-all ',
+            showImg ? 'opacity-100 ' : 'opacity-0'
+          )}
+        />
       </div>
-      <Link to={link} className={classNames('group block  border-b px py', className)}>
-        <div
-          className=" relative "
-          onMouseEnter={e => {
-            setShowImg(true);
-          }}
-          onMouseLeave={e => {
-            setShowImg(false);
-          }}
-        >
+      <Link
+        to={link}
+        className={classNames('relative group block px py z-10', className)}
+        onMouseEnter={() => {
+          setShowImg(true);
+        }}
+        onMouseLeave={() => {
+          setShowImg(false);
+        }}
+      >
+        <div className=" relative ">
           <div className="lg:max-w-[75%]">
-            <h2 className="fs-3xl inline ">
+            <h2 className="fs-3xl inline mr-2">
               {/* {position.toString().padStart(2, 0)}/ */}
               {name}
             </h2>
-            <div className="inline-grid gap-0 fs-base  !leading-none  pt-4 text-gray align-top">
-              <span className="">{type.join(' + ')}</span>
+            <div className="block xl:inline-grid gap-0 fs-base  !leading-none  xl:pt-4 text-gray xl:align-top ">
+              <span className="">{roles.join(' + ')}</span>
             </div>
           </div>
           <h3 className="fs-xl text-gray">{tagline}</h3>
         </div>
       </Link>
-    </>
+    </div>
   );
 }
 
