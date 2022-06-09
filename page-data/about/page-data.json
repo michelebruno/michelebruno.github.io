@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-about-js",
     "path": "/about/",
-    "result": {"pageContext":{}},
+    "result": {"data":{"file":{"childImageSharp":{"gatsbyImageData":{"layout":"constrained","backgroundColor":"#f8f8f8","images":{"fallback":{"src":"/static/0e4dd5695a429d3f4b402495f6bdc6bc/4eea8/michelebruno.jpg","srcSet":"/static/0e4dd5695a429d3f4b402495f6bdc6bc/5ef7c/michelebruno.jpg 479w,\n/static/0e4dd5695a429d3f4b402495f6bdc6bc/eed64/michelebruno.jpg 958w,\n/static/0e4dd5695a429d3f4b402495f6bdc6bc/4eea8/michelebruno.jpg 1915w","sizes":"(min-width: 1915px) 1915px, 100vw"},"sources":[{"srcSet":"/static/0e4dd5695a429d3f4b402495f6bdc6bc/bf22a/michelebruno.webp 479w,\n/static/0e4dd5695a429d3f4b402495f6bdc6bc/390e8/michelebruno.webp 958w,\n/static/0e4dd5695a429d3f4b402495f6bdc6bc/c07ed/michelebruno.webp 1915w","type":"image/webp","sizes":"(min-width: 1915px) 1915px, 100vw"}]},"width":1915,"height":2553}}}},"pageContext":{}},
     "staticQueryHashes": ["175794099"]}
