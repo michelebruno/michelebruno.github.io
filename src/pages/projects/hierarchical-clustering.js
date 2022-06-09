@@ -44,7 +44,9 @@ export default function HierarchicalClustering({data: {project, images}}) {
           using this statistics and then we dreamed about what mythological being they could
           represent.
         </p>
-        <p>Graphic design, story telling, illustrations and coding work together to </p>
+        <p className="hidden">
+          Graphic design, story telling, illustrations and coding work together to{' '}
+        </p>
       </TextBox>
       <Grid two padding className="auto-rows-auto">
         <div className="grid lg:grid-cols-[1fr_0.5fr] auto-rows-min">

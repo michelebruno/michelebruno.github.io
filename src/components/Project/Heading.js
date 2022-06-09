@@ -10,7 +10,7 @@ export default function Heading({name, year, tagline, roles, client, websiteUrl,
           <H1 className="lg:inline break-words">{name}</H1>
           <span className="fs-xl"> ({year})</span>
         </div>
-        <h2 className="fs-xl text-gray pt-1">{tagline}</h2>
+        <h2 className="fs-xl text-gray pt-2">{tagline}</h2>
       </div>
       <div className="md:pt-8 text-base flex flex-col">
         <ul>

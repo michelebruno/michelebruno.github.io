@@ -48,10 +48,8 @@ module.exports = {
           id: process.env.TYPEKIT_ID,
         }, */
         custom: {
-          families: ['Clash Grotesk', 'General Sans', 'Switzer'],
-          urls: [
-            'https://api.fontshare.com/css?f[]=clash-grotesk@401,400,600,601&f[]=switzer@400,401,600,601&display=swap',
-          ],
+          families: ['Switzer'],
+          urls: ['https://api.fontshare.com/css&f[]=switzer@400,401,600,601&display=swap'],
         },
       },
     },

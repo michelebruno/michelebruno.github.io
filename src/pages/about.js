@@ -1,9 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
+import {graphql} from 'gatsby';
 import Layout from '../components/Layout';
 import WorkTogether from '../components/WorkTogether';
 import Grid from '../components/Grid';
 import {AnimatedLink} from '../components/Typography';
+import Image from '../components/Image';
 
 function CVItem({title, items, concat, className}) {
   return (
@@ -34,11 +36,11 @@ function CVItem({title, items, concat, className}) {
   );
 }
 
-export default function About() {
+export default function About({data}) {
   return (
     <Layout>
       <Grid twelve padding className=" border-b">
-        <div className="col-span-12 md:col-span-9 fs-2xl  grid leading-relaxed py">
+        <div className="col-span-12 md:col-span-9 fs-2xl  grid leading-relaxed py relative z-10">
           <p className="">
             Hi! My name is Michele Bruno, I'm a freelance Designer and Creative Developer based in
             Milan, Italy. I'm currently enrolled in the last year of Communication Design master at
@@ -82,6 +84,9 @@ export default function About() {
             </AnimatedLink>
             .
           </p>
+        </div>
+        <div className="col-span-9 md:col-span-3 lg:py 2xl:py-lg relative z-0">
+          <Image image={data.file} className="w-full lg:scale-125 origin-top-right" />
         </div>
       </Grid>
       <Grid twelve padding className="py border-b">
@@ -187,3 +192,13 @@ export default function About() {
     </Layout>
   );
 }
+
+export const query = graphql`
+  {
+    file(relativePath: {eq: "michelebruno.jpg"}) {
+      childImageSharp {
+        gatsbyImageData
+      }
+    }
+  }
+`;
