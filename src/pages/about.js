@@ -11,7 +11,7 @@ function CVItem({title, items, concat, className}) {
   return (
     <div
       className={classNames(
-        'col-span-12 md:col-span-6 pb xl:col-span-3 leading-relaxed',
+        'col-span-12 md:col-span-6 xl:col-span-3 pb leading-relaxed',
         className
       )}
     >
@@ -91,8 +91,34 @@ export default function About({data}) {
       </Grid>
       <Grid twelve padding className="py border-b">
         <CVItem
-          title="Education"
+          title="Experiences"
           className="row-span-2"
+          items={[
+            {
+              rows: ['UX Designer + Creative Developer', 'Freelance'],
+              label: '2020 – ongoing',
+            },
+            {
+              rows: ['Data Visualization Facilitator', 'Digital Methods Initiative'],
+              label: 'July 2022 (Summerschool)',
+            },
+            {
+              rows: ['Creative Developer', 'I MILLE'],
+              label: 'April 2022 – June 2022',
+            },
+            {
+              rows: ['Graphic + Web designer', 'Politecnico di Milano'],
+              label: '2020 – ongoing',
+            },
+            {
+              rows: ['Web design + WordPress Development', 'OSCard'],
+              label: 'Feb. 2019 – Sept. 2020',
+            },
+          ]}
+        />
+        <CVItem
+          title="Education"
+          className="row-span-1"
           items={[
             {
               rows: ['Communication Design', 'Politecnico di Milano'],
@@ -105,34 +131,32 @@ export default function About({data}) {
           ]}
         />
         <CVItem
-          title="Experiences"
-          className="row-span-2"
+          title="Awards"
+          className="row-span-1 xl:col-start-4"
           items={[
             {
-              rows: ['UX designer + Web Developer', 'Freelance'],
-              label: '2020 – ongoing',
-            },
-            {
-              rows: ['Graphic + Web desiger', 'Politecnico di Milano'],
-              label: '2020 – ongoing',
-            },
-            {
-              rows: ['Web design + WordPress Developer', 'Event Way srl'],
-              label: 'Oct. 2020 – Sept. 2020',
-            },
-            {
-              rows: ['Web design + WordPress Development', 'OSCard'],
-              label: 'Feb. 2019 – Sept. 2020',
+              rows: ['DDA of the week (x1)'],
+              label: 'Digital Design Awards',
             },
           ]}
         />
         <CVItem
           title="Coding"
           concat
-          className="row-span-2"
+          className="row-span-2 xl:col-start-7 xl:row-start-1"
           items={[
             {
-              rows: ['p5', 'NodeJS', 'Webpack', 'Socket.io', 'React', 'GatsbyJS', 'GSAP'],
+              rows: [
+                'p5',
+                'NodeJS',
+                'Webpack',
+                'Socket.io',
+                'React',
+                'GatsbyJS',
+                'Vue',
+                'Nuxt',
+                'GSAP',
+              ],
               label: 'JS',
             },
             {
@@ -148,8 +172,22 @@ export default function About({data}) {
               label: 'PHP',
             },
             {
-              rows: ['Arduino', 'RaspberryPi'],
-              label: 'Eletronics platforms',
+              rows: ['Arduino', 'RaspberryPi', 'AWS (EC2, RDS, S3)'],
+              label: 'Miscellaneous',
+            },
+          ]}
+        />
+        <CVItem
+          title="Languages"
+          className="xl:col-start-10 xl:row-start-1"
+          items={[
+            {
+              label: 'Italian',
+              rows: ['First language'],
+            },
+            {
+              label: 'English',
+              rows: ['B2 – Cambridge FCE'],
             },
           ]}
         />
@@ -159,31 +197,18 @@ export default function About({data}) {
           items={[
             {
               rows: [
+                'Figma',
                 'Adobe Illustrator',
                 'Adobe Indesign',
                 'Adobe After Effects',
                 'Adobe Premiere',
                 'Keynote',
-                'Figma',
               ],
               label: 'Graphic Design',
             },
             {
               rows: ['Rawgraphs', 'Gephi', 'Excel', 'Open Refine'],
-              label: 'Data Viz',
-            },
-          ]}
-        />
-        <CVItem
-          title="Languages"
-          items={[
-            {
-              label: 'Italian',
-              rows: ['First language'],
-            },
-            {
-              label: 'English',
-              rows: ['B2 – Cambridge FCE'],
+              label: 'Data Visualization',
             },
           ]}
         />
