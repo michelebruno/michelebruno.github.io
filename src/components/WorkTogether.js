@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Button from './Button';
 
-export default function WorkTogether() {
+export default function WorkTogether({...props}) {
   return (
-    <section className="min-h-[80vh] border-b grid items-center">
+    <section className="min-h-[80vh] border-b grid items-center" {...props}>
       <div className="px items-center leading-tight">
         <p className="fs-3xl">
           Let's work together! <br />

@@ -4,6 +4,7 @@ import {useEffect, useRef, useState} from 'react';
 
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import {graphql, useStaticQuery} from 'gatsby';
+import classNames from 'classnames';
 import {ProjectCard} from '../components/ProjectCard';
 
 import Layout from '../components/Layout';
@@ -23,7 +24,7 @@ const homeProjectSlugs = [
 ];
 
 function IndexPage({data: {projects}}) {
-  const [hoverProject, setHoverProject] = useState(0);
+  const [hoverProject, setHoverProject] = useState();
   const [cardHeights, setCardHeights] = useState([0]);
   const projectContainer = useRef();
 
@@ -52,7 +53,7 @@ function IndexPage({data: {projects}}) {
   return (
     <Layout>
       <div className="flex content-around items-center relative py">
-        <h1 className="fs-3xl px py pb-lg leading-relaxed ">
+        <h1 className="fs-3xl px py pb-lg leading-relaxed " onMouseEnter={() => setHoverProject()}>
           <span className="">Hey!</span> I'm Michele Bruno, an Italian{' '}
           <span className="inline-block font-sans not-italic">UX Designer</span> and{' '}
           <span className="inline-block font-sans not-italic">Creative Developer</span> based in
@@ -64,17 +65,23 @@ function IndexPage({data: {projects}}) {
       </div>
       <section className="relative" ref={projectContainer}>
         <div
-          className="thumbnail-container px hidden lg:block absolute w-[50vw] right-0 transition-transform"
+          className={classNames(
+            'thumbnail-container px hidden lg:block absolute w-[50vw] right-0 transition-all',
+            typeof hoverProject === 'undefined' && 'opacity-0'
+          )}
           style={{
-            transform: `translateY(calc(${cardHeights.reduce((acc, cur, ind) => {
-              if (ind > hoverProject) {
-                return acc;
-              }
-              if (ind === hoverProject) {
-                return acc + cur / 2;
-              }
-              return acc + cur;
-            }, 0)}px - 50%))`,
+            transform:
+              typeof cardHeights === 'undefined'
+                ? `translateY(calc(${cardHeights[0] / 2}px - 50%))`
+                : `translateY(calc(${cardHeights.reduce((acc, cur, ind) => {
+                    if (ind > hoverProject) {
+                      return acc;
+                    }
+                    if (ind === hoverProject) {
+                      return acc + cur / 2;
+                    }
+                    return acc + cur;
+                  }, 0)}px - 50%))`,
           }}
         >
           <div className="aspect-video overflow-hidden w-full h-full">
@@ -82,7 +89,7 @@ function IndexPage({data: {projects}}) {
               className="transition-transform"
               style={{
                 transform: `translateY(${(
-                  (-100 * hoverProject) /
+                  (-100 * (hoverProject || 0)) /
                   (projects.nodes.filter(i => i.isPagePublic).length + 1)
                 ).toFixed(2)}%)`,
               }}
@@ -111,7 +118,7 @@ function IndexPage({data: {projects}}) {
             ))}
         </Grid>
       </section>
-      <WorkTogether />
+      <WorkTogether onMouseEnter={() => setHoverProject()} />
     </Layout>
   );
 }
