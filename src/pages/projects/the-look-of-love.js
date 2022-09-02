@@ -103,7 +103,7 @@ export default function TheLookOfLove({data: {project, images}}) {
             The Look of Love ↗
           </AnimatedLink>
         </Tag>
-
+        <Tag title="Awards">Digital Design Awards – DDA of the week</Tag>
         <Tag title="Tools and technology">
           <ul>
             <li>Nuxt.js</li>
