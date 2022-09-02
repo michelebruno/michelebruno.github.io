@@ -49,7 +49,7 @@ module.exports = {
         }, */
         custom: {
           families: ['Switzer'],
-          urls: ['https://api.fontshare.com/css&f[]=switzer@400,401,600,601&display=swap'],
+          urls: ['https://api.fontshare.com/v2/css?f[]=switzer@600,601,400,401&display=swap'],
         },
       },
     },

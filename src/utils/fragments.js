@@ -15,12 +15,12 @@ export const projectFragment = graphql`
     year
     cover {
       childImageSharp {
-        gatsbyImageData(quality: 100)
+        gatsbyImageData(quality: 80, width: 2400)
       }
     }
     thumbnail {
       childImageSharp {
-        gatsbyImageData(quality: 100)
+        gatsbyImageData(quality: 80, width: 1920)
       }
     }
   }

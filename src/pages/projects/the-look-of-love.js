@@ -1,6 +1,7 @@
 import * as React from 'react';
-import {graphql, Link} from 'gatsby';
+import {graphql} from 'gatsby';
 
+import ReactPlayer from 'react-player';
 import Wrapper from '../../components/Project/Wrapper';
 import Heading from '../../components/Project/Heading';
 import Cover from '../../components/Project/Cover';
@@ -11,7 +12,7 @@ import Slider from '../../components/Project/Slider';
 import Arrow from '../../components/Arrow';
 import Footer from '../../components/Project/Footer';
 
-export default function SignHereToFightThePandemic({data: {project, images}}) {
+export default function TheLookOfLove({data: {project, images}}) {
   const {
     name,
     slug,
@@ -81,6 +82,21 @@ export default function SignHereToFightThePandemic({data: {project, images}}) {
         </div>
       </Grid>
 
+      <Grid className="pb-lg">
+        <div className="relative aspect-video ">
+          <ReactPlayer
+            url="https://imille21-cdn.servercdn.it/media/uploads/work/widget/Simulazione_1_2_1_1.mp4"
+            controls={false}
+            muted
+            loop
+            playsinline
+            playing
+            width="100%"
+            height="100%"
+            className="absolute inset-0 w-full h-full"
+          />
+        </div>
+      </Grid>
       <Footer>
         <Tag title="Live website">
           <AnimatedLink href={websiteUrl} target="_blank" className="font-semibold">

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import gsap from 'gsap';
-import {useEffect, useRef} from 'react';
+import {useEffect, useRef, useState} from 'react';
 
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import {graphql, useStaticQuery} from 'gatsby';
@@ -9,6 +9,7 @@ import {ProjectCard} from '../components/ProjectCard';
 import Layout from '../components/Layout';
 import WorkTogether from '../components/WorkTogether';
 import Grid from '../components/Grid';
+import Image from '../components/Image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,6 +23,8 @@ const homeProjectSlugs = [
 ];
 
 function IndexPage({data: {projects}}) {
+  const [hoverProject, setHoverProject] = useState(0);
+  const [cardHeights, setCardHeights] = useState([0]);
   const projectContainer = useRef();
 
   useEffect(() => {
@@ -38,6 +41,14 @@ function IndexPage({data: {projects}}) {
                                        */
   }, []);
 
+  useEffect(() => {
+    const heights = [];
+    projectContainer.current.querySelectorAll('.project-card').forEach(pc => {
+      heights.push(pc.getBoundingClientRect().height);
+    });
+    setCardHeights(heights);
+  }, []);
+
   return (
     <Layout>
       <div className="flex content-around items-center relative py">
@@ -51,12 +62,52 @@ function IndexPage({data: {projects}}) {
           <button className="scroll-button px">Scroll</button>
         </div>
       </div>
-      <section className="" ref={projectContainer}>
+      <section className="relative" ref={projectContainer}>
+        <div
+          className="thumbnail-container px hidden lg:block absolute w-[50vw] right-0 transition-transform"
+          style={{
+            transform: `translateY(calc(${cardHeights.reduce((acc, cur, ind) => {
+              if (ind > hoverProject) {
+                return acc;
+              }
+              if (ind === hoverProject) {
+                return acc + cur / 2;
+              }
+              return acc + cur;
+            }, 0)}px - 50%))`,
+          }}
+        >
+          <div className="aspect-video overflow-hidden w-full h-full">
+            <div
+              className="transition-transform"
+              style={{
+                transform: `translateY(${(
+                  (-100 * hoverProject) /
+                  (projects.nodes.filter(i => i.isPagePublic).length + 1)
+                ).toFixed(2)}%)`,
+              }}
+            >
+              {projects.nodes.map(p => (
+                <Image
+                  image={p.cover || p.thumbnail}
+                  key={p.name}
+                  className="aspect-video object-cover"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
         <Grid className="gap-0 border-t">
           {projects.nodes
             .filter(i => i.isPagePublic)
             .map((project, index) => (
-              <ProjectCard key={project} project={project} position={index + 1} className="" />
+              <ProjectCard
+                onMouseEnter={() => setHoverProject(index)}
+                key={project.name}
+                project={project}
+                position={index - 1}
+                className=""
+              />
             ))}
         </Grid>
       </section>

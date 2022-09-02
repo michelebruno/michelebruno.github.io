@@ -8,7 +8,7 @@ import Button from './Button';
 import {AnimatedLink, H3} from './Typography';
 import Arrow from './Arrow';
 
-export function ProjectCard({project, position, className, version}) {
+export function ProjectCard({project, position, className, version, ...props}) {
   const [showImg, setShowImg] = useState(false);
 
   const {projects} = useStaticQuery(graphql`
@@ -28,8 +28,8 @@ export function ProjectCard({project, position, className, version}) {
    * CARD DEFAULT
    */
   return (
-    <div className="relative border-b py-4 lg:py-0">
-      <div className=" lg:absolute lg:w-[50vw] right-0  top-1/2 lg:-translate-y-1/2  px py block">
+    <div className="project-card relative border-b py-4 lg:py-0" {...props}>
+      <div className=" lg:hidden px py block">
         <Image
           image={cover || thumbnail}
           className={classNames(
