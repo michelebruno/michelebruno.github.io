@@ -66,8 +66,8 @@ function IndexPage({data: {projects}}) {
       <section className="relative" ref={projectContainer}>
         <div
           className={classNames(
-            'thumbnail-container px hidden lg:block absolute w-[50vw] right-0 transition-all',
-            typeof hoverProject === 'undefined' && 'opacity-0'
+            'thumbnail-container px hidden lg:block absolute w-[50vw] right-0 transition-all'
+            // typeof hoverProject === 'undefined' ? 'opacity-0' : 'opacity-100'
           )}
           style={{
             transform:

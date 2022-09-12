@@ -43,9 +43,9 @@ export default function TheLookOfLove({data: {project, images}}) {
       <TextBox className="py-lg">
         <h3 className="fs-xl mb-2 pb-8 leading-relaxed">{description}</h3>
         <p>
-          The main goal was to create an interactive experience where users can reconnect with their
-          peers and other anonymous surfers through their emotions, to enable speculation around the
-          theme of sentient algorithms.
+          Dealing with cats often means facing unintelligible behaviours and reactions. The Look of
+          Love is a playful way to learn about cats' feelings and how to interact with them by
+          exploiting users' webcam and microphones.
         </p>
       </TextBox>
 
@@ -66,8 +66,16 @@ export default function TheLookOfLove({data: {project, images}}) {
           <div className="sticky top-12 pb leading-relaxed">
             <h2 className="font-semibold">The algorithm in action</h2>
             <p>
-              At first, the UX flow was designed in great details, building a complex timeline
-              considering all the interactions and feedbacks.
+              At first, the experience flow was designed in great details, building a complex
+              timeline considering all the interactions and feedbacks.
+            </p>
+            <p>
+              We then decided to use three experience drivers: users' expressions, voice volume and
+              speech recognition.
+            </p>
+            <p>
+              At each step of the flow, the user is asked to perform a specific action such as
+              calling the cat, smiling or calling for "palla" (ball in Italian).
             </p>
             <p>
               This challenging website was built in Nuxt with a great help of the well known
@@ -107,6 +115,7 @@ export default function TheLookOfLove({data: {project, images}}) {
         <Tag title="Tools and technology">
           <ul>
             <li>Nuxt.js</li>
+            <li>SpeechRecognition API</li>
             <li>FaceApi</li>
             <li>Vercel</li>
           </ul>
