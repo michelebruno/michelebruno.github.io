@@ -8,8 +8,8 @@
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop --host michelebruno.local --https --port 443",
-    "start": "sudo gatsby develop --host michelebruno.local --https --port 443",
+    "develop": "gatsby develop",
+    "start": "sudo gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
