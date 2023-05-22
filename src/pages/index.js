@@ -88,19 +88,22 @@ function IndexPage({data: {projects}}) {
             <div
               className="transition-transform"
               style={{
+                opacity: typeof hoverProject === 'undefined' ? 0 : 1,
                 transform: `translateY(${(
                   (-100 * (hoverProject || 0)) /
-                  (projects.nodes.filter(i => i.isPagePublic).length + 1)
+                  projects.nodes.filter(i => i.isPagePublic).length
                 ).toFixed(2)}%)`,
               }}
             >
-              {projects.nodes.map(p => (
-                <Image
-                  image={p.cover || p.thumbnail}
-                  key={p.name}
-                  className="aspect-video object-cover"
-                />
-              ))}
+              {projects.nodes
+                .filter(i => i.isPagePublic)
+                .map(p => (
+                  <Image
+                    image={p.cover || p.thumbnail}
+                    key={p.name}
+                    className="aspect-video object-cover"
+                  />
+                ))}
             </div>
           </div>
         </div>
@@ -118,7 +121,7 @@ function IndexPage({data: {projects}}) {
             ))}
         </Grid>
       </section>
-      <WorkTogether onMouseEnter={() => setHoverProject()} />
+      <WorkTogether onMouseEnter={() => setHoverProject(undefined)} />
     </Layout>
   );
 }

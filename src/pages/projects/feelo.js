@@ -21,7 +21,7 @@ function Mockup({title, names, images}) {
   );
 }
 
-export default function SignHereToFightThePandemic({data: {project, images}}) {
+export default function Feelo({data: {project, images}}) {
   const {
     name,
     slug,
