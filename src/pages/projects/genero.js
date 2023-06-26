@@ -7,8 +7,6 @@ import Cover from '../../components/Project/Cover';
 import {AnimatedLink, Tag, TextBox} from '../../components/Typography';
 import Grid from '../../components/Grid';
 import Image, {createGetImageFromName} from '../../components/Image';
-import Slider from '../../components/Project/Slider';
-import Arrow from '../../components/Arrow';
 import Footer from '../../components/Project/Footer';
 
 function Mockup({title, names, images}) {
@@ -46,8 +44,9 @@ export default function OpinionLibrary({data: {project, images}}) {
         client={client}
         websiteUrl={websiteUrl}
         roles={roles}
+        cover={cover}
+        thumbnail={thumbnail}
       />
-      <Cover cover={cover} thumbnail={thumbnail} />
       <TextBox className="py-lg" description={description}>
         <p>
           The research examined petitions published on change.org during the pandemic, as reported

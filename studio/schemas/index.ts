@@ -72,6 +72,12 @@ export const schemaTypes = [
         name: 'thumbnail',
         type: 'image',
       }),
+      defineField({
+        title: 'Images',
+        name: 'images',
+        type: 'array',
+        of: [{type: 'image'}]
+      })
 
     ]
   }),

@@ -2,8 +2,7 @@ import * as React from 'react';
 import gsap from 'gsap';
 import {useEffect, useRef, useState} from 'react';
 
-import {ScrollTrigger} from 'gsap/ScrollTrigger';
-import {graphql, useStaticQuery} from 'gatsby';
+import {graphql} from 'gatsby';
 import classNames from 'classnames';
 import {ProjectCard} from '../components/ProjectCard';
 
@@ -11,8 +10,6 @@ import Layout from '../components/Layout';
 import WorkTogether from '../components/WorkTogether';
 import Grid from '../components/Grid';
 import Image from '../components/Image';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const homeProjectSlugs = [
   'opinion-library',
@@ -68,7 +65,10 @@ function IndexPage({data: {projects}}) {
   return (
     <Layout>
       <div className="flex content-around items-center relative py" ref={heroRef}>
-        <h1 className="fs-3xl px py pb-lg leading-normal " onMouseEnter={() => setHoverProject()}>
+        <h1
+          className="fs-3xl px py pb-lg leading-normal "
+          onMouseEnter={() => setHoverProject(undefined)}
+        >
           <span className="">Hey!</span> I'm Michele Bruno, an italian{' '}
           <span className="inline-block font-sans not-italic">UX Designer</span> and{' '}
           <span className="inline-block font-sans not-italic">Creative Developer</span> based in

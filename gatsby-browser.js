@@ -16,4 +16,7 @@ export function onRouteUpdate() {
   }
 }
 
-gsap.registerPlugin(ScrollTrigger);
+export function onClientEntry() {
+  console.log('registering gsap');
+  gsap.registerPlugin(ScrollTrigger);
+}

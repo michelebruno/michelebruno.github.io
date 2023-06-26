@@ -1,30 +1,40 @@
 import * as React from 'react';
 import {useEffect} from 'react';
 import gsap from 'gsap';
-import {ScrollTrigger} from 'gsap/ScrollTrigger';
+import classNames from 'classnames';
 import Image from '../Image';
 
-export default function ({cover, thumbnail}) {
+export default function ({cover, thumbnail, children, className, ...props}) {
   const imageRef = React.useRef(null);
+  const containerRef = React.useRef(null);
 
   useEffect(() => {
-    const an = gsap.to(imageRef.current, {
-      duration: 1,
-      yPercent: -20,
-      plugins: [ScrollTrigger],
-      scrollTrigger: {
-        // trigger: imageRef.current,
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: true,
-      },
-    });
+    const an = gsap.fromTo(
+      imageRef.current,
+      {yPercent: 10},
+      {
+        yPercent: -10,
+        ease: 'none',
+        delay: 0,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top center',
+          end: '+=100%',
+          markers: true,
+          scrub: 0.001,
+        },
+      }
+    );
 
     return an.stop;
-  }, [cover, thumbnail]);
+  }, []);
 
   return (
-    <div className="h-[80vh] overflow-hidden border-t border-b">
+    <div
+      className={classNames('h-[80vh] overflow-hidden border-t border-b relative group', className)}
+      ref={containerRef}
+      {...props}
+    >
       <Image
         ref={imageRef}
         image={
@@ -32,8 +42,14 @@ export default function ({cover, thumbnail}) {
             ? cover?.asset || cover
             : thumbnail
         }
-        className="h-full w-full object-cover scale-[120%] object-center"
+        className={classNames(
+          'h-full w-full object-cover scale-[120%] object-center',
+          children && 'opacity-0 transition-all group-hover:opacity-30 '
+        )}
       />
+      <div className="absolute inset-0 grid grid-cols-1 lg:grid-cols-3 items-end px py-lg  overflow-hidden">
+        {children}
+      </div>
     </div>
   );
 }
