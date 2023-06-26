@@ -28,7 +28,7 @@ export default function OpinionLibrary({data: {project, images}}) {
     roles,
     tagline,
     thumbnail,
-    cover,
+    coverImage: cover,
     year,
     client,
     websiteUrl,
@@ -70,7 +70,7 @@ export default function OpinionLibrary({data: {project, images}}) {
         <div className="sm:col-span-2">
           <div style={{paddingTop: '56.25%', position: 'relative'}} className="px">
             <iframe
-              src="https://player.vimeo.com/video/681928771?h=9328d1b8b2&title=0&byline=0&portrait=0"
+              src="https://player.vimeo.com/video/839711560?title=0&byline=0&portrait=0"
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen

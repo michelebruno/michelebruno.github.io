@@ -13,6 +13,7 @@ export default function Navbar({fixed, className}) {
         !fixed && '',
         className
       )}
+      id="navbar"
     >
       <Link to="/" className="group h-full self-center pr-8 ">
         Michele Bruno

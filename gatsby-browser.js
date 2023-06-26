@@ -1,4 +1,7 @@
-exports.onRouteUpdate = () => {
+import gsap from 'gsap';
+import {ScrollTrigger} from 'gsap/ScrollTrigger';
+
+export function onRouteUpdate() {
   const header = document.querySelector('header.header-animation');
   if (header) {
     document.body.style.overflow = 'hidden';
@@ -11,4 +14,6 @@ exports.onRouteUpdate = () => {
       document.body.style.height = 'initial';
     }, 1500);
   }
-};
+}
+
+gsap.registerPlugin(ScrollTrigger);

@@ -27,6 +27,7 @@ function IndexPage({data: {projects}}) {
   const [hoverProject, setHoverProject] = useState();
   const [cardHeights, setCardHeights] = useState([0]);
   const projectContainer = useRef();
+  const heroRef = useRef(null);
 
   useEffect(() => {
     /*
@@ -48,11 +49,25 @@ function IndexPage({data: {projects}}) {
       heights.push(pc.getBoundingClientRect().height);
     });
     setCardHeights(heights);
+
+    // get the height of navbar with id "navbar"
+    const navbarHeight = document.getElementById('navbar').offsetHeight || 0;
+
+    // GSAP animation to make the hero full height on page load
+    gsap.fromTo(
+      heroRef.current,
+      {height: `calc(100vh - ${navbarHeight}px)`},
+      {
+        height: 'auto',
+        duration: 1,
+        delay: 1,
+      }
+    );
   }, []);
 
   return (
     <Layout>
-      <div className="flex content-around items-center relative py">
+      <div className="flex content-around items-center relative py" ref={heroRef}>
         <h1 className="fs-3xl px py pb-lg leading-normal " onMouseEnter={() => setHoverProject()}>
           <span className="">Hey!</span> I'm Michele Bruno, an italian{' '}
           <span className="inline-block font-sans not-italic">UX Designer</span> and{' '}
@@ -66,7 +81,7 @@ function IndexPage({data: {projects}}) {
       <section className="relative" ref={projectContainer}>
         <div
           className={classNames(
-            'thumbnail-container px hidden lg:block absolute w-[50vw] right-0 transition-all'
+            'thumbnail-container px hidden lg:block absolute w-[50vw] right-0 transition-all z-20 '
             // typeof hoverProject === 'undefined' ? 'opacity-0' : 'opacity-100'
           )}
           style={{
@@ -101,7 +116,7 @@ function IndexPage({data: {projects}}) {
                   <Image
                     image={p.cover || p.thumbnail}
                     key={p.name}
-                    className="aspect-video object-cover"
+                    className="aspect-video object-cover bg-white"
                   />
                 ))}
             </div>

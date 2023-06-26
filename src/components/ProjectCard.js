@@ -1,39 +1,39 @@
 import * as React from 'react';
-import {graphql, useStaticQuery} from 'gatsby';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import TransitionLink from 'gatsby-plugin-transition-link';
+import gsap from 'gsap';
 import Image from './Image';
-import {AnimatedLink, H3} from './Typography';
 
 export function ProjectCard({project, position, className, version, ...props}) {
   const [showImg, setShowImg] = useState(false);
 
-  const {projects} = useStaticQuery(graphql`
-    {
-      projects: allProjectsCsv {
-        nodes {
-          ...ProjectFragment
-        }
-      }
-    }
-  `);
+  const el = useRef(null);
+
+  // GSAP fade in animation on scroll
+  useEffect(() => {
+    const an = gsap.from(el.current, {
+      duration: 0.5,
+      opacity: 0,
+      yPercent: 10,
+      scrollTrigger: {
+        trigger: el.current,
+        start: 'top bottom-=100',
+        onEnter: () => {
+          console.log('enter');
+        },
+      },
+    });
+
+    // return an.kill;
+  }, []);
 
   const {name, year, roles, type, slug, tagline, thumbnail, cover} = project;
   const link = `/projects/${slug}/`;
 
   return (
-    <div className="project-card relative border-b py-4 lg:py-0" {...props}>
-      <div className=" lg:hidden px py block">
-        <Image
-          image={cover || thumbnail}
-          className={classNames(
-            'bg-white object-cover aspect-[16/9] h-full transition-all ',
-            showImg ? 'opacity-100 ' : 'lg:opacity-0'
-          )}
-        />
-      </div>
+    <div className="project-card relative border-b py-4 lg:py-0" {...props} ref={el}>
       <TransitionLink
         to={link}
         className={classNames('relative group block px py z-10', className)}
@@ -44,6 +44,16 @@ export function ProjectCard({project, position, className, version, ...props}) {
           setShowImg(false);
         }}
       >
+        <div className=" lg:hidden py block">
+          <Image
+            image={cover || thumbnail}
+            className={classNames(
+              'bg-white object-cover aspect-[16/9] h-full transition-all ',
+              showImg ? 'opacity-100 ' : 'lg:opacity-0'
+            )}
+          />
+        </div>
+
         <div className=" relative ">
           <div className="lg:max-w-[75%]">
             <h2 className="fs-3xl inline mr-2">
