@@ -8,6 +8,10 @@
   }
 
 
+  :root {
+    --navbar-height: 76px;
+  }
+
   @keyframes scrollAnimation {
     0% {
       transform: translateY(-100%);

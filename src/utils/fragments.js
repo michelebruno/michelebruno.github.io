@@ -47,5 +47,12 @@ export const projectFragment = graphql`
         gatsbyImageData(width: 1920)
       }
     }
+    images {
+      asset {
+        filename
+        originalFilename
+        gatsbyImageData(width: 1920)
+      }
+    }
   }
 `;

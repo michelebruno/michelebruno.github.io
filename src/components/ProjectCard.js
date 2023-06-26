@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import {useEffect, useRef, useState} from 'react';
 import TransitionLink from 'gatsby-plugin-transition-link';
 import gsap from 'gsap';
+import {useTransitionState} from 'gatsby-plugin-transition-link/hooks';
 import Image from './Image';
 
 export function ProjectCard({project, position, className, version, ...props}) {
@@ -19,14 +20,11 @@ export function ProjectCard({project, position, className, version, ...props}) {
       yPercent: 10,
       scrollTrigger: {
         trigger: el.current,
-        start: 'top bottom-=100',
-        onEnter: () => {
-          console.log('enter');
-        },
+        start: 'top bottom-=100px',
       },
     });
 
-    // return an.kill;
+    return () => an.kill();
   }, []);
 
   const {name, year, roles, type, slug, tagline, thumbnail, cover} = project;
@@ -36,6 +34,7 @@ export function ProjectCard({project, position, className, version, ...props}) {
     <div className="project-card relative border-b py-4 lg:py-0" {...props} ref={el}>
       <TransitionLink
         to={link}
+        exitLength={3}
         className={classNames('relative group block px py z-10', className)}
         onMouseEnter={() => {
           setShowImg(true);
@@ -70,7 +69,3 @@ export function ProjectCard({project, position, className, version, ...props}) {
     </div>
   );
 }
-
-ProjectCard.propTypes = {
-  project: PropTypes.string.isRequired,
-};

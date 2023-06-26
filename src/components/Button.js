@@ -1,8 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import {Link} from 'gatsby';
-import Arrow from './Arrow';
-import {AnimatedLink} from './Typography';
 
 export default function Button({children, before, after, className, as: Component, ...props}) {
   const buttonClassName = classNames(' inline-block transition-all', 'button-child');

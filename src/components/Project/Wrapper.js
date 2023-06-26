@@ -1,6 +1,8 @@
 import * as React from 'react';
 import {graphql, useStaticQuery} from 'gatsby';
 import {TransitionState} from 'gatsby-plugin-transition-link';
+import {useTransitionState} from 'gatsby-plugin-transition-link/hooks';
+import {useEffect} from 'react';
 import Layout from '../Layout';
 import Typography, {TextBox} from '../Typography';
 import Heading from './Heading';
@@ -25,9 +27,16 @@ export default function Wrapper({project, children}) {
     }
   `);
 
+  const transitionState = useTransitionState();
+
+  useEffect(() => {
+    console.log(transitionState);
+  }, [transitionState]);
+
   const {name, slug, description} = project;
 
-  const nextProjectIndex = projects.nodes.findIndex(p => (p.slug?.current || p.slug) === slug) + 1;
+  const nextProjectIndex =
+    projects.nodes.findIndex(p => (p.slug?.current || p.slug) === (slug?.current || slug)) + 1;
 
   const nextProject =
     projects.nodes[projects.nodes.length > nextProjectIndex ? nextProjectIndex : 0];

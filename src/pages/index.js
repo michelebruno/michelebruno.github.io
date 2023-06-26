@@ -1,5 +1,7 @@
 import * as React from 'react';
 import gsap from 'gsap';
+import {ScrollTrigger} from 'gsap/ScrollTrigger';
+
 import {useEffect, useRef, useState} from 'react';
 
 import {graphql} from 'gatsby';
@@ -21,55 +23,57 @@ const homeProjectSlugs = [
 ];
 
 function IndexPage({data: {projects}}) {
-  const [hoverProject, setHoverProject] = useState();
+  const [hoverProject, setHoverProject] = useState(-1);
   const [cardHeights, setCardHeights] = useState([0]);
   const projectContainer = useRef();
   const heroRef = useRef(null);
 
   useEffect(() => {
-    /*
-    gsap.timeline({
-                                           scrollTrigger: {
-                                               trigger: projectContainer.current,
-                                               pin: true,
-                                               scrub: 1,
-                                               snap: 1 / (homeProjectSlugs.length),
-                                               end: () => "+=" + (projectContainer.current.offsetWidth * homeProjectSlugs.length)
-                                           }
-                                       })
-                                       */
+    window.scrollTo(0, 0);
+
+    const tl = gsap.timeline({});
+
+    tl.call(() => {
+      window.scrollTo(0, 0);
+    });
+
+    tl.to('body', {overflow: 'hidden'});
+
+    // GSAP animation to make the hero full height on page load
+    tl.to(heroRef.current, {
+      height: 'auto',
+      duration: 1,
+      delay: 1,
+    });
+
+    tl.to('body', {overflow: 'auto'});
+
+    tl.call(() => {
+      const heights = [];
+
+      projectContainer.current?.querySelectorAll('.project-card').forEach(pc => {
+        heights.push(pc.getBoundingClientRect().height);
+      });
+      setCardHeights(heights);
+    }, undefined);
   }, []);
 
   useEffect(() => {
-    const heights = [];
-    projectContainer.current.querySelectorAll('.project-card').forEach(pc => {
-      heights.push(pc.getBoundingClientRect().height);
-    });
-    setCardHeights(heights);
-
-    // get the height of navbar with id "navbar"
-    const navbarHeight = document.getElementById('navbar').offsetHeight || 0;
-
-    // GSAP animation to make the hero full height on page load
-    gsap.fromTo(
-      heroRef.current,
-      {height: `calc(100vh - ${navbarHeight}px)`},
-      {
-        height: 'auto',
-        duration: 1,
-        delay: 1,
-      }
-    );
-  }, []);
+    ScrollTrigger.refresh();
+  }, [cardHeights]);
 
   return (
     <Layout>
-      <div className="flex content-around items-center relative py" ref={heroRef}>
+      <div
+        className="flex content-around items-center relative py box-border"
+        ref={heroRef}
+        style={{height: 'calc(100vh - var(--navbar-height) )'}}
+      >
         <h1
-          className="fs-3xl px py pb-lg leading-normal "
-          onMouseEnter={() => setHoverProject(undefined)}
+          className="fs-3xl px py pb-lg leading-normal select-none"
+          onMouseEnter={() => setHoverProject(-1)}
         >
-          <span className="">Hey!</span> I'm Michele Bruno, an italian{' '}
+          <span className="font-bold">Hey! 👋🏻</span> I'm Michele Bruno, an italian{' '}
           <span className="inline-block font-sans not-italic">UX Designer</span> and{' '}
           <span className="inline-block font-sans not-italic">Creative Developer</span> based in
           Milan, graduated in Communication Design at PoliMi.
@@ -136,7 +140,7 @@ function IndexPage({data: {projects}}) {
             ))}
         </Grid>
       </section>
-      <WorkTogether onMouseEnter={() => setHoverProject(undefined)} />
+      <WorkTogether onMouseEnter={() => setHoverProject(projects.nodes.length)} />
     </Layout>
   );
 }

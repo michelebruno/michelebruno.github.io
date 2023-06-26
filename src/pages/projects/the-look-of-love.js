@@ -10,7 +10,7 @@ import Grid from '../../components/Grid';
 import Image, {createGetImageFromName} from '../../components/Image';
 import Footer from '../../components/Project/Footer';
 
-export default function TheLookOfLove({data: {project, images}}) {
+export default function TheLookOfLove({data: {project}}) {
   const {
     title,
     roles,
@@ -21,9 +21,14 @@ export default function TheLookOfLove({data: {project, images}}) {
     client,
     websiteUrl,
     description,
+    images,
   } = project;
 
-  const getImage = createGetImageFromName(images.nodes, 'the-look-of-love');
+  // const getImage = createGetImageFromName(images.nodes, 'the-look-of-love');
+
+  function getImage(name) {
+    return images.find(({asset}) => asset.originalFilename === name)?.asset;
+  }
 
   return (
     <Wrapper project={project}>

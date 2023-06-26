@@ -1,10 +1,13 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import {Link, navigate} from 'gatsby';
+import {Link} from 'gatsby';
 import classNames from 'classnames';
+import gsap from 'gsap';
+import {useTriggerTransition} from 'gatsby-plugin-transition-link';
+import {useTransitionState} from 'gatsby-plugin-transition-link/hooks';
+import {useEffect} from 'react';
 import {AnimatedLink, H1} from '../Typography';
 import Cover from './Cover';
-import Image from '../Image';
 
 export default function Heading({
   name,
@@ -19,12 +22,46 @@ export default function Heading({
   thumbnail,
   cover,
   isNextProject,
-  trasitionState,
 }) {
+  const navigate = useTriggerTransition();
+  const transitionState = useTransitionState();
+
+  const headerEl = React.useRef(null);
+  useEffect(() => {
+    const {transitionStatus} = transitionState;
+
+    return;
+
+    if (isNextProject) {
+    } else {
+      const tl = gsap.timeline({
+        duration: 0.5,
+      });
+
+      tl.from(headerEl.current?.querySelector('div:first-child'), {
+        opacity: 0,
+        yPercent: 10,
+        ease: 'power2.out',
+      });
+      tl.from(headerEl.current?.querySelector('div:nth-child(2) ul'), {
+        stagger: 0.1,
+        opacity: 0,
+        yPercent: 10,
+        ease: 'power2.out',
+      });
+
+      if (transitionStatus === 'entered') {
+        tl.play();
+      } else if (transitionStatus === 'exiting') {
+        // tl.reverse();
+      }
+    }
+  }, [transitionState]);
+
   return (
     <>
       {!isNextProject && (
-        <header className="grid grid-cols-1 md:grid-cols-4 items-end px py">
+        <header className="grid grid-cols-1 md:grid-cols-4 items-end px py" ref={headerEl}>
           <div className="md:col-span-3 pb md:pb-0">
             <div>
               <H1 className="lg:inline break-words">{name}</H1>
@@ -69,7 +106,9 @@ export default function Heading({
           cover={cover}
           thumbnail={thumbnail}
           className={classNames(isNextProject && 'cursor-pointer')}
-          onClick={() => isNextProject && navigate(`/projects/${slug?.current || slug}`)}
+          onClick={() =>
+            isNextProject && navigate({to: `/projects/${slug?.current || slug}`, exit: {length: 3}})
+          }
         >
           {isNextProject && (
             <>

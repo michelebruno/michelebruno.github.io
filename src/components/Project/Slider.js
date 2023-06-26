@@ -7,8 +7,8 @@ import 'swiper/css';
 export default function Slider({images, className}) {
   return (
     <Swiper className={className} autoplay modules={[Autoplay]}>
-      {images.map(img => (
-        <SwiperSlide>
+      {images.map((img, i) => (
+        <SwiperSlide key={i}>
           <Image className="w-full" image={img} />
         </SwiperSlide>
       ))}

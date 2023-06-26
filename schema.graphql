@@ -52,6 +52,7 @@ interface Node {
   parent: Node
 }
 
+"Remote Interface"
 interface RemoteFile {
   filename: String!
   filesize: Int
@@ -125,7 +126,7 @@ interface RemoteFile {
     Ignored if layout = FLUID.
     """
     width: Int
-  ): JSON
+  ): GatsbyImageData
   height: Int
   id: ID!
   mimeType: String!
@@ -520,9 +521,9 @@ type ImageSharp implements Node {
     """
 
     Format of generated placeholder image, displayed while the main image loads.
-    BLURRED: a blurred, low resolution image, encoded as a base64 data URI (default)
-    DOMINANT_COLOR: a solid color, calculated from the dominant color of the image.
-    TRACED_SVG: a low-resolution traced SVG of the image.
+    BLURRED: a blurred, low resolution image, encoded as a base64 data URI
+    DOMINANT_COLOR: a solid color, calculated from the dominant color of the image (default).
+    TRACED_SVG: deprecated. Will use DOMINANT_COLOR.
     NONE: no placeholder. Set "background" to use a fixed background color.
     """
     placeholder: ImagePlaceholder,
@@ -550,7 +551,7 @@ type ImageSharp implements Node {
     Ignored if layout = FLUID.
     """
     width: Int
-  ): JSON!
+  ): GatsbyImageData!
   id: ID!
   internal: Internal!
   original: ImageSharpOriginal
@@ -636,6 +637,7 @@ type ImageSharpResize {
 type Internal {
   content: String
   contentDigest: String!
+  contentFilePath: String
   description: String
   fieldOwners: [String]
   ignoreType: Boolean
@@ -730,12 +732,12 @@ type Query {
   allSitePlugin(filter: SitePluginFilterInput, limit: Int, skip: Int, sort: SitePluginSortInput): SitePluginConnection!
   directory(absolutePath: StringQueryOperatorInput, accessTime: DateQueryOperatorInput, atime: DateQueryOperatorInput, atimeMs: FloatQueryOperatorInput, base: StringQueryOperatorInput, birthTime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, changeTime: DateQueryOperatorInput, children: NodeFilterListInput, ctime: DateQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, dev: IntQueryOperatorInput, dir: StringQueryOperatorInput, ext: StringQueryOperatorInput, extension: StringQueryOperatorInput, gid: IntQueryOperatorInput, id: StringQueryOperatorInput, ino: FloatQueryOperatorInput, internal: InternalFilterInput, mode: IntQueryOperatorInput, modifiedTime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, name: StringQueryOperatorInput, nlink: IntQueryOperatorInput, parent: NodeFilterInput, prettySize: StringQueryOperatorInput, rdev: IntQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, root: StringQueryOperatorInput, size: IntQueryOperatorInput, sourceInstanceName: StringQueryOperatorInput, uid: IntQueryOperatorInput): Directory
   file(absolutePath: StringQueryOperatorInput, accessTime: DateQueryOperatorInput, atime: DateQueryOperatorInput, atimeMs: FloatQueryOperatorInput, base: StringQueryOperatorInput, birthTime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, blksize: IntQueryOperatorInput, blocks: IntQueryOperatorInput, changeTime: DateQueryOperatorInput, childImageSharp: ImageSharpFilterInput, childProjectsCsv: ProjectsCsvFilterInput, children: NodeFilterListInput, childrenImageSharp: ImageSharpFilterListInput, childrenProjectsCsv: ProjectsCsvFilterListInput, ctime: DateQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, dev: IntQueryOperatorInput, dir: StringQueryOperatorInput, ext: StringQueryOperatorInput, extension: StringQueryOperatorInput, gid: IntQueryOperatorInput, id: StringQueryOperatorInput, ino: FloatQueryOperatorInput, internal: InternalFilterInput, mode: IntQueryOperatorInput, modifiedTime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, name: StringQueryOperatorInput, nlink: IntQueryOperatorInput, parent: NodeFilterInput, prettySize: StringQueryOperatorInput, publicURL: StringQueryOperatorInput, rdev: IntQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, root: StringQueryOperatorInput, size: IntQueryOperatorInput, sourceInstanceName: StringQueryOperatorInput, uid: IntQueryOperatorInput): File
-  imageSharp(children: NodeFilterListInput, fixed: ImageSharpFixedFilterInput, fluid: ImageSharpFluidFilterInput, gatsbyImageData: JSONQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, original: ImageSharpOriginalFilterInput, parent: NodeFilterInput, resize: ImageSharpResizeFilterInput): ImageSharp
+  imageSharp(children: NodeFilterListInput, fixed: ImageSharpFixedFilterInput, fluid: ImageSharpFluidFilterInput, gatsbyImageData: GatsbyImageDataQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, original: ImageSharpOriginalFilterInput, parent: NodeFilterInput, resize: ImageSharpResizeFilterInput): ImageSharp
   projectsCsv(children: NodeFilterListInput, client: StringQueryOperatorInput, cover: FileFilterInput, description: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, isPagePublic: BooleanQueryOperatorInput, name: StringQueryOperatorInput, parent: NodeFilterInput, roles: StringQueryOperatorInput, slug: StringQueryOperatorInput, tagline: StringQueryOperatorInput, team: StringQueryOperatorInput, thumbnail: FileFilterInput, type: StringQueryOperatorInput, websiteUrl: StringQueryOperatorInput, year: DateQueryOperatorInput): ProjectsCsv
   sanityFileAsset(_createdAt: DateQueryOperatorInput, _id: StringQueryOperatorInput, _key: StringQueryOperatorInput, _rawSource: JSONQueryOperatorInput, _rev: StringQueryOperatorInput, _type: StringQueryOperatorInput, _updatedAt: DateQueryOperatorInput, altText: StringQueryOperatorInput, assetId: StringQueryOperatorInput, children: NodeFilterListInput, description: StringQueryOperatorInput, extension: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, label: StringQueryOperatorInput, mimeType: StringQueryOperatorInput, originalFilename: StringQueryOperatorInput, parent: NodeFilterInput, path: StringQueryOperatorInput, sha1hash: StringQueryOperatorInput, size: FloatQueryOperatorInput, source: SanityAssetSourceDataFilterInput, title: StringQueryOperatorInput, url: StringQueryOperatorInput): SanityFileAsset
-  sanityImageAsset(_createdAt: DateQueryOperatorInput, _id: StringQueryOperatorInput, _key: StringQueryOperatorInput, _rawMetadata: JSONQueryOperatorInput, _rawSource: JSONQueryOperatorInput, _rev: StringQueryOperatorInput, _type: StringQueryOperatorInput, _updatedAt: DateQueryOperatorInput, altText: StringQueryOperatorInput, assetId: StringQueryOperatorInput, children: NodeFilterListInput, description: StringQueryOperatorInput, extension: StringQueryOperatorInput, filename: StringQueryOperatorInput, filesize: IntQueryOperatorInput, gatsbyImage: JSONQueryOperatorInput, gatsbyImageData: JSONQueryOperatorInput, height: IntQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, label: StringQueryOperatorInput, metadata: SanityImageMetadataFilterInput, mimeType: StringQueryOperatorInput, originalFilename: StringQueryOperatorInput, parent: NodeFilterInput, path: StringQueryOperatorInput, publicUrl: StringQueryOperatorInput, resize: RemoteFileResizeFilterInput, sha1hash: StringQueryOperatorInput, size: FloatQueryOperatorInput, source: SanityAssetSourceDataFilterInput, title: StringQueryOperatorInput, uploadId: StringQueryOperatorInput, url: StringQueryOperatorInput, width: IntQueryOperatorInput): SanityImageAsset
-  sanityProject(_createdAt: DateQueryOperatorInput, _id: StringQueryOperatorInput, _key: StringQueryOperatorInput, _rawCoverImage: JSONQueryOperatorInput, _rawSlug: JSONQueryOperatorInput, _rawThumbnail: JSONQueryOperatorInput, _rev: StringQueryOperatorInput, _type: StringQueryOperatorInput, _updatedAt: DateQueryOperatorInput, children: NodeFilterListInput, client: StringQueryOperatorInput, coverImage: SanityImageFilterInput, description: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, isPagePublic: BooleanQueryOperatorInput, parent: NodeFilterInput, roles: StringQueryOperatorInput, slug: SanitySlugFilterInput, tagline: StringQueryOperatorInput, thumbnail: SanityImageFilterInput, title: StringQueryOperatorInput, type: StringQueryOperatorInput, websiteUrl: StringQueryOperatorInput, year: StringQueryOperatorInput): SanityProject
-  site(buildTime: DateQueryOperatorInput, children: NodeFilterListInput, host: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, jsxRuntime: StringQueryOperatorInput, parent: NodeFilterInput, pathPrefix: StringQueryOperatorInput, polyfill: BooleanQueryOperatorInput, port: IntQueryOperatorInput, siteMetadata: SiteSiteMetadataFilterInput): Site
+  sanityImageAsset(_createdAt: DateQueryOperatorInput, _id: StringQueryOperatorInput, _key: StringQueryOperatorInput, _rawMetadata: JSONQueryOperatorInput, _rawSource: JSONQueryOperatorInput, _rev: StringQueryOperatorInput, _type: StringQueryOperatorInput, _updatedAt: DateQueryOperatorInput, altText: StringQueryOperatorInput, assetId: StringQueryOperatorInput, children: NodeFilterListInput, description: StringQueryOperatorInput, extension: StringQueryOperatorInput, filename: StringQueryOperatorInput, filesize: IntQueryOperatorInput, gatsbyImage: GatsbyImageDataQueryOperatorInput, gatsbyImageData: GatsbyImageDataQueryOperatorInput, height: IntQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, label: StringQueryOperatorInput, metadata: SanityImageMetadataFilterInput, mimeType: StringQueryOperatorInput, originalFilename: StringQueryOperatorInput, parent: NodeFilterInput, path: StringQueryOperatorInput, publicUrl: StringQueryOperatorInput, resize: RemoteFileResizeFilterInput, sha1hash: StringQueryOperatorInput, size: FloatQueryOperatorInput, source: SanityAssetSourceDataFilterInput, title: StringQueryOperatorInput, uploadId: StringQueryOperatorInput, url: StringQueryOperatorInput, width: IntQueryOperatorInput): SanityImageAsset
+  sanityProject(_createdAt: DateQueryOperatorInput, _id: StringQueryOperatorInput, _key: StringQueryOperatorInput, _rawCoverImage: JSONQueryOperatorInput, _rawImages: JSONQueryOperatorInput, _rawSlug: JSONQueryOperatorInput, _rawThumbnail: JSONQueryOperatorInput, _rev: StringQueryOperatorInput, _type: StringQueryOperatorInput, _updatedAt: DateQueryOperatorInput, children: NodeFilterListInput, client: StringQueryOperatorInput, coverImage: SanityImageFilterInput, description: StringQueryOperatorInput, id: StringQueryOperatorInput, images: SanityImageFilterListInput, internal: InternalFilterInput, isPagePublic: BooleanQueryOperatorInput, parent: NodeFilterInput, roles: StringQueryOperatorInput, slug: SanitySlugFilterInput, tagline: StringQueryOperatorInput, thumbnail: SanityImageFilterInput, title: StringQueryOperatorInput, type: StringQueryOperatorInput, websiteUrl: StringQueryOperatorInput, year: StringQueryOperatorInput): SanityProject
+  site(buildTime: DateQueryOperatorInput, children: NodeFilterListInput, graphqlTypegen: BooleanQueryOperatorInput, host: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, jsxRuntime: StringQueryOperatorInput, parent: NodeFilterInput, pathPrefix: StringQueryOperatorInput, polyfill: BooleanQueryOperatorInput, port: IntQueryOperatorInput, siteMetadata: SiteSiteMetadataFilterInput, trailingSlash: StringQueryOperatorInput): Site
   siteBuildMetadata(buildTime: DateQueryOperatorInput, children: NodeFilterListInput, id: StringQueryOperatorInput, internal: InternalFilterInput, parent: NodeFilterInput): SiteBuildMetadata
   siteFunction(absoluteCompiledFilePath: StringQueryOperatorInput, children: NodeFilterListInput, functionRoute: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, matchPath: StringQueryOperatorInput, originalAbsoluteFilePath: StringQueryOperatorInput, originalRelativeFilePath: StringQueryOperatorInput, parent: NodeFilterInput, pluginName: StringQueryOperatorInput, relativeCompiledFilePath: StringQueryOperatorInput): SiteFunction
   sitePage(children: NodeFilterListInput, component: StringQueryOperatorInput, componentChunkName: StringQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, internalComponentName: StringQueryOperatorInput, matchPath: StringQueryOperatorInput, pageContext: JSONQueryOperatorInput, parent: NodeFilterInput, path: StringQueryOperatorInput, pluginCreator: SitePluginFilterInput): SitePage
@@ -981,7 +983,7 @@ type SanityImageAsset implements Node & RemoteFile & SanityDocument {
     Ignored if layout = FLUID.
     """
     width: Int
-  ): JSON
+  ): GatsbyImageData
   gatsbyImageData(
     """
 
@@ -1045,7 +1047,7 @@ type SanityImageAsset implements Node & RemoteFile & SanityDocument {
     Ignored if layout = FLUID.
     """
     width: Int
-  ): JSON!
+  ): GatsbyImageData!
   height: Int
   id: ID!
   internal: Internal!
@@ -1196,6 +1198,7 @@ type SanityProject implements Node & SanityDocument {
   _id: String
   _key: String
   _rawCoverImage(resolveReferences: SanityResolveReferencesConfiguration): JSON
+  _rawImages(resolveReferences: SanityResolveReferencesConfiguration): JSON
   _rawSlug(resolveReferences: SanityResolveReferencesConfiguration): JSON
   _rawThumbnail(resolveReferences: SanityResolveReferencesConfiguration): JSON
   _rev: String
@@ -1215,6 +1218,7 @@ type SanityProject implements Node & SanityDocument {
   coverImage: SanityImage
   description: String
   id: ID!
+  images: [SanityImage]
   internal: Internal!
   isPagePublic: Boolean
   parent: Node
@@ -1286,6 +1290,7 @@ type Site implements Node {
     locale: String
   ): Date
   children: [Node!]!
+  graphqlTypegen: Boolean
   host: String
   id: ID!
   internal: Internal!
@@ -1295,6 +1300,7 @@ type Site implements Node {
   polyfill: Boolean
   port: Int
   siteMetadata: SiteSiteMetadata
+  trailingSlash: String
 }
 
 type SiteBuildMetadata implements Node {
@@ -1544,6 +1550,7 @@ enum DirectoryFieldsEnum {
   children___children___id
   children___children___internal___content
   children___children___internal___contentDigest
+  children___children___internal___contentFilePath
   children___children___internal___description
   children___children___internal___fieldOwners
   children___children___internal___ignoreType
@@ -1555,6 +1562,7 @@ enum DirectoryFieldsEnum {
   children___id
   children___internal___content
   children___internal___contentDigest
+  children___internal___contentFilePath
   children___internal___description
   children___internal___fieldOwners
   children___internal___ignoreType
@@ -1567,6 +1575,7 @@ enum DirectoryFieldsEnum {
   children___parent___id
   children___parent___internal___content
   children___parent___internal___contentDigest
+  children___parent___internal___contentFilePath
   children___parent___internal___description
   children___parent___internal___fieldOwners
   children___parent___internal___ignoreType
@@ -1586,6 +1595,7 @@ enum DirectoryFieldsEnum {
   ino
   internal___content
   internal___contentDigest
+  internal___contentFilePath
   internal___description
   internal___fieldOwners
   internal___ignoreType
@@ -1605,6 +1615,7 @@ enum DirectoryFieldsEnum {
   parent___children___id
   parent___children___internal___content
   parent___children___internal___contentDigest
+  parent___children___internal___contentFilePath
   parent___children___internal___description
   parent___children___internal___fieldOwners
   parent___children___internal___ignoreType
@@ -1616,6 +1627,7 @@ enum DirectoryFieldsEnum {
   parent___id
   parent___internal___content
   parent___internal___contentDigest
+  parent___internal___contentFilePath
   parent___internal___description
   parent___internal___fieldOwners
   parent___internal___ignoreType
@@ -1628,6 +1640,7 @@ enum DirectoryFieldsEnum {
   parent___parent___id
   parent___parent___internal___content
   parent___parent___internal___contentDigest
+  parent___parent___internal___contentFilePath
   parent___parent___internal___description
   parent___parent___internal___fieldOwners
   parent___parent___internal___ignoreType
@@ -1658,21 +1671,22 @@ enum FileFieldsEnum {
   blksize
   blocks
   changeTime
-  childImageSharp___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___children___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___children___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___children___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___children___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___children___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___children___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___children___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___children___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___children___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___children___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___children___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___children___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  childImageSharp___children
+  childImageSharp___children___children
+  childImageSharp___children___children___children
+  childImageSharp___children___children___id
+  childImageSharp___children___id
+  childImageSharp___children___internal___content
+  childImageSharp___children___internal___contentDigest
+  childImageSharp___children___internal___contentFilePath
+  childImageSharp___children___internal___description
+  childImageSharp___children___internal___fieldOwners
+  childImageSharp___children___internal___ignoreType
+  childImageSharp___children___internal___mediaType
+  childImageSharp___children___internal___owner
+  childImageSharp___children___internal___type
+  childImageSharp___children___parent___children
+  childImageSharp___children___parent___id
   childImageSharp___fixed___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   childImageSharp___fixed___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   childImageSharp___fixed___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
@@ -1696,32 +1710,34 @@ enum FileFieldsEnum {
   childImageSharp___fluid___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   childImageSharp___fluid___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   childImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___original___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___original___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___original___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___parent___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___parent___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___parent___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___parent___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___parent___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___parent___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___parent___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___parent___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___parent___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___parent___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___parent___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___parent___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  childImageSharp___id
+  childImageSharp___internal___content
+  childImageSharp___internal___contentDigest
+  childImageSharp___internal___contentFilePath
+  childImageSharp___internal___description
+  childImageSharp___internal___fieldOwners
+  childImageSharp___internal___ignoreType
+  childImageSharp___internal___mediaType
+  childImageSharp___internal___owner
+  childImageSharp___internal___type
+  childImageSharp___original___height
+  childImageSharp___original___src
+  childImageSharp___original___width
+  childImageSharp___parent___children
+  childImageSharp___parent___children___children
+  childImageSharp___parent___children___id
+  childImageSharp___parent___id
+  childImageSharp___parent___internal___content
+  childImageSharp___parent___internal___contentDigest
+  childImageSharp___parent___internal___contentFilePath
+  childImageSharp___parent___internal___description
+  childImageSharp___parent___internal___fieldOwners
+  childImageSharp___parent___internal___ignoreType
+  childImageSharp___parent___internal___mediaType
+  childImageSharp___parent___internal___owner
+  childImageSharp___parent___internal___type
+  childImageSharp___parent___parent___children
+  childImageSharp___parent___parent___id
   childImageSharp___resize___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   childImageSharp___resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   childImageSharp___resize___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
@@ -1735,6 +1751,7 @@ enum FileFieldsEnum {
   childProjectsCsv___children___id
   childProjectsCsv___children___internal___content
   childProjectsCsv___children___internal___contentDigest
+  childProjectsCsv___children___internal___contentFilePath
   childProjectsCsv___children___internal___description
   childProjectsCsv___children___internal___fieldOwners
   childProjectsCsv___children___internal___ignoreType
@@ -1755,9 +1772,9 @@ enum FileFieldsEnum {
   childProjectsCsv___cover___blksize
   childProjectsCsv___cover___blocks
   childProjectsCsv___cover___changeTime
-  childProjectsCsv___cover___childImageSharp___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  childProjectsCsv___cover___childImageSharp___children
   childProjectsCsv___cover___childImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childProjectsCsv___cover___childImageSharp___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  childProjectsCsv___cover___childImageSharp___id
   childProjectsCsv___cover___childProjectsCsv___children
   childProjectsCsv___cover___childProjectsCsv___client
   childProjectsCsv___cover___childProjectsCsv___description
@@ -1773,9 +1790,9 @@ enum FileFieldsEnum {
   childProjectsCsv___cover___childProjectsCsv___year
   childProjectsCsv___cover___children
   childProjectsCsv___cover___childrenImageSharp
-  childProjectsCsv___cover___childrenImageSharp___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  childProjectsCsv___cover___childrenImageSharp___children
   childProjectsCsv___cover___childrenImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childProjectsCsv___cover___childrenImageSharp___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  childProjectsCsv___cover___childrenImageSharp___id
   childProjectsCsv___cover___childrenProjectsCsv
   childProjectsCsv___cover___childrenProjectsCsv___children
   childProjectsCsv___cover___childrenProjectsCsv___client
@@ -1803,6 +1820,7 @@ enum FileFieldsEnum {
   childProjectsCsv___cover___ino
   childProjectsCsv___cover___internal___content
   childProjectsCsv___cover___internal___contentDigest
+  childProjectsCsv___cover___internal___contentFilePath
   childProjectsCsv___cover___internal___description
   childProjectsCsv___cover___internal___fieldOwners
   childProjectsCsv___cover___internal___ignoreType
@@ -1830,6 +1848,7 @@ enum FileFieldsEnum {
   childProjectsCsv___id
   childProjectsCsv___internal___content
   childProjectsCsv___internal___contentDigest
+  childProjectsCsv___internal___contentFilePath
   childProjectsCsv___internal___description
   childProjectsCsv___internal___fieldOwners
   childProjectsCsv___internal___ignoreType
@@ -1844,6 +1863,7 @@ enum FileFieldsEnum {
   childProjectsCsv___parent___id
   childProjectsCsv___parent___internal___content
   childProjectsCsv___parent___internal___contentDigest
+  childProjectsCsv___parent___internal___contentFilePath
   childProjectsCsv___parent___internal___description
   childProjectsCsv___parent___internal___fieldOwners
   childProjectsCsv___parent___internal___ignoreType
@@ -1867,9 +1887,9 @@ enum FileFieldsEnum {
   childProjectsCsv___thumbnail___blksize
   childProjectsCsv___thumbnail___blocks
   childProjectsCsv___thumbnail___changeTime
-  childProjectsCsv___thumbnail___childImageSharp___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  childProjectsCsv___thumbnail___childImageSharp___children
   childProjectsCsv___thumbnail___childImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childProjectsCsv___thumbnail___childImageSharp___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  childProjectsCsv___thumbnail___childImageSharp___id
   childProjectsCsv___thumbnail___childProjectsCsv___children
   childProjectsCsv___thumbnail___childProjectsCsv___client
   childProjectsCsv___thumbnail___childProjectsCsv___description
@@ -1885,9 +1905,9 @@ enum FileFieldsEnum {
   childProjectsCsv___thumbnail___childProjectsCsv___year
   childProjectsCsv___thumbnail___children
   childProjectsCsv___thumbnail___childrenImageSharp
-  childProjectsCsv___thumbnail___childrenImageSharp___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  childProjectsCsv___thumbnail___childrenImageSharp___children
   childProjectsCsv___thumbnail___childrenImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childProjectsCsv___thumbnail___childrenImageSharp___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  childProjectsCsv___thumbnail___childrenImageSharp___id
   childProjectsCsv___thumbnail___childrenProjectsCsv
   childProjectsCsv___thumbnail___childrenProjectsCsv___children
   childProjectsCsv___thumbnail___childrenProjectsCsv___client
@@ -1915,6 +1935,7 @@ enum FileFieldsEnum {
   childProjectsCsv___thumbnail___ino
   childProjectsCsv___thumbnail___internal___content
   childProjectsCsv___thumbnail___internal___contentDigest
+  childProjectsCsv___thumbnail___internal___contentFilePath
   childProjectsCsv___thumbnail___internal___description
   childProjectsCsv___thumbnail___internal___fieldOwners
   childProjectsCsv___thumbnail___internal___ignoreType
@@ -1943,21 +1964,22 @@ enum FileFieldsEnum {
   childProjectsCsv___year
   children
   childrenImageSharp
-  childrenImageSharp___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___children___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___children___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___children___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___children___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___children___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___children___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___children___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___children___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___children___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___children___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___children___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___children___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  childrenImageSharp___children
+  childrenImageSharp___children___children
+  childrenImageSharp___children___children___children
+  childrenImageSharp___children___children___id
+  childrenImageSharp___children___id
+  childrenImageSharp___children___internal___content
+  childrenImageSharp___children___internal___contentDigest
+  childrenImageSharp___children___internal___contentFilePath
+  childrenImageSharp___children___internal___description
+  childrenImageSharp___children___internal___fieldOwners
+  childrenImageSharp___children___internal___ignoreType
+  childrenImageSharp___children___internal___mediaType
+  childrenImageSharp___children___internal___owner
+  childrenImageSharp___children___internal___type
+  childrenImageSharp___children___parent___children
+  childrenImageSharp___children___parent___id
   childrenImageSharp___fixed___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   childrenImageSharp___fixed___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   childrenImageSharp___fixed___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
@@ -1981,32 +2003,34 @@ enum FileFieldsEnum {
   childrenImageSharp___fluid___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   childrenImageSharp___fluid___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   childrenImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___original___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___original___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___original___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___parent___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___parent___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___parent___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___parent___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___parent___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___parent___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___parent___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___parent___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___parent___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___parent___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___parent___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___parent___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  childrenImageSharp___id
+  childrenImageSharp___internal___content
+  childrenImageSharp___internal___contentDigest
+  childrenImageSharp___internal___contentFilePath
+  childrenImageSharp___internal___description
+  childrenImageSharp___internal___fieldOwners
+  childrenImageSharp___internal___ignoreType
+  childrenImageSharp___internal___mediaType
+  childrenImageSharp___internal___owner
+  childrenImageSharp___internal___type
+  childrenImageSharp___original___height
+  childrenImageSharp___original___src
+  childrenImageSharp___original___width
+  childrenImageSharp___parent___children
+  childrenImageSharp___parent___children___children
+  childrenImageSharp___parent___children___id
+  childrenImageSharp___parent___id
+  childrenImageSharp___parent___internal___content
+  childrenImageSharp___parent___internal___contentDigest
+  childrenImageSharp___parent___internal___contentFilePath
+  childrenImageSharp___parent___internal___description
+  childrenImageSharp___parent___internal___fieldOwners
+  childrenImageSharp___parent___internal___ignoreType
+  childrenImageSharp___parent___internal___mediaType
+  childrenImageSharp___parent___internal___owner
+  childrenImageSharp___parent___internal___type
+  childrenImageSharp___parent___parent___children
+  childrenImageSharp___parent___parent___id
   childrenImageSharp___resize___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   childrenImageSharp___resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   childrenImageSharp___resize___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
@@ -2021,6 +2045,7 @@ enum FileFieldsEnum {
   childrenProjectsCsv___children___id
   childrenProjectsCsv___children___internal___content
   childrenProjectsCsv___children___internal___contentDigest
+  childrenProjectsCsv___children___internal___contentFilePath
   childrenProjectsCsv___children___internal___description
   childrenProjectsCsv___children___internal___fieldOwners
   childrenProjectsCsv___children___internal___ignoreType
@@ -2041,9 +2066,9 @@ enum FileFieldsEnum {
   childrenProjectsCsv___cover___blksize
   childrenProjectsCsv___cover___blocks
   childrenProjectsCsv___cover___changeTime
-  childrenProjectsCsv___cover___childImageSharp___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  childrenProjectsCsv___cover___childImageSharp___children
   childrenProjectsCsv___cover___childImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenProjectsCsv___cover___childImageSharp___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  childrenProjectsCsv___cover___childImageSharp___id
   childrenProjectsCsv___cover___childProjectsCsv___children
   childrenProjectsCsv___cover___childProjectsCsv___client
   childrenProjectsCsv___cover___childProjectsCsv___description
@@ -2059,9 +2084,9 @@ enum FileFieldsEnum {
   childrenProjectsCsv___cover___childProjectsCsv___year
   childrenProjectsCsv___cover___children
   childrenProjectsCsv___cover___childrenImageSharp
-  childrenProjectsCsv___cover___childrenImageSharp___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  childrenProjectsCsv___cover___childrenImageSharp___children
   childrenProjectsCsv___cover___childrenImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenProjectsCsv___cover___childrenImageSharp___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  childrenProjectsCsv___cover___childrenImageSharp___id
   childrenProjectsCsv___cover___childrenProjectsCsv
   childrenProjectsCsv___cover___childrenProjectsCsv___children
   childrenProjectsCsv___cover___childrenProjectsCsv___client
@@ -2089,6 +2114,7 @@ enum FileFieldsEnum {
   childrenProjectsCsv___cover___ino
   childrenProjectsCsv___cover___internal___content
   childrenProjectsCsv___cover___internal___contentDigest
+  childrenProjectsCsv___cover___internal___contentFilePath
   childrenProjectsCsv___cover___internal___description
   childrenProjectsCsv___cover___internal___fieldOwners
   childrenProjectsCsv___cover___internal___ignoreType
@@ -2116,6 +2142,7 @@ enum FileFieldsEnum {
   childrenProjectsCsv___id
   childrenProjectsCsv___internal___content
   childrenProjectsCsv___internal___contentDigest
+  childrenProjectsCsv___internal___contentFilePath
   childrenProjectsCsv___internal___description
   childrenProjectsCsv___internal___fieldOwners
   childrenProjectsCsv___internal___ignoreType
@@ -2130,6 +2157,7 @@ enum FileFieldsEnum {
   childrenProjectsCsv___parent___id
   childrenProjectsCsv___parent___internal___content
   childrenProjectsCsv___parent___internal___contentDigest
+  childrenProjectsCsv___parent___internal___contentFilePath
   childrenProjectsCsv___parent___internal___description
   childrenProjectsCsv___parent___internal___fieldOwners
   childrenProjectsCsv___parent___internal___ignoreType
@@ -2153,9 +2181,9 @@ enum FileFieldsEnum {
   childrenProjectsCsv___thumbnail___blksize
   childrenProjectsCsv___thumbnail___blocks
   childrenProjectsCsv___thumbnail___changeTime
-  childrenProjectsCsv___thumbnail___childImageSharp___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  childrenProjectsCsv___thumbnail___childImageSharp___children
   childrenProjectsCsv___thumbnail___childImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenProjectsCsv___thumbnail___childImageSharp___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  childrenProjectsCsv___thumbnail___childImageSharp___id
   childrenProjectsCsv___thumbnail___childProjectsCsv___children
   childrenProjectsCsv___thumbnail___childProjectsCsv___client
   childrenProjectsCsv___thumbnail___childProjectsCsv___description
@@ -2171,9 +2199,9 @@ enum FileFieldsEnum {
   childrenProjectsCsv___thumbnail___childProjectsCsv___year
   childrenProjectsCsv___thumbnail___children
   childrenProjectsCsv___thumbnail___childrenImageSharp
-  childrenProjectsCsv___thumbnail___childrenImageSharp___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  childrenProjectsCsv___thumbnail___childrenImageSharp___children
   childrenProjectsCsv___thumbnail___childrenImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenProjectsCsv___thumbnail___childrenImageSharp___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  childrenProjectsCsv___thumbnail___childrenImageSharp___id
   childrenProjectsCsv___thumbnail___childrenProjectsCsv
   childrenProjectsCsv___thumbnail___childrenProjectsCsv___children
   childrenProjectsCsv___thumbnail___childrenProjectsCsv___client
@@ -2201,6 +2229,7 @@ enum FileFieldsEnum {
   childrenProjectsCsv___thumbnail___ino
   childrenProjectsCsv___thumbnail___internal___content
   childrenProjectsCsv___thumbnail___internal___contentDigest
+  childrenProjectsCsv___thumbnail___internal___contentFilePath
   childrenProjectsCsv___thumbnail___internal___description
   childrenProjectsCsv___thumbnail___internal___fieldOwners
   childrenProjectsCsv___thumbnail___internal___ignoreType
@@ -2234,6 +2263,7 @@ enum FileFieldsEnum {
   children___children___id
   children___children___internal___content
   children___children___internal___contentDigest
+  children___children___internal___contentFilePath
   children___children___internal___description
   children___children___internal___fieldOwners
   children___children___internal___ignoreType
@@ -2245,6 +2275,7 @@ enum FileFieldsEnum {
   children___id
   children___internal___content
   children___internal___contentDigest
+  children___internal___contentFilePath
   children___internal___description
   children___internal___fieldOwners
   children___internal___ignoreType
@@ -2257,6 +2288,7 @@ enum FileFieldsEnum {
   children___parent___id
   children___parent___internal___content
   children___parent___internal___contentDigest
+  children___parent___internal___contentFilePath
   children___parent___internal___description
   children___parent___internal___fieldOwners
   children___parent___internal___ignoreType
@@ -2276,6 +2308,7 @@ enum FileFieldsEnum {
   ino
   internal___content
   internal___contentDigest
+  internal___contentFilePath
   internal___description
   internal___fieldOwners
   internal___ignoreType
@@ -2295,6 +2328,7 @@ enum FileFieldsEnum {
   parent___children___id
   parent___children___internal___content
   parent___children___internal___contentDigest
+  parent___children___internal___contentFilePath
   parent___children___internal___description
   parent___children___internal___fieldOwners
   parent___children___internal___ignoreType
@@ -2306,6 +2340,7 @@ enum FileFieldsEnum {
   parent___id
   parent___internal___content
   parent___internal___contentDigest
+  parent___internal___contentFilePath
   parent___internal___description
   parent___internal___fieldOwners
   parent___internal___ignoreType
@@ -2318,6 +2353,7 @@ enum FileFieldsEnum {
   parent___parent___id
   parent___parent___internal___content
   parent___parent___internal___contentDigest
+  parent___parent___internal___contentFilePath
   parent___parent___internal___description
   parent___parent___internal___fieldOwners
   parent___parent___internal___ignoreType
@@ -2404,45 +2440,48 @@ enum ImagePlaceholder {
 }
 
 enum ImageSharpFieldsEnum {
-  children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  children
+  children___children
+  children___children___children
+  children___children___children___children
+  children___children___children___id
+  children___children___id
+  children___children___internal___content
+  children___children___internal___contentDigest
+  children___children___internal___contentFilePath
+  children___children___internal___description
+  children___children___internal___fieldOwners
+  children___children___internal___ignoreType
+  children___children___internal___mediaType
+  children___children___internal___owner
+  children___children___internal___type
+  children___children___parent___children
+  children___children___parent___id
+  children___id
+  children___internal___content
+  children___internal___contentDigest
+  children___internal___contentFilePath
+  children___internal___description
+  children___internal___fieldOwners
+  children___internal___ignoreType
+  children___internal___mediaType
+  children___internal___owner
+  children___internal___type
+  children___parent___children
+  children___parent___children___children
+  children___parent___children___id
+  children___parent___id
+  children___parent___internal___content
+  children___parent___internal___contentDigest
+  children___parent___internal___contentFilePath
+  children___parent___internal___description
+  children___parent___internal___fieldOwners
+  children___parent___internal___ignoreType
+  children___parent___internal___mediaType
+  children___parent___internal___owner
+  children___parent___internal___type
+  children___parent___parent___children
+  children___parent___parent___id
   fixed___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   fixed___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   fixed___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
@@ -2466,56 +2505,60 @@ enum ImageSharpFieldsEnum {
   fluid___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   fluid___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  original___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  original___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  original___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  id
+  internal___content
+  internal___contentDigest
+  internal___contentFilePath
+  internal___description
+  internal___fieldOwners
+  internal___ignoreType
+  internal___mediaType
+  internal___owner
+  internal___type
+  original___height
+  original___src
+  original___width
+  parent___children
+  parent___children___children
+  parent___children___children___children
+  parent___children___children___id
+  parent___children___id
+  parent___children___internal___content
+  parent___children___internal___contentDigest
+  parent___children___internal___contentFilePath
+  parent___children___internal___description
+  parent___children___internal___fieldOwners
+  parent___children___internal___ignoreType
+  parent___children___internal___mediaType
+  parent___children___internal___owner
+  parent___children___internal___type
+  parent___children___parent___children
+  parent___children___parent___id
+  parent___id
+  parent___internal___content
+  parent___internal___contentDigest
+  parent___internal___contentFilePath
+  parent___internal___description
+  parent___internal___fieldOwners
+  parent___internal___ignoreType
+  parent___internal___mediaType
+  parent___internal___owner
+  parent___internal___type
+  parent___parent___children
+  parent___parent___children___children
+  parent___parent___children___id
+  parent___parent___id
+  parent___parent___internal___content
+  parent___parent___internal___contentDigest
+  parent___parent___internal___contentFilePath
+  parent___parent___internal___description
+  parent___parent___internal___fieldOwners
+  parent___parent___internal___ignoreType
+  parent___parent___internal___mediaType
+  parent___parent___internal___owner
+  parent___parent___internal___type
+  parent___parent___parent___children
+  parent___parent___parent___id
   resize___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   resize___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
@@ -2542,6 +2585,7 @@ enum ProjectsCsvFieldsEnum {
   children___children___id
   children___children___internal___content
   children___children___internal___contentDigest
+  children___children___internal___contentFilePath
   children___children___internal___description
   children___children___internal___fieldOwners
   children___children___internal___ignoreType
@@ -2553,6 +2597,7 @@ enum ProjectsCsvFieldsEnum {
   children___id
   children___internal___content
   children___internal___contentDigest
+  children___internal___contentFilePath
   children___internal___description
   children___internal___fieldOwners
   children___internal___ignoreType
@@ -2565,6 +2610,7 @@ enum ProjectsCsvFieldsEnum {
   children___parent___id
   children___parent___internal___content
   children___parent___internal___contentDigest
+  children___parent___internal___contentFilePath
   children___parent___internal___description
   children___parent___internal___fieldOwners
   children___parent___internal___ignoreType
@@ -2585,9 +2631,9 @@ enum ProjectsCsvFieldsEnum {
   cover___blksize
   cover___blocks
   cover___changeTime
-  cover___childImageSharp___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  cover___childImageSharp___children
+  cover___childImageSharp___children___children
+  cover___childImageSharp___children___id
   cover___childImageSharp___fixed___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   cover___childImageSharp___fixed___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   cover___childImageSharp___fixed___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
@@ -2611,20 +2657,21 @@ enum ProjectsCsvFieldsEnum {
   cover___childImageSharp___fluid___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   cover___childImageSharp___fluid___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   cover___childImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___original___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___original___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___original___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  cover___childImageSharp___id
+  cover___childImageSharp___internal___content
+  cover___childImageSharp___internal___contentDigest
+  cover___childImageSharp___internal___contentFilePath
+  cover___childImageSharp___internal___description
+  cover___childImageSharp___internal___fieldOwners
+  cover___childImageSharp___internal___ignoreType
+  cover___childImageSharp___internal___mediaType
+  cover___childImageSharp___internal___owner
+  cover___childImageSharp___internal___type
+  cover___childImageSharp___original___height
+  cover___childImageSharp___original___src
+  cover___childImageSharp___original___width
+  cover___childImageSharp___parent___children
+  cover___childImageSharp___parent___id
   cover___childImageSharp___resize___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   cover___childImageSharp___resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   cover___childImageSharp___resize___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
@@ -2677,6 +2724,7 @@ enum ProjectsCsvFieldsEnum {
   cover___childProjectsCsv___id
   cover___childProjectsCsv___internal___content
   cover___childProjectsCsv___internal___contentDigest
+  cover___childProjectsCsv___internal___contentFilePath
   cover___childProjectsCsv___internal___description
   cover___childProjectsCsv___internal___fieldOwners
   cover___childProjectsCsv___internal___ignoreType
@@ -2734,9 +2782,9 @@ enum ProjectsCsvFieldsEnum {
   cover___childProjectsCsv___year
   cover___children
   cover___childrenImageSharp
-  cover___childrenImageSharp___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  cover___childrenImageSharp___children
+  cover___childrenImageSharp___children___children
+  cover___childrenImageSharp___children___id
   cover___childrenImageSharp___fixed___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   cover___childrenImageSharp___fixed___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   cover___childrenImageSharp___fixed___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
@@ -2760,20 +2808,21 @@ enum ProjectsCsvFieldsEnum {
   cover___childrenImageSharp___fluid___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   cover___childrenImageSharp___fluid___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   cover___childrenImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___original___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___original___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___original___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  cover___childrenImageSharp___id
+  cover___childrenImageSharp___internal___content
+  cover___childrenImageSharp___internal___contentDigest
+  cover___childrenImageSharp___internal___contentFilePath
+  cover___childrenImageSharp___internal___description
+  cover___childrenImageSharp___internal___fieldOwners
+  cover___childrenImageSharp___internal___ignoreType
+  cover___childrenImageSharp___internal___mediaType
+  cover___childrenImageSharp___internal___owner
+  cover___childrenImageSharp___internal___type
+  cover___childrenImageSharp___original___height
+  cover___childrenImageSharp___original___src
+  cover___childrenImageSharp___original___width
+  cover___childrenImageSharp___parent___children
+  cover___childrenImageSharp___parent___id
   cover___childrenImageSharp___resize___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   cover___childrenImageSharp___resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   cover___childrenImageSharp___resize___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
@@ -2827,6 +2876,7 @@ enum ProjectsCsvFieldsEnum {
   cover___childrenProjectsCsv___id
   cover___childrenProjectsCsv___internal___content
   cover___childrenProjectsCsv___internal___contentDigest
+  cover___childrenProjectsCsv___internal___contentFilePath
   cover___childrenProjectsCsv___internal___description
   cover___childrenProjectsCsv___internal___fieldOwners
   cover___childrenProjectsCsv___internal___ignoreType
@@ -2888,6 +2938,7 @@ enum ProjectsCsvFieldsEnum {
   cover___children___id
   cover___children___internal___content
   cover___children___internal___contentDigest
+  cover___children___internal___contentFilePath
   cover___children___internal___description
   cover___children___internal___fieldOwners
   cover___children___internal___ignoreType
@@ -2907,6 +2958,7 @@ enum ProjectsCsvFieldsEnum {
   cover___ino
   cover___internal___content
   cover___internal___contentDigest
+  cover___internal___contentFilePath
   cover___internal___description
   cover___internal___fieldOwners
   cover___internal___ignoreType
@@ -2925,6 +2977,7 @@ enum ProjectsCsvFieldsEnum {
   cover___parent___id
   cover___parent___internal___content
   cover___parent___internal___contentDigest
+  cover___parent___internal___contentFilePath
   cover___parent___internal___description
   cover___parent___internal___fieldOwners
   cover___parent___internal___ignoreType
@@ -2946,6 +2999,7 @@ enum ProjectsCsvFieldsEnum {
   id
   internal___content
   internal___contentDigest
+  internal___contentFilePath
   internal___description
   internal___fieldOwners
   internal___ignoreType
@@ -2961,6 +3015,7 @@ enum ProjectsCsvFieldsEnum {
   parent___children___id
   parent___children___internal___content
   parent___children___internal___contentDigest
+  parent___children___internal___contentFilePath
   parent___children___internal___description
   parent___children___internal___fieldOwners
   parent___children___internal___ignoreType
@@ -2972,6 +3027,7 @@ enum ProjectsCsvFieldsEnum {
   parent___id
   parent___internal___content
   parent___internal___contentDigest
+  parent___internal___contentFilePath
   parent___internal___description
   parent___internal___fieldOwners
   parent___internal___ignoreType
@@ -2984,6 +3040,7 @@ enum ProjectsCsvFieldsEnum {
   parent___parent___id
   parent___parent___internal___content
   parent___parent___internal___contentDigest
+  parent___parent___internal___contentFilePath
   parent___parent___internal___description
   parent___parent___internal___fieldOwners
   parent___parent___internal___ignoreType
@@ -3007,9 +3064,9 @@ enum ProjectsCsvFieldsEnum {
   thumbnail___blksize
   thumbnail___blocks
   thumbnail___changeTime
-  thumbnail___childImageSharp___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  thumbnail___childImageSharp___children
+  thumbnail___childImageSharp___children___children
+  thumbnail___childImageSharp___children___id
   thumbnail___childImageSharp___fixed___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   thumbnail___childImageSharp___fixed___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   thumbnail___childImageSharp___fixed___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
@@ -3033,20 +3090,21 @@ enum ProjectsCsvFieldsEnum {
   thumbnail___childImageSharp___fluid___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   thumbnail___childImageSharp___fluid___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   thumbnail___childImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___original___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___original___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___original___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  thumbnail___childImageSharp___id
+  thumbnail___childImageSharp___internal___content
+  thumbnail___childImageSharp___internal___contentDigest
+  thumbnail___childImageSharp___internal___contentFilePath
+  thumbnail___childImageSharp___internal___description
+  thumbnail___childImageSharp___internal___fieldOwners
+  thumbnail___childImageSharp___internal___ignoreType
+  thumbnail___childImageSharp___internal___mediaType
+  thumbnail___childImageSharp___internal___owner
+  thumbnail___childImageSharp___internal___type
+  thumbnail___childImageSharp___original___height
+  thumbnail___childImageSharp___original___src
+  thumbnail___childImageSharp___original___width
+  thumbnail___childImageSharp___parent___children
+  thumbnail___childImageSharp___parent___id
   thumbnail___childImageSharp___resize___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   thumbnail___childImageSharp___resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   thumbnail___childImageSharp___resize___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
@@ -3099,6 +3157,7 @@ enum ProjectsCsvFieldsEnum {
   thumbnail___childProjectsCsv___id
   thumbnail___childProjectsCsv___internal___content
   thumbnail___childProjectsCsv___internal___contentDigest
+  thumbnail___childProjectsCsv___internal___contentFilePath
   thumbnail___childProjectsCsv___internal___description
   thumbnail___childProjectsCsv___internal___fieldOwners
   thumbnail___childProjectsCsv___internal___ignoreType
@@ -3156,9 +3215,9 @@ enum ProjectsCsvFieldsEnum {
   thumbnail___childProjectsCsv___year
   thumbnail___children
   thumbnail___childrenImageSharp
-  thumbnail___childrenImageSharp___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  thumbnail___childrenImageSharp___children
+  thumbnail___childrenImageSharp___children___children
+  thumbnail___childrenImageSharp___children___id
   thumbnail___childrenImageSharp___fixed___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   thumbnail___childrenImageSharp___fixed___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   thumbnail___childrenImageSharp___fixed___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
@@ -3182,20 +3241,21 @@ enum ProjectsCsvFieldsEnum {
   thumbnail___childrenImageSharp___fluid___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   thumbnail___childrenImageSharp___fluid___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   thumbnail___childrenImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___original___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___original___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___original___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  thumbnail___childrenImageSharp___id
+  thumbnail___childrenImageSharp___internal___content
+  thumbnail___childrenImageSharp___internal___contentDigest
+  thumbnail___childrenImageSharp___internal___contentFilePath
+  thumbnail___childrenImageSharp___internal___description
+  thumbnail___childrenImageSharp___internal___fieldOwners
+  thumbnail___childrenImageSharp___internal___ignoreType
+  thumbnail___childrenImageSharp___internal___mediaType
+  thumbnail___childrenImageSharp___internal___owner
+  thumbnail___childrenImageSharp___internal___type
+  thumbnail___childrenImageSharp___original___height
+  thumbnail___childrenImageSharp___original___src
+  thumbnail___childrenImageSharp___original___width
+  thumbnail___childrenImageSharp___parent___children
+  thumbnail___childrenImageSharp___parent___id
   thumbnail___childrenImageSharp___resize___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   thumbnail___childrenImageSharp___resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   thumbnail___childrenImageSharp___resize___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
@@ -3249,6 +3309,7 @@ enum ProjectsCsvFieldsEnum {
   thumbnail___childrenProjectsCsv___id
   thumbnail___childrenProjectsCsv___internal___content
   thumbnail___childrenProjectsCsv___internal___contentDigest
+  thumbnail___childrenProjectsCsv___internal___contentFilePath
   thumbnail___childrenProjectsCsv___internal___description
   thumbnail___childrenProjectsCsv___internal___fieldOwners
   thumbnail___childrenProjectsCsv___internal___ignoreType
@@ -3310,6 +3371,7 @@ enum ProjectsCsvFieldsEnum {
   thumbnail___children___id
   thumbnail___children___internal___content
   thumbnail___children___internal___contentDigest
+  thumbnail___children___internal___contentFilePath
   thumbnail___children___internal___description
   thumbnail___children___internal___fieldOwners
   thumbnail___children___internal___ignoreType
@@ -3329,6 +3391,7 @@ enum ProjectsCsvFieldsEnum {
   thumbnail___ino
   thumbnail___internal___content
   thumbnail___internal___contentDigest
+  thumbnail___internal___contentFilePath
   thumbnail___internal___description
   thumbnail___internal___fieldOwners
   thumbnail___internal___ignoreType
@@ -3347,6 +3410,7 @@ enum ProjectsCsvFieldsEnum {
   thumbnail___parent___id
   thumbnail___parent___internal___content
   thumbnail___parent___internal___contentDigest
+  thumbnail___parent___internal___contentFilePath
   thumbnail___parent___internal___description
   thumbnail___parent___internal___fieldOwners
   thumbnail___parent___internal___ignoreType
@@ -3426,6 +3490,7 @@ enum SanityFileAssetFieldsEnum {
   children___children___id
   children___children___internal___content
   children___children___internal___contentDigest
+  children___children___internal___contentFilePath
   children___children___internal___description
   children___children___internal___fieldOwners
   children___children___internal___ignoreType
@@ -3437,6 +3502,7 @@ enum SanityFileAssetFieldsEnum {
   children___id
   children___internal___content
   children___internal___contentDigest
+  children___internal___contentFilePath
   children___internal___description
   children___internal___fieldOwners
   children___internal___ignoreType
@@ -3449,6 +3515,7 @@ enum SanityFileAssetFieldsEnum {
   children___parent___id
   children___parent___internal___content
   children___parent___internal___contentDigest
+  children___parent___internal___contentFilePath
   children___parent___internal___description
   children___parent___internal___fieldOwners
   children___parent___internal___ignoreType
@@ -3462,6 +3529,7 @@ enum SanityFileAssetFieldsEnum {
   id
   internal___content
   internal___contentDigest
+  internal___contentFilePath
   internal___description
   internal___fieldOwners
   internal___ignoreType
@@ -3478,6 +3546,7 @@ enum SanityFileAssetFieldsEnum {
   parent___children___id
   parent___children___internal___content
   parent___children___internal___contentDigest
+  parent___children___internal___contentFilePath
   parent___children___internal___description
   parent___children___internal___fieldOwners
   parent___children___internal___ignoreType
@@ -3489,6 +3558,7 @@ enum SanityFileAssetFieldsEnum {
   parent___id
   parent___internal___content
   parent___internal___contentDigest
+  parent___internal___contentFilePath
   parent___internal___description
   parent___internal___fieldOwners
   parent___internal___ignoreType
@@ -3501,6 +3571,7 @@ enum SanityFileAssetFieldsEnum {
   parent___parent___id
   parent___parent___internal___content
   parent___parent___internal___contentDigest
+  parent___parent___internal___contentFilePath
   parent___parent___internal___description
   parent___parent___internal___fieldOwners
   parent___parent___internal___ignoreType
@@ -3538,45 +3609,48 @@ enum SanityImageAssetFieldsEnum {
   _updatedAt
   altText
   assetId
-  children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___children___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  children___parent___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  children
+  children___children
+  children___children___children
+  children___children___children___children
+  children___children___children___id
+  children___children___id
+  children___children___internal___content
+  children___children___internal___contentDigest
+  children___children___internal___contentFilePath
+  children___children___internal___description
+  children___children___internal___fieldOwners
+  children___children___internal___ignoreType
+  children___children___internal___mediaType
+  children___children___internal___owner
+  children___children___internal___type
+  children___children___parent___children
+  children___children___parent___id
+  children___id
+  children___internal___content
+  children___internal___contentDigest
+  children___internal___contentFilePath
+  children___internal___description
+  children___internal___fieldOwners
+  children___internal___ignoreType
+  children___internal___mediaType
+  children___internal___owner
+  children___internal___type
+  children___parent___children
+  children___parent___children___children
+  children___parent___children___id
+  children___parent___id
+  children___parent___internal___content
+  children___parent___internal___contentDigest
+  children___parent___internal___contentFilePath
+  children___parent___internal___description
+  children___parent___internal___fieldOwners
+  children___parent___internal___ignoreType
+  children___parent___internal___mediaType
+  children___parent___internal___owner
+  children___parent___internal___type
+  children___parent___parent___children
+  children___parent___parent___id
   description
   extension
   filename
@@ -3585,14 +3659,15 @@ enum SanityImageAssetFieldsEnum {
   gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   height
   id
-  internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  internal___content
+  internal___contentDigest
+  internal___contentFilePath
+  internal___description
+  internal___fieldOwners
+  internal___ignoreType
+  internal___mediaType
+  internal___owner
+  internal___type
   label
   metadata____key
   metadata____rawDimensions
@@ -3666,44 +3741,47 @@ enum SanityImageAssetFieldsEnum {
   metadata___palette___vibrant___title
   mimeType
   originalFilename
-  parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___children___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  parent___parent___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  parent___children
+  parent___children___children
+  parent___children___children___children
+  parent___children___children___id
+  parent___children___id
+  parent___children___internal___content
+  parent___children___internal___contentDigest
+  parent___children___internal___contentFilePath
+  parent___children___internal___description
+  parent___children___internal___fieldOwners
+  parent___children___internal___ignoreType
+  parent___children___internal___mediaType
+  parent___children___internal___owner
+  parent___children___internal___type
+  parent___children___parent___children
+  parent___children___parent___id
+  parent___id
+  parent___internal___content
+  parent___internal___contentDigest
+  parent___internal___contentFilePath
+  parent___internal___description
+  parent___internal___fieldOwners
+  parent___internal___ignoreType
+  parent___internal___mediaType
+  parent___internal___owner
+  parent___internal___type
+  parent___parent___children
+  parent___parent___children___children
+  parent___parent___children___id
+  parent___parent___id
+  parent___parent___internal___content
+  parent___parent___internal___contentDigest
+  parent___parent___internal___contentFilePath
+  parent___parent___internal___description
+  parent___parent___internal___fieldOwners
+  parent___parent___internal___ignoreType
+  parent___parent___internal___mediaType
+  parent___parent___internal___owner
+  parent___parent___internal___type
+  parent___parent___parent___children
+  parent___parent___parent___id
   path
   publicUrl
   resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
@@ -3737,6 +3815,7 @@ enum SanityProjectFieldsEnum {
   _id
   _key
   _rawCoverImage
+  _rawImages
   _rawSlug
   _rawThumbnail
   _rev
@@ -3750,6 +3829,7 @@ enum SanityProjectFieldsEnum {
   children___children___id
   children___children___internal___content
   children___children___internal___contentDigest
+  children___children___internal___contentFilePath
   children___children___internal___description
   children___children___internal___fieldOwners
   children___children___internal___ignoreType
@@ -3761,6 +3841,7 @@ enum SanityProjectFieldsEnum {
   children___id
   children___internal___content
   children___internal___contentDigest
+  children___internal___contentFilePath
   children___internal___description
   children___internal___fieldOwners
   children___internal___ignoreType
@@ -3773,6 +3854,7 @@ enum SanityProjectFieldsEnum {
   children___parent___id
   children___parent___internal___content
   children___parent___internal___contentDigest
+  children___parent___internal___contentFilePath
   children___parent___internal___description
   children___parent___internal___fieldOwners
   children___parent___internal___ignoreType
@@ -3797,9 +3879,9 @@ enum SanityProjectFieldsEnum {
   coverImage___asset____updatedAt
   coverImage___asset___altText
   coverImage___asset___assetId
-  coverImage___asset___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  coverImage___asset___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  coverImage___asset___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  coverImage___asset___children
+  coverImage___asset___children___children
+  coverImage___asset___children___id
   coverImage___asset___description
   coverImage___asset___extension
   coverImage___asset___filename
@@ -3808,14 +3890,15 @@ enum SanityProjectFieldsEnum {
   coverImage___asset___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   coverImage___asset___height
   coverImage___asset___id
-  coverImage___asset___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  coverImage___asset___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  coverImage___asset___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  coverImage___asset___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  coverImage___asset___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  coverImage___asset___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  coverImage___asset___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  coverImage___asset___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  coverImage___asset___internal___content
+  coverImage___asset___internal___contentDigest
+  coverImage___asset___internal___contentFilePath
+  coverImage___asset___internal___description
+  coverImage___asset___internal___fieldOwners
+  coverImage___asset___internal___ignoreType
+  coverImage___asset___internal___mediaType
+  coverImage___asset___internal___owner
+  coverImage___asset___internal___type
   coverImage___asset___label
   coverImage___asset___metadata____key
   coverImage___asset___metadata____rawDimensions
@@ -3828,8 +3911,8 @@ enum SanityProjectFieldsEnum {
   coverImage___asset___metadata___lqip
   coverImage___asset___mimeType
   coverImage___asset___originalFilename
-  coverImage___asset___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  coverImage___asset___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  coverImage___asset___parent___children
+  coverImage___asset___parent___id
   coverImage___asset___path
   coverImage___asset___publicUrl
   coverImage___asset___resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
@@ -3860,8 +3943,87 @@ enum SanityProjectFieldsEnum {
   coverImage___hotspot___y
   description
   id
+  images
+  images____key
+  images____rawAsset
+  images____rawCrop
+  images____rawHotspot
+  images____type
+  images___asset____createdAt
+  images___asset____id
+  images___asset____key
+  images___asset____rawMetadata
+  images___asset____rawSource
+  images___asset____rev
+  images___asset____type
+  images___asset____updatedAt
+  images___asset___altText
+  images___asset___assetId
+  images___asset___children
+  images___asset___children___children
+  images___asset___children___id
+  images___asset___description
+  images___asset___extension
+  images___asset___filename
+  images___asset___filesize
+  images___asset___gatsbyImage @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  images___asset___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  images___asset___height
+  images___asset___id
+  images___asset___internal___content
+  images___asset___internal___contentDigest
+  images___asset___internal___contentFilePath
+  images___asset___internal___description
+  images___asset___internal___fieldOwners
+  images___asset___internal___ignoreType
+  images___asset___internal___mediaType
+  images___asset___internal___owner
+  images___asset___internal___type
+  images___asset___label
+  images___asset___metadata____key
+  images___asset___metadata____rawDimensions
+  images___asset___metadata____rawLocation
+  images___asset___metadata____rawPalette
+  images___asset___metadata____type
+  images___asset___metadata___blurHash
+  images___asset___metadata___hasAlpha
+  images___asset___metadata___isOpaque
+  images___asset___metadata___lqip
+  images___asset___mimeType
+  images___asset___originalFilename
+  images___asset___parent___children
+  images___asset___parent___id
+  images___asset___path
+  images___asset___publicUrl
+  images___asset___resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  images___asset___resize___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  images___asset___resize___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  images___asset___sha1hash
+  images___asset___size
+  images___asset___source____key
+  images___asset___source____type
+  images___asset___source___id
+  images___asset___source___name
+  images___asset___source___url
+  images___asset___title
+  images___asset___uploadId
+  images___asset___url
+  images___asset___width
+  images___crop____key
+  images___crop____type
+  images___crop___bottom
+  images___crop___left
+  images___crop___right
+  images___crop___top
+  images___hotspot____key
+  images___hotspot____type
+  images___hotspot___height
+  images___hotspot___width
+  images___hotspot___x
+  images___hotspot___y
   internal___content
   internal___contentDigest
+  internal___contentFilePath
   internal___description
   internal___fieldOwners
   internal___ignoreType
@@ -3876,6 +4038,7 @@ enum SanityProjectFieldsEnum {
   parent___children___id
   parent___children___internal___content
   parent___children___internal___contentDigest
+  parent___children___internal___contentFilePath
   parent___children___internal___description
   parent___children___internal___fieldOwners
   parent___children___internal___ignoreType
@@ -3887,6 +4050,7 @@ enum SanityProjectFieldsEnum {
   parent___id
   parent___internal___content
   parent___internal___contentDigest
+  parent___internal___contentFilePath
   parent___internal___description
   parent___internal___fieldOwners
   parent___internal___ignoreType
@@ -3899,6 +4063,7 @@ enum SanityProjectFieldsEnum {
   parent___parent___id
   parent___parent___internal___content
   parent___parent___internal___contentDigest
+  parent___parent___internal___contentFilePath
   parent___parent___internal___description
   parent___parent___internal___fieldOwners
   parent___parent___internal___ignoreType
@@ -3928,9 +4093,9 @@ enum SanityProjectFieldsEnum {
   thumbnail___asset____updatedAt
   thumbnail___asset___altText
   thumbnail___asset___assetId
-  thumbnail___asset___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___asset___children___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___asset___children___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  thumbnail___asset___children
+  thumbnail___asset___children___children
+  thumbnail___asset___children___id
   thumbnail___asset___description
   thumbnail___asset___extension
   thumbnail___asset___filename
@@ -3939,14 +4104,15 @@ enum SanityProjectFieldsEnum {
   thumbnail___asset___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
   thumbnail___asset___height
   thumbnail___asset___id
-  thumbnail___asset___internal___content @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___asset___internal___contentDigest @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___asset___internal___description @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___asset___internal___fieldOwners @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___asset___internal___ignoreType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___asset___internal___mediaType @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___asset___internal___owner @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___asset___internal___type @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  thumbnail___asset___internal___content
+  thumbnail___asset___internal___contentDigest
+  thumbnail___asset___internal___contentFilePath
+  thumbnail___asset___internal___description
+  thumbnail___asset___internal___fieldOwners
+  thumbnail___asset___internal___ignoreType
+  thumbnail___asset___internal___mediaType
+  thumbnail___asset___internal___owner
+  thumbnail___asset___internal___type
   thumbnail___asset___label
   thumbnail___asset___metadata____key
   thumbnail___asset___metadata____rawDimensions
@@ -3959,8 +4125,8 @@ enum SanityProjectFieldsEnum {
   thumbnail___asset___metadata___lqip
   thumbnail___asset___mimeType
   thumbnail___asset___originalFilename
-  thumbnail___asset___parent___children @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___asset___parent___id @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
+  thumbnail___asset___parent___children
+  thumbnail___asset___parent___id
   thumbnail___asset___path
   thumbnail___asset___publicUrl
   thumbnail___asset___resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
@@ -4005,6 +4171,7 @@ enum SiteBuildMetadataFieldsEnum {
   children___children___id
   children___children___internal___content
   children___children___internal___contentDigest
+  children___children___internal___contentFilePath
   children___children___internal___description
   children___children___internal___fieldOwners
   children___children___internal___ignoreType
@@ -4016,6 +4183,7 @@ enum SiteBuildMetadataFieldsEnum {
   children___id
   children___internal___content
   children___internal___contentDigest
+  children___internal___contentFilePath
   children___internal___description
   children___internal___fieldOwners
   children___internal___ignoreType
@@ -4028,6 +4196,7 @@ enum SiteBuildMetadataFieldsEnum {
   children___parent___id
   children___parent___internal___content
   children___parent___internal___contentDigest
+  children___parent___internal___contentFilePath
   children___parent___internal___description
   children___parent___internal___fieldOwners
   children___parent___internal___ignoreType
@@ -4039,6 +4208,7 @@ enum SiteBuildMetadataFieldsEnum {
   id
   internal___content
   internal___contentDigest
+  internal___contentFilePath
   internal___description
   internal___fieldOwners
   internal___ignoreType
@@ -4052,6 +4222,7 @@ enum SiteBuildMetadataFieldsEnum {
   parent___children___id
   parent___children___internal___content
   parent___children___internal___contentDigest
+  parent___children___internal___contentFilePath
   parent___children___internal___description
   parent___children___internal___fieldOwners
   parent___children___internal___ignoreType
@@ -4063,6 +4234,7 @@ enum SiteBuildMetadataFieldsEnum {
   parent___id
   parent___internal___content
   parent___internal___contentDigest
+  parent___internal___contentFilePath
   parent___internal___description
   parent___internal___fieldOwners
   parent___internal___ignoreType
@@ -4075,6 +4247,7 @@ enum SiteBuildMetadataFieldsEnum {
   parent___parent___id
   parent___parent___internal___content
   parent___parent___internal___contentDigest
+  parent___parent___internal___contentFilePath
   parent___parent___internal___description
   parent___parent___internal___fieldOwners
   parent___parent___internal___ignoreType
@@ -4095,6 +4268,7 @@ enum SiteFieldsEnum {
   children___children___id
   children___children___internal___content
   children___children___internal___contentDigest
+  children___children___internal___contentFilePath
   children___children___internal___description
   children___children___internal___fieldOwners
   children___children___internal___ignoreType
@@ -4106,6 +4280,7 @@ enum SiteFieldsEnum {
   children___id
   children___internal___content
   children___internal___contentDigest
+  children___internal___contentFilePath
   children___internal___description
   children___internal___fieldOwners
   children___internal___ignoreType
@@ -4118,6 +4293,7 @@ enum SiteFieldsEnum {
   children___parent___id
   children___parent___internal___content
   children___parent___internal___contentDigest
+  children___parent___internal___contentFilePath
   children___parent___internal___description
   children___parent___internal___fieldOwners
   children___parent___internal___ignoreType
@@ -4126,10 +4302,12 @@ enum SiteFieldsEnum {
   children___parent___internal___type
   children___parent___parent___children
   children___parent___parent___id
+  graphqlTypegen
   host
   id
   internal___content
   internal___contentDigest
+  internal___contentFilePath
   internal___description
   internal___fieldOwners
   internal___ignoreType
@@ -4144,6 +4322,7 @@ enum SiteFieldsEnum {
   parent___children___id
   parent___children___internal___content
   parent___children___internal___contentDigest
+  parent___children___internal___contentFilePath
   parent___children___internal___description
   parent___children___internal___fieldOwners
   parent___children___internal___ignoreType
@@ -4155,6 +4334,7 @@ enum SiteFieldsEnum {
   parent___id
   parent___internal___content
   parent___internal___contentDigest
+  parent___internal___contentFilePath
   parent___internal___description
   parent___internal___fieldOwners
   parent___internal___ignoreType
@@ -4167,6 +4347,7 @@ enum SiteFieldsEnum {
   parent___parent___id
   parent___parent___internal___content
   parent___parent___internal___contentDigest
+  parent___parent___internal___contentFilePath
   parent___parent___internal___description
   parent___parent___internal___fieldOwners
   parent___parent___internal___ignoreType
@@ -4183,6 +4364,7 @@ enum SiteFieldsEnum {
   siteMetadata___siteUrl
   siteMetadata___title
   siteMetadata___titleTemplate
+  trailingSlash
 }
 
 enum SiteFunctionFieldsEnum {
@@ -4195,6 +4377,7 @@ enum SiteFunctionFieldsEnum {
   children___children___id
   children___children___internal___content
   children___children___internal___contentDigest
+  children___children___internal___contentFilePath
   children___children___internal___description
   children___children___internal___fieldOwners
   children___children___internal___ignoreType
@@ -4206,6 +4389,7 @@ enum SiteFunctionFieldsEnum {
   children___id
   children___internal___content
   children___internal___contentDigest
+  children___internal___contentFilePath
   children___internal___description
   children___internal___fieldOwners
   children___internal___ignoreType
@@ -4218,6 +4402,7 @@ enum SiteFunctionFieldsEnum {
   children___parent___id
   children___parent___internal___content
   children___parent___internal___contentDigest
+  children___parent___internal___contentFilePath
   children___parent___internal___description
   children___parent___internal___fieldOwners
   children___parent___internal___ignoreType
@@ -4230,6 +4415,7 @@ enum SiteFunctionFieldsEnum {
   id
   internal___content
   internal___contentDigest
+  internal___contentFilePath
   internal___description
   internal___fieldOwners
   internal___ignoreType
@@ -4246,6 +4432,7 @@ enum SiteFunctionFieldsEnum {
   parent___children___id
   parent___children___internal___content
   parent___children___internal___contentDigest
+  parent___children___internal___contentFilePath
   parent___children___internal___description
   parent___children___internal___fieldOwners
   parent___children___internal___ignoreType
@@ -4257,6 +4444,7 @@ enum SiteFunctionFieldsEnum {
   parent___id
   parent___internal___content
   parent___internal___contentDigest
+  parent___internal___contentFilePath
   parent___internal___description
   parent___internal___fieldOwners
   parent___internal___ignoreType
@@ -4269,6 +4457,7 @@ enum SiteFunctionFieldsEnum {
   parent___parent___id
   parent___parent___internal___content
   parent___parent___internal___contentDigest
+  parent___parent___internal___contentFilePath
   parent___parent___internal___description
   parent___parent___internal___fieldOwners
   parent___parent___internal___ignoreType
@@ -4290,6 +4479,7 @@ enum SitePageFieldsEnum {
   children___children___id
   children___children___internal___content
   children___children___internal___contentDigest
+  children___children___internal___contentFilePath
   children___children___internal___description
   children___children___internal___fieldOwners
   children___children___internal___ignoreType
@@ -4301,6 +4491,7 @@ enum SitePageFieldsEnum {
   children___id
   children___internal___content
   children___internal___contentDigest
+  children___internal___contentFilePath
   children___internal___description
   children___internal___fieldOwners
   children___internal___ignoreType
@@ -4313,6 +4504,7 @@ enum SitePageFieldsEnum {
   children___parent___id
   children___parent___internal___content
   children___parent___internal___contentDigest
+  children___parent___internal___contentFilePath
   children___parent___internal___description
   children___parent___internal___fieldOwners
   children___parent___internal___ignoreType
@@ -4327,6 +4519,7 @@ enum SitePageFieldsEnum {
   internalComponentName
   internal___content
   internal___contentDigest
+  internal___contentFilePath
   internal___description
   internal___fieldOwners
   internal___ignoreType
@@ -4342,6 +4535,7 @@ enum SitePageFieldsEnum {
   parent___children___id
   parent___children___internal___content
   parent___children___internal___contentDigest
+  parent___children___internal___contentFilePath
   parent___children___internal___description
   parent___children___internal___fieldOwners
   parent___children___internal___ignoreType
@@ -4353,6 +4547,7 @@ enum SitePageFieldsEnum {
   parent___id
   parent___internal___content
   parent___internal___contentDigest
+  parent___internal___contentFilePath
   parent___internal___description
   parent___internal___fieldOwners
   parent___internal___ignoreType
@@ -4365,6 +4560,7 @@ enum SitePageFieldsEnum {
   parent___parent___id
   parent___parent___internal___content
   parent___parent___internal___contentDigest
+  parent___parent___internal___contentFilePath
   parent___parent___internal___description
   parent___parent___internal___fieldOwners
   parent___parent___internal___ignoreType
@@ -4382,6 +4578,7 @@ enum SitePageFieldsEnum {
   pluginCreator___children___id
   pluginCreator___children___internal___content
   pluginCreator___children___internal___contentDigest
+  pluginCreator___children___internal___contentFilePath
   pluginCreator___children___internal___description
   pluginCreator___children___internal___fieldOwners
   pluginCreator___children___internal___ignoreType
@@ -4393,6 +4590,7 @@ enum SitePageFieldsEnum {
   pluginCreator___id
   pluginCreator___internal___content
   pluginCreator___internal___contentDigest
+  pluginCreator___internal___contentFilePath
   pluginCreator___internal___description
   pluginCreator___internal___fieldOwners
   pluginCreator___internal___ignoreType
@@ -4408,6 +4606,7 @@ enum SitePageFieldsEnum {
   pluginCreator___parent___id
   pluginCreator___parent___internal___content
   pluginCreator___parent___internal___contentDigest
+  pluginCreator___parent___internal___contentFilePath
   pluginCreator___parent___internal___description
   pluginCreator___parent___internal___fieldOwners
   pluginCreator___parent___internal___ignoreType
@@ -4433,6 +4632,7 @@ enum SitePluginFieldsEnum {
   children___children___id
   children___children___internal___content
   children___children___internal___contentDigest
+  children___children___internal___contentFilePath
   children___children___internal___description
   children___children___internal___fieldOwners
   children___children___internal___ignoreType
@@ -4444,6 +4644,7 @@ enum SitePluginFieldsEnum {
   children___id
   children___internal___content
   children___internal___contentDigest
+  children___internal___contentFilePath
   children___internal___description
   children___internal___fieldOwners
   children___internal___ignoreType
@@ -4456,6 +4657,7 @@ enum SitePluginFieldsEnum {
   children___parent___id
   children___parent___internal___content
   children___parent___internal___contentDigest
+  children___parent___internal___contentFilePath
   children___parent___internal___description
   children___parent___internal___fieldOwners
   children___parent___internal___ignoreType
@@ -4467,6 +4669,7 @@ enum SitePluginFieldsEnum {
   id
   internal___content
   internal___contentDigest
+  internal___contentFilePath
   internal___description
   internal___fieldOwners
   internal___ignoreType
@@ -4483,6 +4686,7 @@ enum SitePluginFieldsEnum {
   parent___children___id
   parent___children___internal___content
   parent___children___internal___contentDigest
+  parent___children___internal___contentFilePath
   parent___children___internal___description
   parent___children___internal___fieldOwners
   parent___children___internal___ignoreType
@@ -4494,6 +4698,7 @@ enum SitePluginFieldsEnum {
   parent___id
   parent___internal___content
   parent___internal___contentDigest
+  parent___internal___contentFilePath
   parent___internal___description
   parent___internal___fieldOwners
   parent___internal___ignoreType
@@ -4506,6 +4711,7 @@ enum SitePluginFieldsEnum {
   parent___parent___id
   parent___parent___internal___content
   parent___parent___internal___contentDigest
+  parent___parent___internal___contentFilePath
   parent___parent___internal___description
   parent___parent___internal___fieldOwners
   parent___parent___internal___ignoreType
@@ -4528,6 +4734,8 @@ enum SortOrderEnum {
 
 "A date string, such as 2007-12-03, compliant with the ISO 8601 standard for representation of dates and times using the Gregorian calendar."
 scalar Date
+
+scalar GatsbyImageData
 
 "The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)."
 scalar JSON
@@ -4673,11 +4881,18 @@ input FloatQueryOperatorInput {
   nin: [Float]
 }
 
+input GatsbyImageDataQueryOperatorInput {
+  eq: GatsbyImageData
+  in: [GatsbyImageData]
+  ne: GatsbyImageData
+  nin: [GatsbyImageData]
+}
+
 input ImageSharpFilterInput {
   children: NodeFilterListInput
   fixed: ImageSharpFixedFilterInput
   fluid: ImageSharpFluidFilterInput
-  gatsbyImageData: JSONQueryOperatorInput
+  gatsbyImageData: GatsbyImageDataQueryOperatorInput
   id: StringQueryOperatorInput
   internal: InternalFilterInput
   original: ImageSharpOriginalFilterInput
@@ -4751,6 +4966,7 @@ input IntQueryOperatorInput {
 input InternalFilterInput {
   content: StringQueryOperatorInput
   contentDigest: StringQueryOperatorInput
+  contentFilePath: StringQueryOperatorInput
   description: StringQueryOperatorInput
   fieldOwners: StringQueryOperatorInput
   ignoreType: BooleanQueryOperatorInput
@@ -4900,8 +5116,8 @@ input SanityImageAssetFilterInput {
   extension: StringQueryOperatorInput
   filename: StringQueryOperatorInput
   filesize: IntQueryOperatorInput
-  gatsbyImage: JSONQueryOperatorInput
-  gatsbyImageData: JSONQueryOperatorInput
+  gatsbyImage: GatsbyImageDataQueryOperatorInput
+  gatsbyImageData: GatsbyImageDataQueryOperatorInput
   height: IntQueryOperatorInput
   id: StringQueryOperatorInput
   internal: InternalFilterInput
@@ -4953,6 +5169,10 @@ input SanityImageFilterInput {
   asset: SanityImageAssetFilterInput
   crop: SanityImageCropFilterInput
   hotspot: SanityImageHotspotFilterInput
+}
+
+input SanityImageFilterListInput {
+  elemMatch: SanityImageFilterInput
 }
 
 input SanityImageHotspotFilterInput {
@@ -5012,6 +5232,7 @@ input SanityProjectFilterInput {
   _id: StringQueryOperatorInput
   _key: StringQueryOperatorInput
   _rawCoverImage: JSONQueryOperatorInput
+  _rawImages: JSONQueryOperatorInput
   _rawSlug: JSONQueryOperatorInput
   _rawThumbnail: JSONQueryOperatorInput
   _rev: StringQueryOperatorInput
@@ -5022,6 +5243,7 @@ input SanityProjectFilterInput {
   coverImage: SanityImageFilterInput
   description: StringQueryOperatorInput
   id: StringQueryOperatorInput
+  images: SanityImageFilterListInput
   internal: InternalFilterInput
   isPagePublic: BooleanQueryOperatorInput
   parent: NodeFilterInput
@@ -5068,6 +5290,7 @@ input SiteBuildMetadataSortInput {
 input SiteFilterInput {
   buildTime: DateQueryOperatorInput
   children: NodeFilterListInput
+  graphqlTypegen: BooleanQueryOperatorInput
   host: StringQueryOperatorInput
   id: StringQueryOperatorInput
   internal: InternalFilterInput
@@ -5077,6 +5300,7 @@ input SiteFilterInput {
   polyfill: BooleanQueryOperatorInput
   port: IntQueryOperatorInput
   siteMetadata: SiteSiteMetadataFilterInput
+  trailingSlash: StringQueryOperatorInput
 }
 
 input SiteFunctionFilterInput {
