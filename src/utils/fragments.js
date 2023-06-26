@@ -24,4 +24,28 @@ export const projectFragment = graphql`
       }
     }
   }
+  fragment SanityProjectFragment on SanityProject {
+    client
+    tagline
+    description
+    isPagePublic
+    title
+    roles
+    slug {
+      current
+    }
+    type
+    websiteUrl
+    year
+    coverImage {
+      asset {
+        gatsbyImageData(width: 2400)
+      }
+    }
+    thumbnail {
+      asset {
+        gatsbyImageData(width: 1920)
+      }
+    }
+  }
 `;

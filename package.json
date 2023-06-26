@@ -8,8 +8,8 @@
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "sudo gatsby develop",
+    "develop": "gatsby develop --host local.michelebruno.co",
+    "start": "sudo gatsby develop ",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
@@ -31,9 +31,11 @@
     "gatsby-plugin-sharp": "^4.4.0",
     "gatsby-plugin-sitemap": "^5.4.0",
     "gatsby-plugin-svgr": "^3.0.0-beta.0",
+    "gatsby-plugin-transition-link": "^1.20.5",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-contentful": "^7.2.0",
     "gatsby-source-filesystem": "^4.4.0",
+    "gatsby-source-sanity": "^7.6.3",
     "gatsby-transformer-sharp": "^4.4.0",
     "gsap": "^3.9.1",
     "react": "^17.0.1",

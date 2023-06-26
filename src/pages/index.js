@@ -53,11 +53,11 @@ function IndexPage({data: {projects}}) {
   return (
     <Layout>
       <div className="flex content-around items-center relative py">
-        <h1 className="fs-3xl px py pb-lg leading-relaxed " onMouseEnter={() => setHoverProject()}>
-          <span className="">Hey!</span> I'm Michele Bruno, an Italian{' '}
+        <h1 className="fs-3xl px py pb-lg leading-normal " onMouseEnter={() => setHoverProject()}>
+          <span className="">Hey!</span> I'm Michele Bruno, an italian{' '}
           <span className="inline-block font-sans not-italic">UX Designer</span> and{' '}
           <span className="inline-block font-sans not-italic">Creative Developer</span> based in
-          Milan, currently enrolled in Communication Design Master at PoliMi.
+          Milan, graduated in Communication Design at PoliMi.
         </h1>
         <div className="hidden py text-gray text-left absolute bottom-0 left-0">
           <button className="scroll-button px">Scroll</button>

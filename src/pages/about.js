@@ -107,10 +107,6 @@ export default function About({data}) {
               label: 'April 2022 – June 2022',
             },
             {
-              rows: ['Graphic + Web designer', 'Politecnico di Milano'],
-              label: '2020 – ongoing',
-            },
-            {
               rows: ['Web design + WordPress Development', 'OSCard'],
               label: 'Feb. 2019 – Sept. 2020',
             },
@@ -121,8 +117,8 @@ export default function About({data}) {
           className="row-span-1"
           items={[
             {
-              rows: ['Communication Design', 'Politecnico di Milano'],
-              label: '2020 – ongoing',
+              rows: ['Communication Design (MSc)', 'Politecnico di Milano'],
+              label: '2020 – 2023',
             },
             {
               rows: ['DAMS', 'Università di Bologna'],
@@ -137,6 +133,10 @@ export default function About({data}) {
             {
               rows: ['DDA of the week (x1)'],
               label: 'Digital Design Awards',
+            },
+            {
+              rows: ['Honorable Mention (x1)'],
+              label: 'Awwwards',
             },
           ]}
         />

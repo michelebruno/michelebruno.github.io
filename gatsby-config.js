@@ -15,8 +15,23 @@ module.exports = {
     image: '/ident-bumper.png', // Path to your image you placed in the 'static' folder
   },
   plugins: [
+    {
+      resolve: `gatsby-source-sanity`,
+      options: {
+        projectId: `bm386dig`,
+        dataset: `production`,
+        // a token with read permissions is required
+        // if you have a private dataset
+        // token: process.env.SANITY_TOKEN,
+
+        // If the Sanity GraphQL API was deployed using `--tag <name>`,
+        // use `graphqlTag` to specify the tag name. Defaults to `default`.
+        //  graphqlTag: 'default',
+      },
+    },
     'gatsby-plugin-image',
     'gatsby-plugin-postcss',
+
     {
       resolve: 'gatsby-plugin-google-gtag',
       options: {
@@ -67,6 +82,7 @@ module.exports = {
         icon: 'src/images/icon.png',
       },
     },
+    `gatsby-plugin-transition-link`,
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {

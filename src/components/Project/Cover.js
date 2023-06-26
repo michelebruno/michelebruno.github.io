@@ -5,7 +5,11 @@ export default function ({cover, thumbnail}) {
   return (
     <div className="h-[80vh] overflow-hidden border-t border-b">
       <Image
-        image={typeof cover !== 'undefined' && cover?.childImageSharp ? cover : thumbnail}
+        image={
+          typeof cover !== 'undefined' && (cover?.childImageSharp || cover?.asset)
+            ? cover?.asset || cover
+            : thumbnail
+        }
         className="h-full w-full object-cover scale-110 object-center"
       />
     </div>

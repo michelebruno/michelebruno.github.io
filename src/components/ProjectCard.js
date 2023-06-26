@@ -1,12 +1,11 @@
 import * as React from 'react';
-import {graphql, Link, navigate, useStaticQuery} from 'gatsby';
+import {graphql, useStaticQuery} from 'gatsby';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {useState} from 'react';
+import TransitionLink from 'gatsby-plugin-transition-link';
 import Image from './Image';
-import Button from './Button';
 import {AnimatedLink, H3} from './Typography';
-import Arrow from './Arrow';
 
 export function ProjectCard({project, position, className, version, ...props}) {
   const [showImg, setShowImg] = useState(false);
@@ -24,9 +23,6 @@ export function ProjectCard({project, position, className, version, ...props}) {
   const {name, year, roles, type, slug, tagline, thumbnail, cover} = project;
   const link = `/projects/${slug}/`;
 
-  /**
-   * CARD DEFAULT
-   */
   return (
     <div className="project-card relative border-b py-4 lg:py-0" {...props}>
       <div className=" lg:hidden px py block">
@@ -38,7 +34,7 @@ export function ProjectCard({project, position, className, version, ...props}) {
           )}
         />
       </div>
-      <Link
+      <TransitionLink
         to={link}
         className={classNames('relative group block px py z-10', className)}
         onMouseEnter={() => {
@@ -60,7 +56,7 @@ export function ProjectCard({project, position, className, version, ...props}) {
           </div>
           <h3 className="text-lg lg:fs-xl text-gray">{tagline}</h3>
         </div>
-      </Link>
+      </TransitionLink>
     </div>
   );
 }

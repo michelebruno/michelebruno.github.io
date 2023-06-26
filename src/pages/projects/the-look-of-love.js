@@ -11,7 +11,17 @@ import Image, {createGetImageFromName} from '../../components/Image';
 import Footer from '../../components/Project/Footer';
 
 export default function TheLookOfLove({data: {project, images}}) {
-  const {name, roles, tagline, thumbnail, cover, year, client, websiteUrl, description} = project;
+  const {
+    title,
+    roles,
+    tagline,
+    thumbnail,
+    coverImage: cover,
+    year,
+    client,
+    websiteUrl,
+    description,
+  } = project;
 
   const getImage = createGetImageFromName(images.nodes, 'the-look-of-love');
 
@@ -32,7 +42,7 @@ export default function TheLookOfLove({data: {project, images}}) {
         </a>
       </div>
       <Heading
-        name={name}
+        name={title}
         tagline={tagline}
         year={year}
         client={client}
@@ -132,8 +142,8 @@ export default function TheLookOfLove({data: {project, images}}) {
 
 export const query = graphql`
   {
-    project: projectsCsv(slug: {eq: "the-look-of-love"}) {
-      ...ProjectFragment
+    project: sanityProject(slug: {current: {eq: "the-look-of-love"}}) {
+      ...SanityProjectFragment
     }
     images: allFile(filter: {relativeDirectory: {eq: "the-look-of-love"}}) {
       nodes {

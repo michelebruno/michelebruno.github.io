@@ -21,22 +21,21 @@ function Mockup({title, names, images}) {
     </div>
   );
 }
+
 export default function OpinionLibrary({data: {project, images}}) {
   const {
-    name,
-    slug,
+    title: name,
     roles,
     tagline,
     thumbnail,
     cover,
     year,
     client,
-    team,
     websiteUrl,
     description,
   } = project;
 
-  const getImage = createGetImageFromName(images.nodes, 'opinion-library');
+  const getImage = createGetImageFromName(images.nodes, 'genero');
 
   return (
     <Wrapper project={project}>
@@ -56,7 +55,7 @@ export default function OpinionLibrary({data: {project, images}}) {
           <AnimatedLink
             component={Link}
             className="italic"
-            to="/projects/sign-here-to-fight-the-pandemic"
+            to="/projects/sign-here-to-fight-the-pandemic/"
           >
             Sign here to fight pandemic
           </AnimatedLink>
@@ -91,44 +90,16 @@ export default function OpinionLibrary({data: {project, images}}) {
       </Grid>
 
       <Footer>
-        <Tag title="Course">
-          Final Synthesis Design Studio
-          <br />
-          A.A. 2021/2022
-        </Tag>
-        <Tag title="Faculty">
-          <ul>
-            {[
-              'Michele Mauri',
-              'Simone Vantini',
-              'Gabriele Colombo',
-              'Angeles Briones',
-              'Salvatore Zingale',
-              'Tommaso Elli',
-              'Beatrice Gobbo',
-              'Andrea Benedetti',
-              'Elena Aversa',
-            ].map(t => (
-              <li key={t}>{t}</li>
-            ))}
-          </ul>
-        </Tag>
-        <Tag title="Project team">
-          <ul>
-            {team.map(t => (
-              <li key={t}>{t}</li>
-            ))}
-          </ul>
-        </Tag>
         <Tag title="Tools and technology">
           <ul>
             <li>Figma</li>
-            <li>Google Sheets</li>
-            <li>Gatsby</li>
-            <li>GSAP</li>
+            <li>Python</li>
+            <li>Notion</li>
+            <li>Next.js</li>
+            <li>SanityCMS</li>
             <li>
               <br />
-              <AnimatedLink href="https://github.com/michelebruno/opinion-library" target="_blank">
+              <AnimatedLink href="https://github.com/michelebruno/genero" target="_blank">
                 Repo on GitHub ↗
               </AnimatedLink>
             </li>
@@ -141,10 +112,10 @@ export default function OpinionLibrary({data: {project, images}}) {
 
 export const query = graphql`
   {
-    project: projectsCsv(slug: {eq: "opinion-library"}) {
-      ...ProjectFragment
+    project: sanityProject(slug: {current: {eq: "genero"}}) {
+      ...SanityProjectFragment
     }
-    images: allFile(filter: {relativeDirectory: {eq: "opinion-library"}}) {
+    images: allFile(filter: {relativeDirectory: {eq: "genero"}}) {
       nodes {
         publicURL
         relativePath
