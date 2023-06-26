@@ -20,8 +20,7 @@ export default function ({cover, thumbnail, children, className, ...props}) {
           trigger: containerRef.current,
           start: 'top center',
           end: '+=100%',
-          markers: true,
-          scrub: 0.001,
+          scrub: true,
         },
       }
     );
@@ -44,10 +43,10 @@ export default function ({cover, thumbnail, children, className, ...props}) {
         }
         className={classNames(
           'h-full w-full object-cover scale-[120%] object-center',
-          children && 'opacity-0 transition-all group-hover:opacity-30 '
+          children && 'opacity-0 transition-[opacity] group-hover:opacity-30 '
         )}
       />
-      <div className="absolute inset-0 grid grid-cols-1 lg:grid-cols-3 items-end px py-lg  overflow-hidden">
+      <div className="absolute inset-0 grid grid-cols-1 lg:grid-cols-3 items-end px py overflow-hidden">
         {children}
       </div>
     </div>

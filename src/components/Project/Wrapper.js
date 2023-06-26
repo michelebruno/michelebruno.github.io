@@ -38,7 +38,12 @@ export default function Wrapper({project, children}) {
 
       <TransitionState>
         {({transitionState}) => (
-          <Heading {...nextProject} isNextProject trasitionState={transitionState} />
+          <Heading
+            {...nextProject}
+            isNextProject
+            trasitionState={transitionState}
+            key={nextProject.slug.current}
+          />
         )}
       </TransitionState>
     </Layout>
