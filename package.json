@@ -38,6 +38,7 @@
     "gatsby-source-sanity": "^7.6.3",
     "gatsby-transformer-sharp": "^4.4.0",
     "gsap": "^3.9.1",
+    "prop-types": "^15.8.0",
     "react": "^17.0.1",
     "react-cookie-consent": "^7.3.1",
     "react-dom": "^17.0.1",
@@ -64,7 +65,6 @@
     "postcss": "^8.4.5",
     "prettier": "^2.5.1",
     "prettier-airbnb-config": "^1.0.0",
-    "prop-types": "^15.8.0",
     "sharp": "^0.29.3"
   }
 }
