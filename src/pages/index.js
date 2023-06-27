@@ -63,16 +63,13 @@ function IndexPage({data: {projects}}) {
   }, [cardHeights]);
 
   return (
-    <Layout>
+    <>
       <div
         className="flex content-around items-center relative py box-border"
         ref={heroRef}
         style={{height: 'calc(100vh - var(--navbar-height) )'}}
       >
-        <h1
-          className="fs-3xl px py pb-lg leading-normal select-none"
-          onMouseEnter={() => setHoverProject(-1)}
-        >
+        <h1 className="fs-3xl px py pb-lg leading-normal " onMouseEnter={() => setHoverProject(-1)}>
           <span className="font-bold">Hey! 👋🏻</span> I'm Michele Bruno, an italian{' '}
           <span className="inline-block font-sans not-italic">UX Designer</span> and{' '}
           <span className="inline-block font-sans not-italic">Creative Developer</span> based in
@@ -141,7 +138,7 @@ function IndexPage({data: {projects}}) {
         </Grid>
       </section>
       <WorkTogether onMouseEnter={() => setHoverProject(projects.nodes.length)} />
-    </Layout>
+    </>
   );
 }
 

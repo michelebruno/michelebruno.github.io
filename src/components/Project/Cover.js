@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import classNames from 'classnames';
 import Image from '../Image';
 
-export default function ({cover, thumbnail, children, className, ...props}) {
+export default function Cover({cover, thumbnail, children, className, ...props}) {
   const imageRef = React.useRef(null);
   const containerRef = React.useRef(null);
 
@@ -42,7 +42,7 @@ export default function ({cover, thumbnail, children, className, ...props}) {
             : thumbnail
         }
         className={classNames(
-          'h-full w-full object-cover scale-[120%] object-center',
+          'cover-img h-full w-full object-cover scale-[120%] object-center bg-white',
           children && 'opacity-0 transition-[opacity] group-hover:opacity-30 '
         )}
       />

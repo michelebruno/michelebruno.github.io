@@ -27,12 +27,6 @@ export default function Wrapper({project, children}) {
     }
   `);
 
-  const transitionState = useTransitionState();
-
-  useEffect(() => {
-    console.log(transitionState);
-  }, [transitionState]);
-
   const {name, slug, description} = project;
 
   const nextProjectIndex =
@@ -42,7 +36,7 @@ export default function Wrapper({project, children}) {
     projects.nodes[projects.nodes.length > nextProjectIndex ? nextProjectIndex : 0];
 
   return (
-    <Layout title={name} description={description}>
+    <>
       <div className="fs-lg">{children}</div>
 
       <TransitionState>
@@ -55,6 +49,6 @@ export default function Wrapper({project, children}) {
           />
         )}
       </TransitionState>
-    </Layout>
+    </>
   );
 }
