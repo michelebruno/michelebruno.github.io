@@ -9,6 +9,7 @@ export default function Cover({cover, thumbnail, children, className, ...props})
   const containerRef = React.useRef(null);
 
   useEffect(() => {
+    return;
     const an = gsap.fromTo(
       imageRef.current,
       {yPercent: 10},

@@ -38,7 +38,7 @@ function CVItem({title, items, concat, className}) {
 
 export default function About({data}) {
   return (
-    <Layout>
+    <>
       <Grid twelve padding className=" border-b">
         <div className="col-span-12 md:col-span-9 fs-2xl  grid leading-relaxed py relative z-10">
           <p className="">
@@ -214,7 +214,7 @@ export default function About({data}) {
         />
       </Grid>
       <WorkTogether />
-    </Layout>
+    </>
   );
 }
 

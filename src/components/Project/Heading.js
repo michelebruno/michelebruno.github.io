@@ -99,6 +99,12 @@ export default function Heading({
     tl.call(() => {
       ScrollTrigger.refresh();
     });
+
+    tl.call(() => {
+      el.style.top = el.getBoundingClientRect().top;
+      el.style.left = el.getBoundingClientRect().left;
+      el.style.position = 'fixed';
+    });
   }
 
   useEffect(() => {
@@ -175,7 +181,7 @@ export default function Heading({
             navigate({
               to: `/projects/${slug?.current || slug}`,
               exit: {length: 3, trigger: onExitAnimation},
-              entry: {delay: 3},
+              entry: {delay: 3 - 0.1},
             })
           }
         >
