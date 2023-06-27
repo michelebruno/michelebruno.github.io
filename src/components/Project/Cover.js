@@ -37,6 +37,7 @@ export default function Cover({cover, thumbnail, children, className, ...props})
     >
       <Image
         ref={imageRef}
+        loading="eager"
         image={
           typeof cover !== 'undefined' && (cover?.childImageSharp || cover?.asset)
             ? cover?.asset || cover
