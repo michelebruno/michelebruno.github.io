@@ -37,7 +37,7 @@ export default function Wrapper({project, children}) {
 
   return (
     <>
-      <div className="fs-lg">{children}</div>
+      <div className="fs-lg project-wrapper overflow-hidden">{children}</div>
 
       <TransitionState>
         {({transitionState}) => (

@@ -3,12 +3,27 @@ import PropTypes from 'prop-types';
 import {Link} from 'gatsby';
 import classNames from 'classnames';
 import gsap from 'gsap';
+import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import {useTriggerTransition} from 'gatsby-plugin-transition-link';
 import {useTransitionState} from 'gatsby-plugin-transition-link/hooks';
 import {useEffect} from 'react';
 import {useLocation} from '@reach/router';
 import {AnimatedLink, H1} from '../Typography';
 import Cover from './Cover';
+
+function ProjectTitle({name, year, tagline, className, isNextProject}) {
+  // TODO aggiungere link per SEO
+  return (
+    <div className={classNames('md:col-span-3 pb md:pb-0', className)}>
+      {isNextProject && <p className="fs-lg next-project-label">Next project</p>}
+      <div>
+        <H1 className="lg:inline break-words">{name}</H1>
+        <span className="fs-xl"> ({year})</span>
+      </div>
+      <h2 className="fs-xl text-gray pt-2">{tagline}</h2>
+    </div>
+  );
+}
 
 export default function Heading({
   name,
@@ -34,9 +49,17 @@ export default function Heading({
 
   const isCurrentProject = route.pathname === `/projects/${slug}`;
 
-  function nextProjectTransition() {
+  function onExitAnimation() {
+    const el = wrapperEl.current.querySelector('.next-project-heading');
+
+    const labelHeigth = el.querySelector('.next-project-label').getBoundingClientRect().height;
+
+    const elParentHeight = el.parentElement.getBoundingClientRect().height;
+
+    const ANIMATION_DURATION = 0.5;
+
     const tl = gsap.timeline({
-      duration: 0.5,
+      duration: ANIMATION_DURATION,
     });
 
     tl.to(wrapperEl.current?.querySelector('.next-project-heading'), {
@@ -48,63 +71,68 @@ export default function Heading({
     tl.to(wrapperEl.current?.querySelector('.cover-img'), {
       opacity: 100,
     });
+
+    tl.to(
+      wrapperEl.current.querySelector('.cover-img'),
+      {
+        opacity: 100,
+      },
+      `-=${ANIMATION_DURATION * 2}`
+    );
+
+    tl.to(document.querySelector('.project-wrapper'), {
+      opacity: 0,
+    });
+
+    tl.to(
+      document.querySelector('.project-wrapper'),
+      {
+        maxHeight: `${elParentHeight - labelHeigth}px`,
+      },
+      `-=${ANIMATION_DURATION}`
+    );
+
+    tl.call(() => {
+      window.scrollTo(0, 0);
+    });
+
+    tl.call(() => {
+      ScrollTrigger.refresh();
+    });
   }
 
   useEffect(() => {
-    const {transitionStatus} = transitionState;
+    const tl = gsap.timeline({
+      duration: 0.5,
+    });
 
-    if (isNextProject && isCurrentProject && transitionStatus === 'exiting') {
-      console.log('heyyy', name);
+    tl.to(headerEl.current, {
+      opacity: 100,
+      duration: 0,
+    });
 
-      nextProjectTransition();
-    } else if (isNextProject && transitionStatus === 'entering') {
-      const tl = gsap.timeline({
-        duration: 0.5,
-      });
+    tl.from(headerEl.current?.querySelector('div:first-child'), {
+      opacity: 0,
+      yPercent: 10,
+      ease: 'power2.out',
+    });
 
-      tl.from(wrapperEl.current, {
-        opacity: 0,
-        delay: 3,
-      });
-    } else if (['entering', 'exiting'].includes(transitionStatus)) {
-      console.log(name, transitionStatus, transitionState);
-      const tl = gsap.timeline({
-        duration: 0.5,
-      });
-
-      tl.paused();
-
-      tl.from(headerEl.current?.querySelector('div:first-child'), {
-        opacity: 0,
-        yPercent: 10,
-        ease: 'power2.out',
-      });
-      tl.from(headerEl.current?.querySelectorAll('div:nth-child(2) ul li'), {
-        stagger: 0.2,
-        opacity: 0,
-        yPercent: 10,
-        ease: 'power2.out',
-      });
-
-      if (transitionStatus === 'entering') {
-        tl.play();
-      } else if (!isNextProject && transitionStatus === 'exiting') {
-        tl.reverse();
-      }
-    }
-  }, [transitionState]);
+    tl.from(headerEl.current?.querySelectorAll('div:nth-child(2) ul li'), {
+      stagger: 0.2,
+      opacity: 0,
+      yPercent: 10,
+      ease: 'power2.out',
+    });
+  }, []);
 
   return (
     <div ref={wrapperEl}>
       {!isNextProject && (
-        <header className="grid grid-cols-1 md:grid-cols-4 items-end px py" ref={headerEl}>
-          <div className="md:col-span-3 pb md:pb-0">
-            <div>
-              <H1 className="lg:inline break-words">{name}</H1>
-              <span className="fs-xl"> ({year})</span>
-            </div>
-            <h2 className="fs-xl text-gray pt-2">{tagline}</h2>
-          </div>
+        <header
+          className="grid grid-cols-1 md:grid-cols-4 items-end px py opacity-0"
+          ref={headerEl}
+        >
+          <ProjectTitle year={year} name={name} tagline={tagline} />
           <div className="md:pt-8 text-base flex flex-col">
             <ul>
               {roles && (
@@ -146,27 +174,20 @@ export default function Heading({
             isNextProject &&
             navigate({
               to: `/projects/${slug?.current || slug}`,
-              exit: {length: 3},
-              entry: {length: 3, delay: 1},
+              exit: {length: 3, trigger: onExitAnimation},
+              entry: {delay: 3},
             })
           }
         >
           {isNextProject && (
             <>
-              <div className="next-project-heading col-span-2 col-start-1 pb lg:pb-0 relative mix-blend-multiply">
-                <div>
-                  <p className="fs-lg">Next project</p>
-                  <H1
-                    tag={Link}
-                    to={`/projects/${slug?.current || slug}`}
-                    className="lg:inline leading-none transition-all break-words"
-                  >
-                    {name}
-                  </H1>
-                  <span className="fs-xl"> ({year})</span>
-                </div>
-                <h2 className="fs-xl text-gray ">{tagline}</h2>
-              </div>
+              <ProjectTitle
+                year={year}
+                name={name}
+                tagline={tagline}
+                className="next-project-heading "
+                isNextProject={isNextProject}
+              />
               <div className="pt-8 text-base flex flex-col" />
             </>
           )}

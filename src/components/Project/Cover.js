@@ -46,7 +46,7 @@ export default function Cover({cover, thumbnail, children, className, ...props})
           children && 'opacity-0 transition-[opacity] group-hover:opacity-30 '
         )}
       />
-      <div className="absolute inset-0 grid grid-cols-1 lg:grid-cols-3 items-end px py overflow-hidden">
+      <div className="absolute left-0 right-0 bottom-0 grid grid-cols-1 md:grid-cols-4 items-end px py overflow-hidden">
         {children}
       </div>
     </div>

@@ -19,7 +19,7 @@ export function onClientEntry() {
 export function wrapPageElement({element, props}) {
   const {data} = props;
 
-  const {name, slug, description} = data?.project;
+  const {name, slug, description} = data?.project || {};
 
   return (
     <Layout title={name} description={description} {...props}>
