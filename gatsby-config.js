@@ -71,10 +71,7 @@ module.exports = {
     'gatsby-plugin-svgr',
     'gatsby-plugin-react-helmet',
     {
-      resolve: 'gatsby-plugin-sitemap',
-      options: {
-        output: '/',
-      },
+      resolve: 'gatsby-plugin-sitemap'
     },
     {
       resolve: 'gatsby-plugin-manifest',

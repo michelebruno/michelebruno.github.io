@@ -4,9 +4,6 @@ import {useState} from 'react';
 import Layout from '../components/Layout';
 import Typography from '../components/Typography';
 
-function navigateOnClick(url) {
-  return () => navigate(url);
-}
 
 // TODO Sort by column
 export default function Projects({data}) {
@@ -50,7 +47,7 @@ export default function Projects({data}) {
 
 export const query = graphql`
   {
-    projects: allProjectsCsv(sort: {fields: [year], order: [DESC]}) {
+    projects: allProjectsCsv(sort: {year: DESC}) {
       nodes {
         ...ProjectFragment
       }

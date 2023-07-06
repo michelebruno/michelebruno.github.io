@@ -263,14 +263,14 @@ type Directory implements Node {
 }
 
 type DirectoryConnection {
-  distinct(field: DirectoryFieldsEnum!): [String!]!
+  distinct(field: DirectoryFieldSelector!): [String!]!
   edges: [DirectoryEdge!]!
-  group(field: DirectoryFieldsEnum!, limit: Int, skip: Int): [DirectoryGroupConnection!]!
-  max(field: DirectoryFieldsEnum!): Float
-  min(field: DirectoryFieldsEnum!): Float
+  group(field: DirectoryFieldSelector!, limit: Int, skip: Int): [DirectoryGroupConnection!]!
+  max(field: DirectoryFieldSelector!): Float
+  min(field: DirectoryFieldSelector!): Float
   nodes: [Directory!]!
   pageInfo: PageInfo!
-  sum(field: DirectoryFieldsEnum!): Float
+  sum(field: DirectoryFieldSelector!): Float
   totalCount: Int!
 }
 
@@ -281,16 +281,16 @@ type DirectoryEdge {
 }
 
 type DirectoryGroupConnection {
-  distinct(field: DirectoryFieldsEnum!): [String!]!
+  distinct(field: DirectoryFieldSelector!): [String!]!
   edges: [DirectoryEdge!]!
   field: String!
   fieldValue: String
-  group(field: DirectoryFieldsEnum!, limit: Int, skip: Int): [DirectoryGroupConnection!]!
-  max(field: DirectoryFieldsEnum!): Float
-  min(field: DirectoryFieldsEnum!): Float
+  group(field: DirectoryFieldSelector!, limit: Int, skip: Int): [DirectoryGroupConnection!]!
+  max(field: DirectoryFieldSelector!): Float
+  min(field: DirectoryFieldSelector!): Float
   nodes: [Directory!]!
   pageInfo: PageInfo!
-  sum(field: DirectoryFieldsEnum!): Float
+  sum(field: DirectoryFieldSelector!): Float
   totalCount: Int!
 }
 
@@ -408,14 +408,14 @@ type File implements Node {
 }
 
 type FileConnection {
-  distinct(field: FileFieldsEnum!): [String!]!
+  distinct(field: FileFieldSelector!): [String!]!
   edges: [FileEdge!]!
-  group(field: FileFieldsEnum!, limit: Int, skip: Int): [FileGroupConnection!]!
-  max(field: FileFieldsEnum!): Float
-  min(field: FileFieldsEnum!): Float
+  group(field: FileFieldSelector!, limit: Int, skip: Int): [FileGroupConnection!]!
+  max(field: FileFieldSelector!): Float
+  min(field: FileFieldSelector!): Float
   nodes: [File!]!
   pageInfo: PageInfo!
-  sum(field: FileFieldsEnum!): Float
+  sum(field: FileFieldSelector!): Float
   totalCount: Int!
 }
 
@@ -426,16 +426,16 @@ type FileEdge {
 }
 
 type FileGroupConnection {
-  distinct(field: FileFieldsEnum!): [String!]!
+  distinct(field: FileFieldSelector!): [String!]!
   edges: [FileEdge!]!
   field: String!
   fieldValue: String
-  group(field: FileFieldsEnum!, limit: Int, skip: Int): [FileGroupConnection!]!
-  max(field: FileFieldsEnum!): Float
-  min(field: FileFieldsEnum!): Float
+  group(field: FileFieldSelector!, limit: Int, skip: Int): [FileGroupConnection!]!
+  max(field: FileFieldSelector!): Float
+  min(field: FileFieldSelector!): Float
   nodes: [File!]!
   pageInfo: PageInfo!
-  sum(field: FileFieldsEnum!): Float
+  sum(field: FileFieldSelector!): Float
   totalCount: Int!
 }
 
@@ -560,14 +560,14 @@ type ImageSharp implements Node {
 }
 
 type ImageSharpConnection {
-  distinct(field: ImageSharpFieldsEnum!): [String!]!
+  distinct(field: ImageSharpFieldSelector!): [String!]!
   edges: [ImageSharpEdge!]!
-  group(field: ImageSharpFieldsEnum!, limit: Int, skip: Int): [ImageSharpGroupConnection!]!
-  max(field: ImageSharpFieldsEnum!): Float
-  min(field: ImageSharpFieldsEnum!): Float
+  group(field: ImageSharpFieldSelector!, limit: Int, skip: Int): [ImageSharpGroupConnection!]!
+  max(field: ImageSharpFieldSelector!): Float
+  min(field: ImageSharpFieldSelector!): Float
   nodes: [ImageSharp!]!
   pageInfo: PageInfo!
-  sum(field: ImageSharpFieldsEnum!): Float
+  sum(field: ImageSharpFieldSelector!): Float
   totalCount: Int!
 }
 
@@ -606,16 +606,16 @@ type ImageSharpFluid {
 }
 
 type ImageSharpGroupConnection {
-  distinct(field: ImageSharpFieldsEnum!): [String!]!
+  distinct(field: ImageSharpFieldSelector!): [String!]!
   edges: [ImageSharpEdge!]!
   field: String!
   fieldValue: String
-  group(field: ImageSharpFieldsEnum!, limit: Int, skip: Int): [ImageSharpGroupConnection!]!
-  max(field: ImageSharpFieldsEnum!): Float
-  min(field: ImageSharpFieldsEnum!): Float
+  group(field: ImageSharpFieldSelector!, limit: Int, skip: Int): [ImageSharpGroupConnection!]!
+  max(field: ImageSharpFieldSelector!): Float
+  min(field: ImageSharpFieldSelector!): Float
   nodes: [ImageSharp!]!
   pageInfo: PageInfo!
-  sum(field: ImageSharpFieldsEnum!): Float
+  sum(field: ImageSharpFieldSelector!): Float
   totalCount: Int!
 }
 
@@ -686,14 +686,14 @@ type ProjectsCsv implements Node {
 }
 
 type ProjectsCsvConnection {
-  distinct(field: ProjectsCsvFieldsEnum!): [String!]!
+  distinct(field: ProjectsCsvFieldSelector!): [String!]!
   edges: [ProjectsCsvEdge!]!
-  group(field: ProjectsCsvFieldsEnum!, limit: Int, skip: Int): [ProjectsCsvGroupConnection!]!
-  max(field: ProjectsCsvFieldsEnum!): Float
-  min(field: ProjectsCsvFieldsEnum!): Float
+  group(field: ProjectsCsvFieldSelector!, limit: Int, skip: Int): [ProjectsCsvGroupConnection!]!
+  max(field: ProjectsCsvFieldSelector!): Float
+  min(field: ProjectsCsvFieldSelector!): Float
   nodes: [ProjectsCsv!]!
   pageInfo: PageInfo!
-  sum(field: ProjectsCsvFieldsEnum!): Float
+  sum(field: ProjectsCsvFieldSelector!): Float
   totalCount: Int!
 }
 
@@ -704,32 +704,32 @@ type ProjectsCsvEdge {
 }
 
 type ProjectsCsvGroupConnection {
-  distinct(field: ProjectsCsvFieldsEnum!): [String!]!
+  distinct(field: ProjectsCsvFieldSelector!): [String!]!
   edges: [ProjectsCsvEdge!]!
   field: String!
   fieldValue: String
-  group(field: ProjectsCsvFieldsEnum!, limit: Int, skip: Int): [ProjectsCsvGroupConnection!]!
-  max(field: ProjectsCsvFieldsEnum!): Float
-  min(field: ProjectsCsvFieldsEnum!): Float
+  group(field: ProjectsCsvFieldSelector!, limit: Int, skip: Int): [ProjectsCsvGroupConnection!]!
+  max(field: ProjectsCsvFieldSelector!): Float
+  min(field: ProjectsCsvFieldSelector!): Float
   nodes: [ProjectsCsv!]!
   pageInfo: PageInfo!
-  sum(field: ProjectsCsvFieldsEnum!): Float
+  sum(field: ProjectsCsvFieldSelector!): Float
   totalCount: Int!
 }
 
 type Query {
-  allDirectory(filter: DirectoryFilterInput, limit: Int, skip: Int, sort: DirectorySortInput): DirectoryConnection!
-  allFile(filter: FileFilterInput, limit: Int, skip: Int, sort: FileSortInput): FileConnection!
-  allImageSharp(filter: ImageSharpFilterInput, limit: Int, skip: Int, sort: ImageSharpSortInput): ImageSharpConnection!
-  allProjectsCsv(filter: ProjectsCsvFilterInput, limit: Int, skip: Int, sort: ProjectsCsvSortInput): ProjectsCsvConnection!
-  allSanityFileAsset(filter: SanityFileAssetFilterInput, limit: Int, skip: Int, sort: SanityFileAssetSortInput): SanityFileAssetConnection!
-  allSanityImageAsset(filter: SanityImageAssetFilterInput, limit: Int, skip: Int, sort: SanityImageAssetSortInput): SanityImageAssetConnection!
-  allSanityProject(filter: SanityProjectFilterInput, limit: Int, skip: Int, sort: SanityProjectSortInput): SanityProjectConnection!
-  allSite(filter: SiteFilterInput, limit: Int, skip: Int, sort: SiteSortInput): SiteConnection!
-  allSiteBuildMetadata(filter: SiteBuildMetadataFilterInput, limit: Int, skip: Int, sort: SiteBuildMetadataSortInput): SiteBuildMetadataConnection!
-  allSiteFunction(filter: SiteFunctionFilterInput, limit: Int, skip: Int, sort: SiteFunctionSortInput): SiteFunctionConnection!
-  allSitePage(filter: SitePageFilterInput, limit: Int, skip: Int, sort: SitePageSortInput): SitePageConnection!
-  allSitePlugin(filter: SitePluginFilterInput, limit: Int, skip: Int, sort: SitePluginSortInput): SitePluginConnection!
+  allDirectory(filter: DirectoryFilterInput, limit: Int, skip: Int, sort: [DirectorySortInput]): DirectoryConnection!
+  allFile(filter: FileFilterInput, limit: Int, skip: Int, sort: [FileSortInput]): FileConnection!
+  allImageSharp(filter: ImageSharpFilterInput, limit: Int, skip: Int, sort: [ImageSharpSortInput]): ImageSharpConnection!
+  allProjectsCsv(filter: ProjectsCsvFilterInput, limit: Int, skip: Int, sort: [ProjectsCsvSortInput]): ProjectsCsvConnection!
+  allSanityFileAsset(filter: SanityFileAssetFilterInput, limit: Int, skip: Int, sort: [SanityFileAssetSortInput]): SanityFileAssetConnection!
+  allSanityImageAsset(filter: SanityImageAssetFilterInput, limit: Int, skip: Int, sort: [SanityImageAssetSortInput]): SanityImageAssetConnection!
+  allSanityProject(filter: SanityProjectFilterInput, limit: Int, skip: Int, sort: [SanityProjectSortInput]): SanityProjectConnection!
+  allSite(filter: SiteFilterInput, limit: Int, skip: Int, sort: [SiteSortInput]): SiteConnection!
+  allSiteBuildMetadata(filter: SiteBuildMetadataFilterInput, limit: Int, skip: Int, sort: [SiteBuildMetadataSortInput]): SiteBuildMetadataConnection!
+  allSiteFunction(filter: SiteFunctionFilterInput, limit: Int, skip: Int, sort: [SiteFunctionSortInput]): SiteFunctionConnection!
+  allSitePage(filter: SitePageFilterInput, limit: Int, skip: Int, sort: [SitePageSortInput]): SitePageConnection!
+  allSitePlugin(filter: SitePluginFilterInput, limit: Int, skip: Int, sort: [SitePluginSortInput]): SitePluginConnection!
   directory(absolutePath: StringQueryOperatorInput, accessTime: DateQueryOperatorInput, atime: DateQueryOperatorInput, atimeMs: FloatQueryOperatorInput, base: StringQueryOperatorInput, birthTime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, changeTime: DateQueryOperatorInput, children: NodeFilterListInput, ctime: DateQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, dev: IntQueryOperatorInput, dir: StringQueryOperatorInput, ext: StringQueryOperatorInput, extension: StringQueryOperatorInput, gid: IntQueryOperatorInput, id: StringQueryOperatorInput, ino: FloatQueryOperatorInput, internal: InternalFilterInput, mode: IntQueryOperatorInput, modifiedTime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, name: StringQueryOperatorInput, nlink: IntQueryOperatorInput, parent: NodeFilterInput, prettySize: StringQueryOperatorInput, rdev: IntQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, root: StringQueryOperatorInput, size: IntQueryOperatorInput, sourceInstanceName: StringQueryOperatorInput, uid: IntQueryOperatorInput): Directory
   file(absolutePath: StringQueryOperatorInput, accessTime: DateQueryOperatorInput, atime: DateQueryOperatorInput, atimeMs: FloatQueryOperatorInput, base: StringQueryOperatorInput, birthTime: DateQueryOperatorInput, birthtime: DateQueryOperatorInput, birthtimeMs: FloatQueryOperatorInput, blksize: IntQueryOperatorInput, blocks: IntQueryOperatorInput, changeTime: DateQueryOperatorInput, childImageSharp: ImageSharpFilterInput, childProjectsCsv: ProjectsCsvFilterInput, children: NodeFilterListInput, childrenImageSharp: ImageSharpFilterListInput, childrenProjectsCsv: ProjectsCsvFilterListInput, ctime: DateQueryOperatorInput, ctimeMs: FloatQueryOperatorInput, dev: IntQueryOperatorInput, dir: StringQueryOperatorInput, ext: StringQueryOperatorInput, extension: StringQueryOperatorInput, gid: IntQueryOperatorInput, id: StringQueryOperatorInput, ino: FloatQueryOperatorInput, internal: InternalFilterInput, mode: IntQueryOperatorInput, modifiedTime: DateQueryOperatorInput, mtime: DateQueryOperatorInput, mtimeMs: FloatQueryOperatorInput, name: StringQueryOperatorInput, nlink: IntQueryOperatorInput, parent: NodeFilterInput, prettySize: StringQueryOperatorInput, publicURL: StringQueryOperatorInput, rdev: IntQueryOperatorInput, relativeDirectory: StringQueryOperatorInput, relativePath: StringQueryOperatorInput, root: StringQueryOperatorInput, size: IntQueryOperatorInput, sourceInstanceName: StringQueryOperatorInput, uid: IntQueryOperatorInput): File
   imageSharp(children: NodeFilterListInput, fixed: ImageSharpFixedFilterInput, fluid: ImageSharpFluidFilterInput, gatsbyImageData: GatsbyImageDataQueryOperatorInput, id: StringQueryOperatorInput, internal: InternalFilterInput, original: ImageSharpOriginalFilterInput, parent: NodeFilterInput, resize: ImageSharpResizeFilterInput): ImageSharp
@@ -829,14 +829,14 @@ type SanityFileAsset implements Node & SanityDocument {
 }
 
 type SanityFileAssetConnection {
-  distinct(field: SanityFileAssetFieldsEnum!): [String!]!
+  distinct(field: SanityFileAssetFieldSelector!): [String!]!
   edges: [SanityFileAssetEdge!]!
-  group(field: SanityFileAssetFieldsEnum!, limit: Int, skip: Int): [SanityFileAssetGroupConnection!]!
-  max(field: SanityFileAssetFieldsEnum!): Float
-  min(field: SanityFileAssetFieldsEnum!): Float
+  group(field: SanityFileAssetFieldSelector!, limit: Int, skip: Int): [SanityFileAssetGroupConnection!]!
+  max(field: SanityFileAssetFieldSelector!): Float
+  min(field: SanityFileAssetFieldSelector!): Float
   nodes: [SanityFileAsset!]!
   pageInfo: PageInfo!
-  sum(field: SanityFileAssetFieldsEnum!): Float
+  sum(field: SanityFileAssetFieldSelector!): Float
   totalCount: Int!
 }
 
@@ -847,16 +847,16 @@ type SanityFileAssetEdge {
 }
 
 type SanityFileAssetGroupConnection {
-  distinct(field: SanityFileAssetFieldsEnum!): [String!]!
+  distinct(field: SanityFileAssetFieldSelector!): [String!]!
   edges: [SanityFileAssetEdge!]!
   field: String!
   fieldValue: String
-  group(field: SanityFileAssetFieldsEnum!, limit: Int, skip: Int): [SanityFileAssetGroupConnection!]!
-  max(field: SanityFileAssetFieldsEnum!): Float
-  min(field: SanityFileAssetFieldsEnum!): Float
+  group(field: SanityFileAssetFieldSelector!, limit: Int, skip: Int): [SanityFileAssetGroupConnection!]!
+  max(field: SanityFileAssetFieldSelector!): Float
+  min(field: SanityFileAssetFieldSelector!): Float
   nodes: [SanityFileAsset!]!
   pageInfo: PageInfo!
-  sum(field: SanityFileAssetFieldsEnum!): Float
+  sum(field: SanityFileAssetFieldSelector!): Float
   totalCount: Int!
 }
 
@@ -1084,14 +1084,14 @@ type SanityImageAsset implements Node & RemoteFile & SanityDocument {
 }
 
 type SanityImageAssetConnection {
-  distinct(field: SanityImageAssetFieldsEnum!): [String!]!
+  distinct(field: SanityImageAssetFieldSelector!): [String!]!
   edges: [SanityImageAssetEdge!]!
-  group(field: SanityImageAssetFieldsEnum!, limit: Int, skip: Int): [SanityImageAssetGroupConnection!]!
-  max(field: SanityImageAssetFieldsEnum!): Float
-  min(field: SanityImageAssetFieldsEnum!): Float
+  group(field: SanityImageAssetFieldSelector!, limit: Int, skip: Int): [SanityImageAssetGroupConnection!]!
+  max(field: SanityImageAssetFieldSelector!): Float
+  min(field: SanityImageAssetFieldSelector!): Float
   nodes: [SanityImageAsset!]!
   pageInfo: PageInfo!
-  sum(field: SanityImageAssetFieldsEnum!): Float
+  sum(field: SanityImageAssetFieldSelector!): Float
   totalCount: Int!
 }
 
@@ -1102,16 +1102,16 @@ type SanityImageAssetEdge {
 }
 
 type SanityImageAssetGroupConnection {
-  distinct(field: SanityImageAssetFieldsEnum!): [String!]!
+  distinct(field: SanityImageAssetFieldSelector!): [String!]!
   edges: [SanityImageAssetEdge!]!
   field: String!
   fieldValue: String
-  group(field: SanityImageAssetFieldsEnum!, limit: Int, skip: Int): [SanityImageAssetGroupConnection!]!
-  max(field: SanityImageAssetFieldsEnum!): Float
-  min(field: SanityImageAssetFieldsEnum!): Float
+  group(field: SanityImageAssetFieldSelector!, limit: Int, skip: Int): [SanityImageAssetGroupConnection!]!
+  max(field: SanityImageAssetFieldSelector!): Float
+  min(field: SanityImageAssetFieldSelector!): Float
   nodes: [SanityImageAsset!]!
   pageInfo: PageInfo!
-  sum(field: SanityImageAssetFieldsEnum!): Float
+  sum(field: SanityImageAssetFieldSelector!): Float
   totalCount: Int!
 }
 
@@ -1233,14 +1233,14 @@ type SanityProject implements Node & SanityDocument {
 }
 
 type SanityProjectConnection {
-  distinct(field: SanityProjectFieldsEnum!): [String!]!
+  distinct(field: SanityProjectFieldSelector!): [String!]!
   edges: [SanityProjectEdge!]!
-  group(field: SanityProjectFieldsEnum!, limit: Int, skip: Int): [SanityProjectGroupConnection!]!
-  max(field: SanityProjectFieldsEnum!): Float
-  min(field: SanityProjectFieldsEnum!): Float
+  group(field: SanityProjectFieldSelector!, limit: Int, skip: Int): [SanityProjectGroupConnection!]!
+  max(field: SanityProjectFieldSelector!): Float
+  min(field: SanityProjectFieldSelector!): Float
   nodes: [SanityProject!]!
   pageInfo: PageInfo!
-  sum(field: SanityProjectFieldsEnum!): Float
+  sum(field: SanityProjectFieldSelector!): Float
   totalCount: Int!
 }
 
@@ -1251,16 +1251,16 @@ type SanityProjectEdge {
 }
 
 type SanityProjectGroupConnection {
-  distinct(field: SanityProjectFieldsEnum!): [String!]!
+  distinct(field: SanityProjectFieldSelector!): [String!]!
   edges: [SanityProjectEdge!]!
   field: String!
   fieldValue: String
-  group(field: SanityProjectFieldsEnum!, limit: Int, skip: Int): [SanityProjectGroupConnection!]!
-  max(field: SanityProjectFieldsEnum!): Float
-  min(field: SanityProjectFieldsEnum!): Float
+  group(field: SanityProjectFieldSelector!, limit: Int, skip: Int): [SanityProjectGroupConnection!]!
+  max(field: SanityProjectFieldSelector!): Float
+  min(field: SanityProjectFieldSelector!): Float
   nodes: [SanityProject!]!
   pageInfo: PageInfo!
-  sum(field: SanityProjectFieldsEnum!): Float
+  sum(field: SanityProjectFieldSelector!): Float
   totalCount: Int!
 }
 
@@ -1321,14 +1321,14 @@ type SiteBuildMetadata implements Node {
 }
 
 type SiteBuildMetadataConnection {
-  distinct(field: SiteBuildMetadataFieldsEnum!): [String!]!
+  distinct(field: SiteBuildMetadataFieldSelector!): [String!]!
   edges: [SiteBuildMetadataEdge!]!
-  group(field: SiteBuildMetadataFieldsEnum!, limit: Int, skip: Int): [SiteBuildMetadataGroupConnection!]!
-  max(field: SiteBuildMetadataFieldsEnum!): Float
-  min(field: SiteBuildMetadataFieldsEnum!): Float
+  group(field: SiteBuildMetadataFieldSelector!, limit: Int, skip: Int): [SiteBuildMetadataGroupConnection!]!
+  max(field: SiteBuildMetadataFieldSelector!): Float
+  min(field: SiteBuildMetadataFieldSelector!): Float
   nodes: [SiteBuildMetadata!]!
   pageInfo: PageInfo!
-  sum(field: SiteBuildMetadataFieldsEnum!): Float
+  sum(field: SiteBuildMetadataFieldSelector!): Float
   totalCount: Int!
 }
 
@@ -1339,28 +1339,28 @@ type SiteBuildMetadataEdge {
 }
 
 type SiteBuildMetadataGroupConnection {
-  distinct(field: SiteBuildMetadataFieldsEnum!): [String!]!
+  distinct(field: SiteBuildMetadataFieldSelector!): [String!]!
   edges: [SiteBuildMetadataEdge!]!
   field: String!
   fieldValue: String
-  group(field: SiteBuildMetadataFieldsEnum!, limit: Int, skip: Int): [SiteBuildMetadataGroupConnection!]!
-  max(field: SiteBuildMetadataFieldsEnum!): Float
-  min(field: SiteBuildMetadataFieldsEnum!): Float
+  group(field: SiteBuildMetadataFieldSelector!, limit: Int, skip: Int): [SiteBuildMetadataGroupConnection!]!
+  max(field: SiteBuildMetadataFieldSelector!): Float
+  min(field: SiteBuildMetadataFieldSelector!): Float
   nodes: [SiteBuildMetadata!]!
   pageInfo: PageInfo!
-  sum(field: SiteBuildMetadataFieldsEnum!): Float
+  sum(field: SiteBuildMetadataFieldSelector!): Float
   totalCount: Int!
 }
 
 type SiteConnection {
-  distinct(field: SiteFieldsEnum!): [String!]!
+  distinct(field: SiteFieldSelector!): [String!]!
   edges: [SiteEdge!]!
-  group(field: SiteFieldsEnum!, limit: Int, skip: Int): [SiteGroupConnection!]!
-  max(field: SiteFieldsEnum!): Float
-  min(field: SiteFieldsEnum!): Float
+  group(field: SiteFieldSelector!, limit: Int, skip: Int): [SiteGroupConnection!]!
+  max(field: SiteFieldSelector!): Float
+  min(field: SiteFieldSelector!): Float
   nodes: [Site!]!
   pageInfo: PageInfo!
-  sum(field: SiteFieldsEnum!): Float
+  sum(field: SiteFieldSelector!): Float
   totalCount: Int!
 }
 
@@ -1385,14 +1385,14 @@ type SiteFunction implements Node {
 }
 
 type SiteFunctionConnection {
-  distinct(field: SiteFunctionFieldsEnum!): [String!]!
+  distinct(field: SiteFunctionFieldSelector!): [String!]!
   edges: [SiteFunctionEdge!]!
-  group(field: SiteFunctionFieldsEnum!, limit: Int, skip: Int): [SiteFunctionGroupConnection!]!
-  max(field: SiteFunctionFieldsEnum!): Float
-  min(field: SiteFunctionFieldsEnum!): Float
+  group(field: SiteFunctionFieldSelector!, limit: Int, skip: Int): [SiteFunctionGroupConnection!]!
+  max(field: SiteFunctionFieldSelector!): Float
+  min(field: SiteFunctionFieldSelector!): Float
   nodes: [SiteFunction!]!
   pageInfo: PageInfo!
-  sum(field: SiteFunctionFieldsEnum!): Float
+  sum(field: SiteFunctionFieldSelector!): Float
   totalCount: Int!
 }
 
@@ -1403,30 +1403,30 @@ type SiteFunctionEdge {
 }
 
 type SiteFunctionGroupConnection {
-  distinct(field: SiteFunctionFieldsEnum!): [String!]!
+  distinct(field: SiteFunctionFieldSelector!): [String!]!
   edges: [SiteFunctionEdge!]!
   field: String!
   fieldValue: String
-  group(field: SiteFunctionFieldsEnum!, limit: Int, skip: Int): [SiteFunctionGroupConnection!]!
-  max(field: SiteFunctionFieldsEnum!): Float
-  min(field: SiteFunctionFieldsEnum!): Float
+  group(field: SiteFunctionFieldSelector!, limit: Int, skip: Int): [SiteFunctionGroupConnection!]!
+  max(field: SiteFunctionFieldSelector!): Float
+  min(field: SiteFunctionFieldSelector!): Float
   nodes: [SiteFunction!]!
   pageInfo: PageInfo!
-  sum(field: SiteFunctionFieldsEnum!): Float
+  sum(field: SiteFunctionFieldSelector!): Float
   totalCount: Int!
 }
 
 type SiteGroupConnection {
-  distinct(field: SiteFieldsEnum!): [String!]!
+  distinct(field: SiteFieldSelector!): [String!]!
   edges: [SiteEdge!]!
   field: String!
   fieldValue: String
-  group(field: SiteFieldsEnum!, limit: Int, skip: Int): [SiteGroupConnection!]!
-  max(field: SiteFieldsEnum!): Float
-  min(field: SiteFieldsEnum!): Float
+  group(field: SiteFieldSelector!, limit: Int, skip: Int): [SiteGroupConnection!]!
+  max(field: SiteFieldSelector!): Float
+  min(field: SiteFieldSelector!): Float
   nodes: [Site!]!
   pageInfo: PageInfo!
-  sum(field: SiteFieldsEnum!): Float
+  sum(field: SiteFieldSelector!): Float
   totalCount: Int!
 }
 
@@ -1445,14 +1445,14 @@ type SitePage implements Node {
 }
 
 type SitePageConnection {
-  distinct(field: SitePageFieldsEnum!): [String!]!
+  distinct(field: SitePageFieldSelector!): [String!]!
   edges: [SitePageEdge!]!
-  group(field: SitePageFieldsEnum!, limit: Int, skip: Int): [SitePageGroupConnection!]!
-  max(field: SitePageFieldsEnum!): Float
-  min(field: SitePageFieldsEnum!): Float
+  group(field: SitePageFieldSelector!, limit: Int, skip: Int): [SitePageGroupConnection!]!
+  max(field: SitePageFieldSelector!): Float
+  min(field: SitePageFieldSelector!): Float
   nodes: [SitePage!]!
   pageInfo: PageInfo!
-  sum(field: SitePageFieldsEnum!): Float
+  sum(field: SitePageFieldSelector!): Float
   totalCount: Int!
 }
 
@@ -1463,16 +1463,16 @@ type SitePageEdge {
 }
 
 type SitePageGroupConnection {
-  distinct(field: SitePageFieldsEnum!): [String!]!
+  distinct(field: SitePageFieldSelector!): [String!]!
   edges: [SitePageEdge!]!
   field: String!
   fieldValue: String
-  group(field: SitePageFieldsEnum!, limit: Int, skip: Int): [SitePageGroupConnection!]!
-  max(field: SitePageFieldsEnum!): Float
-  min(field: SitePageFieldsEnum!): Float
+  group(field: SitePageFieldSelector!, limit: Int, skip: Int): [SitePageGroupConnection!]!
+  max(field: SitePageFieldSelector!): Float
+  min(field: SitePageFieldSelector!): Float
   nodes: [SitePage!]!
   pageInfo: PageInfo!
-  sum(field: SitePageFieldsEnum!): Float
+  sum(field: SitePageFieldSelector!): Float
   totalCount: Int!
 }
 
@@ -1493,14 +1493,14 @@ type SitePlugin implements Node {
 }
 
 type SitePluginConnection {
-  distinct(field: SitePluginFieldsEnum!): [String!]!
+  distinct(field: SitePluginFieldSelector!): [String!]!
   edges: [SitePluginEdge!]!
-  group(field: SitePluginFieldsEnum!, limit: Int, skip: Int): [SitePluginGroupConnection!]!
-  max(field: SitePluginFieldsEnum!): Float
-  min(field: SitePluginFieldsEnum!): Float
+  group(field: SitePluginFieldSelector!, limit: Int, skip: Int): [SitePluginGroupConnection!]!
+  max(field: SitePluginFieldSelector!): Float
+  min(field: SitePluginFieldSelector!): Float
   nodes: [SitePlugin!]!
   pageInfo: PageInfo!
-  sum(field: SitePluginFieldsEnum!): Float
+  sum(field: SitePluginFieldSelector!): Float
   totalCount: Int!
 }
 
@@ -1511,16 +1511,16 @@ type SitePluginEdge {
 }
 
 type SitePluginGroupConnection {
-  distinct(field: SitePluginFieldsEnum!): [String!]!
+  distinct(field: SitePluginFieldSelector!): [String!]!
   edges: [SitePluginEdge!]!
   field: String!
   fieldValue: String
-  group(field: SitePluginFieldsEnum!, limit: Int, skip: Int): [SitePluginGroupConnection!]!
-  max(field: SitePluginFieldsEnum!): Float
-  min(field: SitePluginFieldsEnum!): Float
+  group(field: SitePluginFieldSelector!, limit: Int, skip: Int): [SitePluginGroupConnection!]!
+  max(field: SitePluginFieldSelector!): Float
+  min(field: SitePluginFieldSelector!): Float
   nodes: [SitePlugin!]!
   pageInfo: PageInfo!
-  sum(field: SitePluginFieldsEnum!): Float
+  sum(field: SitePluginFieldSelector!): Float
   totalCount: Int!
 }
 
@@ -1532,845 +1532,8 @@ type SiteSiteMetadata {
   titleTemplate: String
 }
 
-enum DirectoryFieldsEnum {
-  absolutePath
-  accessTime
-  atime
-  atimeMs
-  base
-  birthTime
-  birthtime
-  birthtimeMs
-  changeTime
-  children
-  children___children
-  children___children___children
-  children___children___children___children
-  children___children___children___id
-  children___children___id
-  children___children___internal___content
-  children___children___internal___contentDigest
-  children___children___internal___contentFilePath
-  children___children___internal___description
-  children___children___internal___fieldOwners
-  children___children___internal___ignoreType
-  children___children___internal___mediaType
-  children___children___internal___owner
-  children___children___internal___type
-  children___children___parent___children
-  children___children___parent___id
-  children___id
-  children___internal___content
-  children___internal___contentDigest
-  children___internal___contentFilePath
-  children___internal___description
-  children___internal___fieldOwners
-  children___internal___ignoreType
-  children___internal___mediaType
-  children___internal___owner
-  children___internal___type
-  children___parent___children
-  children___parent___children___children
-  children___parent___children___id
-  children___parent___id
-  children___parent___internal___content
-  children___parent___internal___contentDigest
-  children___parent___internal___contentFilePath
-  children___parent___internal___description
-  children___parent___internal___fieldOwners
-  children___parent___internal___ignoreType
-  children___parent___internal___mediaType
-  children___parent___internal___owner
-  children___parent___internal___type
-  children___parent___parent___children
-  children___parent___parent___id
-  ctime
-  ctimeMs
-  dev
-  dir
-  ext
-  extension
-  gid
-  id
-  ino
-  internal___content
-  internal___contentDigest
-  internal___contentFilePath
-  internal___description
-  internal___fieldOwners
-  internal___ignoreType
-  internal___mediaType
-  internal___owner
-  internal___type
-  mode
-  modifiedTime
-  mtime
-  mtimeMs
-  name
-  nlink
-  parent___children
-  parent___children___children
-  parent___children___children___children
-  parent___children___children___id
-  parent___children___id
-  parent___children___internal___content
-  parent___children___internal___contentDigest
-  parent___children___internal___contentFilePath
-  parent___children___internal___description
-  parent___children___internal___fieldOwners
-  parent___children___internal___ignoreType
-  parent___children___internal___mediaType
-  parent___children___internal___owner
-  parent___children___internal___type
-  parent___children___parent___children
-  parent___children___parent___id
-  parent___id
-  parent___internal___content
-  parent___internal___contentDigest
-  parent___internal___contentFilePath
-  parent___internal___description
-  parent___internal___fieldOwners
-  parent___internal___ignoreType
-  parent___internal___mediaType
-  parent___internal___owner
-  parent___internal___type
-  parent___parent___children
-  parent___parent___children___children
-  parent___parent___children___id
-  parent___parent___id
-  parent___parent___internal___content
-  parent___parent___internal___contentDigest
-  parent___parent___internal___contentFilePath
-  parent___parent___internal___description
-  parent___parent___internal___fieldOwners
-  parent___parent___internal___ignoreType
-  parent___parent___internal___mediaType
-  parent___parent___internal___owner
-  parent___parent___internal___type
-  parent___parent___parent___children
-  parent___parent___parent___id
-  prettySize
-  rdev
-  relativeDirectory
-  relativePath
-  root
-  size
-  sourceInstanceName
-  uid
-}
-
-enum FileFieldsEnum {
-  absolutePath
-  accessTime
-  atime
-  atimeMs
-  base
-  birthTime
-  birthtime
-  birthtimeMs
-  blksize
-  blocks
-  changeTime
-  childImageSharp___children
-  childImageSharp___children___children
-  childImageSharp___children___children___children
-  childImageSharp___children___children___id
-  childImageSharp___children___id
-  childImageSharp___children___internal___content
-  childImageSharp___children___internal___contentDigest
-  childImageSharp___children___internal___contentFilePath
-  childImageSharp___children___internal___description
-  childImageSharp___children___internal___fieldOwners
-  childImageSharp___children___internal___ignoreType
-  childImageSharp___children___internal___mediaType
-  childImageSharp___children___internal___owner
-  childImageSharp___children___internal___type
-  childImageSharp___children___parent___children
-  childImageSharp___children___parent___id
-  childImageSharp___fixed___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___fixed___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___fixed___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___fixed___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___fixed___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___fixed___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___fixed___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___fixed___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___fixed___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___fixed___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___fluid___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___fluid___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___fluid___originalImg @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___fluid___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___fluid___presentationHeight @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___fluid___presentationWidth @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___fluid___sizes @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___fluid___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___fluid___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___fluid___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___fluid___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___fluid___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___id
-  childImageSharp___internal___content
-  childImageSharp___internal___contentDigest
-  childImageSharp___internal___contentFilePath
-  childImageSharp___internal___description
-  childImageSharp___internal___fieldOwners
-  childImageSharp___internal___ignoreType
-  childImageSharp___internal___mediaType
-  childImageSharp___internal___owner
-  childImageSharp___internal___type
-  childImageSharp___original___height
-  childImageSharp___original___src
-  childImageSharp___original___width
-  childImageSharp___parent___children
-  childImageSharp___parent___children___children
-  childImageSharp___parent___children___id
-  childImageSharp___parent___id
-  childImageSharp___parent___internal___content
-  childImageSharp___parent___internal___contentDigest
-  childImageSharp___parent___internal___contentFilePath
-  childImageSharp___parent___internal___description
-  childImageSharp___parent___internal___fieldOwners
-  childImageSharp___parent___internal___ignoreType
-  childImageSharp___parent___internal___mediaType
-  childImageSharp___parent___internal___owner
-  childImageSharp___parent___internal___type
-  childImageSharp___parent___parent___children
-  childImageSharp___parent___parent___id
-  childImageSharp___resize___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___resize___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___resize___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___resize___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childImageSharp___resize___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childProjectsCsv___children
-  childProjectsCsv___children___children
-  childProjectsCsv___children___children___children
-  childProjectsCsv___children___children___id
-  childProjectsCsv___children___id
-  childProjectsCsv___children___internal___content
-  childProjectsCsv___children___internal___contentDigest
-  childProjectsCsv___children___internal___contentFilePath
-  childProjectsCsv___children___internal___description
-  childProjectsCsv___children___internal___fieldOwners
-  childProjectsCsv___children___internal___ignoreType
-  childProjectsCsv___children___internal___mediaType
-  childProjectsCsv___children___internal___owner
-  childProjectsCsv___children___internal___type
-  childProjectsCsv___children___parent___children
-  childProjectsCsv___children___parent___id
-  childProjectsCsv___client
-  childProjectsCsv___cover___absolutePath
-  childProjectsCsv___cover___accessTime
-  childProjectsCsv___cover___atime
-  childProjectsCsv___cover___atimeMs
-  childProjectsCsv___cover___base
-  childProjectsCsv___cover___birthTime
-  childProjectsCsv___cover___birthtime
-  childProjectsCsv___cover___birthtimeMs
-  childProjectsCsv___cover___blksize
-  childProjectsCsv___cover___blocks
-  childProjectsCsv___cover___changeTime
-  childProjectsCsv___cover___childImageSharp___children
-  childProjectsCsv___cover___childImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childProjectsCsv___cover___childImageSharp___id
-  childProjectsCsv___cover___childProjectsCsv___children
-  childProjectsCsv___cover___childProjectsCsv___client
-  childProjectsCsv___cover___childProjectsCsv___description
-  childProjectsCsv___cover___childProjectsCsv___id
-  childProjectsCsv___cover___childProjectsCsv___isPagePublic
-  childProjectsCsv___cover___childProjectsCsv___name
-  childProjectsCsv___cover___childProjectsCsv___roles
-  childProjectsCsv___cover___childProjectsCsv___slug
-  childProjectsCsv___cover___childProjectsCsv___tagline
-  childProjectsCsv___cover___childProjectsCsv___team
-  childProjectsCsv___cover___childProjectsCsv___type
-  childProjectsCsv___cover___childProjectsCsv___websiteUrl
-  childProjectsCsv___cover___childProjectsCsv___year
-  childProjectsCsv___cover___children
-  childProjectsCsv___cover___childrenImageSharp
-  childProjectsCsv___cover___childrenImageSharp___children
-  childProjectsCsv___cover___childrenImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childProjectsCsv___cover___childrenImageSharp___id
-  childProjectsCsv___cover___childrenProjectsCsv
-  childProjectsCsv___cover___childrenProjectsCsv___children
-  childProjectsCsv___cover___childrenProjectsCsv___client
-  childProjectsCsv___cover___childrenProjectsCsv___description
-  childProjectsCsv___cover___childrenProjectsCsv___id
-  childProjectsCsv___cover___childrenProjectsCsv___isPagePublic
-  childProjectsCsv___cover___childrenProjectsCsv___name
-  childProjectsCsv___cover___childrenProjectsCsv___roles
-  childProjectsCsv___cover___childrenProjectsCsv___slug
-  childProjectsCsv___cover___childrenProjectsCsv___tagline
-  childProjectsCsv___cover___childrenProjectsCsv___team
-  childProjectsCsv___cover___childrenProjectsCsv___type
-  childProjectsCsv___cover___childrenProjectsCsv___websiteUrl
-  childProjectsCsv___cover___childrenProjectsCsv___year
-  childProjectsCsv___cover___children___children
-  childProjectsCsv___cover___children___id
-  childProjectsCsv___cover___ctime
-  childProjectsCsv___cover___ctimeMs
-  childProjectsCsv___cover___dev
-  childProjectsCsv___cover___dir
-  childProjectsCsv___cover___ext
-  childProjectsCsv___cover___extension
-  childProjectsCsv___cover___gid
-  childProjectsCsv___cover___id
-  childProjectsCsv___cover___ino
-  childProjectsCsv___cover___internal___content
-  childProjectsCsv___cover___internal___contentDigest
-  childProjectsCsv___cover___internal___contentFilePath
-  childProjectsCsv___cover___internal___description
-  childProjectsCsv___cover___internal___fieldOwners
-  childProjectsCsv___cover___internal___ignoreType
-  childProjectsCsv___cover___internal___mediaType
-  childProjectsCsv___cover___internal___owner
-  childProjectsCsv___cover___internal___type
-  childProjectsCsv___cover___mode
-  childProjectsCsv___cover___modifiedTime
-  childProjectsCsv___cover___mtime
-  childProjectsCsv___cover___mtimeMs
-  childProjectsCsv___cover___name
-  childProjectsCsv___cover___nlink
-  childProjectsCsv___cover___parent___children
-  childProjectsCsv___cover___parent___id
-  childProjectsCsv___cover___prettySize
-  childProjectsCsv___cover___publicURL
-  childProjectsCsv___cover___rdev
-  childProjectsCsv___cover___relativeDirectory
-  childProjectsCsv___cover___relativePath
-  childProjectsCsv___cover___root
-  childProjectsCsv___cover___size
-  childProjectsCsv___cover___sourceInstanceName
-  childProjectsCsv___cover___uid
-  childProjectsCsv___description
-  childProjectsCsv___id
-  childProjectsCsv___internal___content
-  childProjectsCsv___internal___contentDigest
-  childProjectsCsv___internal___contentFilePath
-  childProjectsCsv___internal___description
-  childProjectsCsv___internal___fieldOwners
-  childProjectsCsv___internal___ignoreType
-  childProjectsCsv___internal___mediaType
-  childProjectsCsv___internal___owner
-  childProjectsCsv___internal___type
-  childProjectsCsv___isPagePublic
-  childProjectsCsv___name
-  childProjectsCsv___parent___children
-  childProjectsCsv___parent___children___children
-  childProjectsCsv___parent___children___id
-  childProjectsCsv___parent___id
-  childProjectsCsv___parent___internal___content
-  childProjectsCsv___parent___internal___contentDigest
-  childProjectsCsv___parent___internal___contentFilePath
-  childProjectsCsv___parent___internal___description
-  childProjectsCsv___parent___internal___fieldOwners
-  childProjectsCsv___parent___internal___ignoreType
-  childProjectsCsv___parent___internal___mediaType
-  childProjectsCsv___parent___internal___owner
-  childProjectsCsv___parent___internal___type
-  childProjectsCsv___parent___parent___children
-  childProjectsCsv___parent___parent___id
-  childProjectsCsv___roles
-  childProjectsCsv___slug
-  childProjectsCsv___tagline
-  childProjectsCsv___team
-  childProjectsCsv___thumbnail___absolutePath
-  childProjectsCsv___thumbnail___accessTime
-  childProjectsCsv___thumbnail___atime
-  childProjectsCsv___thumbnail___atimeMs
-  childProjectsCsv___thumbnail___base
-  childProjectsCsv___thumbnail___birthTime
-  childProjectsCsv___thumbnail___birthtime
-  childProjectsCsv___thumbnail___birthtimeMs
-  childProjectsCsv___thumbnail___blksize
-  childProjectsCsv___thumbnail___blocks
-  childProjectsCsv___thumbnail___changeTime
-  childProjectsCsv___thumbnail___childImageSharp___children
-  childProjectsCsv___thumbnail___childImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childProjectsCsv___thumbnail___childImageSharp___id
-  childProjectsCsv___thumbnail___childProjectsCsv___children
-  childProjectsCsv___thumbnail___childProjectsCsv___client
-  childProjectsCsv___thumbnail___childProjectsCsv___description
-  childProjectsCsv___thumbnail___childProjectsCsv___id
-  childProjectsCsv___thumbnail___childProjectsCsv___isPagePublic
-  childProjectsCsv___thumbnail___childProjectsCsv___name
-  childProjectsCsv___thumbnail___childProjectsCsv___roles
-  childProjectsCsv___thumbnail___childProjectsCsv___slug
-  childProjectsCsv___thumbnail___childProjectsCsv___tagline
-  childProjectsCsv___thumbnail___childProjectsCsv___team
-  childProjectsCsv___thumbnail___childProjectsCsv___type
-  childProjectsCsv___thumbnail___childProjectsCsv___websiteUrl
-  childProjectsCsv___thumbnail___childProjectsCsv___year
-  childProjectsCsv___thumbnail___children
-  childProjectsCsv___thumbnail___childrenImageSharp
-  childProjectsCsv___thumbnail___childrenImageSharp___children
-  childProjectsCsv___thumbnail___childrenImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childProjectsCsv___thumbnail___childrenImageSharp___id
-  childProjectsCsv___thumbnail___childrenProjectsCsv
-  childProjectsCsv___thumbnail___childrenProjectsCsv___children
-  childProjectsCsv___thumbnail___childrenProjectsCsv___client
-  childProjectsCsv___thumbnail___childrenProjectsCsv___description
-  childProjectsCsv___thumbnail___childrenProjectsCsv___id
-  childProjectsCsv___thumbnail___childrenProjectsCsv___isPagePublic
-  childProjectsCsv___thumbnail___childrenProjectsCsv___name
-  childProjectsCsv___thumbnail___childrenProjectsCsv___roles
-  childProjectsCsv___thumbnail___childrenProjectsCsv___slug
-  childProjectsCsv___thumbnail___childrenProjectsCsv___tagline
-  childProjectsCsv___thumbnail___childrenProjectsCsv___team
-  childProjectsCsv___thumbnail___childrenProjectsCsv___type
-  childProjectsCsv___thumbnail___childrenProjectsCsv___websiteUrl
-  childProjectsCsv___thumbnail___childrenProjectsCsv___year
-  childProjectsCsv___thumbnail___children___children
-  childProjectsCsv___thumbnail___children___id
-  childProjectsCsv___thumbnail___ctime
-  childProjectsCsv___thumbnail___ctimeMs
-  childProjectsCsv___thumbnail___dev
-  childProjectsCsv___thumbnail___dir
-  childProjectsCsv___thumbnail___ext
-  childProjectsCsv___thumbnail___extension
-  childProjectsCsv___thumbnail___gid
-  childProjectsCsv___thumbnail___id
-  childProjectsCsv___thumbnail___ino
-  childProjectsCsv___thumbnail___internal___content
-  childProjectsCsv___thumbnail___internal___contentDigest
-  childProjectsCsv___thumbnail___internal___contentFilePath
-  childProjectsCsv___thumbnail___internal___description
-  childProjectsCsv___thumbnail___internal___fieldOwners
-  childProjectsCsv___thumbnail___internal___ignoreType
-  childProjectsCsv___thumbnail___internal___mediaType
-  childProjectsCsv___thumbnail___internal___owner
-  childProjectsCsv___thumbnail___internal___type
-  childProjectsCsv___thumbnail___mode
-  childProjectsCsv___thumbnail___modifiedTime
-  childProjectsCsv___thumbnail___mtime
-  childProjectsCsv___thumbnail___mtimeMs
-  childProjectsCsv___thumbnail___name
-  childProjectsCsv___thumbnail___nlink
-  childProjectsCsv___thumbnail___parent___children
-  childProjectsCsv___thumbnail___parent___id
-  childProjectsCsv___thumbnail___prettySize
-  childProjectsCsv___thumbnail___publicURL
-  childProjectsCsv___thumbnail___rdev
-  childProjectsCsv___thumbnail___relativeDirectory
-  childProjectsCsv___thumbnail___relativePath
-  childProjectsCsv___thumbnail___root
-  childProjectsCsv___thumbnail___size
-  childProjectsCsv___thumbnail___sourceInstanceName
-  childProjectsCsv___thumbnail___uid
-  childProjectsCsv___type
-  childProjectsCsv___websiteUrl
-  childProjectsCsv___year
-  children
-  childrenImageSharp
-  childrenImageSharp___children
-  childrenImageSharp___children___children
-  childrenImageSharp___children___children___children
-  childrenImageSharp___children___children___id
-  childrenImageSharp___children___id
-  childrenImageSharp___children___internal___content
-  childrenImageSharp___children___internal___contentDigest
-  childrenImageSharp___children___internal___contentFilePath
-  childrenImageSharp___children___internal___description
-  childrenImageSharp___children___internal___fieldOwners
-  childrenImageSharp___children___internal___ignoreType
-  childrenImageSharp___children___internal___mediaType
-  childrenImageSharp___children___internal___owner
-  childrenImageSharp___children___internal___type
-  childrenImageSharp___children___parent___children
-  childrenImageSharp___children___parent___id
-  childrenImageSharp___fixed___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___fixed___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___fixed___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___fixed___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___fixed___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___fixed___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___fixed___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___fixed___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___fixed___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___fixed___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___fluid___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___fluid___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___fluid___originalImg @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___fluid___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___fluid___presentationHeight @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___fluid___presentationWidth @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___fluid___sizes @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___fluid___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___fluid___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___fluid___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___fluid___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___fluid___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___id
-  childrenImageSharp___internal___content
-  childrenImageSharp___internal___contentDigest
-  childrenImageSharp___internal___contentFilePath
-  childrenImageSharp___internal___description
-  childrenImageSharp___internal___fieldOwners
-  childrenImageSharp___internal___ignoreType
-  childrenImageSharp___internal___mediaType
-  childrenImageSharp___internal___owner
-  childrenImageSharp___internal___type
-  childrenImageSharp___original___height
-  childrenImageSharp___original___src
-  childrenImageSharp___original___width
-  childrenImageSharp___parent___children
-  childrenImageSharp___parent___children___children
-  childrenImageSharp___parent___children___id
-  childrenImageSharp___parent___id
-  childrenImageSharp___parent___internal___content
-  childrenImageSharp___parent___internal___contentDigest
-  childrenImageSharp___parent___internal___contentFilePath
-  childrenImageSharp___parent___internal___description
-  childrenImageSharp___parent___internal___fieldOwners
-  childrenImageSharp___parent___internal___ignoreType
-  childrenImageSharp___parent___internal___mediaType
-  childrenImageSharp___parent___internal___owner
-  childrenImageSharp___parent___internal___type
-  childrenImageSharp___parent___parent___children
-  childrenImageSharp___parent___parent___id
-  childrenImageSharp___resize___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___resize___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___resize___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___resize___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenImageSharp___resize___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenProjectsCsv
-  childrenProjectsCsv___children
-  childrenProjectsCsv___children___children
-  childrenProjectsCsv___children___children___children
-  childrenProjectsCsv___children___children___id
-  childrenProjectsCsv___children___id
-  childrenProjectsCsv___children___internal___content
-  childrenProjectsCsv___children___internal___contentDigest
-  childrenProjectsCsv___children___internal___contentFilePath
-  childrenProjectsCsv___children___internal___description
-  childrenProjectsCsv___children___internal___fieldOwners
-  childrenProjectsCsv___children___internal___ignoreType
-  childrenProjectsCsv___children___internal___mediaType
-  childrenProjectsCsv___children___internal___owner
-  childrenProjectsCsv___children___internal___type
-  childrenProjectsCsv___children___parent___children
-  childrenProjectsCsv___children___parent___id
-  childrenProjectsCsv___client
-  childrenProjectsCsv___cover___absolutePath
-  childrenProjectsCsv___cover___accessTime
-  childrenProjectsCsv___cover___atime
-  childrenProjectsCsv___cover___atimeMs
-  childrenProjectsCsv___cover___base
-  childrenProjectsCsv___cover___birthTime
-  childrenProjectsCsv___cover___birthtime
-  childrenProjectsCsv___cover___birthtimeMs
-  childrenProjectsCsv___cover___blksize
-  childrenProjectsCsv___cover___blocks
-  childrenProjectsCsv___cover___changeTime
-  childrenProjectsCsv___cover___childImageSharp___children
-  childrenProjectsCsv___cover___childImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenProjectsCsv___cover___childImageSharp___id
-  childrenProjectsCsv___cover___childProjectsCsv___children
-  childrenProjectsCsv___cover___childProjectsCsv___client
-  childrenProjectsCsv___cover___childProjectsCsv___description
-  childrenProjectsCsv___cover___childProjectsCsv___id
-  childrenProjectsCsv___cover___childProjectsCsv___isPagePublic
-  childrenProjectsCsv___cover___childProjectsCsv___name
-  childrenProjectsCsv___cover___childProjectsCsv___roles
-  childrenProjectsCsv___cover___childProjectsCsv___slug
-  childrenProjectsCsv___cover___childProjectsCsv___tagline
-  childrenProjectsCsv___cover___childProjectsCsv___team
-  childrenProjectsCsv___cover___childProjectsCsv___type
-  childrenProjectsCsv___cover___childProjectsCsv___websiteUrl
-  childrenProjectsCsv___cover___childProjectsCsv___year
-  childrenProjectsCsv___cover___children
-  childrenProjectsCsv___cover___childrenImageSharp
-  childrenProjectsCsv___cover___childrenImageSharp___children
-  childrenProjectsCsv___cover___childrenImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenProjectsCsv___cover___childrenImageSharp___id
-  childrenProjectsCsv___cover___childrenProjectsCsv
-  childrenProjectsCsv___cover___childrenProjectsCsv___children
-  childrenProjectsCsv___cover___childrenProjectsCsv___client
-  childrenProjectsCsv___cover___childrenProjectsCsv___description
-  childrenProjectsCsv___cover___childrenProjectsCsv___id
-  childrenProjectsCsv___cover___childrenProjectsCsv___isPagePublic
-  childrenProjectsCsv___cover___childrenProjectsCsv___name
-  childrenProjectsCsv___cover___childrenProjectsCsv___roles
-  childrenProjectsCsv___cover___childrenProjectsCsv___slug
-  childrenProjectsCsv___cover___childrenProjectsCsv___tagline
-  childrenProjectsCsv___cover___childrenProjectsCsv___team
-  childrenProjectsCsv___cover___childrenProjectsCsv___type
-  childrenProjectsCsv___cover___childrenProjectsCsv___websiteUrl
-  childrenProjectsCsv___cover___childrenProjectsCsv___year
-  childrenProjectsCsv___cover___children___children
-  childrenProjectsCsv___cover___children___id
-  childrenProjectsCsv___cover___ctime
-  childrenProjectsCsv___cover___ctimeMs
-  childrenProjectsCsv___cover___dev
-  childrenProjectsCsv___cover___dir
-  childrenProjectsCsv___cover___ext
-  childrenProjectsCsv___cover___extension
-  childrenProjectsCsv___cover___gid
-  childrenProjectsCsv___cover___id
-  childrenProjectsCsv___cover___ino
-  childrenProjectsCsv___cover___internal___content
-  childrenProjectsCsv___cover___internal___contentDigest
-  childrenProjectsCsv___cover___internal___contentFilePath
-  childrenProjectsCsv___cover___internal___description
-  childrenProjectsCsv___cover___internal___fieldOwners
-  childrenProjectsCsv___cover___internal___ignoreType
-  childrenProjectsCsv___cover___internal___mediaType
-  childrenProjectsCsv___cover___internal___owner
-  childrenProjectsCsv___cover___internal___type
-  childrenProjectsCsv___cover___mode
-  childrenProjectsCsv___cover___modifiedTime
-  childrenProjectsCsv___cover___mtime
-  childrenProjectsCsv___cover___mtimeMs
-  childrenProjectsCsv___cover___name
-  childrenProjectsCsv___cover___nlink
-  childrenProjectsCsv___cover___parent___children
-  childrenProjectsCsv___cover___parent___id
-  childrenProjectsCsv___cover___prettySize
-  childrenProjectsCsv___cover___publicURL
-  childrenProjectsCsv___cover___rdev
-  childrenProjectsCsv___cover___relativeDirectory
-  childrenProjectsCsv___cover___relativePath
-  childrenProjectsCsv___cover___root
-  childrenProjectsCsv___cover___size
-  childrenProjectsCsv___cover___sourceInstanceName
-  childrenProjectsCsv___cover___uid
-  childrenProjectsCsv___description
-  childrenProjectsCsv___id
-  childrenProjectsCsv___internal___content
-  childrenProjectsCsv___internal___contentDigest
-  childrenProjectsCsv___internal___contentFilePath
-  childrenProjectsCsv___internal___description
-  childrenProjectsCsv___internal___fieldOwners
-  childrenProjectsCsv___internal___ignoreType
-  childrenProjectsCsv___internal___mediaType
-  childrenProjectsCsv___internal___owner
-  childrenProjectsCsv___internal___type
-  childrenProjectsCsv___isPagePublic
-  childrenProjectsCsv___name
-  childrenProjectsCsv___parent___children
-  childrenProjectsCsv___parent___children___children
-  childrenProjectsCsv___parent___children___id
-  childrenProjectsCsv___parent___id
-  childrenProjectsCsv___parent___internal___content
-  childrenProjectsCsv___parent___internal___contentDigest
-  childrenProjectsCsv___parent___internal___contentFilePath
-  childrenProjectsCsv___parent___internal___description
-  childrenProjectsCsv___parent___internal___fieldOwners
-  childrenProjectsCsv___parent___internal___ignoreType
-  childrenProjectsCsv___parent___internal___mediaType
-  childrenProjectsCsv___parent___internal___owner
-  childrenProjectsCsv___parent___internal___type
-  childrenProjectsCsv___parent___parent___children
-  childrenProjectsCsv___parent___parent___id
-  childrenProjectsCsv___roles
-  childrenProjectsCsv___slug
-  childrenProjectsCsv___tagline
-  childrenProjectsCsv___team
-  childrenProjectsCsv___thumbnail___absolutePath
-  childrenProjectsCsv___thumbnail___accessTime
-  childrenProjectsCsv___thumbnail___atime
-  childrenProjectsCsv___thumbnail___atimeMs
-  childrenProjectsCsv___thumbnail___base
-  childrenProjectsCsv___thumbnail___birthTime
-  childrenProjectsCsv___thumbnail___birthtime
-  childrenProjectsCsv___thumbnail___birthtimeMs
-  childrenProjectsCsv___thumbnail___blksize
-  childrenProjectsCsv___thumbnail___blocks
-  childrenProjectsCsv___thumbnail___changeTime
-  childrenProjectsCsv___thumbnail___childImageSharp___children
-  childrenProjectsCsv___thumbnail___childImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenProjectsCsv___thumbnail___childImageSharp___id
-  childrenProjectsCsv___thumbnail___childProjectsCsv___children
-  childrenProjectsCsv___thumbnail___childProjectsCsv___client
-  childrenProjectsCsv___thumbnail___childProjectsCsv___description
-  childrenProjectsCsv___thumbnail___childProjectsCsv___id
-  childrenProjectsCsv___thumbnail___childProjectsCsv___isPagePublic
-  childrenProjectsCsv___thumbnail___childProjectsCsv___name
-  childrenProjectsCsv___thumbnail___childProjectsCsv___roles
-  childrenProjectsCsv___thumbnail___childProjectsCsv___slug
-  childrenProjectsCsv___thumbnail___childProjectsCsv___tagline
-  childrenProjectsCsv___thumbnail___childProjectsCsv___team
-  childrenProjectsCsv___thumbnail___childProjectsCsv___type
-  childrenProjectsCsv___thumbnail___childProjectsCsv___websiteUrl
-  childrenProjectsCsv___thumbnail___childProjectsCsv___year
-  childrenProjectsCsv___thumbnail___children
-  childrenProjectsCsv___thumbnail___childrenImageSharp
-  childrenProjectsCsv___thumbnail___childrenImageSharp___children
-  childrenProjectsCsv___thumbnail___childrenImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  childrenProjectsCsv___thumbnail___childrenImageSharp___id
-  childrenProjectsCsv___thumbnail___childrenProjectsCsv
-  childrenProjectsCsv___thumbnail___childrenProjectsCsv___children
-  childrenProjectsCsv___thumbnail___childrenProjectsCsv___client
-  childrenProjectsCsv___thumbnail___childrenProjectsCsv___description
-  childrenProjectsCsv___thumbnail___childrenProjectsCsv___id
-  childrenProjectsCsv___thumbnail___childrenProjectsCsv___isPagePublic
-  childrenProjectsCsv___thumbnail___childrenProjectsCsv___name
-  childrenProjectsCsv___thumbnail___childrenProjectsCsv___roles
-  childrenProjectsCsv___thumbnail___childrenProjectsCsv___slug
-  childrenProjectsCsv___thumbnail___childrenProjectsCsv___tagline
-  childrenProjectsCsv___thumbnail___childrenProjectsCsv___team
-  childrenProjectsCsv___thumbnail___childrenProjectsCsv___type
-  childrenProjectsCsv___thumbnail___childrenProjectsCsv___websiteUrl
-  childrenProjectsCsv___thumbnail___childrenProjectsCsv___year
-  childrenProjectsCsv___thumbnail___children___children
-  childrenProjectsCsv___thumbnail___children___id
-  childrenProjectsCsv___thumbnail___ctime
-  childrenProjectsCsv___thumbnail___ctimeMs
-  childrenProjectsCsv___thumbnail___dev
-  childrenProjectsCsv___thumbnail___dir
-  childrenProjectsCsv___thumbnail___ext
-  childrenProjectsCsv___thumbnail___extension
-  childrenProjectsCsv___thumbnail___gid
-  childrenProjectsCsv___thumbnail___id
-  childrenProjectsCsv___thumbnail___ino
-  childrenProjectsCsv___thumbnail___internal___content
-  childrenProjectsCsv___thumbnail___internal___contentDigest
-  childrenProjectsCsv___thumbnail___internal___contentFilePath
-  childrenProjectsCsv___thumbnail___internal___description
-  childrenProjectsCsv___thumbnail___internal___fieldOwners
-  childrenProjectsCsv___thumbnail___internal___ignoreType
-  childrenProjectsCsv___thumbnail___internal___mediaType
-  childrenProjectsCsv___thumbnail___internal___owner
-  childrenProjectsCsv___thumbnail___internal___type
-  childrenProjectsCsv___thumbnail___mode
-  childrenProjectsCsv___thumbnail___modifiedTime
-  childrenProjectsCsv___thumbnail___mtime
-  childrenProjectsCsv___thumbnail___mtimeMs
-  childrenProjectsCsv___thumbnail___name
-  childrenProjectsCsv___thumbnail___nlink
-  childrenProjectsCsv___thumbnail___parent___children
-  childrenProjectsCsv___thumbnail___parent___id
-  childrenProjectsCsv___thumbnail___prettySize
-  childrenProjectsCsv___thumbnail___publicURL
-  childrenProjectsCsv___thumbnail___rdev
-  childrenProjectsCsv___thumbnail___relativeDirectory
-  childrenProjectsCsv___thumbnail___relativePath
-  childrenProjectsCsv___thumbnail___root
-  childrenProjectsCsv___thumbnail___size
-  childrenProjectsCsv___thumbnail___sourceInstanceName
-  childrenProjectsCsv___thumbnail___uid
-  childrenProjectsCsv___type
-  childrenProjectsCsv___websiteUrl
-  childrenProjectsCsv___year
-  children___children
-  children___children___children
-  children___children___children___children
-  children___children___children___id
-  children___children___id
-  children___children___internal___content
-  children___children___internal___contentDigest
-  children___children___internal___contentFilePath
-  children___children___internal___description
-  children___children___internal___fieldOwners
-  children___children___internal___ignoreType
-  children___children___internal___mediaType
-  children___children___internal___owner
-  children___children___internal___type
-  children___children___parent___children
-  children___children___parent___id
-  children___id
-  children___internal___content
-  children___internal___contentDigest
-  children___internal___contentFilePath
-  children___internal___description
-  children___internal___fieldOwners
-  children___internal___ignoreType
-  children___internal___mediaType
-  children___internal___owner
-  children___internal___type
-  children___parent___children
-  children___parent___children___children
-  children___parent___children___id
-  children___parent___id
-  children___parent___internal___content
-  children___parent___internal___contentDigest
-  children___parent___internal___contentFilePath
-  children___parent___internal___description
-  children___parent___internal___fieldOwners
-  children___parent___internal___ignoreType
-  children___parent___internal___mediaType
-  children___parent___internal___owner
-  children___parent___internal___type
-  children___parent___parent___children
-  children___parent___parent___id
-  ctime
-  ctimeMs
-  dev
-  dir
-  ext
-  extension
-  gid
-  id
-  ino
-  internal___content
-  internal___contentDigest
-  internal___contentFilePath
-  internal___description
-  internal___fieldOwners
-  internal___ignoreType
-  internal___mediaType
-  internal___owner
-  internal___type
-  mode
-  modifiedTime
-  mtime
-  mtimeMs
-  name
-  nlink
-  parent___children
-  parent___children___children
-  parent___children___children___children
-  parent___children___children___id
-  parent___children___id
-  parent___children___internal___content
-  parent___children___internal___contentDigest
-  parent___children___internal___contentFilePath
-  parent___children___internal___description
-  parent___children___internal___fieldOwners
-  parent___children___internal___ignoreType
-  parent___children___internal___mediaType
-  parent___children___internal___owner
-  parent___children___internal___type
-  parent___children___parent___children
-  parent___children___parent___id
-  parent___id
-  parent___internal___content
-  parent___internal___contentDigest
-  parent___internal___contentFilePath
-  parent___internal___description
-  parent___internal___fieldOwners
-  parent___internal___ignoreType
-  parent___internal___mediaType
-  parent___internal___owner
-  parent___internal___type
-  parent___parent___children
-  parent___parent___children___children
-  parent___parent___children___id
-  parent___parent___id
-  parent___parent___internal___content
-  parent___parent___internal___contentDigest
-  parent___parent___internal___contentFilePath
-  parent___parent___internal___description
-  parent___parent___internal___fieldOwners
-  parent___parent___internal___ignoreType
-  parent___parent___internal___mediaType
-  parent___parent___internal___owner
-  parent___parent___internal___type
-  parent___parent___parent___children
-  parent___parent___parent___id
-  prettySize
-  publicURL
-  rdev
-  relativeDirectory
-  relativePath
-  root
-  size
-  sourceInstanceName
-  uid
+enum FieldSelectorEnum {
+  SELECT
 }
 
 enum GatsbyImageFormat {
@@ -2439,134 +1602,6 @@ enum ImagePlaceholder {
   TRACED_SVG
 }
 
-enum ImageSharpFieldsEnum {
-  children
-  children___children
-  children___children___children
-  children___children___children___children
-  children___children___children___id
-  children___children___id
-  children___children___internal___content
-  children___children___internal___contentDigest
-  children___children___internal___contentFilePath
-  children___children___internal___description
-  children___children___internal___fieldOwners
-  children___children___internal___ignoreType
-  children___children___internal___mediaType
-  children___children___internal___owner
-  children___children___internal___type
-  children___children___parent___children
-  children___children___parent___id
-  children___id
-  children___internal___content
-  children___internal___contentDigest
-  children___internal___contentFilePath
-  children___internal___description
-  children___internal___fieldOwners
-  children___internal___ignoreType
-  children___internal___mediaType
-  children___internal___owner
-  children___internal___type
-  children___parent___children
-  children___parent___children___children
-  children___parent___children___id
-  children___parent___id
-  children___parent___internal___content
-  children___parent___internal___contentDigest
-  children___parent___internal___contentFilePath
-  children___parent___internal___description
-  children___parent___internal___fieldOwners
-  children___parent___internal___ignoreType
-  children___parent___internal___mediaType
-  children___parent___internal___owner
-  children___parent___internal___type
-  children___parent___parent___children
-  children___parent___parent___id
-  fixed___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  fixed___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  fixed___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  fixed___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  fixed___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  fixed___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  fixed___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  fixed___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  fixed___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  fixed___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  fluid___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  fluid___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  fluid___originalImg @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  fluid___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  fluid___presentationHeight @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  fluid___presentationWidth @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  fluid___sizes @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  fluid___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  fluid___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  fluid___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  fluid___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  fluid___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  id
-  internal___content
-  internal___contentDigest
-  internal___contentFilePath
-  internal___description
-  internal___fieldOwners
-  internal___ignoreType
-  internal___mediaType
-  internal___owner
-  internal___type
-  original___height
-  original___src
-  original___width
-  parent___children
-  parent___children___children
-  parent___children___children___children
-  parent___children___children___id
-  parent___children___id
-  parent___children___internal___content
-  parent___children___internal___contentDigest
-  parent___children___internal___contentFilePath
-  parent___children___internal___description
-  parent___children___internal___fieldOwners
-  parent___children___internal___ignoreType
-  parent___children___internal___mediaType
-  parent___children___internal___owner
-  parent___children___internal___type
-  parent___children___parent___children
-  parent___children___parent___id
-  parent___id
-  parent___internal___content
-  parent___internal___contentDigest
-  parent___internal___contentFilePath
-  parent___internal___description
-  parent___internal___fieldOwners
-  parent___internal___ignoreType
-  parent___internal___mediaType
-  parent___internal___owner
-  parent___internal___type
-  parent___parent___children
-  parent___parent___children___children
-  parent___parent___children___id
-  parent___parent___id
-  parent___parent___internal___content
-  parent___parent___internal___contentDigest
-  parent___parent___internal___contentFilePath
-  parent___parent___internal___description
-  parent___parent___internal___fieldOwners
-  parent___parent___internal___ignoreType
-  parent___parent___internal___mediaType
-  parent___parent___internal___owner
-  parent___parent___internal___type
-  parent___parent___parent___children
-  parent___parent___parent___id
-  resize___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  resize___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  resize___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  resize___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  resize___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-}
-
 enum PotraceTurnPolicy {
   TURNPOLICY_BLACK
   TURNPOLICY_LEFT
@@ -2574,863 +1609,6 @@ enum PotraceTurnPolicy {
   TURNPOLICY_MINORITY
   TURNPOLICY_RIGHT
   TURNPOLICY_WHITE
-}
-
-enum ProjectsCsvFieldsEnum {
-  children
-  children___children
-  children___children___children
-  children___children___children___children
-  children___children___children___id
-  children___children___id
-  children___children___internal___content
-  children___children___internal___contentDigest
-  children___children___internal___contentFilePath
-  children___children___internal___description
-  children___children___internal___fieldOwners
-  children___children___internal___ignoreType
-  children___children___internal___mediaType
-  children___children___internal___owner
-  children___children___internal___type
-  children___children___parent___children
-  children___children___parent___id
-  children___id
-  children___internal___content
-  children___internal___contentDigest
-  children___internal___contentFilePath
-  children___internal___description
-  children___internal___fieldOwners
-  children___internal___ignoreType
-  children___internal___mediaType
-  children___internal___owner
-  children___internal___type
-  children___parent___children
-  children___parent___children___children
-  children___parent___children___id
-  children___parent___id
-  children___parent___internal___content
-  children___parent___internal___contentDigest
-  children___parent___internal___contentFilePath
-  children___parent___internal___description
-  children___parent___internal___fieldOwners
-  children___parent___internal___ignoreType
-  children___parent___internal___mediaType
-  children___parent___internal___owner
-  children___parent___internal___type
-  children___parent___parent___children
-  children___parent___parent___id
-  client
-  cover___absolutePath
-  cover___accessTime
-  cover___atime
-  cover___atimeMs
-  cover___base
-  cover___birthTime
-  cover___birthtime
-  cover___birthtimeMs
-  cover___blksize
-  cover___blocks
-  cover___changeTime
-  cover___childImageSharp___children
-  cover___childImageSharp___children___children
-  cover___childImageSharp___children___id
-  cover___childImageSharp___fixed___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___fixed___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___fixed___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___fixed___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___fixed___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___fixed___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___fixed___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___fixed___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___fixed___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___fixed___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___fluid___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___fluid___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___fluid___originalImg @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___fluid___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___fluid___presentationHeight @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___fluid___presentationWidth @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___fluid___sizes @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___fluid___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___fluid___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___fluid___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___fluid___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___fluid___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___id
-  cover___childImageSharp___internal___content
-  cover___childImageSharp___internal___contentDigest
-  cover___childImageSharp___internal___contentFilePath
-  cover___childImageSharp___internal___description
-  cover___childImageSharp___internal___fieldOwners
-  cover___childImageSharp___internal___ignoreType
-  cover___childImageSharp___internal___mediaType
-  cover___childImageSharp___internal___owner
-  cover___childImageSharp___internal___type
-  cover___childImageSharp___original___height
-  cover___childImageSharp___original___src
-  cover___childImageSharp___original___width
-  cover___childImageSharp___parent___children
-  cover___childImageSharp___parent___id
-  cover___childImageSharp___resize___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___resize___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___resize___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___resize___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childImageSharp___resize___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childProjectsCsv___children
-  cover___childProjectsCsv___children___children
-  cover___childProjectsCsv___children___id
-  cover___childProjectsCsv___client
-  cover___childProjectsCsv___cover___absolutePath
-  cover___childProjectsCsv___cover___accessTime
-  cover___childProjectsCsv___cover___atime
-  cover___childProjectsCsv___cover___atimeMs
-  cover___childProjectsCsv___cover___base
-  cover___childProjectsCsv___cover___birthTime
-  cover___childProjectsCsv___cover___birthtime
-  cover___childProjectsCsv___cover___birthtimeMs
-  cover___childProjectsCsv___cover___blksize
-  cover___childProjectsCsv___cover___blocks
-  cover___childProjectsCsv___cover___changeTime
-  cover___childProjectsCsv___cover___children
-  cover___childProjectsCsv___cover___childrenImageSharp
-  cover___childProjectsCsv___cover___childrenProjectsCsv
-  cover___childProjectsCsv___cover___ctime
-  cover___childProjectsCsv___cover___ctimeMs
-  cover___childProjectsCsv___cover___dev
-  cover___childProjectsCsv___cover___dir
-  cover___childProjectsCsv___cover___ext
-  cover___childProjectsCsv___cover___extension
-  cover___childProjectsCsv___cover___gid
-  cover___childProjectsCsv___cover___id
-  cover___childProjectsCsv___cover___ino
-  cover___childProjectsCsv___cover___mode
-  cover___childProjectsCsv___cover___modifiedTime
-  cover___childProjectsCsv___cover___mtime
-  cover___childProjectsCsv___cover___mtimeMs
-  cover___childProjectsCsv___cover___name
-  cover___childProjectsCsv___cover___nlink
-  cover___childProjectsCsv___cover___prettySize
-  cover___childProjectsCsv___cover___publicURL
-  cover___childProjectsCsv___cover___rdev
-  cover___childProjectsCsv___cover___relativeDirectory
-  cover___childProjectsCsv___cover___relativePath
-  cover___childProjectsCsv___cover___root
-  cover___childProjectsCsv___cover___size
-  cover___childProjectsCsv___cover___sourceInstanceName
-  cover___childProjectsCsv___cover___uid
-  cover___childProjectsCsv___description
-  cover___childProjectsCsv___id
-  cover___childProjectsCsv___internal___content
-  cover___childProjectsCsv___internal___contentDigest
-  cover___childProjectsCsv___internal___contentFilePath
-  cover___childProjectsCsv___internal___description
-  cover___childProjectsCsv___internal___fieldOwners
-  cover___childProjectsCsv___internal___ignoreType
-  cover___childProjectsCsv___internal___mediaType
-  cover___childProjectsCsv___internal___owner
-  cover___childProjectsCsv___internal___type
-  cover___childProjectsCsv___isPagePublic
-  cover___childProjectsCsv___name
-  cover___childProjectsCsv___parent___children
-  cover___childProjectsCsv___parent___id
-  cover___childProjectsCsv___roles
-  cover___childProjectsCsv___slug
-  cover___childProjectsCsv___tagline
-  cover___childProjectsCsv___team
-  cover___childProjectsCsv___thumbnail___absolutePath
-  cover___childProjectsCsv___thumbnail___accessTime
-  cover___childProjectsCsv___thumbnail___atime
-  cover___childProjectsCsv___thumbnail___atimeMs
-  cover___childProjectsCsv___thumbnail___base
-  cover___childProjectsCsv___thumbnail___birthTime
-  cover___childProjectsCsv___thumbnail___birthtime
-  cover___childProjectsCsv___thumbnail___birthtimeMs
-  cover___childProjectsCsv___thumbnail___blksize
-  cover___childProjectsCsv___thumbnail___blocks
-  cover___childProjectsCsv___thumbnail___changeTime
-  cover___childProjectsCsv___thumbnail___children
-  cover___childProjectsCsv___thumbnail___childrenImageSharp
-  cover___childProjectsCsv___thumbnail___childrenProjectsCsv
-  cover___childProjectsCsv___thumbnail___ctime
-  cover___childProjectsCsv___thumbnail___ctimeMs
-  cover___childProjectsCsv___thumbnail___dev
-  cover___childProjectsCsv___thumbnail___dir
-  cover___childProjectsCsv___thumbnail___ext
-  cover___childProjectsCsv___thumbnail___extension
-  cover___childProjectsCsv___thumbnail___gid
-  cover___childProjectsCsv___thumbnail___id
-  cover___childProjectsCsv___thumbnail___ino
-  cover___childProjectsCsv___thumbnail___mode
-  cover___childProjectsCsv___thumbnail___modifiedTime
-  cover___childProjectsCsv___thumbnail___mtime
-  cover___childProjectsCsv___thumbnail___mtimeMs
-  cover___childProjectsCsv___thumbnail___name
-  cover___childProjectsCsv___thumbnail___nlink
-  cover___childProjectsCsv___thumbnail___prettySize
-  cover___childProjectsCsv___thumbnail___publicURL
-  cover___childProjectsCsv___thumbnail___rdev
-  cover___childProjectsCsv___thumbnail___relativeDirectory
-  cover___childProjectsCsv___thumbnail___relativePath
-  cover___childProjectsCsv___thumbnail___root
-  cover___childProjectsCsv___thumbnail___size
-  cover___childProjectsCsv___thumbnail___sourceInstanceName
-  cover___childProjectsCsv___thumbnail___uid
-  cover___childProjectsCsv___type
-  cover___childProjectsCsv___websiteUrl
-  cover___childProjectsCsv___year
-  cover___children
-  cover___childrenImageSharp
-  cover___childrenImageSharp___children
-  cover___childrenImageSharp___children___children
-  cover___childrenImageSharp___children___id
-  cover___childrenImageSharp___fixed___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___fixed___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___fixed___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___fixed___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___fixed___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___fixed___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___fixed___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___fixed___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___fixed___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___fixed___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___fluid___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___fluid___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___fluid___originalImg @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___fluid___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___fluid___presentationHeight @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___fluid___presentationWidth @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___fluid___sizes @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___fluid___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___fluid___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___fluid___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___fluid___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___fluid___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___id
-  cover___childrenImageSharp___internal___content
-  cover___childrenImageSharp___internal___contentDigest
-  cover___childrenImageSharp___internal___contentFilePath
-  cover___childrenImageSharp___internal___description
-  cover___childrenImageSharp___internal___fieldOwners
-  cover___childrenImageSharp___internal___ignoreType
-  cover___childrenImageSharp___internal___mediaType
-  cover___childrenImageSharp___internal___owner
-  cover___childrenImageSharp___internal___type
-  cover___childrenImageSharp___original___height
-  cover___childrenImageSharp___original___src
-  cover___childrenImageSharp___original___width
-  cover___childrenImageSharp___parent___children
-  cover___childrenImageSharp___parent___id
-  cover___childrenImageSharp___resize___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___resize___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___resize___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___resize___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenImageSharp___resize___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  cover___childrenProjectsCsv
-  cover___childrenProjectsCsv___children
-  cover___childrenProjectsCsv___children___children
-  cover___childrenProjectsCsv___children___id
-  cover___childrenProjectsCsv___client
-  cover___childrenProjectsCsv___cover___absolutePath
-  cover___childrenProjectsCsv___cover___accessTime
-  cover___childrenProjectsCsv___cover___atime
-  cover___childrenProjectsCsv___cover___atimeMs
-  cover___childrenProjectsCsv___cover___base
-  cover___childrenProjectsCsv___cover___birthTime
-  cover___childrenProjectsCsv___cover___birthtime
-  cover___childrenProjectsCsv___cover___birthtimeMs
-  cover___childrenProjectsCsv___cover___blksize
-  cover___childrenProjectsCsv___cover___blocks
-  cover___childrenProjectsCsv___cover___changeTime
-  cover___childrenProjectsCsv___cover___children
-  cover___childrenProjectsCsv___cover___childrenImageSharp
-  cover___childrenProjectsCsv___cover___childrenProjectsCsv
-  cover___childrenProjectsCsv___cover___ctime
-  cover___childrenProjectsCsv___cover___ctimeMs
-  cover___childrenProjectsCsv___cover___dev
-  cover___childrenProjectsCsv___cover___dir
-  cover___childrenProjectsCsv___cover___ext
-  cover___childrenProjectsCsv___cover___extension
-  cover___childrenProjectsCsv___cover___gid
-  cover___childrenProjectsCsv___cover___id
-  cover___childrenProjectsCsv___cover___ino
-  cover___childrenProjectsCsv___cover___mode
-  cover___childrenProjectsCsv___cover___modifiedTime
-  cover___childrenProjectsCsv___cover___mtime
-  cover___childrenProjectsCsv___cover___mtimeMs
-  cover___childrenProjectsCsv___cover___name
-  cover___childrenProjectsCsv___cover___nlink
-  cover___childrenProjectsCsv___cover___prettySize
-  cover___childrenProjectsCsv___cover___publicURL
-  cover___childrenProjectsCsv___cover___rdev
-  cover___childrenProjectsCsv___cover___relativeDirectory
-  cover___childrenProjectsCsv___cover___relativePath
-  cover___childrenProjectsCsv___cover___root
-  cover___childrenProjectsCsv___cover___size
-  cover___childrenProjectsCsv___cover___sourceInstanceName
-  cover___childrenProjectsCsv___cover___uid
-  cover___childrenProjectsCsv___description
-  cover___childrenProjectsCsv___id
-  cover___childrenProjectsCsv___internal___content
-  cover___childrenProjectsCsv___internal___contentDigest
-  cover___childrenProjectsCsv___internal___contentFilePath
-  cover___childrenProjectsCsv___internal___description
-  cover___childrenProjectsCsv___internal___fieldOwners
-  cover___childrenProjectsCsv___internal___ignoreType
-  cover___childrenProjectsCsv___internal___mediaType
-  cover___childrenProjectsCsv___internal___owner
-  cover___childrenProjectsCsv___internal___type
-  cover___childrenProjectsCsv___isPagePublic
-  cover___childrenProjectsCsv___name
-  cover___childrenProjectsCsv___parent___children
-  cover___childrenProjectsCsv___parent___id
-  cover___childrenProjectsCsv___roles
-  cover___childrenProjectsCsv___slug
-  cover___childrenProjectsCsv___tagline
-  cover___childrenProjectsCsv___team
-  cover___childrenProjectsCsv___thumbnail___absolutePath
-  cover___childrenProjectsCsv___thumbnail___accessTime
-  cover___childrenProjectsCsv___thumbnail___atime
-  cover___childrenProjectsCsv___thumbnail___atimeMs
-  cover___childrenProjectsCsv___thumbnail___base
-  cover___childrenProjectsCsv___thumbnail___birthTime
-  cover___childrenProjectsCsv___thumbnail___birthtime
-  cover___childrenProjectsCsv___thumbnail___birthtimeMs
-  cover___childrenProjectsCsv___thumbnail___blksize
-  cover___childrenProjectsCsv___thumbnail___blocks
-  cover___childrenProjectsCsv___thumbnail___changeTime
-  cover___childrenProjectsCsv___thumbnail___children
-  cover___childrenProjectsCsv___thumbnail___childrenImageSharp
-  cover___childrenProjectsCsv___thumbnail___childrenProjectsCsv
-  cover___childrenProjectsCsv___thumbnail___ctime
-  cover___childrenProjectsCsv___thumbnail___ctimeMs
-  cover___childrenProjectsCsv___thumbnail___dev
-  cover___childrenProjectsCsv___thumbnail___dir
-  cover___childrenProjectsCsv___thumbnail___ext
-  cover___childrenProjectsCsv___thumbnail___extension
-  cover___childrenProjectsCsv___thumbnail___gid
-  cover___childrenProjectsCsv___thumbnail___id
-  cover___childrenProjectsCsv___thumbnail___ino
-  cover___childrenProjectsCsv___thumbnail___mode
-  cover___childrenProjectsCsv___thumbnail___modifiedTime
-  cover___childrenProjectsCsv___thumbnail___mtime
-  cover___childrenProjectsCsv___thumbnail___mtimeMs
-  cover___childrenProjectsCsv___thumbnail___name
-  cover___childrenProjectsCsv___thumbnail___nlink
-  cover___childrenProjectsCsv___thumbnail___prettySize
-  cover___childrenProjectsCsv___thumbnail___publicURL
-  cover___childrenProjectsCsv___thumbnail___rdev
-  cover___childrenProjectsCsv___thumbnail___relativeDirectory
-  cover___childrenProjectsCsv___thumbnail___relativePath
-  cover___childrenProjectsCsv___thumbnail___root
-  cover___childrenProjectsCsv___thumbnail___size
-  cover___childrenProjectsCsv___thumbnail___sourceInstanceName
-  cover___childrenProjectsCsv___thumbnail___uid
-  cover___childrenProjectsCsv___type
-  cover___childrenProjectsCsv___websiteUrl
-  cover___childrenProjectsCsv___year
-  cover___children___children
-  cover___children___children___children
-  cover___children___children___id
-  cover___children___id
-  cover___children___internal___content
-  cover___children___internal___contentDigest
-  cover___children___internal___contentFilePath
-  cover___children___internal___description
-  cover___children___internal___fieldOwners
-  cover___children___internal___ignoreType
-  cover___children___internal___mediaType
-  cover___children___internal___owner
-  cover___children___internal___type
-  cover___children___parent___children
-  cover___children___parent___id
-  cover___ctime
-  cover___ctimeMs
-  cover___dev
-  cover___dir
-  cover___ext
-  cover___extension
-  cover___gid
-  cover___id
-  cover___ino
-  cover___internal___content
-  cover___internal___contentDigest
-  cover___internal___contentFilePath
-  cover___internal___description
-  cover___internal___fieldOwners
-  cover___internal___ignoreType
-  cover___internal___mediaType
-  cover___internal___owner
-  cover___internal___type
-  cover___mode
-  cover___modifiedTime
-  cover___mtime
-  cover___mtimeMs
-  cover___name
-  cover___nlink
-  cover___parent___children
-  cover___parent___children___children
-  cover___parent___children___id
-  cover___parent___id
-  cover___parent___internal___content
-  cover___parent___internal___contentDigest
-  cover___parent___internal___contentFilePath
-  cover___parent___internal___description
-  cover___parent___internal___fieldOwners
-  cover___parent___internal___ignoreType
-  cover___parent___internal___mediaType
-  cover___parent___internal___owner
-  cover___parent___internal___type
-  cover___parent___parent___children
-  cover___parent___parent___id
-  cover___prettySize
-  cover___publicURL
-  cover___rdev
-  cover___relativeDirectory
-  cover___relativePath
-  cover___root
-  cover___size
-  cover___sourceInstanceName
-  cover___uid
-  description
-  id
-  internal___content
-  internal___contentDigest
-  internal___contentFilePath
-  internal___description
-  internal___fieldOwners
-  internal___ignoreType
-  internal___mediaType
-  internal___owner
-  internal___type
-  isPagePublic
-  name
-  parent___children
-  parent___children___children
-  parent___children___children___children
-  parent___children___children___id
-  parent___children___id
-  parent___children___internal___content
-  parent___children___internal___contentDigest
-  parent___children___internal___contentFilePath
-  parent___children___internal___description
-  parent___children___internal___fieldOwners
-  parent___children___internal___ignoreType
-  parent___children___internal___mediaType
-  parent___children___internal___owner
-  parent___children___internal___type
-  parent___children___parent___children
-  parent___children___parent___id
-  parent___id
-  parent___internal___content
-  parent___internal___contentDigest
-  parent___internal___contentFilePath
-  parent___internal___description
-  parent___internal___fieldOwners
-  parent___internal___ignoreType
-  parent___internal___mediaType
-  parent___internal___owner
-  parent___internal___type
-  parent___parent___children
-  parent___parent___children___children
-  parent___parent___children___id
-  parent___parent___id
-  parent___parent___internal___content
-  parent___parent___internal___contentDigest
-  parent___parent___internal___contentFilePath
-  parent___parent___internal___description
-  parent___parent___internal___fieldOwners
-  parent___parent___internal___ignoreType
-  parent___parent___internal___mediaType
-  parent___parent___internal___owner
-  parent___parent___internal___type
-  parent___parent___parent___children
-  parent___parent___parent___id
-  roles
-  slug
-  tagline
-  team
-  thumbnail___absolutePath
-  thumbnail___accessTime
-  thumbnail___atime
-  thumbnail___atimeMs
-  thumbnail___base
-  thumbnail___birthTime
-  thumbnail___birthtime
-  thumbnail___birthtimeMs
-  thumbnail___blksize
-  thumbnail___blocks
-  thumbnail___changeTime
-  thumbnail___childImageSharp___children
-  thumbnail___childImageSharp___children___children
-  thumbnail___childImageSharp___children___id
-  thumbnail___childImageSharp___fixed___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___fixed___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___fixed___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___fixed___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___fixed___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___fixed___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___fixed___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___fixed___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___fixed___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___fixed___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___fluid___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___fluid___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___fluid___originalImg @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___fluid___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___fluid___presentationHeight @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___fluid___presentationWidth @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___fluid___sizes @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___fluid___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___fluid___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___fluid___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___fluid___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___fluid___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___id
-  thumbnail___childImageSharp___internal___content
-  thumbnail___childImageSharp___internal___contentDigest
-  thumbnail___childImageSharp___internal___contentFilePath
-  thumbnail___childImageSharp___internal___description
-  thumbnail___childImageSharp___internal___fieldOwners
-  thumbnail___childImageSharp___internal___ignoreType
-  thumbnail___childImageSharp___internal___mediaType
-  thumbnail___childImageSharp___internal___owner
-  thumbnail___childImageSharp___internal___type
-  thumbnail___childImageSharp___original___height
-  thumbnail___childImageSharp___original___src
-  thumbnail___childImageSharp___original___width
-  thumbnail___childImageSharp___parent___children
-  thumbnail___childImageSharp___parent___id
-  thumbnail___childImageSharp___resize___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___resize___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___resize___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___resize___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childImageSharp___resize___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childProjectsCsv___children
-  thumbnail___childProjectsCsv___children___children
-  thumbnail___childProjectsCsv___children___id
-  thumbnail___childProjectsCsv___client
-  thumbnail___childProjectsCsv___cover___absolutePath
-  thumbnail___childProjectsCsv___cover___accessTime
-  thumbnail___childProjectsCsv___cover___atime
-  thumbnail___childProjectsCsv___cover___atimeMs
-  thumbnail___childProjectsCsv___cover___base
-  thumbnail___childProjectsCsv___cover___birthTime
-  thumbnail___childProjectsCsv___cover___birthtime
-  thumbnail___childProjectsCsv___cover___birthtimeMs
-  thumbnail___childProjectsCsv___cover___blksize
-  thumbnail___childProjectsCsv___cover___blocks
-  thumbnail___childProjectsCsv___cover___changeTime
-  thumbnail___childProjectsCsv___cover___children
-  thumbnail___childProjectsCsv___cover___childrenImageSharp
-  thumbnail___childProjectsCsv___cover___childrenProjectsCsv
-  thumbnail___childProjectsCsv___cover___ctime
-  thumbnail___childProjectsCsv___cover___ctimeMs
-  thumbnail___childProjectsCsv___cover___dev
-  thumbnail___childProjectsCsv___cover___dir
-  thumbnail___childProjectsCsv___cover___ext
-  thumbnail___childProjectsCsv___cover___extension
-  thumbnail___childProjectsCsv___cover___gid
-  thumbnail___childProjectsCsv___cover___id
-  thumbnail___childProjectsCsv___cover___ino
-  thumbnail___childProjectsCsv___cover___mode
-  thumbnail___childProjectsCsv___cover___modifiedTime
-  thumbnail___childProjectsCsv___cover___mtime
-  thumbnail___childProjectsCsv___cover___mtimeMs
-  thumbnail___childProjectsCsv___cover___name
-  thumbnail___childProjectsCsv___cover___nlink
-  thumbnail___childProjectsCsv___cover___prettySize
-  thumbnail___childProjectsCsv___cover___publicURL
-  thumbnail___childProjectsCsv___cover___rdev
-  thumbnail___childProjectsCsv___cover___relativeDirectory
-  thumbnail___childProjectsCsv___cover___relativePath
-  thumbnail___childProjectsCsv___cover___root
-  thumbnail___childProjectsCsv___cover___size
-  thumbnail___childProjectsCsv___cover___sourceInstanceName
-  thumbnail___childProjectsCsv___cover___uid
-  thumbnail___childProjectsCsv___description
-  thumbnail___childProjectsCsv___id
-  thumbnail___childProjectsCsv___internal___content
-  thumbnail___childProjectsCsv___internal___contentDigest
-  thumbnail___childProjectsCsv___internal___contentFilePath
-  thumbnail___childProjectsCsv___internal___description
-  thumbnail___childProjectsCsv___internal___fieldOwners
-  thumbnail___childProjectsCsv___internal___ignoreType
-  thumbnail___childProjectsCsv___internal___mediaType
-  thumbnail___childProjectsCsv___internal___owner
-  thumbnail___childProjectsCsv___internal___type
-  thumbnail___childProjectsCsv___isPagePublic
-  thumbnail___childProjectsCsv___name
-  thumbnail___childProjectsCsv___parent___children
-  thumbnail___childProjectsCsv___parent___id
-  thumbnail___childProjectsCsv___roles
-  thumbnail___childProjectsCsv___slug
-  thumbnail___childProjectsCsv___tagline
-  thumbnail___childProjectsCsv___team
-  thumbnail___childProjectsCsv___thumbnail___absolutePath
-  thumbnail___childProjectsCsv___thumbnail___accessTime
-  thumbnail___childProjectsCsv___thumbnail___atime
-  thumbnail___childProjectsCsv___thumbnail___atimeMs
-  thumbnail___childProjectsCsv___thumbnail___base
-  thumbnail___childProjectsCsv___thumbnail___birthTime
-  thumbnail___childProjectsCsv___thumbnail___birthtime
-  thumbnail___childProjectsCsv___thumbnail___birthtimeMs
-  thumbnail___childProjectsCsv___thumbnail___blksize
-  thumbnail___childProjectsCsv___thumbnail___blocks
-  thumbnail___childProjectsCsv___thumbnail___changeTime
-  thumbnail___childProjectsCsv___thumbnail___children
-  thumbnail___childProjectsCsv___thumbnail___childrenImageSharp
-  thumbnail___childProjectsCsv___thumbnail___childrenProjectsCsv
-  thumbnail___childProjectsCsv___thumbnail___ctime
-  thumbnail___childProjectsCsv___thumbnail___ctimeMs
-  thumbnail___childProjectsCsv___thumbnail___dev
-  thumbnail___childProjectsCsv___thumbnail___dir
-  thumbnail___childProjectsCsv___thumbnail___ext
-  thumbnail___childProjectsCsv___thumbnail___extension
-  thumbnail___childProjectsCsv___thumbnail___gid
-  thumbnail___childProjectsCsv___thumbnail___id
-  thumbnail___childProjectsCsv___thumbnail___ino
-  thumbnail___childProjectsCsv___thumbnail___mode
-  thumbnail___childProjectsCsv___thumbnail___modifiedTime
-  thumbnail___childProjectsCsv___thumbnail___mtime
-  thumbnail___childProjectsCsv___thumbnail___mtimeMs
-  thumbnail___childProjectsCsv___thumbnail___name
-  thumbnail___childProjectsCsv___thumbnail___nlink
-  thumbnail___childProjectsCsv___thumbnail___prettySize
-  thumbnail___childProjectsCsv___thumbnail___publicURL
-  thumbnail___childProjectsCsv___thumbnail___rdev
-  thumbnail___childProjectsCsv___thumbnail___relativeDirectory
-  thumbnail___childProjectsCsv___thumbnail___relativePath
-  thumbnail___childProjectsCsv___thumbnail___root
-  thumbnail___childProjectsCsv___thumbnail___size
-  thumbnail___childProjectsCsv___thumbnail___sourceInstanceName
-  thumbnail___childProjectsCsv___thumbnail___uid
-  thumbnail___childProjectsCsv___type
-  thumbnail___childProjectsCsv___websiteUrl
-  thumbnail___childProjectsCsv___year
-  thumbnail___children
-  thumbnail___childrenImageSharp
-  thumbnail___childrenImageSharp___children
-  thumbnail___childrenImageSharp___children___children
-  thumbnail___childrenImageSharp___children___id
-  thumbnail___childrenImageSharp___fixed___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___fixed___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___fixed___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___fixed___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___fixed___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___fixed___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___fixed___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___fixed___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___fixed___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___fixed___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___fluid___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___fluid___base64 @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___fluid___originalImg @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___fluid___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___fluid___presentationHeight @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___fluid___presentationWidth @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___fluid___sizes @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___fluid___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___fluid___srcSet @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___fluid___srcSetWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___fluid___srcWebp @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___fluid___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___id
-  thumbnail___childrenImageSharp___internal___content
-  thumbnail___childrenImageSharp___internal___contentDigest
-  thumbnail___childrenImageSharp___internal___contentFilePath
-  thumbnail___childrenImageSharp___internal___description
-  thumbnail___childrenImageSharp___internal___fieldOwners
-  thumbnail___childrenImageSharp___internal___ignoreType
-  thumbnail___childrenImageSharp___internal___mediaType
-  thumbnail___childrenImageSharp___internal___owner
-  thumbnail___childrenImageSharp___internal___type
-  thumbnail___childrenImageSharp___original___height
-  thumbnail___childrenImageSharp___original___src
-  thumbnail___childrenImageSharp___original___width
-  thumbnail___childrenImageSharp___parent___children
-  thumbnail___childrenImageSharp___parent___id
-  thumbnail___childrenImageSharp___resize___aspectRatio @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___resize___originalName @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___resize___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___resize___tracedSVG @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenImageSharp___resize___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___childrenProjectsCsv
-  thumbnail___childrenProjectsCsv___children
-  thumbnail___childrenProjectsCsv___children___children
-  thumbnail___childrenProjectsCsv___children___id
-  thumbnail___childrenProjectsCsv___client
-  thumbnail___childrenProjectsCsv___cover___absolutePath
-  thumbnail___childrenProjectsCsv___cover___accessTime
-  thumbnail___childrenProjectsCsv___cover___atime
-  thumbnail___childrenProjectsCsv___cover___atimeMs
-  thumbnail___childrenProjectsCsv___cover___base
-  thumbnail___childrenProjectsCsv___cover___birthTime
-  thumbnail___childrenProjectsCsv___cover___birthtime
-  thumbnail___childrenProjectsCsv___cover___birthtimeMs
-  thumbnail___childrenProjectsCsv___cover___blksize
-  thumbnail___childrenProjectsCsv___cover___blocks
-  thumbnail___childrenProjectsCsv___cover___changeTime
-  thumbnail___childrenProjectsCsv___cover___children
-  thumbnail___childrenProjectsCsv___cover___childrenImageSharp
-  thumbnail___childrenProjectsCsv___cover___childrenProjectsCsv
-  thumbnail___childrenProjectsCsv___cover___ctime
-  thumbnail___childrenProjectsCsv___cover___ctimeMs
-  thumbnail___childrenProjectsCsv___cover___dev
-  thumbnail___childrenProjectsCsv___cover___dir
-  thumbnail___childrenProjectsCsv___cover___ext
-  thumbnail___childrenProjectsCsv___cover___extension
-  thumbnail___childrenProjectsCsv___cover___gid
-  thumbnail___childrenProjectsCsv___cover___id
-  thumbnail___childrenProjectsCsv___cover___ino
-  thumbnail___childrenProjectsCsv___cover___mode
-  thumbnail___childrenProjectsCsv___cover___modifiedTime
-  thumbnail___childrenProjectsCsv___cover___mtime
-  thumbnail___childrenProjectsCsv___cover___mtimeMs
-  thumbnail___childrenProjectsCsv___cover___name
-  thumbnail___childrenProjectsCsv___cover___nlink
-  thumbnail___childrenProjectsCsv___cover___prettySize
-  thumbnail___childrenProjectsCsv___cover___publicURL
-  thumbnail___childrenProjectsCsv___cover___rdev
-  thumbnail___childrenProjectsCsv___cover___relativeDirectory
-  thumbnail___childrenProjectsCsv___cover___relativePath
-  thumbnail___childrenProjectsCsv___cover___root
-  thumbnail___childrenProjectsCsv___cover___size
-  thumbnail___childrenProjectsCsv___cover___sourceInstanceName
-  thumbnail___childrenProjectsCsv___cover___uid
-  thumbnail___childrenProjectsCsv___description
-  thumbnail___childrenProjectsCsv___id
-  thumbnail___childrenProjectsCsv___internal___content
-  thumbnail___childrenProjectsCsv___internal___contentDigest
-  thumbnail___childrenProjectsCsv___internal___contentFilePath
-  thumbnail___childrenProjectsCsv___internal___description
-  thumbnail___childrenProjectsCsv___internal___fieldOwners
-  thumbnail___childrenProjectsCsv___internal___ignoreType
-  thumbnail___childrenProjectsCsv___internal___mediaType
-  thumbnail___childrenProjectsCsv___internal___owner
-  thumbnail___childrenProjectsCsv___internal___type
-  thumbnail___childrenProjectsCsv___isPagePublic
-  thumbnail___childrenProjectsCsv___name
-  thumbnail___childrenProjectsCsv___parent___children
-  thumbnail___childrenProjectsCsv___parent___id
-  thumbnail___childrenProjectsCsv___roles
-  thumbnail___childrenProjectsCsv___slug
-  thumbnail___childrenProjectsCsv___tagline
-  thumbnail___childrenProjectsCsv___team
-  thumbnail___childrenProjectsCsv___thumbnail___absolutePath
-  thumbnail___childrenProjectsCsv___thumbnail___accessTime
-  thumbnail___childrenProjectsCsv___thumbnail___atime
-  thumbnail___childrenProjectsCsv___thumbnail___atimeMs
-  thumbnail___childrenProjectsCsv___thumbnail___base
-  thumbnail___childrenProjectsCsv___thumbnail___birthTime
-  thumbnail___childrenProjectsCsv___thumbnail___birthtime
-  thumbnail___childrenProjectsCsv___thumbnail___birthtimeMs
-  thumbnail___childrenProjectsCsv___thumbnail___blksize
-  thumbnail___childrenProjectsCsv___thumbnail___blocks
-  thumbnail___childrenProjectsCsv___thumbnail___changeTime
-  thumbnail___childrenProjectsCsv___thumbnail___children
-  thumbnail___childrenProjectsCsv___thumbnail___childrenImageSharp
-  thumbnail___childrenProjectsCsv___thumbnail___childrenProjectsCsv
-  thumbnail___childrenProjectsCsv___thumbnail___ctime
-  thumbnail___childrenProjectsCsv___thumbnail___ctimeMs
-  thumbnail___childrenProjectsCsv___thumbnail___dev
-  thumbnail___childrenProjectsCsv___thumbnail___dir
-  thumbnail___childrenProjectsCsv___thumbnail___ext
-  thumbnail___childrenProjectsCsv___thumbnail___extension
-  thumbnail___childrenProjectsCsv___thumbnail___gid
-  thumbnail___childrenProjectsCsv___thumbnail___id
-  thumbnail___childrenProjectsCsv___thumbnail___ino
-  thumbnail___childrenProjectsCsv___thumbnail___mode
-  thumbnail___childrenProjectsCsv___thumbnail___modifiedTime
-  thumbnail___childrenProjectsCsv___thumbnail___mtime
-  thumbnail___childrenProjectsCsv___thumbnail___mtimeMs
-  thumbnail___childrenProjectsCsv___thumbnail___name
-  thumbnail___childrenProjectsCsv___thumbnail___nlink
-  thumbnail___childrenProjectsCsv___thumbnail___prettySize
-  thumbnail___childrenProjectsCsv___thumbnail___publicURL
-  thumbnail___childrenProjectsCsv___thumbnail___rdev
-  thumbnail___childrenProjectsCsv___thumbnail___relativeDirectory
-  thumbnail___childrenProjectsCsv___thumbnail___relativePath
-  thumbnail___childrenProjectsCsv___thumbnail___root
-  thumbnail___childrenProjectsCsv___thumbnail___size
-  thumbnail___childrenProjectsCsv___thumbnail___sourceInstanceName
-  thumbnail___childrenProjectsCsv___thumbnail___uid
-  thumbnail___childrenProjectsCsv___type
-  thumbnail___childrenProjectsCsv___websiteUrl
-  thumbnail___childrenProjectsCsv___year
-  thumbnail___children___children
-  thumbnail___children___children___children
-  thumbnail___children___children___id
-  thumbnail___children___id
-  thumbnail___children___internal___content
-  thumbnail___children___internal___contentDigest
-  thumbnail___children___internal___contentFilePath
-  thumbnail___children___internal___description
-  thumbnail___children___internal___fieldOwners
-  thumbnail___children___internal___ignoreType
-  thumbnail___children___internal___mediaType
-  thumbnail___children___internal___owner
-  thumbnail___children___internal___type
-  thumbnail___children___parent___children
-  thumbnail___children___parent___id
-  thumbnail___ctime
-  thumbnail___ctimeMs
-  thumbnail___dev
-  thumbnail___dir
-  thumbnail___ext
-  thumbnail___extension
-  thumbnail___gid
-  thumbnail___id
-  thumbnail___ino
-  thumbnail___internal___content
-  thumbnail___internal___contentDigest
-  thumbnail___internal___contentFilePath
-  thumbnail___internal___description
-  thumbnail___internal___fieldOwners
-  thumbnail___internal___ignoreType
-  thumbnail___internal___mediaType
-  thumbnail___internal___owner
-  thumbnail___internal___type
-  thumbnail___mode
-  thumbnail___modifiedTime
-  thumbnail___mtime
-  thumbnail___mtimeMs
-  thumbnail___name
-  thumbnail___nlink
-  thumbnail___parent___children
-  thumbnail___parent___children___children
-  thumbnail___parent___children___id
-  thumbnail___parent___id
-  thumbnail___parent___internal___content
-  thumbnail___parent___internal___contentDigest
-  thumbnail___parent___internal___contentFilePath
-  thumbnail___parent___internal___description
-  thumbnail___parent___internal___fieldOwners
-  thumbnail___parent___internal___ignoreType
-  thumbnail___parent___internal___mediaType
-  thumbnail___parent___internal___owner
-  thumbnail___parent___internal___type
-  thumbnail___parent___parent___children
-  thumbnail___parent___parent___id
-  thumbnail___prettySize
-  thumbnail___publicURL
-  thumbnail___rdev
-  thumbnail___relativeDirectory
-  thumbnail___relativePath
-  thumbnail___root
-  thumbnail___size
-  thumbnail___sourceInstanceName
-  thumbnail___uid
-  type
-  websiteUrl
-  year
 }
 
 enum RemoteFileCropFocus {
@@ -3472,332 +1650,10 @@ enum RemoteFilePlaceholder {
   TRACED_SVG
 }
 
-enum SanityFileAssetFieldsEnum {
-  _createdAt
-  _id
-  _key
-  _rawSource
-  _rev
-  _type
-  _updatedAt
-  altText
-  assetId
-  children
-  children___children
-  children___children___children
-  children___children___children___children
-  children___children___children___id
-  children___children___id
-  children___children___internal___content
-  children___children___internal___contentDigest
-  children___children___internal___contentFilePath
-  children___children___internal___description
-  children___children___internal___fieldOwners
-  children___children___internal___ignoreType
-  children___children___internal___mediaType
-  children___children___internal___owner
-  children___children___internal___type
-  children___children___parent___children
-  children___children___parent___id
-  children___id
-  children___internal___content
-  children___internal___contentDigest
-  children___internal___contentFilePath
-  children___internal___description
-  children___internal___fieldOwners
-  children___internal___ignoreType
-  children___internal___mediaType
-  children___internal___owner
-  children___internal___type
-  children___parent___children
-  children___parent___children___children
-  children___parent___children___id
-  children___parent___id
-  children___parent___internal___content
-  children___parent___internal___contentDigest
-  children___parent___internal___contentFilePath
-  children___parent___internal___description
-  children___parent___internal___fieldOwners
-  children___parent___internal___ignoreType
-  children___parent___internal___mediaType
-  children___parent___internal___owner
-  children___parent___internal___type
-  children___parent___parent___children
-  children___parent___parent___id
-  description
-  extension
-  id
-  internal___content
-  internal___contentDigest
-  internal___contentFilePath
-  internal___description
-  internal___fieldOwners
-  internal___ignoreType
-  internal___mediaType
-  internal___owner
-  internal___type
-  label
-  mimeType
-  originalFilename
-  parent___children
-  parent___children___children
-  parent___children___children___children
-  parent___children___children___id
-  parent___children___id
-  parent___children___internal___content
-  parent___children___internal___contentDigest
-  parent___children___internal___contentFilePath
-  parent___children___internal___description
-  parent___children___internal___fieldOwners
-  parent___children___internal___ignoreType
-  parent___children___internal___mediaType
-  parent___children___internal___owner
-  parent___children___internal___type
-  parent___children___parent___children
-  parent___children___parent___id
-  parent___id
-  parent___internal___content
-  parent___internal___contentDigest
-  parent___internal___contentFilePath
-  parent___internal___description
-  parent___internal___fieldOwners
-  parent___internal___ignoreType
-  parent___internal___mediaType
-  parent___internal___owner
-  parent___internal___type
-  parent___parent___children
-  parent___parent___children___children
-  parent___parent___children___id
-  parent___parent___id
-  parent___parent___internal___content
-  parent___parent___internal___contentDigest
-  parent___parent___internal___contentFilePath
-  parent___parent___internal___description
-  parent___parent___internal___fieldOwners
-  parent___parent___internal___ignoreType
-  parent___parent___internal___mediaType
-  parent___parent___internal___owner
-  parent___parent___internal___type
-  parent___parent___parent___children
-  parent___parent___parent___id
-  path
-  sha1hash
-  size
-  source____key
-  source____type
-  source___id
-  source___name
-  source___url
-  title
-  url
-}
-
 enum SanityGatsbyImagePlaceholder {
   BLURRED
   DOMINANT_COLOR
   NONE
-}
-
-enum SanityImageAssetFieldsEnum {
-  _createdAt
-  _id
-  _key
-  _rawMetadata
-  _rawSource
-  _rev
-  _type
-  _updatedAt
-  altText
-  assetId
-  children
-  children___children
-  children___children___children
-  children___children___children___children
-  children___children___children___id
-  children___children___id
-  children___children___internal___content
-  children___children___internal___contentDigest
-  children___children___internal___contentFilePath
-  children___children___internal___description
-  children___children___internal___fieldOwners
-  children___children___internal___ignoreType
-  children___children___internal___mediaType
-  children___children___internal___owner
-  children___children___internal___type
-  children___children___parent___children
-  children___children___parent___id
-  children___id
-  children___internal___content
-  children___internal___contentDigest
-  children___internal___contentFilePath
-  children___internal___description
-  children___internal___fieldOwners
-  children___internal___ignoreType
-  children___internal___mediaType
-  children___internal___owner
-  children___internal___type
-  children___parent___children
-  children___parent___children___children
-  children___parent___children___id
-  children___parent___id
-  children___parent___internal___content
-  children___parent___internal___contentDigest
-  children___parent___internal___contentFilePath
-  children___parent___internal___description
-  children___parent___internal___fieldOwners
-  children___parent___internal___ignoreType
-  children___parent___internal___mediaType
-  children___parent___internal___owner
-  children___parent___internal___type
-  children___parent___parent___children
-  children___parent___parent___id
-  description
-  extension
-  filename
-  filesize
-  gatsbyImage @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  height
-  id
-  internal___content
-  internal___contentDigest
-  internal___contentFilePath
-  internal___description
-  internal___fieldOwners
-  internal___ignoreType
-  internal___mediaType
-  internal___owner
-  internal___type
-  label
-  metadata____key
-  metadata____rawDimensions
-  metadata____rawLocation
-  metadata____rawPalette
-  metadata____type
-  metadata___blurHash
-  metadata___dimensions____key
-  metadata___dimensions____type
-  metadata___dimensions___aspectRatio
-  metadata___dimensions___height
-  metadata___dimensions___width
-  metadata___hasAlpha
-  metadata___isOpaque
-  metadata___location____key
-  metadata___location____type
-  metadata___location___alt
-  metadata___location___lat
-  metadata___location___lng
-  metadata___lqip
-  metadata___palette____key
-  metadata___palette____rawDarkMuted
-  metadata___palette____rawDarkVibrant
-  metadata___palette____rawDominant
-  metadata___palette____rawLightMuted
-  metadata___palette____rawLightVibrant
-  metadata___palette____rawMuted
-  metadata___palette____rawVibrant
-  metadata___palette____type
-  metadata___palette___darkMuted____key
-  metadata___palette___darkMuted____type
-  metadata___palette___darkMuted___background
-  metadata___palette___darkMuted___foreground
-  metadata___palette___darkMuted___population
-  metadata___palette___darkMuted___title
-  metadata___palette___darkVibrant____key
-  metadata___palette___darkVibrant____type
-  metadata___palette___darkVibrant___background
-  metadata___palette___darkVibrant___foreground
-  metadata___palette___darkVibrant___population
-  metadata___palette___darkVibrant___title
-  metadata___palette___dominant____key
-  metadata___palette___dominant____type
-  metadata___palette___dominant___background
-  metadata___palette___dominant___foreground
-  metadata___palette___dominant___population
-  metadata___palette___dominant___title
-  metadata___palette___lightMuted____key
-  metadata___palette___lightMuted____type
-  metadata___palette___lightMuted___background
-  metadata___palette___lightMuted___foreground
-  metadata___palette___lightMuted___population
-  metadata___palette___lightMuted___title
-  metadata___palette___lightVibrant____key
-  metadata___palette___lightVibrant____type
-  metadata___palette___lightVibrant___background
-  metadata___palette___lightVibrant___foreground
-  metadata___palette___lightVibrant___population
-  metadata___palette___lightVibrant___title
-  metadata___palette___muted____key
-  metadata___palette___muted____type
-  metadata___palette___muted___background
-  metadata___palette___muted___foreground
-  metadata___palette___muted___population
-  metadata___palette___muted___title
-  metadata___palette___vibrant____key
-  metadata___palette___vibrant____type
-  metadata___palette___vibrant___background
-  metadata___palette___vibrant___foreground
-  metadata___palette___vibrant___population
-  metadata___palette___vibrant___title
-  mimeType
-  originalFilename
-  parent___children
-  parent___children___children
-  parent___children___children___children
-  parent___children___children___id
-  parent___children___id
-  parent___children___internal___content
-  parent___children___internal___contentDigest
-  parent___children___internal___contentFilePath
-  parent___children___internal___description
-  parent___children___internal___fieldOwners
-  parent___children___internal___ignoreType
-  parent___children___internal___mediaType
-  parent___children___internal___owner
-  parent___children___internal___type
-  parent___children___parent___children
-  parent___children___parent___id
-  parent___id
-  parent___internal___content
-  parent___internal___contentDigest
-  parent___internal___contentFilePath
-  parent___internal___description
-  parent___internal___fieldOwners
-  parent___internal___ignoreType
-  parent___internal___mediaType
-  parent___internal___owner
-  parent___internal___type
-  parent___parent___children
-  parent___parent___children___children
-  parent___parent___children___id
-  parent___parent___id
-  parent___parent___internal___content
-  parent___parent___internal___contentDigest
-  parent___parent___internal___contentFilePath
-  parent___parent___internal___description
-  parent___parent___internal___fieldOwners
-  parent___parent___internal___ignoreType
-  parent___parent___internal___mediaType
-  parent___parent___internal___owner
-  parent___parent___internal___type
-  parent___parent___parent___children
-  parent___parent___parent___id
-  path
-  publicUrl
-  resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  resize___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  resize___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  sha1hash
-  size
-  source____key
-  source____type
-  source___id
-  source___name
-  source___url
-  title
-  uploadId
-  url
-  width
 }
 
 enum SanityImageFit {
@@ -3808,923 +1664,6 @@ enum SanityImageFit {
   MAX
   MIN
   SCALE
-}
-
-enum SanityProjectFieldsEnum {
-  _createdAt
-  _id
-  _key
-  _rawCoverImage
-  _rawImages
-  _rawSlug
-  _rawThumbnail
-  _rev
-  _type
-  _updatedAt
-  children
-  children___children
-  children___children___children
-  children___children___children___children
-  children___children___children___id
-  children___children___id
-  children___children___internal___content
-  children___children___internal___contentDigest
-  children___children___internal___contentFilePath
-  children___children___internal___description
-  children___children___internal___fieldOwners
-  children___children___internal___ignoreType
-  children___children___internal___mediaType
-  children___children___internal___owner
-  children___children___internal___type
-  children___children___parent___children
-  children___children___parent___id
-  children___id
-  children___internal___content
-  children___internal___contentDigest
-  children___internal___contentFilePath
-  children___internal___description
-  children___internal___fieldOwners
-  children___internal___ignoreType
-  children___internal___mediaType
-  children___internal___owner
-  children___internal___type
-  children___parent___children
-  children___parent___children___children
-  children___parent___children___id
-  children___parent___id
-  children___parent___internal___content
-  children___parent___internal___contentDigest
-  children___parent___internal___contentFilePath
-  children___parent___internal___description
-  children___parent___internal___fieldOwners
-  children___parent___internal___ignoreType
-  children___parent___internal___mediaType
-  children___parent___internal___owner
-  children___parent___internal___type
-  children___parent___parent___children
-  children___parent___parent___id
-  client
-  coverImage____key
-  coverImage____rawAsset
-  coverImage____rawCrop
-  coverImage____rawHotspot
-  coverImage____type
-  coverImage___asset____createdAt
-  coverImage___asset____id
-  coverImage___asset____key
-  coverImage___asset____rawMetadata
-  coverImage___asset____rawSource
-  coverImage___asset____rev
-  coverImage___asset____type
-  coverImage___asset____updatedAt
-  coverImage___asset___altText
-  coverImage___asset___assetId
-  coverImage___asset___children
-  coverImage___asset___children___children
-  coverImage___asset___children___id
-  coverImage___asset___description
-  coverImage___asset___extension
-  coverImage___asset___filename
-  coverImage___asset___filesize
-  coverImage___asset___gatsbyImage @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  coverImage___asset___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  coverImage___asset___height
-  coverImage___asset___id
-  coverImage___asset___internal___content
-  coverImage___asset___internal___contentDigest
-  coverImage___asset___internal___contentFilePath
-  coverImage___asset___internal___description
-  coverImage___asset___internal___fieldOwners
-  coverImage___asset___internal___ignoreType
-  coverImage___asset___internal___mediaType
-  coverImage___asset___internal___owner
-  coverImage___asset___internal___type
-  coverImage___asset___label
-  coverImage___asset___metadata____key
-  coverImage___asset___metadata____rawDimensions
-  coverImage___asset___metadata____rawLocation
-  coverImage___asset___metadata____rawPalette
-  coverImage___asset___metadata____type
-  coverImage___asset___metadata___blurHash
-  coverImage___asset___metadata___hasAlpha
-  coverImage___asset___metadata___isOpaque
-  coverImage___asset___metadata___lqip
-  coverImage___asset___mimeType
-  coverImage___asset___originalFilename
-  coverImage___asset___parent___children
-  coverImage___asset___parent___id
-  coverImage___asset___path
-  coverImage___asset___publicUrl
-  coverImage___asset___resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  coverImage___asset___resize___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  coverImage___asset___resize___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  coverImage___asset___sha1hash
-  coverImage___asset___size
-  coverImage___asset___source____key
-  coverImage___asset___source____type
-  coverImage___asset___source___id
-  coverImage___asset___source___name
-  coverImage___asset___source___url
-  coverImage___asset___title
-  coverImage___asset___uploadId
-  coverImage___asset___url
-  coverImage___asset___width
-  coverImage___crop____key
-  coverImage___crop____type
-  coverImage___crop___bottom
-  coverImage___crop___left
-  coverImage___crop___right
-  coverImage___crop___top
-  coverImage___hotspot____key
-  coverImage___hotspot____type
-  coverImage___hotspot___height
-  coverImage___hotspot___width
-  coverImage___hotspot___x
-  coverImage___hotspot___y
-  description
-  id
-  images
-  images____key
-  images____rawAsset
-  images____rawCrop
-  images____rawHotspot
-  images____type
-  images___asset____createdAt
-  images___asset____id
-  images___asset____key
-  images___asset____rawMetadata
-  images___asset____rawSource
-  images___asset____rev
-  images___asset____type
-  images___asset____updatedAt
-  images___asset___altText
-  images___asset___assetId
-  images___asset___children
-  images___asset___children___children
-  images___asset___children___id
-  images___asset___description
-  images___asset___extension
-  images___asset___filename
-  images___asset___filesize
-  images___asset___gatsbyImage @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  images___asset___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  images___asset___height
-  images___asset___id
-  images___asset___internal___content
-  images___asset___internal___contentDigest
-  images___asset___internal___contentFilePath
-  images___asset___internal___description
-  images___asset___internal___fieldOwners
-  images___asset___internal___ignoreType
-  images___asset___internal___mediaType
-  images___asset___internal___owner
-  images___asset___internal___type
-  images___asset___label
-  images___asset___metadata____key
-  images___asset___metadata____rawDimensions
-  images___asset___metadata____rawLocation
-  images___asset___metadata____rawPalette
-  images___asset___metadata____type
-  images___asset___metadata___blurHash
-  images___asset___metadata___hasAlpha
-  images___asset___metadata___isOpaque
-  images___asset___metadata___lqip
-  images___asset___mimeType
-  images___asset___originalFilename
-  images___asset___parent___children
-  images___asset___parent___id
-  images___asset___path
-  images___asset___publicUrl
-  images___asset___resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  images___asset___resize___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  images___asset___resize___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  images___asset___sha1hash
-  images___asset___size
-  images___asset___source____key
-  images___asset___source____type
-  images___asset___source___id
-  images___asset___source___name
-  images___asset___source___url
-  images___asset___title
-  images___asset___uploadId
-  images___asset___url
-  images___asset___width
-  images___crop____key
-  images___crop____type
-  images___crop___bottom
-  images___crop___left
-  images___crop___right
-  images___crop___top
-  images___hotspot____key
-  images___hotspot____type
-  images___hotspot___height
-  images___hotspot___width
-  images___hotspot___x
-  images___hotspot___y
-  internal___content
-  internal___contentDigest
-  internal___contentFilePath
-  internal___description
-  internal___fieldOwners
-  internal___ignoreType
-  internal___mediaType
-  internal___owner
-  internal___type
-  isPagePublic
-  parent___children
-  parent___children___children
-  parent___children___children___children
-  parent___children___children___id
-  parent___children___id
-  parent___children___internal___content
-  parent___children___internal___contentDigest
-  parent___children___internal___contentFilePath
-  parent___children___internal___description
-  parent___children___internal___fieldOwners
-  parent___children___internal___ignoreType
-  parent___children___internal___mediaType
-  parent___children___internal___owner
-  parent___children___internal___type
-  parent___children___parent___children
-  parent___children___parent___id
-  parent___id
-  parent___internal___content
-  parent___internal___contentDigest
-  parent___internal___contentFilePath
-  parent___internal___description
-  parent___internal___fieldOwners
-  parent___internal___ignoreType
-  parent___internal___mediaType
-  parent___internal___owner
-  parent___internal___type
-  parent___parent___children
-  parent___parent___children___children
-  parent___parent___children___id
-  parent___parent___id
-  parent___parent___internal___content
-  parent___parent___internal___contentDigest
-  parent___parent___internal___contentFilePath
-  parent___parent___internal___description
-  parent___parent___internal___fieldOwners
-  parent___parent___internal___ignoreType
-  parent___parent___internal___mediaType
-  parent___parent___internal___owner
-  parent___parent___internal___type
-  parent___parent___parent___children
-  parent___parent___parent___id
-  roles
-  slug____key
-  slug____type
-  slug___current
-  slug___source
-  tagline
-  thumbnail____key
-  thumbnail____rawAsset
-  thumbnail____rawCrop
-  thumbnail____rawHotspot
-  thumbnail____type
-  thumbnail___asset____createdAt
-  thumbnail___asset____id
-  thumbnail___asset____key
-  thumbnail___asset____rawMetadata
-  thumbnail___asset____rawSource
-  thumbnail___asset____rev
-  thumbnail___asset____type
-  thumbnail___asset____updatedAt
-  thumbnail___asset___altText
-  thumbnail___asset___assetId
-  thumbnail___asset___children
-  thumbnail___asset___children___children
-  thumbnail___asset___children___id
-  thumbnail___asset___description
-  thumbnail___asset___extension
-  thumbnail___asset___filename
-  thumbnail___asset___filesize
-  thumbnail___asset___gatsbyImage @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___asset___gatsbyImageData @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___asset___height
-  thumbnail___asset___id
-  thumbnail___asset___internal___content
-  thumbnail___asset___internal___contentDigest
-  thumbnail___asset___internal___contentFilePath
-  thumbnail___asset___internal___description
-  thumbnail___asset___internal___fieldOwners
-  thumbnail___asset___internal___ignoreType
-  thumbnail___asset___internal___mediaType
-  thumbnail___asset___internal___owner
-  thumbnail___asset___internal___type
-  thumbnail___asset___label
-  thumbnail___asset___metadata____key
-  thumbnail___asset___metadata____rawDimensions
-  thumbnail___asset___metadata____rawLocation
-  thumbnail___asset___metadata____rawPalette
-  thumbnail___asset___metadata____type
-  thumbnail___asset___metadata___blurHash
-  thumbnail___asset___metadata___hasAlpha
-  thumbnail___asset___metadata___isOpaque
-  thumbnail___asset___metadata___lqip
-  thumbnail___asset___mimeType
-  thumbnail___asset___originalFilename
-  thumbnail___asset___parent___children
-  thumbnail___asset___parent___id
-  thumbnail___asset___path
-  thumbnail___asset___publicUrl
-  thumbnail___asset___resize___height @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___asset___resize___src @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___asset___resize___width @deprecated(reason: "Sorting on fields that need arguments to resolve is deprecated.")
-  thumbnail___asset___sha1hash
-  thumbnail___asset___size
-  thumbnail___asset___source____key
-  thumbnail___asset___source____type
-  thumbnail___asset___source___id
-  thumbnail___asset___source___name
-  thumbnail___asset___source___url
-  thumbnail___asset___title
-  thumbnail___asset___uploadId
-  thumbnail___asset___url
-  thumbnail___asset___width
-  thumbnail___crop____key
-  thumbnail___crop____type
-  thumbnail___crop___bottom
-  thumbnail___crop___left
-  thumbnail___crop___right
-  thumbnail___crop___top
-  thumbnail___hotspot____key
-  thumbnail___hotspot____type
-  thumbnail___hotspot___height
-  thumbnail___hotspot___width
-  thumbnail___hotspot___x
-  thumbnail___hotspot___y
-  title
-  type
-  websiteUrl
-  year
-}
-
-enum SiteBuildMetadataFieldsEnum {
-  buildTime
-  children
-  children___children
-  children___children___children
-  children___children___children___children
-  children___children___children___id
-  children___children___id
-  children___children___internal___content
-  children___children___internal___contentDigest
-  children___children___internal___contentFilePath
-  children___children___internal___description
-  children___children___internal___fieldOwners
-  children___children___internal___ignoreType
-  children___children___internal___mediaType
-  children___children___internal___owner
-  children___children___internal___type
-  children___children___parent___children
-  children___children___parent___id
-  children___id
-  children___internal___content
-  children___internal___contentDigest
-  children___internal___contentFilePath
-  children___internal___description
-  children___internal___fieldOwners
-  children___internal___ignoreType
-  children___internal___mediaType
-  children___internal___owner
-  children___internal___type
-  children___parent___children
-  children___parent___children___children
-  children___parent___children___id
-  children___parent___id
-  children___parent___internal___content
-  children___parent___internal___contentDigest
-  children___parent___internal___contentFilePath
-  children___parent___internal___description
-  children___parent___internal___fieldOwners
-  children___parent___internal___ignoreType
-  children___parent___internal___mediaType
-  children___parent___internal___owner
-  children___parent___internal___type
-  children___parent___parent___children
-  children___parent___parent___id
-  id
-  internal___content
-  internal___contentDigest
-  internal___contentFilePath
-  internal___description
-  internal___fieldOwners
-  internal___ignoreType
-  internal___mediaType
-  internal___owner
-  internal___type
-  parent___children
-  parent___children___children
-  parent___children___children___children
-  parent___children___children___id
-  parent___children___id
-  parent___children___internal___content
-  parent___children___internal___contentDigest
-  parent___children___internal___contentFilePath
-  parent___children___internal___description
-  parent___children___internal___fieldOwners
-  parent___children___internal___ignoreType
-  parent___children___internal___mediaType
-  parent___children___internal___owner
-  parent___children___internal___type
-  parent___children___parent___children
-  parent___children___parent___id
-  parent___id
-  parent___internal___content
-  parent___internal___contentDigest
-  parent___internal___contentFilePath
-  parent___internal___description
-  parent___internal___fieldOwners
-  parent___internal___ignoreType
-  parent___internal___mediaType
-  parent___internal___owner
-  parent___internal___type
-  parent___parent___children
-  parent___parent___children___children
-  parent___parent___children___id
-  parent___parent___id
-  parent___parent___internal___content
-  parent___parent___internal___contentDigest
-  parent___parent___internal___contentFilePath
-  parent___parent___internal___description
-  parent___parent___internal___fieldOwners
-  parent___parent___internal___ignoreType
-  parent___parent___internal___mediaType
-  parent___parent___internal___owner
-  parent___parent___internal___type
-  parent___parent___parent___children
-  parent___parent___parent___id
-}
-
-enum SiteFieldsEnum {
-  buildTime
-  children
-  children___children
-  children___children___children
-  children___children___children___children
-  children___children___children___id
-  children___children___id
-  children___children___internal___content
-  children___children___internal___contentDigest
-  children___children___internal___contentFilePath
-  children___children___internal___description
-  children___children___internal___fieldOwners
-  children___children___internal___ignoreType
-  children___children___internal___mediaType
-  children___children___internal___owner
-  children___children___internal___type
-  children___children___parent___children
-  children___children___parent___id
-  children___id
-  children___internal___content
-  children___internal___contentDigest
-  children___internal___contentFilePath
-  children___internal___description
-  children___internal___fieldOwners
-  children___internal___ignoreType
-  children___internal___mediaType
-  children___internal___owner
-  children___internal___type
-  children___parent___children
-  children___parent___children___children
-  children___parent___children___id
-  children___parent___id
-  children___parent___internal___content
-  children___parent___internal___contentDigest
-  children___parent___internal___contentFilePath
-  children___parent___internal___description
-  children___parent___internal___fieldOwners
-  children___parent___internal___ignoreType
-  children___parent___internal___mediaType
-  children___parent___internal___owner
-  children___parent___internal___type
-  children___parent___parent___children
-  children___parent___parent___id
-  graphqlTypegen
-  host
-  id
-  internal___content
-  internal___contentDigest
-  internal___contentFilePath
-  internal___description
-  internal___fieldOwners
-  internal___ignoreType
-  internal___mediaType
-  internal___owner
-  internal___type
-  jsxRuntime
-  parent___children
-  parent___children___children
-  parent___children___children___children
-  parent___children___children___id
-  parent___children___id
-  parent___children___internal___content
-  parent___children___internal___contentDigest
-  parent___children___internal___contentFilePath
-  parent___children___internal___description
-  parent___children___internal___fieldOwners
-  parent___children___internal___ignoreType
-  parent___children___internal___mediaType
-  parent___children___internal___owner
-  parent___children___internal___type
-  parent___children___parent___children
-  parent___children___parent___id
-  parent___id
-  parent___internal___content
-  parent___internal___contentDigest
-  parent___internal___contentFilePath
-  parent___internal___description
-  parent___internal___fieldOwners
-  parent___internal___ignoreType
-  parent___internal___mediaType
-  parent___internal___owner
-  parent___internal___type
-  parent___parent___children
-  parent___parent___children___children
-  parent___parent___children___id
-  parent___parent___id
-  parent___parent___internal___content
-  parent___parent___internal___contentDigest
-  parent___parent___internal___contentFilePath
-  parent___parent___internal___description
-  parent___parent___internal___fieldOwners
-  parent___parent___internal___ignoreType
-  parent___parent___internal___mediaType
-  parent___parent___internal___owner
-  parent___parent___internal___type
-  parent___parent___parent___children
-  parent___parent___parent___id
-  pathPrefix
-  polyfill
-  port
-  siteMetadata___description
-  siteMetadata___image
-  siteMetadata___siteUrl
-  siteMetadata___title
-  siteMetadata___titleTemplate
-  trailingSlash
-}
-
-enum SiteFunctionFieldsEnum {
-  absoluteCompiledFilePath
-  children
-  children___children
-  children___children___children
-  children___children___children___children
-  children___children___children___id
-  children___children___id
-  children___children___internal___content
-  children___children___internal___contentDigest
-  children___children___internal___contentFilePath
-  children___children___internal___description
-  children___children___internal___fieldOwners
-  children___children___internal___ignoreType
-  children___children___internal___mediaType
-  children___children___internal___owner
-  children___children___internal___type
-  children___children___parent___children
-  children___children___parent___id
-  children___id
-  children___internal___content
-  children___internal___contentDigest
-  children___internal___contentFilePath
-  children___internal___description
-  children___internal___fieldOwners
-  children___internal___ignoreType
-  children___internal___mediaType
-  children___internal___owner
-  children___internal___type
-  children___parent___children
-  children___parent___children___children
-  children___parent___children___id
-  children___parent___id
-  children___parent___internal___content
-  children___parent___internal___contentDigest
-  children___parent___internal___contentFilePath
-  children___parent___internal___description
-  children___parent___internal___fieldOwners
-  children___parent___internal___ignoreType
-  children___parent___internal___mediaType
-  children___parent___internal___owner
-  children___parent___internal___type
-  children___parent___parent___children
-  children___parent___parent___id
-  functionRoute
-  id
-  internal___content
-  internal___contentDigest
-  internal___contentFilePath
-  internal___description
-  internal___fieldOwners
-  internal___ignoreType
-  internal___mediaType
-  internal___owner
-  internal___type
-  matchPath
-  originalAbsoluteFilePath
-  originalRelativeFilePath
-  parent___children
-  parent___children___children
-  parent___children___children___children
-  parent___children___children___id
-  parent___children___id
-  parent___children___internal___content
-  parent___children___internal___contentDigest
-  parent___children___internal___contentFilePath
-  parent___children___internal___description
-  parent___children___internal___fieldOwners
-  parent___children___internal___ignoreType
-  parent___children___internal___mediaType
-  parent___children___internal___owner
-  parent___children___internal___type
-  parent___children___parent___children
-  parent___children___parent___id
-  parent___id
-  parent___internal___content
-  parent___internal___contentDigest
-  parent___internal___contentFilePath
-  parent___internal___description
-  parent___internal___fieldOwners
-  parent___internal___ignoreType
-  parent___internal___mediaType
-  parent___internal___owner
-  parent___internal___type
-  parent___parent___children
-  parent___parent___children___children
-  parent___parent___children___id
-  parent___parent___id
-  parent___parent___internal___content
-  parent___parent___internal___contentDigest
-  parent___parent___internal___contentFilePath
-  parent___parent___internal___description
-  parent___parent___internal___fieldOwners
-  parent___parent___internal___ignoreType
-  parent___parent___internal___mediaType
-  parent___parent___internal___owner
-  parent___parent___internal___type
-  parent___parent___parent___children
-  parent___parent___parent___id
-  pluginName
-  relativeCompiledFilePath
-}
-
-enum SitePageFieldsEnum {
-  children
-  children___children
-  children___children___children
-  children___children___children___children
-  children___children___children___id
-  children___children___id
-  children___children___internal___content
-  children___children___internal___contentDigest
-  children___children___internal___contentFilePath
-  children___children___internal___description
-  children___children___internal___fieldOwners
-  children___children___internal___ignoreType
-  children___children___internal___mediaType
-  children___children___internal___owner
-  children___children___internal___type
-  children___children___parent___children
-  children___children___parent___id
-  children___id
-  children___internal___content
-  children___internal___contentDigest
-  children___internal___contentFilePath
-  children___internal___description
-  children___internal___fieldOwners
-  children___internal___ignoreType
-  children___internal___mediaType
-  children___internal___owner
-  children___internal___type
-  children___parent___children
-  children___parent___children___children
-  children___parent___children___id
-  children___parent___id
-  children___parent___internal___content
-  children___parent___internal___contentDigest
-  children___parent___internal___contentFilePath
-  children___parent___internal___description
-  children___parent___internal___fieldOwners
-  children___parent___internal___ignoreType
-  children___parent___internal___mediaType
-  children___parent___internal___owner
-  children___parent___internal___type
-  children___parent___parent___children
-  children___parent___parent___id
-  component
-  componentChunkName
-  id
-  internalComponentName
-  internal___content
-  internal___contentDigest
-  internal___contentFilePath
-  internal___description
-  internal___fieldOwners
-  internal___ignoreType
-  internal___mediaType
-  internal___owner
-  internal___type
-  matchPath
-  pageContext
-  parent___children
-  parent___children___children
-  parent___children___children___children
-  parent___children___children___id
-  parent___children___id
-  parent___children___internal___content
-  parent___children___internal___contentDigest
-  parent___children___internal___contentFilePath
-  parent___children___internal___description
-  parent___children___internal___fieldOwners
-  parent___children___internal___ignoreType
-  parent___children___internal___mediaType
-  parent___children___internal___owner
-  parent___children___internal___type
-  parent___children___parent___children
-  parent___children___parent___id
-  parent___id
-  parent___internal___content
-  parent___internal___contentDigest
-  parent___internal___contentFilePath
-  parent___internal___description
-  parent___internal___fieldOwners
-  parent___internal___ignoreType
-  parent___internal___mediaType
-  parent___internal___owner
-  parent___internal___type
-  parent___parent___children
-  parent___parent___children___children
-  parent___parent___children___id
-  parent___parent___id
-  parent___parent___internal___content
-  parent___parent___internal___contentDigest
-  parent___parent___internal___contentFilePath
-  parent___parent___internal___description
-  parent___parent___internal___fieldOwners
-  parent___parent___internal___ignoreType
-  parent___parent___internal___mediaType
-  parent___parent___internal___owner
-  parent___parent___internal___type
-  parent___parent___parent___children
-  parent___parent___parent___id
-  path
-  pluginCreator___browserAPIs
-  pluginCreator___children
-  pluginCreator___children___children
-  pluginCreator___children___children___children
-  pluginCreator___children___children___id
-  pluginCreator___children___id
-  pluginCreator___children___internal___content
-  pluginCreator___children___internal___contentDigest
-  pluginCreator___children___internal___contentFilePath
-  pluginCreator___children___internal___description
-  pluginCreator___children___internal___fieldOwners
-  pluginCreator___children___internal___ignoreType
-  pluginCreator___children___internal___mediaType
-  pluginCreator___children___internal___owner
-  pluginCreator___children___internal___type
-  pluginCreator___children___parent___children
-  pluginCreator___children___parent___id
-  pluginCreator___id
-  pluginCreator___internal___content
-  pluginCreator___internal___contentDigest
-  pluginCreator___internal___contentFilePath
-  pluginCreator___internal___description
-  pluginCreator___internal___fieldOwners
-  pluginCreator___internal___ignoreType
-  pluginCreator___internal___mediaType
-  pluginCreator___internal___owner
-  pluginCreator___internal___type
-  pluginCreator___name
-  pluginCreator___nodeAPIs
-  pluginCreator___packageJson
-  pluginCreator___parent___children
-  pluginCreator___parent___children___children
-  pluginCreator___parent___children___id
-  pluginCreator___parent___id
-  pluginCreator___parent___internal___content
-  pluginCreator___parent___internal___contentDigest
-  pluginCreator___parent___internal___contentFilePath
-  pluginCreator___parent___internal___description
-  pluginCreator___parent___internal___fieldOwners
-  pluginCreator___parent___internal___ignoreType
-  pluginCreator___parent___internal___mediaType
-  pluginCreator___parent___internal___owner
-  pluginCreator___parent___internal___type
-  pluginCreator___parent___parent___children
-  pluginCreator___parent___parent___id
-  pluginCreator___pluginFilepath
-  pluginCreator___pluginOptions
-  pluginCreator___resolve
-  pluginCreator___ssrAPIs
-  pluginCreator___version
-}
-
-enum SitePluginFieldsEnum {
-  browserAPIs
-  children
-  children___children
-  children___children___children
-  children___children___children___children
-  children___children___children___id
-  children___children___id
-  children___children___internal___content
-  children___children___internal___contentDigest
-  children___children___internal___contentFilePath
-  children___children___internal___description
-  children___children___internal___fieldOwners
-  children___children___internal___ignoreType
-  children___children___internal___mediaType
-  children___children___internal___owner
-  children___children___internal___type
-  children___children___parent___children
-  children___children___parent___id
-  children___id
-  children___internal___content
-  children___internal___contentDigest
-  children___internal___contentFilePath
-  children___internal___description
-  children___internal___fieldOwners
-  children___internal___ignoreType
-  children___internal___mediaType
-  children___internal___owner
-  children___internal___type
-  children___parent___children
-  children___parent___children___children
-  children___parent___children___id
-  children___parent___id
-  children___parent___internal___content
-  children___parent___internal___contentDigest
-  children___parent___internal___contentFilePath
-  children___parent___internal___description
-  children___parent___internal___fieldOwners
-  children___parent___internal___ignoreType
-  children___parent___internal___mediaType
-  children___parent___internal___owner
-  children___parent___internal___type
-  children___parent___parent___children
-  children___parent___parent___id
-  id
-  internal___content
-  internal___contentDigest
-  internal___contentFilePath
-  internal___description
-  internal___fieldOwners
-  internal___ignoreType
-  internal___mediaType
-  internal___owner
-  internal___type
-  name
-  nodeAPIs
-  packageJson
-  parent___children
-  parent___children___children
-  parent___children___children___children
-  parent___children___children___id
-  parent___children___id
-  parent___children___internal___content
-  parent___children___internal___contentDigest
-  parent___children___internal___contentFilePath
-  parent___children___internal___description
-  parent___children___internal___fieldOwners
-  parent___children___internal___ignoreType
-  parent___children___internal___mediaType
-  parent___children___internal___owner
-  parent___children___internal___type
-  parent___children___parent___children
-  parent___children___parent___id
-  parent___id
-  parent___internal___content
-  parent___internal___contentDigest
-  parent___internal___contentFilePath
-  parent___internal___description
-  parent___internal___fieldOwners
-  parent___internal___ignoreType
-  parent___internal___mediaType
-  parent___internal___owner
-  parent___internal___type
-  parent___parent___children
-  parent___parent___children___children
-  parent___parent___children___id
-  parent___parent___id
-  parent___parent___internal___content
-  parent___parent___internal___contentDigest
-  parent___parent___internal___contentFilePath
-  parent___parent___internal___description
-  parent___parent___internal___fieldOwners
-  parent___parent___internal___ignoreType
-  parent___parent___internal___mediaType
-  parent___parent___internal___owner
-  parent___parent___internal___type
-  parent___parent___parent___children
-  parent___parent___parent___id
-  pluginFilepath
-  pluginOptions
-  resolve
-  ssrAPIs
-  version
 }
 
 enum SortOrderEnum {
@@ -4771,6 +1710,44 @@ input DateQueryOperatorInput {
   nin: [Date]
 }
 
+input DirectoryFieldSelector {
+  absolutePath: FieldSelectorEnum
+  accessTime: FieldSelectorEnum
+  atime: FieldSelectorEnum
+  atimeMs: FieldSelectorEnum
+  base: FieldSelectorEnum
+  birthTime: FieldSelectorEnum
+  birthtime: FieldSelectorEnum
+  birthtimeMs: FieldSelectorEnum
+  changeTime: FieldSelectorEnum
+  children: NodeFieldSelector
+  ctime: FieldSelectorEnum
+  ctimeMs: FieldSelectorEnum
+  dev: FieldSelectorEnum
+  dir: FieldSelectorEnum
+  ext: FieldSelectorEnum
+  extension: FieldSelectorEnum
+  gid: FieldSelectorEnum
+  id: FieldSelectorEnum
+  ino: FieldSelectorEnum
+  internal: InternalFieldSelector
+  mode: FieldSelectorEnum
+  modifiedTime: FieldSelectorEnum
+  mtime: FieldSelectorEnum
+  mtimeMs: FieldSelectorEnum
+  name: FieldSelectorEnum
+  nlink: FieldSelectorEnum
+  parent: NodeFieldSelector
+  prettySize: FieldSelectorEnum
+  rdev: FieldSelectorEnum
+  relativeDirectory: FieldSelectorEnum
+  relativePath: FieldSelectorEnum
+  root: FieldSelectorEnum
+  size: FieldSelectorEnum
+  sourceInstanceName: FieldSelectorEnum
+  uid: FieldSelectorEnum
+}
+
 input DirectoryFilterInput {
   absolutePath: StringQueryOperatorInput
   accessTime: DateQueryOperatorInput
@@ -4810,14 +1787,92 @@ input DirectoryFilterInput {
 }
 
 input DirectorySortInput {
-  fields: [DirectoryFieldsEnum]
-  order: [SortOrderEnum] = [ASC]
+  absolutePath: SortOrderEnum
+  accessTime: SortOrderEnum
+  atime: SortOrderEnum
+  atimeMs: SortOrderEnum
+  base: SortOrderEnum
+  birthTime: SortOrderEnum
+  birthtime: SortOrderEnum
+  birthtimeMs: SortOrderEnum
+  changeTime: SortOrderEnum
+  children: NodeSortInput
+  ctime: SortOrderEnum
+  ctimeMs: SortOrderEnum
+  dev: SortOrderEnum
+  dir: SortOrderEnum
+  ext: SortOrderEnum
+  extension: SortOrderEnum
+  gid: SortOrderEnum
+  id: SortOrderEnum
+  ino: SortOrderEnum
+  internal: InternalSortInput
+  mode: SortOrderEnum
+  modifiedTime: SortOrderEnum
+  mtime: SortOrderEnum
+  mtimeMs: SortOrderEnum
+  name: SortOrderEnum
+  nlink: SortOrderEnum
+  parent: NodeSortInput
+  prettySize: SortOrderEnum
+  rdev: SortOrderEnum
+  relativeDirectory: SortOrderEnum
+  relativePath: SortOrderEnum
+  root: SortOrderEnum
+  size: SortOrderEnum
+  sourceInstanceName: SortOrderEnum
+  uid: SortOrderEnum
 }
 
 input DuotoneGradient {
   highlight: String!
   opacity: Int
   shadow: String!
+}
+
+input FileFieldSelector {
+  absolutePath: FieldSelectorEnum
+  accessTime: FieldSelectorEnum
+  atime: FieldSelectorEnum
+  atimeMs: FieldSelectorEnum
+  base: FieldSelectorEnum
+  birthTime: FieldSelectorEnum
+  birthtime: FieldSelectorEnum
+  birthtimeMs: FieldSelectorEnum
+  blksize: FieldSelectorEnum
+  blocks: FieldSelectorEnum
+  changeTime: FieldSelectorEnum
+  childImageSharp: ImageSharpFieldSelector
+  childProjectsCsv: ProjectsCsvFieldSelector
+  children: NodeFieldSelector
+  childrenImageSharp: ImageSharpFieldSelector
+  childrenProjectsCsv: ProjectsCsvFieldSelector
+  ctime: FieldSelectorEnum
+  ctimeMs: FieldSelectorEnum
+  dev: FieldSelectorEnum
+  dir: FieldSelectorEnum
+  ext: FieldSelectorEnum
+  extension: FieldSelectorEnum
+  gid: FieldSelectorEnum
+  id: FieldSelectorEnum
+  ino: FieldSelectorEnum
+  internal: InternalFieldSelector
+  mode: FieldSelectorEnum
+  modifiedTime: FieldSelectorEnum
+  mtime: FieldSelectorEnum
+  mtimeMs: FieldSelectorEnum
+  name: FieldSelectorEnum
+  nlink: FieldSelectorEnum
+  parent: NodeFieldSelector
+  prettySize: FieldSelectorEnum
+  publicURL: FieldSelectorEnum
+  rdev: FieldSelectorEnum
+  relativeDirectory: FieldSelectorEnum
+  relativePath: FieldSelectorEnum
+  root: FieldSelectorEnum
+  size: FieldSelectorEnum
+  sourceInstanceName: FieldSelectorEnum
+  uid: FieldSelectorEnum
 }
 
 input FileFilterInput {
@@ -4866,8 +1921,48 @@ input FileFilterInput {
 }
 
 input FileSortInput {
-  fields: [FileFieldsEnum]
-  order: [SortOrderEnum] = [ASC]
+  absolutePath: SortOrderEnum
+  accessTime: SortOrderEnum
+  atime: SortOrderEnum
+  atimeMs: SortOrderEnum
+  base: SortOrderEnum
+  birthTime: SortOrderEnum
+  birthtime: SortOrderEnum
+  birthtimeMs: SortOrderEnum
+  blksize: SortOrderEnum
+  blocks: SortOrderEnum
+  changeTime: SortOrderEnum
+  childImageSharp: ImageSharpSortInput
+  childProjectsCsv: ProjectsCsvSortInput
+  children: NodeSortInput
+  childrenImageSharp: ImageSharpSortInput
+  childrenProjectsCsv: ProjectsCsvSortInput
+  ctime: SortOrderEnum
+  ctimeMs: SortOrderEnum
+  dev: SortOrderEnum
+  dir: SortOrderEnum
+  ext: SortOrderEnum
+  extension: SortOrderEnum
+  gid: SortOrderEnum
+  id: SortOrderEnum
+  ino: SortOrderEnum
+  internal: InternalSortInput
+  mode: SortOrderEnum
+  modifiedTime: SortOrderEnum
+  mtime: SortOrderEnum
+  mtimeMs: SortOrderEnum
+  name: SortOrderEnum
+  nlink: SortOrderEnum
+  parent: NodeSortInput
+  prettySize: SortOrderEnum
+  publicURL: SortOrderEnum
+  rdev: SortOrderEnum
+  relativeDirectory: SortOrderEnum
+  relativePath: SortOrderEnum
+  root: SortOrderEnum
+  size: SortOrderEnum
+  sourceInstanceName: SortOrderEnum
+  uid: SortOrderEnum
 }
 
 input FloatQueryOperatorInput {
@@ -4888,6 +1983,18 @@ input GatsbyImageDataQueryOperatorInput {
   nin: [GatsbyImageData]
 }
 
+input ImageSharpFieldSelector {
+  children: NodeFieldSelector
+  fixed: ImageSharpFixedFieldSelector
+  fluid: ImageSharpFluidFieldSelector
+  gatsbyImageData: FieldSelectorEnum
+  id: FieldSelectorEnum
+  internal: InternalFieldSelector
+  original: ImageSharpOriginalFieldSelector
+  parent: NodeFieldSelector
+  resize: ImageSharpResizeFieldSelector
+}
+
 input ImageSharpFilterInput {
   children: NodeFilterListInput
   fixed: ImageSharpFixedFilterInput
@@ -4904,6 +2011,19 @@ input ImageSharpFilterListInput {
   elemMatch: ImageSharpFilterInput
 }
 
+input ImageSharpFixedFieldSelector {
+  aspectRatio: FieldSelectorEnum
+  base64: FieldSelectorEnum
+  height: FieldSelectorEnum
+  originalName: FieldSelectorEnum
+  src: FieldSelectorEnum
+  srcSet: FieldSelectorEnum
+  srcSetWebp: FieldSelectorEnum
+  srcWebp: FieldSelectorEnum
+  tracedSVG: FieldSelectorEnum
+  width: FieldSelectorEnum
+}
+
 input ImageSharpFixedFilterInput {
   aspectRatio: FloatQueryOperatorInput
   base64: StringQueryOperatorInput
@@ -4915,6 +2035,34 @@ input ImageSharpFixedFilterInput {
   srcWebp: StringQueryOperatorInput
   tracedSVG: StringQueryOperatorInput
   width: FloatQueryOperatorInput
+}
+
+input ImageSharpFixedSortInput {
+  aspectRatio: SortOrderEnum
+  base64: SortOrderEnum
+  height: SortOrderEnum
+  originalName: SortOrderEnum
+  src: SortOrderEnum
+  srcSet: SortOrderEnum
+  srcSetWebp: SortOrderEnum
+  srcWebp: SortOrderEnum
+  tracedSVG: SortOrderEnum
+  width: SortOrderEnum
+}
+
+input ImageSharpFluidFieldSelector {
+  aspectRatio: FieldSelectorEnum
+  base64: FieldSelectorEnum
+  originalImg: FieldSelectorEnum
+  originalName: FieldSelectorEnum
+  presentationHeight: FieldSelectorEnum
+  presentationWidth: FieldSelectorEnum
+  sizes: FieldSelectorEnum
+  src: FieldSelectorEnum
+  srcSet: FieldSelectorEnum
+  srcSetWebp: FieldSelectorEnum
+  srcWebp: FieldSelectorEnum
+  tracedSVG: FieldSelectorEnum
 }
 
 input ImageSharpFluidFilterInput {
@@ -4932,10 +2080,46 @@ input ImageSharpFluidFilterInput {
   tracedSVG: StringQueryOperatorInput
 }
 
+input ImageSharpFluidSortInput {
+  aspectRatio: SortOrderEnum
+  base64: SortOrderEnum
+  originalImg: SortOrderEnum
+  originalName: SortOrderEnum
+  presentationHeight: SortOrderEnum
+  presentationWidth: SortOrderEnum
+  sizes: SortOrderEnum
+  src: SortOrderEnum
+  srcSet: SortOrderEnum
+  srcSetWebp: SortOrderEnum
+  srcWebp: SortOrderEnum
+  tracedSVG: SortOrderEnum
+}
+
+input ImageSharpOriginalFieldSelector {
+  height: FieldSelectorEnum
+  src: FieldSelectorEnum
+  width: FieldSelectorEnum
+}
+
 input ImageSharpOriginalFilterInput {
   height: FloatQueryOperatorInput
   src: StringQueryOperatorInput
   width: FloatQueryOperatorInput
+}
+
+input ImageSharpOriginalSortInput {
+  height: SortOrderEnum
+  src: SortOrderEnum
+  width: SortOrderEnum
+}
+
+input ImageSharpResizeFieldSelector {
+  aspectRatio: FieldSelectorEnum
+  height: FieldSelectorEnum
+  originalName: FieldSelectorEnum
+  src: FieldSelectorEnum
+  tracedSVG: FieldSelectorEnum
+  width: FieldSelectorEnum
 }
 
 input ImageSharpResizeFilterInput {
@@ -4947,9 +2131,25 @@ input ImageSharpResizeFilterInput {
   width: IntQueryOperatorInput
 }
 
+input ImageSharpResizeSortInput {
+  aspectRatio: SortOrderEnum
+  height: SortOrderEnum
+  originalName: SortOrderEnum
+  src: SortOrderEnum
+  tracedSVG: SortOrderEnum
+  width: SortOrderEnum
+}
+
 input ImageSharpSortInput {
-  fields: [ImageSharpFieldsEnum]
-  order: [SortOrderEnum] = [ASC]
+  children: NodeSortInput
+  fixed: ImageSharpFixedSortInput
+  fluid: ImageSharpFluidSortInput
+  gatsbyImageData: SortOrderEnum
+  id: SortOrderEnum
+  internal: InternalSortInput
+  original: ImageSharpOriginalSortInput
+  parent: NodeSortInput
+  resize: ImageSharpResizeSortInput
 }
 
 input IntQueryOperatorInput {
@@ -4963,6 +2163,18 @@ input IntQueryOperatorInput {
   nin: [Int]
 }
 
+input InternalFieldSelector {
+  content: FieldSelectorEnum
+  contentDigest: FieldSelectorEnum
+  contentFilePath: FieldSelectorEnum
+  description: FieldSelectorEnum
+  fieldOwners: FieldSelectorEnum
+  ignoreType: FieldSelectorEnum
+  mediaType: FieldSelectorEnum
+  owner: FieldSelectorEnum
+  type: FieldSelectorEnum
+}
+
 input InternalFilterInput {
   content: StringQueryOperatorInput
   contentDigest: StringQueryOperatorInput
@@ -4973,6 +2185,18 @@ input InternalFilterInput {
   mediaType: StringQueryOperatorInput
   owner: StringQueryOperatorInput
   type: StringQueryOperatorInput
+}
+
+input InternalSortInput {
+  content: SortOrderEnum
+  contentDigest: SortOrderEnum
+  contentFilePath: SortOrderEnum
+  description: SortOrderEnum
+  fieldOwners: SortOrderEnum
+  ignoreType: SortOrderEnum
+  mediaType: SortOrderEnum
+  owner: SortOrderEnum
+  type: SortOrderEnum
 }
 
 input JPGOptions {
@@ -4989,6 +2213,13 @@ input JSONQueryOperatorInput {
   regex: JSON
 }
 
+input NodeFieldSelector {
+  children: NodeFieldSelector
+  id: FieldSelectorEnum
+  internal: InternalFieldSelector
+  parent: NodeFieldSelector
+}
+
 input NodeFilterInput {
   children: NodeFilterListInput
   id: StringQueryOperatorInput
@@ -4998,6 +2229,13 @@ input NodeFilterInput {
 
 input NodeFilterListInput {
   elemMatch: NodeFilterInput
+}
+
+input NodeSortInput {
+  children: NodeSortInput
+  id: SortOrderEnum
+  internal: InternalSortInput
+  parent: NodeSortInput
 }
 
 input PNGOptions {
@@ -5015,6 +2253,26 @@ input Potrace {
   threshold: Int
   turdSize: Float
   turnPolicy: PotraceTurnPolicy
+}
+
+input ProjectsCsvFieldSelector {
+  children: NodeFieldSelector
+  client: FieldSelectorEnum
+  cover: FileFieldSelector
+  description: FieldSelectorEnum
+  id: FieldSelectorEnum
+  internal: InternalFieldSelector
+  isPagePublic: FieldSelectorEnum
+  name: FieldSelectorEnum
+  parent: NodeFieldSelector
+  roles: FieldSelectorEnum
+  slug: FieldSelectorEnum
+  tagline: FieldSelectorEnum
+  team: FieldSelectorEnum
+  thumbnail: FileFieldSelector
+  type: FieldSelectorEnum
+  websiteUrl: FieldSelectorEnum
+  year: FieldSelectorEnum
 }
 
 input ProjectsCsvFilterInput {
@@ -5042,8 +2300,29 @@ input ProjectsCsvFilterListInput {
 }
 
 input ProjectsCsvSortInput {
-  fields: [ProjectsCsvFieldsEnum]
-  order: [SortOrderEnum] = [ASC]
+  children: NodeSortInput
+  client: SortOrderEnum
+  cover: FileSortInput
+  description: SortOrderEnum
+  id: SortOrderEnum
+  internal: InternalSortInput
+  isPagePublic: SortOrderEnum
+  name: SortOrderEnum
+  parent: NodeSortInput
+  roles: SortOrderEnum
+  slug: SortOrderEnum
+  tagline: SortOrderEnum
+  team: SortOrderEnum
+  thumbnail: FileSortInput
+  type: SortOrderEnum
+  websiteUrl: SortOrderEnum
+  year: SortOrderEnum
+}
+
+input RemoteFileResizeFieldSelector {
+  height: FieldSelectorEnum
+  src: FieldSelectorEnum
+  width: FieldSelectorEnum
 }
 
 input RemoteFileResizeFilterInput {
@@ -5052,12 +2331,61 @@ input RemoteFileResizeFilterInput {
   width: IntQueryOperatorInput
 }
 
+input RemoteFileResizeSortInput {
+  height: SortOrderEnum
+  src: SortOrderEnum
+  width: SortOrderEnum
+}
+
+input SanityAssetSourceDataFieldSelector {
+  _key: FieldSelectorEnum
+  _type: FieldSelectorEnum
+  id: FieldSelectorEnum
+  name: FieldSelectorEnum
+  url: FieldSelectorEnum
+}
+
 input SanityAssetSourceDataFilterInput {
   _key: StringQueryOperatorInput
   _type: StringQueryOperatorInput
   id: StringQueryOperatorInput
   name: StringQueryOperatorInput
   url: StringQueryOperatorInput
+}
+
+input SanityAssetSourceDataSortInput {
+  _key: SortOrderEnum
+  _type: SortOrderEnum
+  id: SortOrderEnum
+  name: SortOrderEnum
+  url: SortOrderEnum
+}
+
+input SanityFileAssetFieldSelector {
+  _createdAt: FieldSelectorEnum
+  _id: FieldSelectorEnum
+  _key: FieldSelectorEnum
+  _rawSource: FieldSelectorEnum
+  _rev: FieldSelectorEnum
+  _type: FieldSelectorEnum
+  _updatedAt: FieldSelectorEnum
+  altText: FieldSelectorEnum
+  assetId: FieldSelectorEnum
+  children: NodeFieldSelector
+  description: FieldSelectorEnum
+  extension: FieldSelectorEnum
+  id: FieldSelectorEnum
+  internal: InternalFieldSelector
+  label: FieldSelectorEnum
+  mimeType: FieldSelectorEnum
+  originalFilename: FieldSelectorEnum
+  parent: NodeFieldSelector
+  path: FieldSelectorEnum
+  sha1hash: FieldSelectorEnum
+  size: FieldSelectorEnum
+  source: SanityAssetSourceDataFieldSelector
+  title: FieldSelectorEnum
+  url: FieldSelectorEnum
 }
 
 input SanityFileAssetFilterInput {
@@ -5088,8 +2416,38 @@ input SanityFileAssetFilterInput {
 }
 
 input SanityFileAssetSortInput {
-  fields: [SanityFileAssetFieldsEnum]
-  order: [SortOrderEnum] = [ASC]
+  _createdAt: SortOrderEnum
+  _id: SortOrderEnum
+  _key: SortOrderEnum
+  _rawSource: SortOrderEnum
+  _rev: SortOrderEnum
+  _type: SortOrderEnum
+  _updatedAt: SortOrderEnum
+  altText: SortOrderEnum
+  assetId: SortOrderEnum
+  children: NodeSortInput
+  description: SortOrderEnum
+  extension: SortOrderEnum
+  id: SortOrderEnum
+  internal: InternalSortInput
+  label: SortOrderEnum
+  mimeType: SortOrderEnum
+  originalFilename: SortOrderEnum
+  parent: NodeSortInput
+  path: SortOrderEnum
+  sha1hash: SortOrderEnum
+  size: SortOrderEnum
+  source: SanityAssetSourceDataSortInput
+  title: SortOrderEnum
+  url: SortOrderEnum
+}
+
+input SanityGeopointFieldSelector {
+  _key: FieldSelectorEnum
+  _type: FieldSelectorEnum
+  alt: FieldSelectorEnum
+  lat: FieldSelectorEnum
+  lng: FieldSelectorEnum
 }
 
 input SanityGeopointFilterInput {
@@ -5098,6 +2456,52 @@ input SanityGeopointFilterInput {
   alt: FloatQueryOperatorInput
   lat: FloatQueryOperatorInput
   lng: FloatQueryOperatorInput
+}
+
+input SanityGeopointSortInput {
+  _key: SortOrderEnum
+  _type: SortOrderEnum
+  alt: SortOrderEnum
+  lat: SortOrderEnum
+  lng: SortOrderEnum
+}
+
+input SanityImageAssetFieldSelector {
+  _createdAt: FieldSelectorEnum
+  _id: FieldSelectorEnum
+  _key: FieldSelectorEnum
+  _rawMetadata: FieldSelectorEnum
+  _rawSource: FieldSelectorEnum
+  _rev: FieldSelectorEnum
+  _type: FieldSelectorEnum
+  _updatedAt: FieldSelectorEnum
+  altText: FieldSelectorEnum
+  assetId: FieldSelectorEnum
+  children: NodeFieldSelector
+  description: FieldSelectorEnum
+  extension: FieldSelectorEnum
+  filename: FieldSelectorEnum
+  filesize: FieldSelectorEnum
+  gatsbyImage: FieldSelectorEnum
+  gatsbyImageData: FieldSelectorEnum
+  height: FieldSelectorEnum
+  id: FieldSelectorEnum
+  internal: InternalFieldSelector
+  label: FieldSelectorEnum
+  metadata: SanityImageMetadataFieldSelector
+  mimeType: FieldSelectorEnum
+  originalFilename: FieldSelectorEnum
+  parent: NodeFieldSelector
+  path: FieldSelectorEnum
+  publicUrl: FieldSelectorEnum
+  resize: RemoteFileResizeFieldSelector
+  sha1hash: FieldSelectorEnum
+  size: FieldSelectorEnum
+  source: SanityAssetSourceDataFieldSelector
+  title: FieldSelectorEnum
+  uploadId: FieldSelectorEnum
+  url: FieldSelectorEnum
+  width: FieldSelectorEnum
 }
 
 input SanityImageAssetFilterInput {
@@ -5139,8 +2543,50 @@ input SanityImageAssetFilterInput {
 }
 
 input SanityImageAssetSortInput {
-  fields: [SanityImageAssetFieldsEnum]
-  order: [SortOrderEnum] = [ASC]
+  _createdAt: SortOrderEnum
+  _id: SortOrderEnum
+  _key: SortOrderEnum
+  _rawMetadata: SortOrderEnum
+  _rawSource: SortOrderEnum
+  _rev: SortOrderEnum
+  _type: SortOrderEnum
+  _updatedAt: SortOrderEnum
+  altText: SortOrderEnum
+  assetId: SortOrderEnum
+  children: NodeSortInput
+  description: SortOrderEnum
+  extension: SortOrderEnum
+  filename: SortOrderEnum
+  filesize: SortOrderEnum
+  gatsbyImage: SortOrderEnum
+  gatsbyImageData: SortOrderEnum
+  height: SortOrderEnum
+  id: SortOrderEnum
+  internal: InternalSortInput
+  label: SortOrderEnum
+  metadata: SanityImageMetadataSortInput
+  mimeType: SortOrderEnum
+  originalFilename: SortOrderEnum
+  parent: NodeSortInput
+  path: SortOrderEnum
+  publicUrl: SortOrderEnum
+  resize: RemoteFileResizeSortInput
+  sha1hash: SortOrderEnum
+  size: SortOrderEnum
+  source: SanityAssetSourceDataSortInput
+  title: SortOrderEnum
+  uploadId: SortOrderEnum
+  url: SortOrderEnum
+  width: SortOrderEnum
+}
+
+input SanityImageCropFieldSelector {
+  _key: FieldSelectorEnum
+  _type: FieldSelectorEnum
+  bottom: FieldSelectorEnum
+  left: FieldSelectorEnum
+  right: FieldSelectorEnum
+  top: FieldSelectorEnum
 }
 
 input SanityImageCropFilterInput {
@@ -5152,12 +2598,48 @@ input SanityImageCropFilterInput {
   top: FloatQueryOperatorInput
 }
 
+input SanityImageCropSortInput {
+  _key: SortOrderEnum
+  _type: SortOrderEnum
+  bottom: SortOrderEnum
+  left: SortOrderEnum
+  right: SortOrderEnum
+  top: SortOrderEnum
+}
+
+input SanityImageDimensionsFieldSelector {
+  _key: FieldSelectorEnum
+  _type: FieldSelectorEnum
+  aspectRatio: FieldSelectorEnum
+  height: FieldSelectorEnum
+  width: FieldSelectorEnum
+}
+
 input SanityImageDimensionsFilterInput {
   _key: StringQueryOperatorInput
   _type: StringQueryOperatorInput
   aspectRatio: FloatQueryOperatorInput
   height: FloatQueryOperatorInput
   width: FloatQueryOperatorInput
+}
+
+input SanityImageDimensionsSortInput {
+  _key: SortOrderEnum
+  _type: SortOrderEnum
+  aspectRatio: SortOrderEnum
+  height: SortOrderEnum
+  width: SortOrderEnum
+}
+
+input SanityImageFieldSelector {
+  _key: FieldSelectorEnum
+  _rawAsset: FieldSelectorEnum
+  _rawCrop: FieldSelectorEnum
+  _rawHotspot: FieldSelectorEnum
+  _type: FieldSelectorEnum
+  asset: SanityImageAssetFieldSelector
+  crop: SanityImageCropFieldSelector
+  hotspot: SanityImageHotspotFieldSelector
 }
 
 input SanityImageFilterInput {
@@ -5175,6 +2657,15 @@ input SanityImageFilterListInput {
   elemMatch: SanityImageFilterInput
 }
 
+input SanityImageHotspotFieldSelector {
+  _key: FieldSelectorEnum
+  _type: FieldSelectorEnum
+  height: FieldSelectorEnum
+  width: FieldSelectorEnum
+  x: FieldSelectorEnum
+  y: FieldSelectorEnum
+}
+
 input SanityImageHotspotFilterInput {
   _key: StringQueryOperatorInput
   _type: StringQueryOperatorInput
@@ -5182,6 +2673,30 @@ input SanityImageHotspotFilterInput {
   width: FloatQueryOperatorInput
   x: FloatQueryOperatorInput
   y: FloatQueryOperatorInput
+}
+
+input SanityImageHotspotSortInput {
+  _key: SortOrderEnum
+  _type: SortOrderEnum
+  height: SortOrderEnum
+  width: SortOrderEnum
+  x: SortOrderEnum
+  y: SortOrderEnum
+}
+
+input SanityImageMetadataFieldSelector {
+  _key: FieldSelectorEnum
+  _rawDimensions: FieldSelectorEnum
+  _rawLocation: FieldSelectorEnum
+  _rawPalette: FieldSelectorEnum
+  _type: FieldSelectorEnum
+  blurHash: FieldSelectorEnum
+  dimensions: SanityImageDimensionsFieldSelector
+  hasAlpha: FieldSelectorEnum
+  isOpaque: FieldSelectorEnum
+  location: SanityGeopointFieldSelector
+  lqip: FieldSelectorEnum
+  palette: SanityImagePaletteFieldSelector
 }
 
 input SanityImageMetadataFilterInput {
@@ -5197,6 +2712,40 @@ input SanityImageMetadataFilterInput {
   location: SanityGeopointFilterInput
   lqip: StringQueryOperatorInput
   palette: SanityImagePaletteFilterInput
+}
+
+input SanityImageMetadataSortInput {
+  _key: SortOrderEnum
+  _rawDimensions: SortOrderEnum
+  _rawLocation: SortOrderEnum
+  _rawPalette: SortOrderEnum
+  _type: SortOrderEnum
+  blurHash: SortOrderEnum
+  dimensions: SanityImageDimensionsSortInput
+  hasAlpha: SortOrderEnum
+  isOpaque: SortOrderEnum
+  location: SanityGeopointSortInput
+  lqip: SortOrderEnum
+  palette: SanityImagePaletteSortInput
+}
+
+input SanityImagePaletteFieldSelector {
+  _key: FieldSelectorEnum
+  _rawDarkMuted: FieldSelectorEnum
+  _rawDarkVibrant: FieldSelectorEnum
+  _rawDominant: FieldSelectorEnum
+  _rawLightMuted: FieldSelectorEnum
+  _rawLightVibrant: FieldSelectorEnum
+  _rawMuted: FieldSelectorEnum
+  _rawVibrant: FieldSelectorEnum
+  _type: FieldSelectorEnum
+  darkMuted: SanityImagePaletteSwatchFieldSelector
+  darkVibrant: SanityImagePaletteSwatchFieldSelector
+  dominant: SanityImagePaletteSwatchFieldSelector
+  lightMuted: SanityImagePaletteSwatchFieldSelector
+  lightVibrant: SanityImagePaletteSwatchFieldSelector
+  muted: SanityImagePaletteSwatchFieldSelector
+  vibrant: SanityImagePaletteSwatchFieldSelector
 }
 
 input SanityImagePaletteFilterInput {
@@ -5218,6 +2767,34 @@ input SanityImagePaletteFilterInput {
   vibrant: SanityImagePaletteSwatchFilterInput
 }
 
+input SanityImagePaletteSortInput {
+  _key: SortOrderEnum
+  _rawDarkMuted: SortOrderEnum
+  _rawDarkVibrant: SortOrderEnum
+  _rawDominant: SortOrderEnum
+  _rawLightMuted: SortOrderEnum
+  _rawLightVibrant: SortOrderEnum
+  _rawMuted: SortOrderEnum
+  _rawVibrant: SortOrderEnum
+  _type: SortOrderEnum
+  darkMuted: SanityImagePaletteSwatchSortInput
+  darkVibrant: SanityImagePaletteSwatchSortInput
+  dominant: SanityImagePaletteSwatchSortInput
+  lightMuted: SanityImagePaletteSwatchSortInput
+  lightVibrant: SanityImagePaletteSwatchSortInput
+  muted: SanityImagePaletteSwatchSortInput
+  vibrant: SanityImagePaletteSwatchSortInput
+}
+
+input SanityImagePaletteSwatchFieldSelector {
+  _key: FieldSelectorEnum
+  _type: FieldSelectorEnum
+  background: FieldSelectorEnum
+  foreground: FieldSelectorEnum
+  population: FieldSelectorEnum
+  title: FieldSelectorEnum
+}
+
 input SanityImagePaletteSwatchFilterInput {
   _key: StringQueryOperatorInput
   _type: StringQueryOperatorInput
@@ -5225,6 +2802,56 @@ input SanityImagePaletteSwatchFilterInput {
   foreground: StringQueryOperatorInput
   population: FloatQueryOperatorInput
   title: StringQueryOperatorInput
+}
+
+input SanityImagePaletteSwatchSortInput {
+  _key: SortOrderEnum
+  _type: SortOrderEnum
+  background: SortOrderEnum
+  foreground: SortOrderEnum
+  population: SortOrderEnum
+  title: SortOrderEnum
+}
+
+input SanityImageSortInput {
+  _key: SortOrderEnum
+  _rawAsset: SortOrderEnum
+  _rawCrop: SortOrderEnum
+  _rawHotspot: SortOrderEnum
+  _type: SortOrderEnum
+  asset: SanityImageAssetSortInput
+  crop: SanityImageCropSortInput
+  hotspot: SanityImageHotspotSortInput
+}
+
+input SanityProjectFieldSelector {
+  _createdAt: FieldSelectorEnum
+  _id: FieldSelectorEnum
+  _key: FieldSelectorEnum
+  _rawCoverImage: FieldSelectorEnum
+  _rawImages: FieldSelectorEnum
+  _rawSlug: FieldSelectorEnum
+  _rawThumbnail: FieldSelectorEnum
+  _rev: FieldSelectorEnum
+  _type: FieldSelectorEnum
+  _updatedAt: FieldSelectorEnum
+  children: NodeFieldSelector
+  client: FieldSelectorEnum
+  coverImage: SanityImageFieldSelector
+  description: FieldSelectorEnum
+  id: FieldSelectorEnum
+  images: SanityImageFieldSelector
+  internal: InternalFieldSelector
+  isPagePublic: FieldSelectorEnum
+  parent: NodeFieldSelector
+  roles: FieldSelectorEnum
+  slug: SanitySlugFieldSelector
+  tagline: FieldSelectorEnum
+  thumbnail: SanityImageFieldSelector
+  title: FieldSelectorEnum
+  type: FieldSelectorEnum
+  websiteUrl: FieldSelectorEnum
+  year: FieldSelectorEnum
 }
 
 input SanityProjectFilterInput {
@@ -5258,8 +2885,33 @@ input SanityProjectFilterInput {
 }
 
 input SanityProjectSortInput {
-  fields: [SanityProjectFieldsEnum]
-  order: [SortOrderEnum] = [ASC]
+  _createdAt: SortOrderEnum
+  _id: SortOrderEnum
+  _key: SortOrderEnum
+  _rawCoverImage: SortOrderEnum
+  _rawImages: SortOrderEnum
+  _rawSlug: SortOrderEnum
+  _rawThumbnail: SortOrderEnum
+  _rev: SortOrderEnum
+  _type: SortOrderEnum
+  _updatedAt: SortOrderEnum
+  children: NodeSortInput
+  client: SortOrderEnum
+  coverImage: SanityImageSortInput
+  description: SortOrderEnum
+  id: SortOrderEnum
+  images: SanityImageSortInput
+  internal: InternalSortInput
+  isPagePublic: SortOrderEnum
+  parent: NodeSortInput
+  roles: SortOrderEnum
+  slug: SanitySlugSortInput
+  tagline: SortOrderEnum
+  thumbnail: SanityImageSortInput
+  title: SortOrderEnum
+  type: SortOrderEnum
+  websiteUrl: SortOrderEnum
+  year: SortOrderEnum
 }
 
 input SanityResolveReferencesConfiguration {
@@ -5267,11 +2919,33 @@ input SanityResolveReferencesConfiguration {
   maxDepth: Int!
 }
 
+input SanitySlugFieldSelector {
+  _key: FieldSelectorEnum
+  _type: FieldSelectorEnum
+  current: FieldSelectorEnum
+  source: FieldSelectorEnum
+}
+
 input SanitySlugFilterInput {
   _key: StringQueryOperatorInput
   _type: StringQueryOperatorInput
   current: StringQueryOperatorInput
   source: StringQueryOperatorInput
+}
+
+input SanitySlugSortInput {
+  _key: SortOrderEnum
+  _type: SortOrderEnum
+  current: SortOrderEnum
+  source: SortOrderEnum
+}
+
+input SiteBuildMetadataFieldSelector {
+  buildTime: FieldSelectorEnum
+  children: NodeFieldSelector
+  id: FieldSelectorEnum
+  internal: InternalFieldSelector
+  parent: NodeFieldSelector
 }
 
 input SiteBuildMetadataFilterInput {
@@ -5283,8 +2957,27 @@ input SiteBuildMetadataFilterInput {
 }
 
 input SiteBuildMetadataSortInput {
-  fields: [SiteBuildMetadataFieldsEnum]
-  order: [SortOrderEnum] = [ASC]
+  buildTime: SortOrderEnum
+  children: NodeSortInput
+  id: SortOrderEnum
+  internal: InternalSortInput
+  parent: NodeSortInput
+}
+
+input SiteFieldSelector {
+  buildTime: FieldSelectorEnum
+  children: NodeFieldSelector
+  graphqlTypegen: FieldSelectorEnum
+  host: FieldSelectorEnum
+  id: FieldSelectorEnum
+  internal: InternalFieldSelector
+  jsxRuntime: FieldSelectorEnum
+  parent: NodeFieldSelector
+  pathPrefix: FieldSelectorEnum
+  polyfill: FieldSelectorEnum
+  port: FieldSelectorEnum
+  siteMetadata: SiteSiteMetadataFieldSelector
+  trailingSlash: FieldSelectorEnum
 }
 
 input SiteFilterInput {
@@ -5303,6 +2996,20 @@ input SiteFilterInput {
   trailingSlash: StringQueryOperatorInput
 }
 
+input SiteFunctionFieldSelector {
+  absoluteCompiledFilePath: FieldSelectorEnum
+  children: NodeFieldSelector
+  functionRoute: FieldSelectorEnum
+  id: FieldSelectorEnum
+  internal: InternalFieldSelector
+  matchPath: FieldSelectorEnum
+  originalAbsoluteFilePath: FieldSelectorEnum
+  originalRelativeFilePath: FieldSelectorEnum
+  parent: NodeFieldSelector
+  pluginName: FieldSelectorEnum
+  relativeCompiledFilePath: FieldSelectorEnum
+}
+
 input SiteFunctionFilterInput {
   absoluteCompiledFilePath: StringQueryOperatorInput
   children: NodeFilterListInput
@@ -5318,8 +3025,31 @@ input SiteFunctionFilterInput {
 }
 
 input SiteFunctionSortInput {
-  fields: [SiteFunctionFieldsEnum]
-  order: [SortOrderEnum] = [ASC]
+  absoluteCompiledFilePath: SortOrderEnum
+  children: NodeSortInput
+  functionRoute: SortOrderEnum
+  id: SortOrderEnum
+  internal: InternalSortInput
+  matchPath: SortOrderEnum
+  originalAbsoluteFilePath: SortOrderEnum
+  originalRelativeFilePath: SortOrderEnum
+  parent: NodeSortInput
+  pluginName: SortOrderEnum
+  relativeCompiledFilePath: SortOrderEnum
+}
+
+input SitePageFieldSelector {
+  children: NodeFieldSelector
+  component: FieldSelectorEnum
+  componentChunkName: FieldSelectorEnum
+  id: FieldSelectorEnum
+  internal: InternalFieldSelector
+  internalComponentName: FieldSelectorEnum
+  matchPath: FieldSelectorEnum
+  pageContext: FieldSelectorEnum
+  parent: NodeFieldSelector
+  path: FieldSelectorEnum
+  pluginCreator: SitePluginFieldSelector
 }
 
 input SitePageFilterInput {
@@ -5337,8 +3067,33 @@ input SitePageFilterInput {
 }
 
 input SitePageSortInput {
-  fields: [SitePageFieldsEnum]
-  order: [SortOrderEnum] = [ASC]
+  children: NodeSortInput
+  component: SortOrderEnum
+  componentChunkName: SortOrderEnum
+  id: SortOrderEnum
+  internal: InternalSortInput
+  internalComponentName: SortOrderEnum
+  matchPath: SortOrderEnum
+  pageContext: SortOrderEnum
+  parent: NodeSortInput
+  path: SortOrderEnum
+  pluginCreator: SitePluginSortInput
+}
+
+input SitePluginFieldSelector {
+  browserAPIs: FieldSelectorEnum
+  children: NodeFieldSelector
+  id: FieldSelectorEnum
+  internal: InternalFieldSelector
+  name: FieldSelectorEnum
+  nodeAPIs: FieldSelectorEnum
+  packageJson: FieldSelectorEnum
+  parent: NodeFieldSelector
+  pluginFilepath: FieldSelectorEnum
+  pluginOptions: FieldSelectorEnum
+  resolve: FieldSelectorEnum
+  ssrAPIs: FieldSelectorEnum
+  version: FieldSelectorEnum
 }
 
 input SitePluginFilterInput {
@@ -5358,8 +3113,27 @@ input SitePluginFilterInput {
 }
 
 input SitePluginSortInput {
-  fields: [SitePluginFieldsEnum]
-  order: [SortOrderEnum] = [ASC]
+  browserAPIs: SortOrderEnum
+  children: NodeSortInput
+  id: SortOrderEnum
+  internal: InternalSortInput
+  name: SortOrderEnum
+  nodeAPIs: SortOrderEnum
+  packageJson: SortOrderEnum
+  parent: NodeSortInput
+  pluginFilepath: SortOrderEnum
+  pluginOptions: SortOrderEnum
+  resolve: SortOrderEnum
+  ssrAPIs: SortOrderEnum
+  version: SortOrderEnum
+}
+
+input SiteSiteMetadataFieldSelector {
+  description: FieldSelectorEnum
+  image: FieldSelectorEnum
+  siteUrl: FieldSelectorEnum
+  title: FieldSelectorEnum
+  titleTemplate: FieldSelectorEnum
 }
 
 input SiteSiteMetadataFilterInput {
@@ -5370,9 +3144,28 @@ input SiteSiteMetadataFilterInput {
   titleTemplate: StringQueryOperatorInput
 }
 
+input SiteSiteMetadataSortInput {
+  description: SortOrderEnum
+  image: SortOrderEnum
+  siteUrl: SortOrderEnum
+  title: SortOrderEnum
+  titleTemplate: SortOrderEnum
+}
+
 input SiteSortInput {
-  fields: [SiteFieldsEnum]
-  order: [SortOrderEnum] = [ASC]
+  buildTime: SortOrderEnum
+  children: NodeSortInput
+  graphqlTypegen: SortOrderEnum
+  host: SortOrderEnum
+  id: SortOrderEnum
+  internal: InternalSortInput
+  jsxRuntime: SortOrderEnum
+  parent: NodeSortInput
+  pathPrefix: SortOrderEnum
+  polyfill: SortOrderEnum
+  port: SortOrderEnum
+  siteMetadata: SiteSiteMetadataSortInput
+  trailingSlash: SortOrderEnum
 }
 
 input StringQueryOperatorInput {
