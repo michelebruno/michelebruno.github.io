@@ -4,7 +4,7 @@ import {ScrollTrigger} from 'gsap/ScrollTrigger';
 
 import {useEffect, useRef, useState} from 'react';
 
-import {graphql} from 'gatsby';
+import {graphql, navigate} from 'gatsby';
 import classNames from 'classnames';
 import {ProjectCard} from '../components/ProjectCard';
 
@@ -41,12 +41,12 @@ function IndexPage({data: {projects}}) {
 
     // GSAP animation to make the hero full height on page load
     tl.to(heroRef.current, {
-      height: 'auto',
+      //  height: 'auto',
       duration: 1,
       delay: 1,
     });
 
-    tl.to('body', {overflow: 'auto'});
+    tl.to('body', {overflow: 'initial'});
 
     tl.call(() => {
       const heights = [];
@@ -67,9 +67,12 @@ function IndexPage({data: {projects}}) {
       <div
         className="flex content-around items-center relative py box-border"
         ref={heroRef}
-        style={{height: 'calc(100vh - var(--navbar-height) )'}}
+        // style={{height: 'calc(100vh - var(--navbar-height) )'}}
       >
-        <h1 className="fs-3xl px py pb-lg leading-normal " onMouseEnter={() => setHoverProject(-1)}>
+        <h1
+          className="fs-3xl px-screen py pb-lg leading-normal"
+          onMouseEnter={() => setHoverProject(-1)}
+        >
           <span className="font-bold">Hey! 👋🏻</span> I'm Michele Bruno, an italian{' '}
           <span className="inline-block font-sans not-italic">UX Designer</span> and{' '}
           <span className="inline-block font-sans not-italic">Creative Developer</span> based in
@@ -82,7 +85,7 @@ function IndexPage({data: {projects}}) {
       <section className="relative" ref={projectContainer}>
         <div
           className={classNames(
-            'thumbnail-container px hidden lg:block absolute w-[50vw] right-0 transition-all z-20 '
+            'thumbnail-container px-screen hidden lg:block absolute w-[50vw] right-0 transition-all z-20  pointer-events-none '
             // typeof hoverProject === 'undefined' ? 'opacity-0' : 'opacity-100'
           )}
           style={{
@@ -115,9 +118,10 @@ function IndexPage({data: {projects}}) {
                 .filter(i => i.isPagePublic)
                 .map(p => (
                   <Image
+                    onClick={() => navigate(`/projects/${p.slug}`)}
                     image={p.cover || p.thumbnail}
                     key={p.name}
-                    className="aspect-video object-cover bg-white"
+                    className="aspect-video object-cover bg-white pointer-events-none"
                   />
                 ))}
             </div>

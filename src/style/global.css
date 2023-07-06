@@ -10,6 +10,12 @@
 
   :root {
     --navbar-height: 76px;
+
+    --screen-margin: 20px;
+
+    @screen md {
+      --screen-margin: 32px;
+    }
   }
 
   @keyframes scrollAnimation {
@@ -82,7 +88,7 @@
   }
 
   .fs-xl {
-    @apply text-2xl lg:text-3xl;
+    @apply text-xl md:text-2xl lg:text-3xl;
   }
 
   .fs-2xl {
@@ -153,6 +159,13 @@
 
   .pb-lg {
     @apply pb-16 lg:pb-32;
+  }
+  .pt {
+    @apply pt-8 lg:pt-16;
+  }
+
+  .pt-lg {
+    @apply pt-16 lg:pt-32;
   }
 
   .mx {

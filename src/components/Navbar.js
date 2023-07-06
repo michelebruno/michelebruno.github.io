@@ -16,10 +16,11 @@ export default function Navbar({fixed, className}) {
   return (
     <nav
       className={classNames(
-        'top-0 w-full flex justify-between z-50 bg-navbar',
-        'fs-lg',
+        'top-0 w-full flex justify-between z-50 ',
+        //        'bg-navbar',
+        'text-sm uppercase',
         fixed && 'fixed',
-        !fixed && '',
+        !fixed && 'sticky',
         className
       )}
       id="navbar"

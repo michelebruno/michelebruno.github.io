@@ -1,9 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import {Link} from 'gatsby';
 import classNames from 'classnames';
 import gsap from 'gsap';
-import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import {useTriggerTransition} from 'gatsby-plugin-transition-link';
 import {useTransitionState} from 'gatsby-plugin-transition-link/hooks';
 import {useEffect} from 'react';
@@ -14,10 +12,14 @@ import Cover from './Cover';
 function ProjectTitle({name, year, tagline, className, isNextProject}) {
   // TODO aggiungere link per SEO
   return (
-    <div className={classNames('md:col-span-3 pb md:pb-0', className)}>
+    <div className={classNames('md:col-span-3', className)}>
       {isNextProject && <p className="fs-lg next-project-label">Next project</p>}
       <div>
-        <H1 className="lg:inline break-words">{name}</H1>
+        <div className="!block">
+          <H1 className={classNames('break-words items-end  flex w-full')}>
+            <span className="h-auto">{name}</span>
+          </H1>
+        </div>
         <span className="fs-xl"> ({year})</span>
       </div>
       <h2 className="fs-xl text-gray pt-2">{tagline}</h2>
@@ -40,23 +42,22 @@ export default function Heading({
   isNextProject,
 }) {
   const navigate = useTriggerTransition();
-  const transitionState = useTransitionState();
 
   const headerEl = React.useRef(null);
   const wrapperEl = React.useRef(null);
 
-  const route = useLocation();
-
-  const isCurrentProject = route.pathname === `/projects/${slug}`;
-
   function onExitAnimation() {
     const el = wrapperEl.current.querySelector('.next-project-heading');
 
-    const labelHeigth = el.querySelector('.next-project-label').getBoundingClientRect().height;
+    // get next project heading height with padding
 
-    const elParentHeight = el.parentElement.getBoundingClientRect().height;
+    const currentProjectHeadingHeight =
+      wrapperEl.current.querySelector('.next-project-heading').parentElement.getBoundingClientRect()
+        .height - 28;
 
-    const ANIMATION_DURATION = 0.5;
+    console.log(currentProjectHeadingHeight);
+
+    const ANIMATION_DURATION = 0.3;
 
     const tl = gsap.timeline({
       duration: ANIMATION_DURATION,
@@ -68,9 +69,19 @@ export default function Heading({
       ease: 'power2.out',
     });
 
-    tl.to(wrapperEl.current?.querySelector('.cover-img'), {
-      opacity: 100,
+    // For mobile transition
+    tl.to(wrapperEl.current?.querySelector('.next-project-heading').parentElement, {
+      height: 0,
+      padding: 0,
     });
+
+    tl.to(
+      wrapperEl.current?.querySelector('.cover-img'),
+      {
+        opacity: 100,
+      },
+      `-=${ANIMATION_DURATION}`
+    );
 
     tl.to(
       wrapperEl.current.querySelector('.cover-img'),
@@ -80,34 +91,48 @@ export default function Heading({
       `-=${ANIMATION_DURATION * 2}`
     );
 
-    tl.to(document.querySelector('.project-wrapper'), {
-      opacity: 0,
-    });
+    tl.to(
+      document.querySelector('.project-wrapper'),
+      {
+        opacity: 0,
+      },
+      0
+    );
 
     tl.to(
       document.querySelector('.project-wrapper'),
       {
-        maxHeight: `${elParentHeight - labelHeigth}px`,
-      },
-      `-=${ANIMATION_DURATION}`
+        height: `${currentProjectHeadingHeight}px`,
+      }
+      // `-=${ANIMATION_DURATION}`
     );
 
     tl.call(() => {
-      window.scrollTo(0, 0);
+      console.time('scroll');
+      window.scroll({top: 0, behavior: 'smooth'});
     });
 
-    tl.call(() => {
-      ScrollTrigger.refresh();
-    });
+    tl.call(
+      () => {
+        console.timeEnd('scroll');
 
-    tl.call(() => {
-      el.style.top = el.getBoundingClientRect().top;
-      el.style.left = el.getBoundingClientRect().left;
-      el.style.position = 'fixed';
-    });
+        el.style.top = el.getBoundingClientRect().top;
+        el.style.left = el.getBoundingClientRect().left;
+        el.style.position = 'fixed';
+      },
+      null,
+      `+=${ANIMATION_DURATION}`
+    );
   }
 
   useEffect(() => {
+    // Stop the function if it's the current project
+    if (isNextProject) return;
+
+    document.body.style['--project-heading-height'] = `${
+      headerEl.current?.getBoundingClientRect().height
+    }px`;
+
     const tl = gsap.timeline({
       duration: 0.5,
     });
@@ -123,6 +148,10 @@ export default function Heading({
       ease: 'power2.out',
     });
 
+    tl.from(headerEl.current?.querySelectorAll('div:nth-child(2)'), {
+      height: 0,
+    });
+
     tl.from(headerEl.current?.querySelectorAll('div:nth-child(2) ul li'), {
       stagger: 0.2,
       opacity: 0,
@@ -135,12 +164,15 @@ export default function Heading({
     <div ref={wrapperEl}>
       {!isNextProject && (
         <header
-          className="grid grid-cols-1 md:grid-cols-4 items-end px py opacity-0"
+          className={classNames(
+            'grid grid-cols-1 md:grid-cols-4 items-end px-screen py opacity-0 current-project-heading gap-y-0',
+            !isNextProject && 'py'
+          )}
           ref={headerEl}
         >
           <ProjectTitle year={year} name={name} tagline={tagline} />
           <div className="md:pt-8 text-base flex flex-col">
-            <ul>
+            <ul className="pt">
               {roles && (
                 <li>
                   <strong>Role:</strong> {roles.join(', ')}
@@ -191,10 +223,9 @@ export default function Heading({
                 year={year}
                 name={name}
                 tagline={tagline}
-                className="next-project-heading "
+                className="next-project-heading"
                 isNextProject={isNextProject}
               />
-              <div className="pt-8 text-base flex flex-col" />
             </>
           )}
         </Cover>

@@ -12,7 +12,7 @@ export default function Grid({children, className, two, three, six, twelve, padd
         six && 'grid-cols-6',
         twelve && 'grid-cols-12',
         projects && 'md:grid-cols-project',
-        padding && 'pb-lg px',
+        padding && 'pb-lg px-screen',
         className
       )}
     >

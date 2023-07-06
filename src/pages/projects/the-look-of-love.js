@@ -32,7 +32,7 @@ export default function TheLookOfLove({data: {project}}) {
 
   return (
     <Wrapper project={project}>
-      <div id="awwwards" className="fixed -tranlata-y-1/2 top-1/2 right-0" style={{zIndex: 1000}}>
+      <div id="awwwards" className="fixed -translate-y-1/2 top-1/2 right-0" style={{zIndex: 1000}}>
         <a
           href="https://www.awwwards.com/sites/the-look-of-love-1"
           target="_blank"
@@ -76,26 +76,28 @@ export default function TheLookOfLove({data: {project}}) {
           />
         </div>
       </Grid>
-      <Grid two padding>
-        <div className="grid lg:grid-cols-[1fr_0.5fr] auto-rows-min">
-          <div className="sticky top-12 pb leading-relaxed">
-            <h2 className="font-semibold">The algorithm in action</h2>
-            <p>
-              At first, the experience flow was designed in great details, building a complex
-              timeline considering all the interactions and feedbacks.
-            </p>
-            <p>
-              We then decided to use three experience drivers: users' expressions, voice volume and
-              speech recognition.
-            </p>
-            <p>
-              At each step of the flow, the user is asked to perform a specific action such as
-              calling the cat, smiling or calling for "palla" (ball in Italian).
-            </p>
-            <p>
-              This challenging website was built in Nuxt with a great help of the well known
-              FaceApi.
-            </p>
+      <Grid two padding className=" ">
+        <div className="grid xl:grid-cols-[1fr_0.5fr]  ">
+          <div className=" pb leading-relaxed h-auto">
+            <div className="sticky top-12">
+              <h2 className="font-semibold">The algorithm in action</h2>
+              <p>
+                At first, the experience flow was designed in great details, building a complex
+                timeline considering all the interactions and feedbacks.
+              </p>
+              <p>
+                We then decided to use three experience drivers: users' expressions, voice volume
+                and speech recognition.
+              </p>
+              <p>
+                At each step of the flow, the user is asked to perform a specific action such as
+                calling the cat, smiling or calling for "palla" (ball in Italian).
+              </p>
+              <p>
+                This challenging website was built in Nuxt with a great help of the well known
+                FaceApi.
+              </p>
+            </div>
           </div>
         </div>
         <div className="grid gap">

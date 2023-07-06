@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import {Link} from 'gatsby';
 import PropTypes from 'prop-types';
 import {OutboundLink} from 'gatsby-plugin-google-gtag';
 
@@ -49,7 +48,7 @@ export function Tag({title, children}) {
   );
 }
 
-export function TextBox({children, padding, containBorder, className, description, title, layout}) {
+export function TextBox({children, padding, className, description, title, layout}) {
   if (layout === 'stacked') {
     return (
       <div className={classNames('fs-lg leading-relaxed', padding && 'pb-lg', className)}>
@@ -62,7 +61,7 @@ export function TextBox({children, padding, containBorder, className, descriptio
   return (
     <div
       className={classNames(
-        'fs-lg grid grid-cols-1 lg:grid-cols-4 px',
+        'fs-lg grid grid-cols-1 lg:grid-cols-4 px-screen',
         padding && 'pb-lg',
         className
       )}
@@ -93,15 +92,19 @@ export function AnimatedLink({
   icon,
   className,
 }) {
+  const otherProps = {};
+
+  if (to) {
+    otherProps.activeClassName = activeClassName;
+  }
+
   return (
     <C
       href={href}
       target={target}
       to={to}
       className={classNames('!cursor-pointer', className)}
-      {...{
-        activeClassName: C === Link ? classNames(activeClassName, 'current') : undefined,
-      }}
+      {...otherProps}
     >
       <span
         className={

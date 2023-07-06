@@ -3,7 +3,6 @@ import {graphql, Link} from 'gatsby';
 
 import Wrapper from '../../components/Project/Wrapper';
 import Heading from '../../components/Project/Heading';
-import Cover from '../../components/Project/Cover';
 import {AnimatedLink, Tag, TextBox} from '../../components/Typography';
 import Grid from '../../components/Grid';
 import Image, {createGetImageFromName} from '../../components/Image';
@@ -67,7 +66,7 @@ export default function OpinionLibrary({data: {project, images}}) {
 
       <Grid padding two>
         <div className="sm:col-span-2">
-          <div style={{paddingTop: '56.25%', position: 'relative'}} className="px">
+          <div style={{paddingTop: '61.875%', position: 'relative'}} className="px">
             <iframe
               src="https://player.vimeo.com/video/839711560?title=0&byline=0&portrait=0"
               frameBorder="0"

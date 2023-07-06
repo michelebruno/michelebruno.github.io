@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {graphql, Link} from 'gatsby';
+import {graphql} from 'gatsby';
 
 import Wrapper from '../../components/Project/Wrapper';
 import Heading from '../../components/Project/Heading';
 import Cover from '../../components/Project/Cover';
-import {AnimatedLink, Tag, TextBox} from '../../components/Typography';
+import {Tag, TextBox} from '../../components/Typography';
 import Grid from '../../components/Grid';
 import Image, {createGetImageFromName} from '../../components/Image';
 import keynoteUrl from '../../images/feelo/MicheleBruno – Keynote Feelo.pdf';
@@ -22,19 +22,7 @@ function Mockup({title, names, images}) {
 }
 
 export default function Feelo({data: {project, images}}) {
-  const {
-    name,
-    slug,
-    roles,
-    tagline,
-    thumbnail,
-    cover,
-    year,
-    client,
-    team,
-    websiteUrl,
-    description,
-  } = project;
+  const {name, roles, tagline, thumbnail, cover, year, client, team, description} = project;
 
   const getImage = createGetImageFromName(images.nodes, 'feelo');
 
@@ -91,7 +79,7 @@ export default function Feelo({data: {project, images}}) {
           <Image image={getImage('pres-architettura-it.png')} />
         </div>
       </Grid>
-      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 px pb-lg">
+      <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 px-screen pb-lg">
         <Mockup names={['giulia-diario.png']} images={getImage} title="Daily journal" />
         <Mockup
           names={['shared-activity-giulia.png', 'giulia-attivita-giasvolta.png']}

@@ -37,6 +37,9 @@ module.exports = {
       fontWeight: {
         DEFAULT: '300',
       },
+      spacing: {
+        screen: 'var(--screen-margin)',
+      },
     },
 
     // Satoshi no, fa cagare

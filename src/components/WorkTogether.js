@@ -4,7 +4,7 @@ import Button from './Button';
 export default function WorkTogether({...props}) {
   return (
     <section className="min-h-[80vh] border-b grid items-center" {...props}>
-      <div className="px items-center leading-tight">
+      <div className="px-screen items-center leading-tight">
         <p className="fs-3xl">
           Let's work together! <br />
           <Button before href="mailto:bm.michelebruno@gmail.com">

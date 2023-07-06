@@ -77,9 +77,9 @@ export default function Layout({
         </div>
       )}
       <Seo title={title} description={description} pathname={pathname} />
-      {navbar && <Navbar fixed={fixed} className="px" />}
+      {navbar && <Navbar fixed={fixed} className="px-screen" />}
       <main className={className}>{children}</main>
-      <footer className="w-full px my-6 flex justify-between">
+      <footer className="w-full px-screen my-6 flex justify-between">
         <div>@ 2023</div>
         <ul className="flex gap-8">
           <li>
