@@ -37,16 +37,16 @@ function IndexPage({data: {projects}}) {
       window.scrollTo(0, 0);
     });
 
-    tl.to('body', {overflow: 'hidden'});
+    // tl.to('body', {overflow: 'hidden'});
 
     // GSAP animation to make the hero full height on page load
     tl.to(heroRef.current, {
       //  height: 'auto',
-      duration: 1,
-      delay: 1,
+      // duration: 1,
+      //delay: 1,
     });
 
-    tl.to('body', {overflow: 'initial'});
+    // tl.to('body', {overflow: 'initial'});
 
     tl.call(() => {
       const heights = [];
