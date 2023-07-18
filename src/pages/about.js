@@ -43,7 +43,7 @@ export default function About({data}) {
         <div className="col-span-12 md:col-span-9 fs-2xl  grid leading-relaxed py relative z-10">
           <p className="">
             Hi! My name is Michele Bruno, I'm a freelance Designer and Creative Developer based in
-            Milan, Italy. I'm currently enrolled in the last year of Communication Design master at
+            Milan, Italy. I also recently graduated in Communication Design master at
             Politecnico di Milano.
           </p>
           <p className="">
@@ -51,13 +51,6 @@ export default function About({data}) {
             own the basis of website-development and graphic design. As I understood how technology
             could become the most powerful tool to achieve my design goals, I've begun studying it
             on a daily basis, to improve every day.
-          </p>
-          <p className="hidden">
-            Lately in these years, I've been working mainly on digital interactive artifacts, taking
-            care of projects from concept to development. Having worked in different enviroments, I
-            am aware of many issues of digital design from the basics of UX/UI to project deployment
-            and its communication strategies. Usability, SEO and performance optimizations are
-            must-have for all of my projects.
           </p>
           <p>
             My first concern when beginning a design project is having a good team with me. I
@@ -96,7 +89,7 @@ export default function About({data}) {
           items={[
             {
               rows: ['UX Designer + Creative Developer', 'Freelance'],
-              label: '2020 – ongoing',
+              label: '2020 – 2023',
             },
             {
               rows: ['Data Visualization Facilitator', 'Digital Methods Initiative'],

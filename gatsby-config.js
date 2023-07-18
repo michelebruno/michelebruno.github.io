@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const siteUrl = 'https://michelebruno.co';
+const siteUrl = 'https://www.michelebruno.co';
 
 const description = "Hello, I'm Michele, a creative developer and UX designer.";
 
